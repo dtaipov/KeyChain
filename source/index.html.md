@@ -161,7 +161,7 @@ This project is licensed under the terms of the MIT license.
 # Protocol
 ## Generate a key pair
 
-#### Command
+### Command
 create
 
 > JSON Request
@@ -179,7 +179,7 @@ create
 }
 ```
 
-#### Query parameters
+### Query parameters
 **Parameter**|**Type**|**Description**|
 ---|---|---
 encrypted|```string```|Requests encryption of the key.
@@ -187,20 +187,22 @@ curve|```string```|Keychain uses elliptic curve algorithm.
 keyname|```string```|Create a name for your key. This will be a mnemonic label of the key - not the actual key.
 cipher|```string```|Specifies encryption type (we use ```aes```) and the size of the key in bits. 
 
-#### Response format
+### Response format
 
 When you pass a short key name in the create command, you get an exended name which consists of the prefix and first 8 bytes of the hash. After that, you will need to pass it as a value for the ```keyname``` parameter.
-
-**Field name**|**Type**|**Description**
----|---|---
-result|`string`|extended key name.
 
 > Response example
 
 ```javascript
 {"result":"my key@f9a1554e3f5e30c8"}
 ```
+
 ----
+**Field name**|**Type**|**Description**
+---|---|---
+result|`string`|extended key name.
+
+
 
 ## Sign transaction in hex format
 
