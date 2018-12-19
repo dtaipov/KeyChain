@@ -728,6 +728,8 @@ Open this page via localhost: http://localhost:16384/
 ----
 You can find the code for the demo page and the page itself up in the [Demo pages in JavaScript](#demo-pages-in-javascript) section.
 
+# Pipe API
+
 **KeyChain** has an I/O stream (pipe) integration option. Interaction with **KeyChain** through pipes requires a terminal application as an input module that sends requests (STDIN) to the security layer that shows you the details of your request. When you approve the request through an interative gialogue window, the request goes back through the signing module and gives you an answer (STDOUT). 
 
 For detailed description of the process, see [Three security layers](https://github.com/arrayio/array-io-keychain/wiki/KeyChain-security#three-security-layers-of-keychain) section.
@@ -738,7 +740,7 @@ Each Pipe API message is a json serialized object containing a command with the 
 
 For full comprehensive descriptions of the commands, acceptable parameters and values, go to the [Protocol](https://github.com/arrayio/array-io-keychain/wiki/KeyChain-Protocol).
 
-# Pipe integration guide
+## Pipe integration guide
 
 Before you proceed with the integration, you need to install KeyChain for [macOS](https://github.com/arrayio/array-io-keychain/releases/download/0.10/KeyChain.Installer.v0.10.zip), [Windows](https://github.com/arrayio/array-io-keychain/wiki/Installation-guide-for-Windows), [Linux](https://github.com/arrayio/array-io-keychain/wiki/Installation-guide-for-Linux).
 
