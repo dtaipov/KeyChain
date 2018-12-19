@@ -160,13 +160,12 @@ This project is licensed under the terms of the MIT license.
 
 # Protocol
 ## Generate a key pair
-
 ### Command
 create
 
 > JSON Request
 
-```javascript
+```json
 {
   "command": "create",
   "params":
@@ -193,16 +192,12 @@ When you pass a short key name in the create command, you get an exended name wh
 
 > Response example
 
-```javascript
+```json
 {"result":"my key@f9a1554e3f5e30c8"}
 ```
-
-----
 **Field name**|**Type**|**Description**
 ---|---|---
 result|`string`|extended key name.
-
-
 
 ## Sign transaction in hex format
 
@@ -210,9 +205,10 @@ result|`string`|extended key name.
 For example, for Ethereum transaction, you do not need to pass `chainid` as a parameter because it is incorporated in the hex. 
 
 **NB:** Please remember that you need to **insert your own key name** in the parameters when copying the requests!
-
+### Command
+sign_hex
 > JSON Request
-```javascript
+```json
 {
   "command": "sign_hex",
   "params":
@@ -225,9 +221,8 @@ For example, for Ethereum transaction, you do not need to pass `chainid` as a pa
   }
 }
 ```
-#### Command
-sign_hex
-#### Query parameters
+
+### Query parameters
 **Parameter**|**Type**|**Description**
 ---|---|---
 chainid | ```string```|Optional parameter for Array and Bitshares-like blockchains. Chainid is the hash of a genesis file used to identify the chain.
@@ -236,26 +231,25 @@ blockchain_type | ```string```|Inserts the name of blockchain you’re using. Po
 keyname | ```string```|Inserts the mnemonic label of your key.
 unlock_time  | ```integer```|This parameter is experimental and optional! If this parameter is defined and if it is greater than zero, it unlocks the key for a set number of seconds. While the key is unlocked, the transactions will be signed without the user's approval.
 
-#### Response format
+### Response format
+> Response example
+
+```json
+{"result":"6cc47faa3778d15efeb470cd4154fdceb80633beaed15f0816d93951ffd7629a5fae3fe83c030f5f8a0cea82c1907f85418b93e820ea3b043c116053afae20a300"}
+```
 **Field name**|**Type**|**Description**
 ---|---|---
 result|`hex string`|65-byte singature in hex-string format.
-
-> Response example
-
-```javascript
-{"result":"6cc47faa3778d15efeb470cd4154fdceb80633beaed15f0816d93951ffd7629a5fae3fe83c030f5f8a0cea82c1907f85418b93e820ea3b043c116053afae20a300"}
-```
------
 
 ## Sign hash of transaction
 
 This request is suited best for advanced users who are eager to work on a low level. You should have knowledge of how to calculate hash of transaction, given the type of blockchain, and know the type of signature and its packaging.
 
 **NB:** Please remember that you need to **insert your own key name** in the parameters when copying the requests!
-
+### Command
+sign_hash
 > JSON Request
-```javascript
+```json
 {
   "command": "sign_hash",
   "params":
@@ -266,61 +260,56 @@ This request is suited best for advanced users who are eager to work on a low le
   }
 }
 ```
-#### Command
-sign_hash
-#### Query parameters
+
+### Query parameters
 **Parameter**|**Type**|**Description**
 ---|---|---
 sign-type |```string```|Customizes the way secp256 library is used by choosing one of its arguments through sign-type parameter. It has two possible value options: RSV_noncanonical and VRS_canonical. Default value is RSV_noncanonical. Prefix RSV/VRS means signature struct: [R, S, v] or [v, R, S].
 hash |```string```|Hash calculated from the transaction. It can be the result of the first calculation or the second - depending on the type of the blockchain. For example, Bitcoin uses two calculations: to sign a bitcoin transaction you need to transmit the final (second) hash. Ethereum and Array make only one calculation to get the hash.
 keyname|```string```|Inserts the mnemonic label of your key. 
 
-#### Response format
+### Response format
+> Response example
+
+```json
+{"result":"62826b9c7b6bbfcd89456c1e8068e141d6a46b2c1c0166ed25ba8ad6ede320f4454ff116d13f4e679e8224fcca49f49d50c279ed88513a1db7185946e26811ab01"}
+```
 **Field name**|**Type**|**Description** 
 ---|---|---
 result|`hex string`|65-byte signature in hex format.
 
-> Response example
-
-```javascript
-{"result":"62826b9c7b6bbfcd89456c1e8068e141d6a46b2c1c0166ed25ba8ad6ede320f4454ff116d13f4e679e8224fcca49f49d50c279ed88513a1db7185946e26811ab01"}
-```
----------
-
 ## List all key names
 
 All full key names of the private keys that are kept on your computer.
-
+### Command
+list
 > JSON Request
-```javascript
+```json
 {
   "command": "list"
 }
 ```
-#### Command
-list
-#### Query parameters
+
+### Query parameters
 No
 
-#### Response format
+### Response format
+> Response example
 
+```json
+{"result":"my key@47f926e22f376478","my key@e67871253c263de0","my key@e755d5b98b6ed747","my key@f9a1554e3f5e30c8"}
+```
 **Field name**|**Type**|**Description**
 ---|---|---
 result|`JSON array of strings`|lists all your key names.
 
-> Response example
-
-```javascript
-{"result":"my key@47f926e22f376478","my key@e67871253c263de0","my key@e755d5b98b6ed747","my key@f9a1554e3f5e30c8"}
-```
-------------
-
 ## Calculate public key from private key
 
 **NB:** Please remember that you need to **insert your own key name** in the parameters when copying the requests!
-
+### Command
+public_key
 > JSON Request
-```javascript
+```json
 { 
   "command": "public_key",
   "params": 
@@ -329,53 +318,46 @@ result|`JSON array of strings`|lists all your key names.
   }
 }
 ```
-#### Command
-public_key
-#### Query parameters
+
+### Query parameters
 **Parameter**|**Type**|**Description**
 ---|---|---
 keyname|```string```|Inserts the name of the key from which you want to calculate a public key.
 
-#### Response format
+### Response format
 
 64-byte public key. The length of the public key depends on the type of the blockchain. For example, in Ethereum, the length of a public key is 64 bytes.
+> Response example
 
+```json
+{"result":"a7aea4bd112706655cb7014282d2a54658924e69c68f5a54f2cd5f35c6fcba9b610d6ae8549f960ae96e23ffc017f305c1d8664978c8ba8a1cc656fd9d068ef5"}
+```
 **Field name**|**Type**|**Description**
 ---|---|---
 result|`hex string`| 64-byte public key.
 
-> Response example
-
-```javascript
-{"result":"a7aea4bd112706655cb7014282d2a54658924e69c68f5a54f2cd5f35c6fcba9b610d6ae8549f960ae96e23ffc017f305c1d8664978c8ba8a1cc656fd9d068ef5"}
-```
----------
-
 ## Lock all unlocked keys 
 This command protects you from any hostile intervention into the KeyChain while you have left your computer without supervision.
-
+### Command
+lock
 > JSON Request
-```javascript
+```json
 {
   "command": "lock"
 }
 ```
-#### Command
-lock
-#### Query parameters
-No
-#### Response format
 
+### Query parameters
+No
+### Response format
+> Response example
+
+```json
+{"result":"true"}
+```
 **Field name**|**Type**|**Description**
 ---|---|---
 result|`bool`|bool result.
-
-> Response example
-
-```javascript
-{"result":"true"}
-```
---------
 
 ## Unlock private key
 
@@ -386,9 +368,10 @@ Unlock your key when you are ready to use it.
 **NB:** `Sign_hex` and `sign_hash` commands assume implicit unlocking of your keys. 
 
 **NB:** Please remember that you need to **insert your own key name** in the parameters when copying the requests!
-
+### Command
+unlock 
 > JSON Request
-```javascript
+```json
 {
   "command": "unlock"
   "params":
@@ -398,47 +381,41 @@ Unlock your key when you are ready to use it.
   }
 }
 ```
-#### Command
-
-unlock 
-
-#### Query parameters
+### Query parameters
 
 **Parameter**|**Type**|**Description**
 ---|---|---
 keyname|```string```|Inserts the name of the key you want to unlock.
 unlock_time|```integer```|When this parameter is specified, it unlocks the key for a set number of seconds. While the key is unlocked, the pass entry window will not appear and the transactions will be signed without the user's approval.
 
-#### Response format
+### Response format
+> Response example
+
+```json
+{"result":"true"}
+```
 **Field name**|**Type**|**Description**
 ---|---|---
 result|`bool`|bool result.
 
-> Response example
-
-```javascript
-{"result":"true"}
-```
-
---------
-
 ## Get information about the current KeyChain version
 
 You can request the details of the current KeyChain version you are using.
-
+### Command
+about
 > JSON Request
-```javascript
+```json
 {"command":"about"}
 ```
-
-#### Command
-
-about
-
-#### Query parameters
+### Query parameters
 No
 
-#### Response format
+### Response format
+> Response example
+
+```json
+{"result":{"version":"0.9.114","git_revision_sha":"59861769dca634d08d5442cb0074d40d8f544e66","git_revision_age":"9 minutes ago","compile_date":"compiled on Dec 12 2018 at 08:11:44","boost_version":"1.66","openssl_version":"OpenSSL 1.1.1  11 Sep 2018","build":"linux 64-bit"}}
+```
 **Field name**|**Type**|**Description**
 ---|---|---
 result|`json object`|version details as a json object with the following parameters.
@@ -450,33 +427,24 @@ boost_version|`string`|required version of the boost library.
 openssl_version|`string`|required openssl version.
 build|`string`|required operating system.
 
-> Response example
-
-```javascript
-{"result":{"version":"0.9.114","git_revision_sha":"59861769dca634d08d5442cb0074d40d8f544e66","git_revision_age":"9 minutes ago","compile_date":"compiled on Dec 12 2018 at 08:11:44","boost_version":"1.66","openssl_version":"OpenSSL 1.1.1  11 Sep 2018","build":"linux 64-bit"}}
-```
-
------
-
 ## Get the number of the current KeyChain version
 
 You can request the number of the current version you are using.
-
+### Command
+version
 > JSON Request
-```javascript
+```json
 {"command":"version"}
 ```
-
-#### Command
-version
-
-#### Query parameters
+### Query parameters
 No
 
-#### Response format
+### Response format
+> Response example
+```json
+{"result":"0.9.114"}
+```
 **Field name**|**Type**|**Description**
 ---|---|---
 result|`string`|current version number which has the form of "[major].[minor].[build number]".
 
-> Response example
-{"result":"0.9.114"}
