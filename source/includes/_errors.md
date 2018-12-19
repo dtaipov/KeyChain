@@ -1,13 +1,15 @@
 # Errors
 
 <aside class="notice">
-If you receive an error message, then the request could not be successfully processed. Here you can find out more about errors, so that you can prevent them next time. If you have trouble dealing with them, please refer to the [log files](#log-files) or [contact us](#developer-debug-information).
+If you receive an error message, then the request could not be successfully processed. Here you can find out more about errors, so that you can prevent them next time. If you have trouble dealing with them, please refer to the log files below or contact us.
 </aside>
 
 ## Error Handling
 
 In case of an error, the resulting answer will carry an error attribute and a description in human-readable form.
 All errors have the following format: 
+
+> Error format
 
 ```json
 {"error": ..description.. }
