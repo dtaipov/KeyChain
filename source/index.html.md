@@ -483,3 +483,248 @@ No
 **Field name**|**Type**|**Description**
 ---|---|---
 result|`string`|current version number which has the form of "[major].[minor].[build number]".
+
+# Installation guide for macOS
+
+## System requirements
+
+- macOS 10.12 or newer.
+
+## Download macOS installer [here](https://github.com/arrayio/array-io-keychain/releases/download/0.10/KeyChain.Installer.v0.10.zip).
+
+Follow the steps of the graphic installer. 
+
+1. Click "next" to start installation.
+
+<img width="562" alt="2018-12-13 19 42 06" src="https://user-images.githubusercontent.com/34011337/50005299-fbe6b180-ffba-11e8-97a9-0d8fc5145db8.png">
+
+2. Accept the terms of the License Agreement.
+
+<img width="562" alt="2018-12-13 19 42 08" src="https://user-images.githubusercontent.com/34011337/50005305-fee1a200-ffba-11e8-9373-409a58a8f8a6.png">
+
+3. Choose a folder and click "next".
+
+<img width="562" alt="2018-12-13 19 42 10" src="https://user-images.githubusercontent.com/34011337/50005310-030dbf80-ffbb-11e8-967c-d5eadf1cfec0.png">
+
+4. Click "install" for installation to start.
+
+<img width="562" alt="2018-12-13 19 42 13" src="https://user-images.githubusercontent.com/34011337/50005315-0608b000-ffbb-11e8-8dea-0fd9375b4aa7.png">
+
+5. You will need to authorize the installation.
+
+<img width="555" alt="mac-4" src="https://user-images.githubusercontent.com/34011337/49649378-0db7da00-fa3a-11e8-95b3-3ae9f8152204.png">
+
+6. Wait until the setup is complete.
+
+<img width="518" alt="2018-12-13 19 42 24" src="https://user-images.githubusercontent.com/34011337/50005317-086b0a00-ffbb-11e8-8d81-7ecebd54dabb.png">
+
+7. Congratulations! You have installed KeyChain.
+
+<img width="532" alt="mac-6" src="https://user-images.githubusercontent.com/34011337/49649380-0e507080-fa3a-11e8-8645-b86dbd139dbc.png">
+
+## Check if the installation was successful
+
+After installation, connect to the demo-page: http://localhost:16384/ to check if the installation was successful and to test the KeyChain commands. In case everything went well, you will see the following page and you will be able to see responses to the commands in the "Response" box when you click on them.
+
+![screenshot from 2018-12-10 15-57-27](https://user-images.githubusercontent.com/34011337/49734247-be211a80-fc94-11e8-8d85-c70b738ecae3.png)
+
+#How to sign an Ethereum transaction with KeyChain
+
+
+Here you can find an instruction on how to sign an Ethereum transaction with KeyChain.
+
+### Demo page
+
+[Here](https://arrayio.github.io/array-io-keychain/eth_signer/) you can try out signing Ethereum transactions with KeyChain.
+
+### 1. Download and install KeyChain for [macOS](https://github.com/arrayio/array-io-keychain/releases/download/0.10/KeyChain.Installer.v0.10.zip)
+
+### 2. Generate the key 
+
+Start with the command `wscat -c ws://localhost:16384/`
+and send the `create` command to generate the key
+
+```json
+{
+  "command": "create",
+  "params":
+   {
+      "keyname": "my key",
+      "encrypted": true,
+      "curve": "secp256k1",
+      "cipher": "aes256"
+  }
+}
+```
+You will get an **extended name** of the key which consists of the name you have given it as a prefix and the first 8 bytes of the hash. Note that from now on you should insert the extended key! 
+
+### NB: 
+
+**Insert your own extended name of the key!** Do not copy the following code together with the key name that we use because it is specified here only as an example of how your key name might look like. **Use your own key name!**
+
+Then request a public key via
+
+```json
+{ 
+  "command": "public_key",
+  "params": 
+  {
+    "keyname": "my key@f9a1554e3f5e30c8"
+  }
+}
+```
+
+### 3. Calculate the address from the publicKey
+
+```javascript
+const ethUtil = require('ethereumjs-util');
+const publicKey = 'YOUR_PUBLIC_KEY';
+const fromAdd = ethUtil.publicToAddress(publicKey).toString('hex');
+```
+
+### 4. Transfer money to the address corresponding to the public key
+
+In case you work with ropsten - 
+https://faucet.ropsten.be/
+
+### 5. Check the balance on the address - it should have enough ether for a successful transfer.
+
+```javascript
+web3.eth.getBalance(fromAdd) 
+.then(console.log);
+
+```
+
+### 6. Sign transaction with the key that you have generated
+
+You can find an example of the code [here](https://gist.github.com/cypherpunk99/3e1314f8cc62cd675fa5c8f7bbe97923)
+
+### 7. [Check Etherscan](https://ropsten.etherscan.io/address/0x1ba05dad1abe91fdea3afffe9676b59076ce0ece)
+
+![screen shot 2018-11-30 at 19 19 52](https://user-images.githubusercontent.com/34011337/49658738-d35b3680-fa53-11e8-9d49-7739492ecab7.png)
+
+# WebSocket API
+
+**KeyChain** contains a WebSocket API. This API can be used to stream information from a KeyChain instance to any client that implements WebSockets. Implementations in different languages:
+
+- NodeJS
+- Python
+- JavaScript/HTML
+- etc
+
+Install KeyChain for [macOS](https://github.com/arrayio/array-io-keychain/releases/download/0.10/KeyChain.Installer.v0.10.zip), [Windows](https://github.com/arrayio/array-io-keychain/wiki/Installation-guide-for-Windows), [Linux](https://github.com/arrayio/array-io-keychain/wiki/Installation-guide-for-Linux) and connect to the demo page here http://localhost:16384/.
+
+## Demo pages in JavaScript
+
+### For testing the KeyChain commands
+
+- On this [demo page](https://arrayio.github.io/array-io-keychain/demo/) you can test all the KeyChain commands.
+
+- [Here](https://github.com/arrayio/array-io-keychain/tree/master/docs/demo) you will find the **code** of the KeyChain demo page. It will be automatically installed together with the KeyChain.
+
+### For signing transactions
+
+- [Here](https://arrayio.github.io/array-io-keychain/eth_signer/) you can try out signing Ethereum transactions with KeyChain.
+
+- You can find an example of the code [here](https://gist.github.com/cypherpunk99/3e1314f8cc62cd675fa5c8f7bbe97923).
+
+## Message format
+
+> For example, here is a request for generating keys: 
+
+```json
+{
+  "command": "create",
+  "params":
+   {
+      "keyname": "my key",
+      "encrypted": true,
+      "curve": "secp256k1",
+      "cipher": "aes256"
+  }
+}
+```
+
+Each WebSocket API message is a json serialized object containing a command with the corresponding parameters.
+
+For full comprehensive descriptions of the commands, acceptable parameters and values, go to the [Protocol](https://github.com/arrayio/array-io-keychain/wiki/KeyChain-Protocol). 
+
+## WebSocket integration guide
+
+### NodeJS integration example
+
+The following will show the usage of websocket connections. We make use of the `wscat` application available via npm:
+
+```
+$ npm install -g wscat
+```
+
+A simple call would take the form:
+
+```
+$ wscat -c ws://127.0.0.1:16384
+> { "command": "list"}
+```
+
+#### Successful Calls
+The API will return a properly JSON formated response carrying the same id as the request to distinguish subsequent calls.
+
+```json
+{"result":  ..data..}
+```
+
+#### Errors
+
+In case of an error, the resulting answer will carry an error attribute and a description in human-readable format:
+
+```json
+{"error":"Error: keyfile could not found by keyname"}
+```
+
+### JavaScript integration example
+
+Before you proceed with the integration, you need to install KeyChain for [macOS](https://github.com/arrayio/array-io-keychain/releases/download/0.10/KeyChain.Installer.v0.10.zip), [Windows](https://github.com/arrayio/array-io-keychain/wiki/Installation-guide-for-Windows), [Linux](https://github.com/arrayio/array-io-keychain/wiki/Installation-guide-for-Linux).
+
+#### Test in the web
+
+After installing KeyChain, open the browser and connect to the demo page via http://localhost:16384/. 
+
+When the connection is established, you will see the following KeyChain page. If you click on one of the commands on the left panel, you will see its json request and response in the white boxes below:
+
+![screenshot from 2018-12-10 15-57-27](https://user-images.githubusercontent.com/34011337/49734247-be211a80-fc94-11e8-8d85-c70b738ecae3.png)
+
+#### Test from a terminal application:
+
+You can see if the installation was successful by going to the terminal app, opening KeyChain and trying one of the commands that you can take from the [Protocol](https://github.com/arrayio/array-io-keychain/wiki/KeyChain-Protocol):
+
+```
+c:\Users\User-1>cd "C: Program Files\WsKeychain"
+c:\Program Files\WSKeychain>keychain 
+{"command":"list"}
+```
+A successful response will take the following format:
+
+#### Response format
+
+> Response example
+
+```json
+{"result":"my key@47f926e22f376478","my key@e67871253c263de0","my key@e755d5b98b6ed747","my key@f9a1554e3f5e30c8"}
+```
+
+**Field name**|**Type**|**Description**|**Value example**
+---|---|---|---
+result|`JSON array of strings`|list of key names|```"my key@47f926e22f376478","my key@e67871253c263de0","my key@e755d5b98b6ed747","my key@f9a1554e3f5e30c8"```
+
+
+### Build a page that connects to WebSocket
+
+[Here](https://github.com/arrayio/array-io-keychain/blob/master/docs/demo/index.html) you will find an example of how to build a web-page that connects to WebSocket.
+
+Save this to the folder  where you will be running the `websocket` command.
+
+Open this page via localhost: http://localhost:16384/
+
+----
+You can find the code for the demo page and the page itself up in the [Demo pages in JavaScript](#demo-pages-in-javascript) section.
+
