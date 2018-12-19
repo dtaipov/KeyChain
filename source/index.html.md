@@ -160,8 +160,12 @@ This project is licensed under the terms of the MIT license.
 
 # Protocol
 ## Generate a key pair
- 
+
+#### Command
+create
+
 > JSON Request
+
 ```javascript
 {
   "command": "create",
@@ -174,8 +178,7 @@ This project is licensed under the terms of the MIT license.
   }
 }
 ```
-#### Command
-create
+
 #### Query parameters
 **Parameter**|**Type**|**Description**|
 ---|---|---
