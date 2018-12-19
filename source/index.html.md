@@ -728,3 +728,90 @@ Open this page via localhost: http://localhost:16384/
 ----
 You can find the code for the demo page and the page itself up in the [Demo pages in JavaScript](#demo-pages-in-javascript) section.
 
+**KeyChain** has an I/O stream (pipe) integration option. Interaction with **KeyChain** through pipes requires a terminal application as an input module that sends requests (STDIN) to the security layer that shows you the details of your request. When you approve the request through an interative gialogue window, the request goes back through the signing module and gives you an answer (STDOUT). 
+
+For detailed description of the process, see [Three security layers](https://github.com/arrayio/array-io-keychain/wiki/KeyChain-security#three-security-layers-of-keychain) section.
+
+## Message format
+
+Each Pipe API message is a json serialized object containing a command with the corresponding parameters.
+
+For full comprehensive descriptions of the commands, acceptable parameters and values, go to the [Protocol](https://github.com/arrayio/array-io-keychain/wiki/KeyChain-Protocol).
+
+# Pipe integration guide
+
+Before you proceed with the integration, you need to install KeyChain for [macOS](https://github.com/arrayio/array-io-keychain/releases/download/0.10/KeyChain.Installer.v0.10.zip), [Windows](https://github.com/arrayio/array-io-keychain/wiki/Installation-guide-for-Windows), [Linux](https://github.com/arrayio/array-io-keychain/wiki/Installation-guide-for-Linux).
+
+When the installation is complete, you can open stream input to start sending json requests through STDIN - STDOUT pipes.
+ 
+> Here you will find an example of KeyChain integration using Node.js
+
+```javascript
+const { spawn } = require('child_process');
+const path = require('path');
+const keychain = spawn(path.join(__dirname, 'keychain'));
+
+keychain.stdout.on('data', (data) => {
+  console.log(`keychain data: ${data.toString()}`);
+});
+
+keychain.stderr.on('data', (data) => {
+  console.log(`keychain stderr: ${data}`);
+});
+
+keychain.on('close', (code) => {
+  if (code !== 0) {
+    console.log(`keychain process exited with code ${code}`);
+  }
+});
+```
+### See all your keys
+
+```javascript 
+const listCommand = { command: "list" };
+keychain.stdin.write(JSON.stringify(listCommand));
+```
+### Sign transaction
+
+To sign a transaction, first you need to set the timeout value for your key. While it is unlocked, you can sign the transaction without entering a passphrase during this visit. Upon finishing the transaction, lock your keys.
+
+```javascript 
+const unlockCommandTime = {
+  "command": "set_unlock_time", 
+  "params": 
+  {
+    "seconds": 10000
+  }
+}; 
+keychain.stdin.write(JSON.stringify(unlockCommandTime));
+
+const unlockCommand = {  
+  "command": "unlock", 
+  "params": 
+  { 
+    "keyname": "test1@d073edf782dec758"
+  }
+};
+keychain.stdin.write(JSON.stringify(unlockCommand));
+
+const signCommand = {
+  "command": "sign_hex",
+  "params":
+  {
+    "chainid": "de5f4d8974715e20f47c8bb609547c9e66b0b9e31d521199b3d8d6af6da74cb1",
+    "transaction": "871689d060721b5cec5a010080841e00000000000011130065cd1d0000000000000000",
+    "blockchain_type": "array",
+    "keyname": "test1@d073edf782dec758"
+  }
+};
+
+keychain.stdin.write(JSON.stringify(signCommand));
+
+const lockCommand = {  
+  "command": "lock"
+};
+keychain.stdin.write(JSON.stringify(lockCommand));
+
+keychain.stdin.write(JSON.stringify(signCommand));
+``` 
+For descriptions of all the commands and parameters, see [KeyChain Protocol](https://github.com/arrayio/array-io-keychain/wiki/KeyChain-Protocol).
