@@ -207,7 +207,9 @@ For example, for Ethereum transaction, you do not need to pass `chainid` as a pa
 **NB:** Please remember that you need to **insert your own key name** in the parameters when copying the requests!
 ### Command
 sign_hex
+
 > JSON Request
+
 ```json
 {
   "command": "sign_hex",
@@ -232,6 +234,7 @@ keyname | ```string```|Inserts the mnemonic label of your key.
 unlock_time  | ```integer```|This parameter is experimental and optional! If this parameter is defined and if it is greater than zero, it unlocks the key for a set number of seconds. While the key is unlocked, the transactions will be signed without the user's approval.
 
 ### Response format
+
 > Response example
 
 ```json
@@ -248,7 +251,9 @@ This request is suited best for advanced users who are eager to work on a low le
 **NB:** Please remember that you need to **insert your own key name** in the parameters when copying the requests!
 ### Command
 sign_hash
+
 > JSON Request
+
 ```json
 {
   "command": "sign_hash",
@@ -269,9 +274,10 @@ hash |```string```|Hash calculated from the transaction. It can be the result of
 keyname|```string```|Inserts the mnemonic label of your key. 
 
 ### Response format
+
 > Response example
 
-```json
+```json 
 {"result":"62826b9c7b6bbfcd89456c1e8068e141d6a46b2c1c0166ed25ba8ad6ede320f4454ff116d13f4e679e8224fcca49f49d50c279ed88513a1db7185946e26811ab01"}
 ```
 **Field name**|**Type**|**Description** 
@@ -284,6 +290,7 @@ All full key names of the private keys that are kept on your computer.
 ### Command
 list
 > JSON Request
+
 ```json
 {
   "command": "list"
@@ -294,6 +301,7 @@ list
 No
 
 ### Response format
+
 > Response example
 
 ```json
@@ -308,7 +316,9 @@ result|`JSON array of strings`|lists all your key names.
 **NB:** Please remember that you need to **insert your own key name** in the parameters when copying the requests!
 ### Command
 public_key
+
 > JSON Request
+
 ```json
 { 
   "command": "public_key",
@@ -327,20 +337,25 @@ keyname|```string```|Inserts the name of the key from which you want to calculat
 ### Response format
 
 64-byte public key. The length of the public key depends on the type of the blockchain. For example, in Ethereum, the length of a public key is 64 bytes.
+
 > Response example
 
 ```json
 {"result":"a7aea4bd112706655cb7014282d2a54658924e69c68f5a54f2cd5f35c6fcba9b610d6ae8549f960ae96e23ffc017f305c1d8664978c8ba8a1cc656fd9d068ef5"}
 ```
+
 **Field name**|**Type**|**Description**
 ---|---|---
 result|`hex string`| 64-byte public key.
 
 ## Lock all unlocked keys 
 This command protects you from any hostile intervention into the KeyChain while you have left your computer without supervision.
+
 ### Command
 lock
+
 > JSON Request
+
 ```json
 {
   "command": "lock"
@@ -350,6 +365,7 @@ lock
 ### Query parameters
 No
 ### Response format
+
 > Response example
 
 ```json
@@ -368,9 +384,12 @@ Unlock your key when you are ready to use it.
 **NB:** `Sign_hex` and `sign_hash` commands assume implicit unlocking of your keys. 
 
 **NB:** Please remember that you need to **insert your own key name** in the parameters when copying the requests!
+
 ### Command
 unlock 
+
 > JSON Request
+
 ```json
 {
   "command": "unlock"
@@ -389,11 +408,13 @@ keyname|```string```|Inserts the name of the key you want to unlock.
 unlock_time|```integer```|When this parameter is specified, it unlocks the key for a set number of seconds. While the key is unlocked, the pass entry window will not appear and the transactions will be signed without the user's approval.
 
 ### Response format
+
 > Response example
 
 ```json
 {"result":"true"}
 ```
+
 **Field name**|**Type**|**Description**
 ---|---|---
 result|`bool`|bool result.
@@ -401,9 +422,12 @@ result|`bool`|bool result.
 ## Get information about the current KeyChain version
 
 You can request the details of the current KeyChain version you are using.
+
 ### Command
 about
+
 > JSON Request
+
 ```json
 {"command":"about"}
 ```
@@ -411,11 +435,13 @@ about
 No
 
 ### Response format
+
 > Response example
 
 ```json
 {"result":{"version":"0.9.114","git_revision_sha":"59861769dca634d08d5442cb0074d40d8f544e66","git_revision_age":"9 minutes ago","compile_date":"compiled on Dec 12 2018 at 08:11:44","boost_version":"1.66","openssl_version":"OpenSSL 1.1.1  11 Sep 2018","build":"linux 64-bit"}}
 ```
+
 **Field name**|**Type**|**Description**
 ---|---|---
 result|`json object`|version details as a json object with the following parameters.
@@ -432,18 +458,24 @@ build|`string`|required operating system.
 You can request the number of the current version you are using.
 ### Command
 version
+
 > JSON Request
+
 ```json
 {"command":"version"}
 ```
+
 ### Query parameters
 No
 
 ### Response format
+
 > Response example
+
 ```json
 {"result":"0.9.114"}
 ```
+
 **Field name**|**Type**|**Description**
 ---|---|---
 result|`string`|current version number which has the form of "[major].[minor].[build number]".
