@@ -14,7 +14,8 @@ includes:
 search: true
 ---
 
-# Introduction
+# KeyChain Documentation
+## Introduction
 
 **KeyChain** is a standalone app for signing transactions and generating key pairs. It stores private keys in an isolated environment where no logger, debugger or spyware can intercept them because of the [three-layer security](https://github.com/arrayio/array-io-keychain/wiki/KeyChain-security#three-security-layers-of-keychain) protecting each action of the system.
 **KeyChain** supports transactions from and to various blockchains, including Ethereum and Ethereum classic, Litecoin, Bitcoin, Bitcoin Cash, and Bitshares. 
@@ -35,7 +36,8 @@ You can find comprehensive installation guides for [macOS](https://github.com/ar
 
 ## Getting started
 
-1. Require libraries setup 
+1. Require libraries setup
+
 
 ```javascript
 const unsign = require('@warren-bank/ethereumjs-tx-unsign')
