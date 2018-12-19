@@ -36,10 +36,6 @@ You can find comprehensive installation guides for [macOS](https://github.com/ar
 
 ## Getting started
 
-This is a simple example of how to integrate KeyChain through WebSocket.
-
-- First, you need to get the necessary libraries and state the localhost address that you will connect to through the WebSocket.
-
 > Require libraries setup
 
 ```javascript
@@ -53,8 +49,7 @@ const WebSocket = require('ws');
 const ws = new WebSocket('ws://localhost:16384/');
 const keyname = 'test1@6de493f01bf590c0';
 ```
-
-- Then you need to get a public key that you will need to sign a transaction and unsign it afterwards.
+This is a simple example of how to integrate KeyChain through WebSocket.
 
 ```javascript
 let fromAdd;
@@ -82,9 +77,6 @@ ws.on('message', async (response) => {
   console.log(fromAdd);
 });
 ```
-
-- Finally, you can sign an Ethereum transaction in hex format and unsign it, passing the result to KeyChain
-
 ```javascript
 const ethHex = 'e315843b9aca0082520894e8899ba12578d60e4d0683a596edacbc85ec18cc6480038080';
 
@@ -114,6 +106,18 @@ let { txData, signature } = unsign(resHex);
 console.log('txData:',    txData,    "\n")
 console.log('signature:', signature, "\n")
 ```
+
+- First, you need to get the necessary libraries and state the localhost address that you will connect to through the WebSocket.
+
+
+
+- Then you need to get a public key that you will need to sign a transaction and unsign it afterwards.
+
+
+
+- Finally, you can sign an Ethereum transaction in hex format and unsign it, passing the result to KeyChain
+
+
 
 
 <aside class="notice">
