@@ -1,22 +1,68 @@
 # Errors
 
 <aside class="notice">
-This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
+If you receive an error message, then the request could not be successfully processed. Here you can find out more about errors, so that you can prevent them next time. If you have trouble dealing with them, please refer to the [log files](#log-files) or [contact us](#developer-debug-information).
 </aside>
 
-The Kittn API uses the following error codes:
+## Error Handling
 
+In case of an error, the resulting answer will carry an error attribute and a description in human-readable form.
+All errors have the following format: 
 
-Error Code | Meaning
----------- | -------
-400 | Bad Request -- Your request is invalid.
-401 | Unauthorized -- Your API key is wrong.
-403 | Forbidden -- The kitten requested is hidden for administrators only.
-404 | Not Found -- The specified kitten could not be found.
-405 | Method Not Allowed -- You tried to access a kitten with an invalid method.
-406 | Not Acceptable -- You requested a format that isn't json.
-410 | Gone -- The kitten requested has been removed from our servers.
-418 | I'm a teapot.
-429 | Too Many Requests -- You're requesting too many kittens! Slow down!
-500 | Internal Server Error -- We had a problem with our server. Try again later.
-503 | Service Unavailable -- We're temporarily offline for maintenance. Please try again later.
+```json
+{"error": ..description.. }
+```
+
+Below you will find some examples of the error messages.
+
+#### Error examples
+
+1. The key was not found. You inserted the key that is not listed on KeyChain. You might need to create a key with this name.
+
+**Field name**|**Type**|**Description**|**Value example**
+---|---|---|---
+error|`string`|simple error message|`Error: keyfile could not be found by this keyname`
+
+```json
+{"error":"Error: keyfile could not be found by this keyname"}
+```
+
+2. Syntactic error - unsupported symbols. 
+
+**Field name**|**Type**|**Description**|**Value example**
+---|---|---|---
+error|`string`|simple error message|`Parsing Error`
+
+```json
+{"error":"Parsing Error"}
+```
+
+## Log files
+
+If you are experiencing any trouble working with KeyChain, here you can find locations of the log files:
+
+For macOS and Linux:
+
+```/var/keychain/logs```
+
+For Windows, log file will be located in the same directory as KeyChain:
+
+```./logs```
+
+## Developer Debug Information
+ 
+If you need help fixing the bugs, please do not hesitate to contact us:
+
+- [Twitter](https://twitter.com/ProjectArray)
+
+- [Facebook](https://www.facebook.com/Array.IO/)
+
+- [Telegram](https://t.me/arrayio)
+
+- [Stackoverflow](https://stackoverflow.com/users/10429540/array-io)
+
+- Or you can write us an email to support@array.io. 
+
+If you want to report a security issue, include the word "security" in the subject line.
+
+We take security issues very seriously and we'll be looking forward to hearing from you. Still, we hope you enjoy using KeyChain and the integration goes smooth! 
