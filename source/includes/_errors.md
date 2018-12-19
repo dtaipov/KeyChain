@@ -15,39 +15,41 @@ All errors have the following format:
 
 Below you will find some examples of the error messages.
 
-#### Error examples
+### Error examples
 
-1. The key was not found. You inserted the key that is not listed on KeyChain. You might need to create a key with this name.
-
-**Field name**|**Type**|**Description**|**Value example**
----|---|---|---
-error|`string`|simple error message|`Error: keyfile could not be found by this keyname`
+- The key was not found. You inserted the key that is not listed on KeyChain. You might need to create a key with this name.
 
 ```json
 {"error":"Error: keyfile could not be found by this keyname"}
 ```
 
-2. Syntactic error - unsupported symbols. 
-
 **Field name**|**Type**|**Description**|**Value example**
 ---|---|---|---
-error|`string`|simple error message|`Parsing Error`
+error|`string`|simple error message|`Error: keyfile could not be found by this keyname`
+
+
+
+- Syntactic error - unsupported symbols. 
 
 ```json
 {"error":"Parsing Error"}
 ```
 
+**Field name**|**Type**|**Description**|**Value example**
+---|---|---|---
+error|`string`|simple error message|`Parsing Error`
+
 ## Log files
 
 If you are experiencing any trouble working with KeyChain, here you can find locations of the log files:
 
-For macOS and Linux:
+- For macOS and Linux:
 
-```/var/keychain/logs```
+/var/keychain/logs
 
-For Windows, log file will be located in the same directory as KeyChain:
+- For Windows, log file will be located in the same directory as KeyChain:
 
-```./logs```
+./logs
 
 ## Developer Debug Information
  
