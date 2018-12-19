@@ -697,11 +697,11 @@ When the connection is established, you will see the following KeyChain page. If
 
 You can see if the installation was successful by going to the terminal app, opening KeyChain and trying one of the commands that you can take from the [Protocol](https://github.com/arrayio/array-io-keychain/wiki/KeyChain-Protocol):
 
-```
+
 c:\Users\User-1>cd "C: Program Files\WsKeychain"
 c:\Program Files\WSKeychain>keychain 
 {"command":"list"}
-```
+
 A successful response will take the following format:
 
 #### Response format
