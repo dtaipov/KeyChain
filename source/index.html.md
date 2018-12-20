@@ -3,8 +3,9 @@ title: KeyChain Documentation
 
 language_tabs: # must be one of https://git.io/vQNgJ
 
+  - json
   - javascript
-
+  
 toc_footers:
   - <a href='http://keychain.array.io'>KeyChain official website</a>
 
@@ -32,7 +33,8 @@ After installation, connect to the demo-page: http://localhost:16384/ to check i
 
 If you are having trouble connecting to the page, [contact us](#contact) and we will do our best to help you.
 
-Below you can find comprehensive installation guides for [macOS](#installation-guide-for-macos), [Windows](Installation-guide-for-Windows), [Linux](Installation-guide-for-Linux).
+Below you can find comprehensive installation guides for [macOS](#macos), [Windows](#windows), [Linux](#linux).
+
 ## Getting started
 
 > Require libraries setup
@@ -137,7 +139,7 @@ We take security issues very seriously and we'll be looking forward to hearing f
 
 ## License
 
-This project is licensed under the terms of the [MIT license](License).
+This project is licensed under the terms of the [MIT license](#license).
 
 
 # Protocol
@@ -175,7 +177,9 @@ When you pass a short key name in the create command, you get an exended name wh
 > Response example
 
 ```json
-{"result":"my key@f9a1554e3f5e30c8"}
+{
+  "result":"my key@f9a1554e3f5e30c8"
+}
 ```
 **Field name**|**Type**|**Description**
 ---|---|---
@@ -189,7 +193,7 @@ For example, for Ethereum transaction, you do not need to pass <code>chainid</co
 </aside>
 
 <aside class="notice">
-Please remember that you need to `insert your own key name` in the parameters when copying the requests!
+Please remember that you need to insert your own <code>key name</code> in the parameters when copying the requests!
 </aside>
 
 ### Command
@@ -225,18 +229,20 @@ unlock_time  | ```integer```|This parameter is experimental and optional! If thi
 > Response example
 
 ```json
-{"result":"6cc47faa3778d15efeb470cd4154fdceb80633beaed15f0816d93951ffd7629a5fae3fe83c030f5f8a0cea82c1907f85418b93e820ea3b043c116053afae20a300"}
+{
+  "result":"6cc47faa3778d15efeb470cd4154fdceb80633beaed15f0816d93951ffd7629a5fae3fe83c030f5f8a0cea82c1907f85418b93e820ea3b043c116053afae20a300"
+}
 ```
 **Field name**|**Type**|**Description**
 ---|---|---
-result|`hex string`|65-byte singature in hex-string format.
+result|`hex string`|65-byte signature in hex-string format.
 
 ## Sign hash of transaction
 
 This request is suited best for advanced users who are eager to work on a low level. You should have knowledge of how to calculate hash of transaction, given the type of blockchain, and know the type of signature and its packaging.
 
 <aside class="notice">
-Please remember that you need to <code>insert your own key name</code> in the parameters when copying the requests!
+Please remember that you need to insert your own <code>key name</code> in the parameters when copying the requests!
 </aside>
 
 ### Command
@@ -268,7 +274,9 @@ keyname|```string```|Inserts the mnemonic label of your key.
 > Response example
 
 ```json 
-{"result":"62826b9c7b6bbfcd89456c1e8068e141d6a46b2c1c0166ed25ba8ad6ede320f4454ff116d13f4e679e8224fcca49f49d50c279ed88513a1db7185946e26811ab01"}
+{
+  "result":"62826b9c7b6bbfcd89456c1e8068e141d6a46b2c1c0166ed25ba8ad6ede320f4454ff116d13f4e679e8224fcca49f49d50c279ed88513a1db7185946e26811ab01"
+}
 ```
 **Field name**|**Type**|**Description** 
 ---|---|---
@@ -295,7 +303,7 @@ No
 > Response example
 
 ```json
-{"result":"my key@47f926e22f376478","my key@e67871253c263de0","my key@e755d5b98b6ed747","my key@f9a1554e3f5e30c8"}
+  {"result":"my key@47f926e22f376478","my key@e67871253c263de0","my key@e755d5b98b6ed747","my key@f9a1554e3f5e30c8"}
 ```
 **Field name**|**Type**|**Description**
 ---|---|---
@@ -304,7 +312,7 @@ result|`JSON array of strings`|lists all your key names.
 ## Calculate the public key 
 
 <aside class="notice">
-Please remember that you need to <code>insert your own key name</code> in the parameters when copying the requests!
+Please remember that you need to insert your own <code>key name</code> in the parameters when copying the requests!
 </aside>
 
 ### Command
@@ -334,7 +342,9 @@ keyname|```string```|Inserts the name of the key from which you want to calculat
 > Response example
 
 ```json
-{"result":"a7aea4bd112706655cb7014282d2a54658924e69c68f5a54f2cd5f35c6fcba9b610d6ae8549f960ae96e23ffc017f305c1d8664978c8ba8a1cc656fd9d068ef5"}
+{
+  "result":"a7aea4bd112706655cb7014282d2a54658924e69c68f5a54f2cd5f35c6fcba9b610d6ae8549f960ae96e23ffc017f305c1d8664978c8ba8a1cc656fd9d068ef5"
+}
 ```
 
 **Field name**|**Type**|**Description**
@@ -362,7 +372,9 @@ No
 > Response example
 
 ```json
-{"result":"true"}
+{
+  "result":"true"
+}
 ```
 **Field name**|**Type**|**Description**
 ---|---|---
@@ -381,7 +393,7 @@ This parameter is experimental! Allowing the user to sign transactions without e
 </aside>
 
 <aside class="notice">
-Please remember that you need to <code>insert your own key name</code> in the parameters when copying the requests!
+Please remember that you need to insert your own <code>key name</code> in the parameters when copying the requests!
 </aside>
 
 
@@ -412,7 +424,9 @@ unlock_time|```integer```|When this parameter is specified, it unlocks the key f
 > Response example
 
 ```json
-{"result":"true"}
+{
+  "result":"true"
+}
 ```
 
 **Field name**|**Type**|**Description**
@@ -429,7 +443,9 @@ about
 > JSON Request
 
 ```json
-{"command":"about"}
+{
+  "command":"about"
+}
 ```
 ### Query parameters
 No
@@ -439,7 +455,12 @@ No
 > Response example
 
 ```json
-{"result":{"version":"0.9.114","git_revision_sha":"59861769dca634d08d5442cb0074d40d8f544e66","git_revision_age":"9 minutes ago","compile_date":"compiled on Dec 12 2018 at 08:11:44","boost_version":"1.66","openssl_version":"OpenSSL 1.1.1  11 Sep 2018","build":"linux 64-bit"}}
+{
+  "result":
+  {
+    "version":"0.9.114","git_revision_sha":"59861769dca634d08d5442cb0074d40d8f544e66","git_revision_age":"9 minutes ago","compile_date":"compiled on Dec 12 2018 at 08:11:44","boost_version":"1.66","openssl_version":"OpenSSL 1.1.1  11 Sep 2018","build":"linux 64-bit"
+  }
+}
 ```
 
 **Field name**|**Type**|**Description**
@@ -456,13 +477,16 @@ build|`string`|required operating system.
 ## KeyChain version number
 
 You can request the number of the current version you are using.
+
 ### Command
 version
 
 > JSON Request
 
 ```json
-{"command":"version"}
+{
+  "command":"version"
+}
 ```
 
 ### Query parameters
@@ -473,7 +497,9 @@ No
 > Response example
 
 ```json
-{"result":"0.9.114"}
+{
+  "result":"0.9.114"
+}
 ```
 
 **Field name**|**Type**|**Description**
@@ -488,7 +514,7 @@ result|`string`|current version number which has the form of "[major].[minor].[b
 
 - macOS [10.12](#http://support.apple.com/downloads/DL1917/en_US/macosupd10.12.5.dmg) or [newer](https://support.apple.com/downloads/macos).
 
-### Installation
+### How to install
 
 Download [KeyChain](https://github.com/arrayio/array-io-keychain/releases/download/0.10/KeyChain.Installer.v0.10.zip) and follow the steps of the graphic installer. 
 
@@ -585,21 +611,23 @@ We are passionate about KeyChain and seek to make it as soon as possible, so tha
 
 ### How to install
 
-**Coming soon**
+Coming soon
 
 # Sign an Ethereum transaction
 
 Here you can find an instruction on how to sign an Ethereum transaction with KeyChain.
 
-### Demo page
+## Demo page
 
 [Here](https://arrayio.github.io/array-io-keychain/eth_signer/) you can try out signing Ethereum transactions with KeyChain.
 
-### 1. Install KeyChain for macOS
+## Step-by-step guide
+
+1. Install KeyChain for macOS
 
 [Here](https://github.com/arrayio/array-io-keychain/releases/download/0.10/KeyChain.Installer.v0.10.zip) you can find the installer.
 
-### 2. Generate the key 
+2. Generate the key 
 
 Start with the command `wscat -c ws://localhost:16384/`
 and send the `create` command to generate the key
@@ -634,7 +662,9 @@ Insert your own extended name of the key! Do not copy the following code togethe
 }
 ```
 
-### 3. Calculate the address from the publicKey
+3. Calculate the address from the public key
+
+> Get adress from public key
 
 ```javascript
 const ethUtil = require('ethereumjs-util');
@@ -642,12 +672,14 @@ const publicKey = 'YOUR_PUBLIC_KEY';
 const fromAdd = ethUtil.publicToAddress(publicKey).toString('hex');
 ```
 
-### 4. Transfer money to the address corresponding to the public key
+4. Transfer money to the address corresponding to the public key
 
 In case you work with ropsten - 
 https://faucet.ropsten.be/
 
-### 5. Check the balance on the address - it should have enough ether for a successful transfer.
+5. Check the balance on the address - it should have enough ether for a successful transfer.
+
+> Check balance
 
 ```javascript
 web3.eth.getBalance(fromAdd) 
@@ -655,11 +687,11 @@ web3.eth.getBalance(fromAdd)
 
 ```
 
-### 6. Sign transaction with the key that you have generated
+6. Sign transaction with the key that you have generated
 
 You can find an example of the code [here](https://gist.github.com/cypherpunk99/3e1314f8cc62cd675fa5c8f7bbe97923)
 
-### 7. Check Etherscan
+7. Check Etherscan
 
 [Etherscan](https://ropsten.etherscan.io/address/0x1ba05dad1abe91fdea3afffe9676b59076ce0ece)
 
@@ -674,7 +706,7 @@ You can find an example of the code [here](https://gist.github.com/cypherpunk99/
 - JavaScript/HTML
 - etc
 
-Install KeyChain for [macOS](https://github.com/arrayio/array-io-keychain/releases/download/0.10/KeyChain.Installer.v0.10.zip), [Windows](#installation), [Linux](#installation) and connect to the demo page here http://localhost:16384/.
+Install KeyChain for [macOS](https://github.com/arrayio/array-io-keychain/releases/download/0.10/KeyChain.Installer.v0.10.zip), [Windows](#windows), [Linux](#linux) and connect to the demo page here http://localhost:16384/.
 
 ## Demo pages in JavaScript
 
@@ -717,13 +749,13 @@ For full comprehensive descriptions of the commands, acceptable parameters and v
 
 The following will show the usage of websocket connections. We make use of the `wscat` application available via npm:
 
-```
+```javascript
 $ npm install -g wscat
 ```
 
-A simple call would take the form:
+> A simple call would take the form:
 
-```
+```javascript
 $ wscat -c ws://127.0.0.1:16384
 > { "command": "list"}
 ```
@@ -745,7 +777,7 @@ In case of an error, the resulting answer will carry an error attribute and a de
 
 ### JavaScript integration example
 
-Before you proceed with the integration, you need to install KeyChain for [macOS](https://github.com/arrayio/array-io-keychain/releases/download/0.10/KeyChain.Installer.v0.10.zip), [Windows](Installation-guide-for-Windows), [Linux](Installation-guide-for-Linux).
+Before you proceed with the integration, you need to install KeyChain for [macOS](https://github.com/arrayio/array-io-keychain/releases/download/0.10/KeyChain.Installer.v0.10.zip), [Windows](#windows), [Linux](#linux).
 
 #### Test in the web
 
@@ -757,7 +789,7 @@ When the connection is established, you will see the following KeyChain page. If
 
 #### Test from a terminal application:
 
-You can see if the installation was successful by going to the terminal app, opening KeyChain and trying one of the commands that you can take from the [Protocol](Protocol):
+You can see if the installation was successful by going to the terminal app, opening KeyChain and trying one of the commands that you can take from the [Protocol](#generate-a-key-pair):
 
 
 c:\Users\User-1>cd "C: Program Files\WsKeychain"
@@ -787,24 +819,23 @@ Save this to the folder  where you will be running the `websocket` command.
 
 Open this page via localhost: http://localhost:16384/
 
-----
 You can find the code for the demo page and the page itself up in the [Demo pages in JavaScript](#demo-pages-in-javascript) section.
 
 # Pipe API
 
 **KeyChain** has an I/O stream (pipe) integration option. Interaction with **KeyChain** through pipes requires a terminal application as an input module that sends requests (STDIN) to the security layer that shows you the details of your request. When you approve the request through an interative gialogue window, the request goes back through the signing module and gives you an answer (STDOUT). 
 
-For detailed description of the process, see [Three security layers](https://github.com/arrayio/array-io-keychain/wiki/KeyChain-security#three-security-layers-of-keychain) section.
+For detailed description of the process, see [Three security layers](#three-security-layers-of-keychain) section.
 
 ## Message format
 
 Each Pipe API message is a json serialized object containing a command with the corresponding parameters.
 
-For full comprehensive descriptions of the commands, acceptable parameters and values, go to the [Protocol](Protocol).
+For full comprehensive descriptions of the commands, acceptable parameters and values, go to the [Protocol](#generate-a-key-pair).
 
 ## Pipe integration guide
 
-Before you proceed with the integration, you need to install KeyChain for [macOS](https://github.com/arrayio/array-io-keychain/releases/download/0.10/KeyChain.Installer.v0.10.zip), [Windows](Installation-guide-for-Windows), [Linux](Installation-guide-for-Linux).
+Before you proceed with the integration, you need to install KeyChain for [macOS](https://github.com/arrayio/array-io-keychain/releases/download/0.10/KeyChain.Installer.v0.10.zip), [Windows](#windows), [Linux](#linux).
 
 When the installation is complete, you can open stream input to start sending json requests through STDIN - STDOUT pipes.
  
@@ -878,7 +909,7 @@ keychain.stdin.write(JSON.stringify(lockCommand));
 
 keychain.stdin.write(JSON.stringify(signCommand));
 ``` 
-For descriptions of all the commands and parameters, see [KeyChain Protocol](https://github.com/arrayio/array-io-keychain/wiki/KeyChain-Protocol).
+For descriptions of all the commands and parameters, go to the [Protocol](#generate-a-key-pair).
 
 # KeyChain security
 
@@ -944,7 +975,7 @@ Apps or websites send requests to the KeyChain through two types of communicatio
 The architecture of the KeyChain software consists of the three independent layers:
 
 1. **API layer** which integrates with your app, website or any external application. It is language-neutral. The protocol for the terminal application operates with the JSON format in synchronous request/response way. The main function of the **API layer** is to transmit and parse commands for given API. 
-Each request carries information about commands, the type of key user wants to use to sign transactions and other relevant parameters which you can find in the [Protocol](https://github.com/arrayio/array-io-keychain/wiki/KeyChain-Protocol). 
+Each request carries information about commands, the type of key user wants to use to sign transactions and other relevant parameters which you can find in the [Protocol](#generate-a-key-pair). 
 
 2. **Security layer** receives the commands from the API layer and acts as an OS-specific  protection mechanism for the **interface window** (third layer). It serves as a shield from potential attacks at sensitive data and information. **Security layer** is tailored for the Mac OS, Linux, and Windows OS and operates only with permitted files (through admin access). 
 The request, transmitted to the **Signing module** which holds the private keys, works simultaneously with the Secured input module that uses OS-specific mechanism. The **Secured input module** protects the passphrase from key grabbers and malware.
