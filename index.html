@@ -201,7 +201,7 @@
       <script src="javascripts/all.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;javascript&quot;]">
+  <body class="index" data-languages="[&quot;json&quot;,&quot;javascript&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -211,6 +211,7 @@
     <div class="toc-wrapper">
       <img src="images/logo.png" class="logo" alt="Logo" />
         <div class="lang-selector">
+              <a href="#" data-language-name="json">json</a>
               <a href="#" data-language-name="javascript">javascript</a>
         </div>
         <div class="search">
@@ -229,9 +230,6 @@
                   </li>
                   <li>
                     <a href="#getting-started" class="toc-h2 toc-link" data-title="Getting started">Getting started</a>
-                  </li>
-                  <li>
-                    <a href="#how-to-use" class="toc-h2 toc-link" data-title="How to use">How to use</a>
                   </li>
                   <li>
                     <a href="#contact" class="toc-h2 toc-link" data-title="Contact">Contact</a>
@@ -257,7 +255,7 @@
                     <a href="#list-all-key-names" class="toc-h2 toc-link" data-title="List all key names">List all key names</a>
                   </li>
                   <li>
-                    <a href="#calculate-public-key-from-private-key" class="toc-h2 toc-link" data-title="Calculate public key from private key">Calculate public key from private key</a>
+                    <a href="#calculate-the-public-key" class="toc-h2 toc-link" data-title="Calculate the public key">Calculate the public key</a>
                   </li>
                   <li>
                     <a href="#lock-all-unlocked-keys" class="toc-h2 toc-link" data-title="Lock all unlocked keys">Lock all unlocked keys</a>
@@ -266,56 +264,32 @@
                     <a href="#unlock-private-key" class="toc-h2 toc-link" data-title="Unlock private key">Unlock private key</a>
                   </li>
                   <li>
-                    <a href="#get-information-about-the-current-keychain-version" class="toc-h2 toc-link" data-title="Get information about the current KeyChain version">Get information about the current KeyChain version</a>
+                    <a href="#keychain-version-details" class="toc-h2 toc-link" data-title="KeyChain version details">KeyChain version details</a>
                   </li>
                   <li>
-                    <a href="#get-the-number-of-the-current-keychain-version" class="toc-h2 toc-link" data-title="Get the number of the current KeyChain version">Get the number of the current KeyChain version</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#installation-guide-for-macos" class="toc-h1 toc-link" data-title="Installation guide for macOS">Installation guide for macOS</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#system-requirements" class="toc-h2 toc-link" data-title="System requirements">System requirements</a>
-                  </li>
-                  <li>
-                    <a href="#download-macos-installer-here" class="toc-h2 toc-link" data-title="Download macOS installer here.">Download macOS installer <a href="https://github.com/arrayio/array-io-keychain/releases/download/0.10/KeyChain.Installer.v0.10.zip">here</a>.</a>
-                  </li>
-                  <li>
-                    <a href="#check-if-the-installation-was-successful" class="toc-h2 toc-link" data-title="Check if the installation was successful">Check if the installation was successful</a>
+                    <a href="#keychain-version-number" class="toc-h2 toc-link" data-title="KeyChain version number">KeyChain version number</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#how-to-sign-an-ethereum-transaction-with-keychain" class="toc-h1 toc-link" data-title="How to sign an Ethereum transaction with KeyChain">How to sign an Ethereum transaction with KeyChain</a>
+            <a href="#installation-guides" class="toc-h1 toc-link" data-title="Installation guides">Installation guides</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#demo-page" class="toc-h2 toc-link" data-title="Demo page">Demo page</a>
+                    <a href="#macos" class="toc-h2 toc-link" data-title="macOS">macOS</a>
                   </li>
                   <li>
-                    <a href="#1-download-and-install-keychain-for-macos" class="toc-h2 toc-link" data-title="1. Download and install KeyChain for macOS">1. Download and install KeyChain for <a href="https://github.com/arrayio/array-io-keychain/releases/download/0.10/KeyChain.Installer.v0.10.zip">macOS</a></a>
+                    <a href="#windows" class="toc-h2 toc-link" data-title="Windows">Windows</a>
                   </li>
                   <li>
-                    <a href="#2-generate-the-key" class="toc-h2 toc-link" data-title="2. Generate the key">2. Generate the key</a>
+                    <a href="#linux" class="toc-h2 toc-link" data-title="Linux">Linux</a>
                   </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#sign-an-ethereum-transaction" class="toc-h1 toc-link" data-title="Sign an Ethereum transaction">Sign an Ethereum transaction</a>
+              <ul class="toc-list-h2">
                   <li>
-                    <a href="#nb" class="toc-h2 toc-link" data-title="NB:">NB:</a>
-                  </li>
-                  <li>
-                    <a href="#3-calculate-the-address-from-the-publickey" class="toc-h2 toc-link" data-title="3. Calculate the address from the publicKey">3. Calculate the address from the publicKey</a>
-                  </li>
-                  <li>
-                    <a href="#4-transfer-money-to-the-address-corresponding-to-the-public-key" class="toc-h2 toc-link" data-title="4. Transfer money to the address corresponding to the public key">4. Transfer money to the address corresponding to the public key</a>
-                  </li>
-                  <li>
-                    <a href="#5-check-the-balance-on-the-address-it-should-have-enough-ether-for-a-successful-transfer" class="toc-h2 toc-link" data-title="5. Check the balance on the address - it should have enough ether for a successful transfer.">5. Check the balance on the address - it should have enough ether for a successful transfer.</a>
-                  </li>
-                  <li>
-                    <a href="#6-sign-transaction-with-the-key-that-you-have-generated" class="toc-h2 toc-link" data-title="6. Sign transaction with the key that you have generated">6. Sign transaction with the key that you have generated</a>
-                  </li>
-                  <li>
-                    <a href="#7-check-etherscan" class="toc-h2 toc-link" data-title="7. Check Etherscan">7. <a href="https://ropsten.etherscan.io/address/0x1ba05dad1abe91fdea3afffe9676b59076ce0ece">Check Etherscan</a></a>
+                    <a href="#step-by-step-guide" class="toc-h2 toc-link" data-title="Step-by-step guide">Step-by-step guide</a>
                   </li>
               </ul>
           </li>
@@ -331,21 +305,38 @@
                   <li>
                     <a href="#websocket-integration-guide" class="toc-h2 toc-link" data-title="WebSocket integration guide">WebSocket integration guide</a>
                   </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#pipe-api" class="toc-h1 toc-link" data-title="Pipe API">Pipe API</a>
+              <ul class="toc-list-h2">
                   <li>
                     <a href="#message-format-2" class="toc-h2 toc-link" data-title="Message format">Message format</a>
+                  </li>
+                  <li>
+                    <a href="#pipe-integration-guide" class="toc-h2 toc-link" data-title="Pipe integration guide">Pipe integration guide</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#pipe-integration-guide" class="toc-h1 toc-link" data-title="Pipe integration guide">Pipe integration guide</a>
+            <a href="#keychain-security" class="toc-h1 toc-link" data-title="KeyChain security">KeyChain security</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#see-all-your-keys" class="toc-h2 toc-link" data-title="See all your keys">See all your keys</a>
+                    <a href="#about-keychain-security" class="toc-h2 toc-link" data-title="About KeyChain security">About KeyChain security</a>
                   </li>
                   <li>
-                    <a href="#sign-transaction" class="toc-h2 toc-link" data-title="Sign transaction">Sign transaction</a>
+                    <a href="#how-keychain-ensures-safe-key-storage" class="toc-h2 toc-link" data-title="How KeyChain ensures safe key storage">How KeyChain ensures safe key storage</a>
+                  </li>
+                  <li>
+                    <a href="#os-specific-keychain-security" class="toc-h2 toc-link" data-title="OS-specific KeyChain security">OS-specific KeyChain security</a>
+                  </li>
+                  <li>
+                    <a href="#three-security-layers-of-keychain" class="toc-h2 toc-link" data-title="Three security layers of KeyChain">Three security layers of KeyChain</a>
                   </li>
               </ul>
+          </li>
+          <li>
+            <a href="#useful-links" class="toc-h1 toc-link" data-title="Useful links">Useful links</a>
           </li>
           <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
@@ -363,43 +354,50 @@
           </li>
       </ul>
         <ul class="toc-footer">
-            <li><a href='https://github.com/lord/slate'>Documentation Powered by Slate</a></li>
+            <li><a href='http://keychain.array.io'>KeyChain official website</a></li>
         </ul>
     </div>
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='keychain-documentation'>KeyChain Documentation</h1><h2 id='introduction'>Introduction</h2>
-<p><strong>KeyChain</strong> is a standalone app for signing transactions and generating key pairs. It stores private keys in an isolated environment where no logger, debugger or spyware can intercept them because of the <a href="https://github.com/arrayio/array-io-keychain/wiki/KeyChain-security#three-security-layers-of-keychain">three-layer security</a> protecting each action of the system.
+<p><strong>KeyChain</strong> is a standalone app for signing transactions and generating key pairs. It stores private keys in an isolated environment where no logger, debugger or spyware can intercept them because of the <a href="#three-security-layers-of-keychain">three-layer security</a> protecting each action of the system.
 <strong>KeyChain</strong> supports transactions from and to various blockchains, including Ethereum and Ethereum classic, Litecoin, Bitcoin, Bitcoin Cash, and Bitshares. </p>
 <h2 id='installation'>Installation</h2>
 <p>Download and install KeyChain for <a href="https://github.com/arrayio/array-io-keychain/releases/download/0.10/KeyChain.Installer.v0.10.zip">macOS</a>. Windows and Linux installers are coming soon.</p>
 
 <p><em>Try out KeyChain on the <a href="https://arrayio.github.io/array-io-keychain/demo/">demo page</a>.</em></p>
 
-<p>After installation, connect to the demo-page: http://localhost:16384/ to check if the installation was successful and to test the KeyChain commands. In case everything went well, you will see the following page and you will be able to see responses to the commands in the &quot;Response&quot; box when you click on them.</p>
+<p>After installation, connect to the demo-page: <a href="http://localhost:16384/">http://localhost:16384/</a> to check if the installation was successful and to test the KeyChain commands. In case everything went well, you will see the following page and you will be able to see responses to the commands in the &quot;Response&quot; box when you click on them.</p>
 
 <p><img src="https://user-images.githubusercontent.com/34011337/49734247-be211a80-fc94-11e8-8d85-c70b738ecae3.png" alt="screenshot from 2018-12-10 15-57-27" /></p>
 
 <p>If you are having trouble connecting to the page, <a href="#contact">contact us</a> and we will do our best to help you.</p>
 
-<p>You can find comprehensive installation guides for <a href="https://github.com/arrayio/array-io-keychain/wiki/Installation-guide-for-macOS">macOS</a>, <a href="https://github.com/arrayio/array-io-keychain/wiki/Installation-guide-for-Windows">Windows</a>, and <a href="https://github.com/arrayio/array-io-keychain/wiki/Installation-guide-for-Linux">Linux</a> in our Wiki. </p>
+<p>Below you can find comprehensive installation guides for <a href="#macos">macOS</a>, <a href="#windows">Windows</a>, <a href="#linux">Linux</a>.</p>
 <h2 id='getting-started'>Getting started</h2>
 <blockquote>
 <p>Require libraries setup</p>
 </blockquote>
-<pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">unsign</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'@warren-bank/ethereumjs-tx-unsign'</span><span class="p">)</span>
+<pre class="highlight json tab-json"><code><span class="err">//go</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">javascript</span><span class="w">
+</span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">unsign</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'@warren-bank/ethereumjs-tx-unsign'</span><span class="p">)</span>
 <span class="kr">const</span> <span class="nx">ethUtil</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'ethereumjs-util'</span><span class="p">);</span>
 <span class="kr">const</span> <span class="nx">WebSocket</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'ws'</span><span class="p">);</span>
 </code></pre>
 <blockquote>
-<p>Insert your own keyname</p>
+<p>Insert your own <code>keyname</code></p>
 </blockquote>
-<pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">ws</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">WebSocket</span><span class="p">(</span><span class="s1">'ws://localhost:16384/'</span><span class="p">);</span>
+<pre class="highlight json tab-json"><code><span class="err">//go</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">javascript</span><span class="w">
+</span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">ws</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">WebSocket</span><span class="p">(</span><span class="s1">'ws://localhost:16384/'</span><span class="p">);</span>
 <span class="kr">const</span> <span class="nx">keyname</span> <span class="o">=</span> <span class="s1">'test1@6de493f01bf590c0'</span><span class="p">;</span>
 </code></pre>
 <p>This is a simple example of how to integrate KeyChain through WebSocket.</p>
-<pre class="highlight javascript tab-javascript"><code><span class="kd">let</span> <span class="nx">fromAdd</span><span class="p">;</span>
+
+<blockquote>
+<p>First, we wrap the <code>public_key</code> command into a function to send it through a websocket.</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="err">//go</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">javascript</span><span class="w">
+</span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">let</span> <span class="nx">fromAdd</span><span class="p">;</span>
 <span class="kr">const</span> <span class="nx">send</span> <span class="o">=</span> <span class="p">(</span><span class="nx">command</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
   <span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">command</span><span class="p">));</span>
 <span class="p">}</span>
@@ -412,18 +410,31 @@
     <span class="p">}</span>
   <span class="p">}</span>
 <span class="p">}</span>
-
-<span class="nx">ws</span><span class="p">.</span><span class="nx">onopen</span> <span class="o">=</span> <span class="nx">async</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</code></pre>
+<blockquote>
+<p>When the websocket is open, we send the <code>public_key</code> command to the KeyChain</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="err">//go</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">javascript</span><span class="w">
+</span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">onopen</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
   <span class="nx">send</span><span class="p">(</span><span class="nx">getPublicKey</span><span class="p">(</span><span class="nx">keyname</span><span class="p">));</span>
 <span class="p">}</span>
-
-<span class="nx">ws</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'message'</span><span class="p">,</span> <span class="nx">async</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</code></pre>
+<blockquote>
+<p>Next, we display the public key and calculate the address from it.</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="err">//go</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">javascript</span><span class="w">
+</span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'message'</span><span class="p">,</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
   <span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Public key: '</span><span class="p">,</span> <span class="s2">`0x</span><span class="p">${</span><span class="nx">data</span><span class="p">.</span><span class="nx">result</span><span class="p">}</span><span class="s2">`</span><span class="p">)</span>
   <span class="nx">fromAdd</span> <span class="o">=</span> <span class="s2">`0x</span><span class="p">${</span><span class="nx">ethUtil</span><span class="p">.</span><span class="nx">publicToAddress</span><span class="p">(</span><span class="s2">`0x</span><span class="p">${</span><span class="nx">data</span><span class="p">.</span><span class="nx">result</span><span class="p">}</span><span class="s2">`</span><span class="p">).</span><span class="nx">toString</span><span class="p">(</span><span class="s1">'hex'</span><span class="p">)}</span><span class="s2">`</span><span class="p">;</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fromAdd</span><span class="p">);</span>
 <span class="p">});</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">ethHex</span> <span class="o">=</span> <span class="s1">'e315843b9aca0082520894e8899ba12578d60e4d0683a596edacbc85ec18cc6480038080'</span><span class="p">;</span>
+</code></pre>
+<blockquote>
+<p>Then we sign a raw transaction in hex form via KeyChain</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="err">//go</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">javascript</span><span class="w">
+</span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">ethHex</span> <span class="o">=</span> <span class="s1">'e315843b9aca0082520894e8899ba12578d60e4d0683a596edacbc85ec18cc6480038080'</span><span class="p">;</span>
 
 <span class="kr">const</span> <span class="nx">signHex</span> <span class="o">=</span> <span class="p">(</span><span class="nx">keyname</span><span class="p">,</span> <span class="nx">hexraw</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
   <span class="k">return</span> <span class="p">{</span>
@@ -436,16 +447,24 @@
   <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="nx">ws</span><span class="p">.</span><span class="nx">onopen</span> <span class="o">=</span> <span class="nx">async</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+<span class="nx">ws</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'open'</span><span class="p">)</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
   <span class="nx">send</span><span class="p">(</span><span class="nx">signHex</span><span class="p">(</span><span class="nx">keyname</span><span class="p">,</span> <span class="nx">ethHex</span><span class="p">));</span>
 <span class="p">}</span>
 
-<span class="nx">ws</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'message'</span><span class="p">,</span> <span class="nx">async</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-  <span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Signature: '</span><span class="p">,</span> <span class="nx">data</span><span class="p">.</span><span class="nx">result</span><span class="p">);</span>
+<span class="nx">ws</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'message'</span><span class="p">,</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">signature</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">response</span><span class="p">).</span><span class="nx">result</span><span class="p">;</span>
+<span class="c1">// For eth signature contains those 3 parameters: r, s, v </span>
+  <span class="kr">const</span> <span class="nx">r</span> <span class="o">=</span> <span class="nx">signature</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">64</span><span class="p">);</span>
+  <span class="kr">const</span> <span class="nx">s</span> <span class="o">=</span> <span class="nx">signature</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="mi">128</span><span class="p">);</span>
+  <span class="kr">const</span> <span class="nx">v</span> <span class="o">=</span> <span class="nx">signature</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">130</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`Signature: \nr: </span><span class="p">${</span><span class="nx">r</span><span class="p">}</span><span class="s2">\ns: </span><span class="p">${</span><span class="nx">s</span><span class="p">}</span><span class="s2">\nv: </span><span class="p">${</span><span class="nx">v</span><span class="p">}</span><span class="s2">\n`</span><span class="p">);</span>
 <span class="p">});</span>
-
-
+</code></pre>
+<blockquote>
+<p>Finally, we use an Ethereumjs-tx library to unsign the transaction and check the result against the one we got from the KeyChain.</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="err">//go</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">javascript</span><span class="w">
+</span></code></pre><pre class="highlight javascript tab-javascript"><code>
 <span class="kr">const</span> <span class="nx">resHex</span> <span class="o">=</span> <span class="s1">'f86315843b9aca0082520894e8899ba12578d60e4d0683a596edacbc85ec18cc64802aa0c3b68e20527f8f304801986720de1aeb9ab126c55570942420361cedeec1199ca03002d853eb2089e4e63848fcdb7af0fbc46e8f5c856ef0eb849a2270fd621bdb'</span><span class="p">;</span>
 <span class="kd">let</span> <span class="p">{</span> <span class="nx">txData</span><span class="p">,</span> <span class="nx">signature</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">unsign</span><span class="p">(</span><span class="nx">resHex</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'txData:'</span><span class="p">,</span>    <span class="nx">txData</span><span class="p">,</span>    <span class="s2">"\n"</span><span class="p">)</span>
@@ -460,25 +479,8 @@
 <aside class="notice">
 You must replace <code>test1@6de493f01bf590c0</code> with your personal keyname.
 </aside>
-<h2 id='how-to-use'>How to use</h2>
-<p>For extensive documentation on KeyChain, refer to the <a href="https://github.com/arrayio/array-io-keychain/wiki">Wiki</a>.</p>
-
-<p>There you will find:</p>
-
-<ul>
-<li><a href="https://github.com/arrayio/array-io-keychain/wiki">Home</a>: how to navigate in our Wiki. </li>
-<li><a href="https://github.com/arrayio/array-io-keychain/wiki/How-to-sign-Ethereum-transaction-via-KeyChain">How to sign an Ethereum transaction</a>: a simple and precise tutorial.</li>
-<li>Installation guides for <a href="https://github.com/arrayio/array-io-keychain/wiki/Installation-guide-for-macOS">macOS</a>, <a href="https://github.com/arrayio/array-io-keychain/wiki/Installation-guide-for-Windows">Windows</a>, <a href="https://github.com/arrayio/array-io-keychain/wiki/Installation-guide-for-Linux">Linux</a>.</li>
-<li><a href="https://github.com/arrayio/array-io-keychain/wiki/KeyChain-Protocol">KeyChain Protocol</a>: full comprehensive descriptions of the KeyChain commands.</li>
-<li><a href="https://github.com/arrayio/array-io-keychain/wiki/KeyChain-sample-commands">KeyChain sample commands</a>: shortcut to using the commands.</li>
-<li><a href="https://github.com/arrayio/array-io-keychain/wiki/Pipe-API">Pipe API</a>: integrating KeyChain through pipe.</li>
-<li><a href="https://github.com/arrayio/array-io-keychain/wiki/Security">Security</a>: why KeyChain is highly secure.</li>
-<li><a href="https://github.com/arrayio/array-io-keychain/wiki/Troubleshooting">Troubleshooting</a>: error handling, log files, debugging.</li>
-<li><a href="https://github.com/arrayio/array-io-keychain/wiki/Useful-reference">Useful reference</a>: external links.</li>
-<li><a href="https://github.com/arrayio/array-io-keychain/wiki/WebSocket-API">WebSocket API</a>: integrating KeyChain through WebSocket.</li>
-</ul>
 <h2 id='contact'>Contact</h2>
-<p>If you need help interacting with KeyChain, please do not hesitate to contact us:</p>
+<p>If you have questions or enquiries about KeyChain, please do not hesitate to contact us:</p>
 
 <ul>
 <li><p><a href="https://twitter.com/ProjectArray">Twitter</a></p></li>
@@ -489,9 +491,17 @@ You must replace <code>test1@6de493f01bf590c0</code> with your personal keyname.
 
 <p>If you want to report a security issue, include the word &quot;security&quot; in the subject field.</p>
 
-<p>We take security issues very seriously and we&#39;ll be looking forward to hearing from you. Still, we hope you enjoy using KeyChain and the integration goes smooth! </p>
+<p>We take security issues very seriously and we&#39;ll be looking forward to hearing from you. We hope you enjoy using KeyChain! </p>
 <h2 id='license'>License</h2>
-<p>This project is licensed under the terms of the MIT license.</p>
+<p>MIT License</p>
+
+<p>Copyright (c) 2018 KeyChain</p>
+
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
+
+<p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
+
+<p>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
 <h1 id='protocol'>Protocol</h1><h2 id='generate-a-key-pair'>Generate a key pair</h2><h3 id='command'>Command</h3>
 <p>create</p>
 
@@ -508,7 +518,8 @@ You must replace <code>test1@6de493f01bf590c0</code> with your personal keyname.
       </span><span class="s2">"cipher"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aes256"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='query-parameters'>Query parameters</h3>
+</span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">//go to json</span>
+</code></pre><h3 id='query-parameters'>Query parameters</h3>
 <table><thead>
 <tr>
 <th><strong>Parameter</strong></th>
@@ -543,8 +554,11 @@ You must replace <code>test1@6de493f01bf590c0</code> with your personal keyname.
 <blockquote>
 <p>Response example</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"result"</span><span class="p">:</span><span class="s2">"my key@f9a1554e3f5e30c8"</span><span class="p">}</span><span class="w">
-</span></code></pre>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"result"</span><span class="p">:</span><span class="s2">"my key@f9a1554e3f5e30c8"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">//go to json</span>
+</code></pre>
 <table><thead>
 <tr>
 <th><strong>Field name</strong></th>
@@ -559,10 +573,14 @@ You must replace <code>test1@6de493f01bf590c0</code> with your personal keyname.
 </tr>
 </tbody></table>
 <h2 id='sign-transaction-in-hex-format'>Sign transaction in hex format</h2>
-<p><strong>NB:</strong> You can sign transactions in hex or hash format. 
-For example, for Ethereum transaction, you do not need to pass <code>chainid</code> as a parameter because it is incorporated in the hex. </p>
+<aside class="notice">
+You can sign transactions in hex or hash format. 
+For example, for Ethereum transaction, you do not need to pass <code>chainid</code> as a parameter because it is incorporated in the hex. 
+</aside>
 
-<p><strong>NB:</strong> Please remember that you need to <strong>insert your own key name</strong> in the parameters when copying the requests!</p>
+<aside class="notice">
+Please remember that you need to insert your own <code>key name</code> in the parameters when copying the requests!
+</aside>
 <h3 id='command-2'>Command</h3>
 <p>sign_hex</p>
 
@@ -580,7 +598,8 @@ For example, for Ethereum transaction, you do not need to pass <code>chainid</co
     </span><span class="s2">"unlock_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">45</span><span class="w"> 
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='query-parameters-2'>Query parameters</h3>
+</span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">//go to json</span>
+</code></pre><h3 id='query-parameters-2'>Query parameters</h3>
 <table><thead>
 <tr>
 <th><strong>Parameter</strong></th>
@@ -618,8 +637,11 @@ For example, for Ethereum transaction, you do not need to pass <code>chainid</co
 <blockquote>
 <p>Response example</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"result"</span><span class="p">:</span><span class="s2">"6cc47faa3778d15efeb470cd4154fdceb80633beaed15f0816d93951ffd7629a5fae3fe83c030f5f8a0cea82c1907f85418b93e820ea3b043c116053afae20a300"</span><span class="p">}</span><span class="w">
-</span></code></pre>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"result"</span><span class="p">:</span><span class="s2">"6cc47faa3778d15efeb470cd4154fdceb80633beaed15f0816d93951ffd7629a5fae3fe83c030f5f8a0cea82c1907f85418b93e820ea3b043c116053afae20a300"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">//go to json</span>
+</code></pre>
 <table><thead>
 <tr>
 <th><strong>Field name</strong></th>
@@ -630,13 +652,15 @@ For example, for Ethereum transaction, you do not need to pass <code>chainid</co
 <tr>
 <td>result</td>
 <td><code>hex string</code></td>
-<td>65-byte singature in hex-string format.</td>
+<td>65-byte signature in hex-string format.</td>
 </tr>
 </tbody></table>
 <h2 id='sign-hash-of-transaction'>Sign hash of transaction</h2>
 <p>This request is suited best for advanced users who are eager to work on a low level. You should have knowledge of how to calculate hash of transaction, given the type of blockchain, and know the type of signature and its packaging.</p>
 
-<p><strong>NB:</strong> Please remember that you need to <strong>insert your own key name</strong> in the parameters when copying the requests!</p>
+<aside class="notice">
+Please remember that you need to insert your own <code>key name</code> in the parameters when copying the requests!
+</aside>
 <h3 id='command-3'>Command</h3>
 <p>sign_hash</p>
 
@@ -652,7 +676,8 @@ For example, for Ethereum transaction, you do not need to pass <code>chainid</co
     </span><span class="s2">"keyname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"my key@f9a1554e3f5e30c8"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='query-parameters-3'>Query parameters</h3>
+</span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">//go to json</span>
+</code></pre><h3 id='query-parameters-3'>Query parameters</h3>
 <table><thead>
 <tr>
 <th><strong>Parameter</strong></th>
@@ -680,8 +705,11 @@ For example, for Ethereum transaction, you do not need to pass <code>chainid</co
 <blockquote>
 <p>Response example</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"result"</span><span class="p">:</span><span class="s2">"62826b9c7b6bbfcd89456c1e8068e141d6a46b2c1c0166ed25ba8ad6ede320f4454ff116d13f4e679e8224fcca49f49d50c279ed88513a1db7185946e26811ab01"</span><span class="p">}</span><span class="w">
-</span></code></pre>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"result"</span><span class="p">:</span><span class="s2">"62826b9c7b6bbfcd89456c1e8068e141d6a46b2c1c0166ed25ba8ad6ede320f4454ff116d13f4e679e8224fcca49f49d50c279ed88513a1db7185946e26811ab01"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">//go to json</span>
+</code></pre>
 <table><thead>
 <tr>
 <th><strong>Field name</strong></th>
@@ -706,14 +734,16 @@ For example, for Ethereum transaction, you do not need to pass <code>chainid</co
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"command"</span><span class="p">:</span><span class="w"> </span><span class="s2">"list"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='query-parameters-4'>Query parameters</h3>
+</span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">//go to json</span>
+</code></pre><h3 id='query-parameters-4'>Query parameters</h3>
 <p>No</p>
 <h3 id='response-format-4'>Response format</h3>
 <blockquote>
 <p>Response example</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"result"</span><span class="p">:</span><span class="s2">"my key@47f926e22f376478"</span><span class="p">,</span><span class="s2">"my key@e67871253c263de0"</span><span class="p">,</span><span class="s2">"my key@e755d5b98b6ed747"</span><span class="p">,</span><span class="s2">"my key@f9a1554e3f5e30c8"</span><span class="p">}</span><span class="w">
-</span></code></pre>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="s2">"result"</span><span class="p">:</span><span class="s2">"my key@47f926e22f376478"</span><span class="p">,</span><span class="s2">"my key@e67871253c263de0"</span><span class="p">,</span><span class="s2">"my key@e755d5b98b6ed747"</span><span class="p">,</span><span class="s2">"my key@f9a1554e3f5e30c8"</span><span class="p">}</span><span class="w">
+</span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">//go to json</span>
+</code></pre>
 <table><thead>
 <tr>
 <th><strong>Field name</strong></th>
@@ -727,8 +757,10 @@ For example, for Ethereum transaction, you do not need to pass <code>chainid</co
 <td>lists all your key names.</td>
 </tr>
 </tbody></table>
-<h2 id='calculate-public-key-from-private-key'>Calculate public key from private key</h2>
-<p><strong>NB:</strong> Please remember that you need to <strong>insert your own key name</strong> in the parameters when copying the requests!</p>
+<h2 id='calculate-the-public-key'>Calculate the public key</h2>
+<aside class="notice">
+Please remember that you need to insert your own <code>key name</code> in the parameters when copying the requests!
+</aside>
 <h3 id='command-5'>Command</h3>
 <p>public_key</p>
 
@@ -742,7 +774,8 @@ For example, for Ethereum transaction, you do not need to pass <code>chainid</co
     </span><span class="s2">"keyname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"my key@f9a1554e3f5e30c8"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='query-parameters-5'>Query parameters</h3>
+</span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">//go to json</span>
+</code></pre><h3 id='query-parameters-5'>Query parameters</h3>
 <table><thead>
 <tr>
 <th><strong>Parameter</strong></th>
@@ -762,8 +795,11 @@ For example, for Ethereum transaction, you do not need to pass <code>chainid</co
 <blockquote>
 <p>Response example</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"result"</span><span class="p">:</span><span class="s2">"a7aea4bd112706655cb7014282d2a54658924e69c68f5a54f2cd5f35c6fcba9b610d6ae8549f960ae96e23ffc017f305c1d8664978c8ba8a1cc656fd9d068ef5"</span><span class="p">}</span><span class="w">
-</span></code></pre>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"result"</span><span class="p">:</span><span class="s2">"a7aea4bd112706655cb7014282d2a54658924e69c68f5a54f2cd5f35c6fcba9b610d6ae8549f960ae96e23ffc017f305c1d8664978c8ba8a1cc656fd9d068ef5"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">//go to json</span>
+</code></pre>
 <table><thead>
 <tr>
 <th><strong>Field name</strong></th>
@@ -788,14 +824,18 @@ For example, for Ethereum transaction, you do not need to pass <code>chainid</co
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"command"</span><span class="p">:</span><span class="w"> </span><span class="s2">"lock"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='query-parameters-6'>Query parameters</h3>
+</span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">//go to json</span>
+</code></pre><h3 id='query-parameters-6'>Query parameters</h3>
 <p>No</p>
 <h3 id='response-format-6'>Response format</h3>
 <blockquote>
 <p>Response example</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"result"</span><span class="p">:</span><span class="s2">"true"</span><span class="p">}</span><span class="w">
-</span></code></pre>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"result"</span><span class="p">:</span><span class="s2">"true"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">//go to json</span>
+</code></pre>
 <table><thead>
 <tr>
 <th><strong>Field name</strong></th>
@@ -812,11 +852,17 @@ For example, for Ethereum transaction, you do not need to pass <code>chainid</co
 <h2 id='unlock-private-key'>Unlock private key</h2>
 <p>Unlock your key when you are ready to use it. </p>
 
-<p><strong>NB:</strong> This parameter is experimental! Allowing the user to sign transactions without extra authorization is not secure and can be harmful. If <code>unlock_time</code> is greater than zero, you will see an insecure action warning. We do not recommend to use it. Although it might be needed if you want to speed up signing transactions.</p>
+<aside class="notice">
+This parameter is experimental! Allowing the user to sign transactions without extra authorization is not secure and can be harmful. If <code>unlock_time</code> is greater than zero, you will see an insecure action warning. We do not recommend to use it. Although it might be needed if you want to speed up signing transactions.
+</aside>
 
-<p><strong>NB:</strong> <code>Sign_hex</code> and <code>sign_hash</code> commands assume implicit unlocking of your keys. </p>
+<aside class="notice">
+<code>Sign_hex</code> and <code>sign_hash</code> commands assume implicit unlocking of your keys. 
+</aside>
 
-<p><strong>NB:</strong> Please remember that you need to <strong>insert your own key name</strong> in the parameters when copying the requests!</p>
+<aside class="notice">
+Please remember that you need to insert your own <code>key name</code> in the parameters when copying the requests!
+</aside>
 <h3 id='command-7'>Command</h3>
 <p>unlock </p>
 
@@ -831,7 +877,8 @@ For example, for Ethereum transaction, you do not need to pass <code>chainid</co
     </span><span class="s2">"unlock_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">45</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='query-parameters-7'>Query parameters</h3>
+</span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">//go to json</span>
+</code></pre><h3 id='query-parameters-7'>Query parameters</h3>
 <table><thead>
 <tr>
 <th><strong>Parameter</strong></th>
@@ -854,8 +901,11 @@ For example, for Ethereum transaction, you do not need to pass <code>chainid</co
 <blockquote>
 <p>Response example</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"result"</span><span class="p">:</span><span class="s2">"true"</span><span class="p">}</span><span class="w">
-</span></code></pre>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"result"</span><span class="p">:</span><span class="s2">"true"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">//go to json</span>
+</code></pre>
 <table><thead>
 <tr>
 <th><strong>Field name</strong></th>
@@ -869,7 +919,7 @@ For example, for Ethereum transaction, you do not need to pass <code>chainid</co
 <td>bool result.</td>
 </tr>
 </tbody></table>
-<h2 id='get-information-about-the-current-keychain-version'>Get information about the current KeyChain version</h2>
+<h2 id='keychain-version-details'>KeyChain version details</h2>
 <p>You can request the details of the current KeyChain version you are using.</p>
 <h3 id='command-8'>Command</h3>
 <p>about</p>
@@ -877,15 +927,24 @@ For example, for Ethereum transaction, you do not need to pass <code>chainid</co
 <blockquote>
 <p>JSON Request</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"command"</span><span class="p">:</span><span class="s2">"about"</span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='query-parameters-8'>Query parameters</h3>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"command"</span><span class="p">:</span><span class="s2">"about"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">//go to json</span>
+</code></pre><h3 id='query-parameters-8'>Query parameters</h3>
 <p>No</p>
 <h3 id='response-format-8'>Response format</h3>
 <blockquote>
 <p>Response example</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"result"</span><span class="p">:{</span><span class="s2">"version"</span><span class="p">:</span><span class="s2">"0.9.114"</span><span class="p">,</span><span class="s2">"git_revision_sha"</span><span class="p">:</span><span class="s2">"59861769dca634d08d5442cb0074d40d8f544e66"</span><span class="p">,</span><span class="s2">"git_revision_age"</span><span class="p">:</span><span class="s2">"9 minutes ago"</span><span class="p">,</span><span class="s2">"compile_date"</span><span class="p">:</span><span class="s2">"compiled on Dec 12 2018 at 08:11:44"</span><span class="p">,</span><span class="s2">"boost_version"</span><span class="p">:</span><span class="s2">"1.66"</span><span class="p">,</span><span class="s2">"openssl_version"</span><span class="p">:</span><span class="s2">"OpenSSL 1.1.1  11 Sep 2018"</span><span class="p">,</span><span class="s2">"build"</span><span class="p">:</span><span class="s2">"linux 64-bit"</span><span class="p">}}</span><span class="w">
-</span></code></pre>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"result"</span><span class="p">:</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"version"</span><span class="p">:</span><span class="s2">"0.9.114"</span><span class="p">,</span><span class="s2">"git_revision_sha"</span><span class="p">:</span><span class="s2">"59861769dca634d08d5442cb0074d40d8f544e66"</span><span class="p">,</span><span class="s2">"git_revision_age"</span><span class="p">:</span><span class="s2">"9 minutes ago"</span><span class="p">,</span><span class="s2">"compile_date"</span><span class="p">:</span><span class="s2">"compiled on Dec 12 2018 at 08:11:44"</span><span class="p">,</span><span class="s2">"boost_version"</span><span class="p">:</span><span class="s2">"1.66"</span><span class="p">,</span><span class="s2">"openssl_version"</span><span class="p">:</span><span class="s2">"OpenSSL 1.1.1  11 Sep 2018"</span><span class="p">,</span><span class="s2">"build"</span><span class="p">:</span><span class="s2">"linux 64-bit"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">//go to json</span>
+</code></pre>
 <table><thead>
 <tr>
 <th><strong>Field name</strong></th>
@@ -934,7 +993,7 @@ For example, for Ethereum transaction, you do not need to pass <code>chainid</co
 <td>required operating system.</td>
 </tr>
 </tbody></table>
-<h2 id='get-the-number-of-the-current-keychain-version'>Get the number of the current KeyChain version</h2>
+<h2 id='keychain-version-number'>KeyChain version number</h2>
 <p>You can request the number of the current version you are using.</p>
 <h3 id='command-9'>Command</h3>
 <p>version</p>
@@ -942,15 +1001,21 @@ For example, for Ethereum transaction, you do not need to pass <code>chainid</co
 <blockquote>
 <p>JSON Request</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"command"</span><span class="p">:</span><span class="s2">"version"</span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='query-parameters-9'>Query parameters</h3>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"command"</span><span class="p">:</span><span class="s2">"version"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">//go to json</span>
+</code></pre><h3 id='query-parameters-9'>Query parameters</h3>
 <p>No</p>
 <h3 id='response-format-9'>Response format</h3>
 <blockquote>
 <p>Response example</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"result"</span><span class="p">:</span><span class="s2">"0.9.114"</span><span class="p">}</span><span class="w">
-</span></code></pre>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"result"</span><span class="p">:</span><span class="s2">"0.9.114"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">//go to json</span>
+</code></pre>
 <table><thead>
 <tr>
 <th><strong>Field name</strong></th>
@@ -964,12 +1029,12 @@ For example, for Ethereum transaction, you do not need to pass <code>chainid</co
 <td>current version number which has the form of &quot;[major].[minor].[build number]&quot;.</td>
 </tr>
 </tbody></table>
-<h1 id='installation-guide-for-macos'>Installation guide for macOS</h1><h2 id='system-requirements'>System requirements</h2>
+<h1 id='installation-guides'>Installation guides</h1><h2 id='macos'>macOS</h2><h3 id='system-requirements'>System requirements</h3>
 <ul>
-<li>macOS 10.12 or newer.</li>
+<li>macOS <a href="#http://support.apple.com/downloads/DL1917/en_US/macosupd10.12.5.dmg">10.12</a> or <a href="https://support.apple.com/downloads/macos">newer</a>.</li>
 </ul>
-<h2 id='download-macos-installer-here'>Download macOS installer <a href="https://github.com/arrayio/array-io-keychain/releases/download/0.10/KeyChain.Installer.v0.10.zip">here</a>.</h2>
-<p>Follow the steps of the graphic installer. </p>
+<h3 id='how-to-install'>How to install</h3>
+<p>Download <a href="https://github.com/arrayio/array-io-keychain/releases/download/0.10/KeyChain.Installer.v0.10.zip">KeyChain</a> and follow the steps of the graphic installer. </p>
 
 <ol>
 <li>Click &quot;next&quot; to start installation.</li>
@@ -1012,17 +1077,85 @@ For example, for Ethereum transaction, you do not need to pass <code>chainid</co
 </ol>
 
 <p><img width="532" alt="mac-6" src="https://user-images.githubusercontent.com/34011337/49649380-0e507080-fa3a-11e8-8645-b86dbd139dbc.png"></p>
-<h2 id='check-if-the-installation-was-successful'>Check if the installation was successful</h2>
-<p>After installation, connect to the demo-page: http://localhost:16384/ to check if the installation was successful and to test the KeyChain commands. In case everything went well, you will see the following page and you will be able to see responses to the commands in the &quot;Response&quot; box when you click on them.</p>
+<h3 id='check-if-keychain-is-installed'>Check if KeyChain is installed</h3>
+<p>After installation, connect to the demo-page: <a href="http://localhost:16384/">http://localhost:16384/</a> to check if the installation was successful and to test the KeyChain commands. In case everything went well, you will see the following page and you will be able to see responses to the commands in the &quot;Response&quot; box when you click on them.</p>
 
 <p><img src="https://user-images.githubusercontent.com/34011337/49734247-be211a80-fc94-11e8-8d85-c70b738ecae3.png" alt="screenshot from 2018-12-10 15-57-27" /></p>
-<h1 id='how-to-sign-an-ethereum-transaction-with-keychain'>How to sign an Ethereum transaction with KeyChain</h1>
+<h2 id='windows'>Windows</h2>
+<p>Windows installer will be accessible at v.1.0. </p>
+
+<p>We are passionate about KeyChain and seek to make it as soon as possible, so that you could enjoy its wonderful features on any operating system you like. </p>
+<h3 id='system-requirements-2'>System requirements</h3>
+<ul>
+<li>Windows 7 or newer.</li>
+</ul>
+<h3 id='how-to-install-2'>How to install</h3>
+<p>Download KeyChain and follow the steps of the graphic installer. </p>
+
+<ol>
+<li>Click &quot;next&quot; to prepare installation</li>
+</ol>
+
+<p><img src="https://user-images.githubusercontent.com/34011337/49864523-b76ce180-fe13-11e8-8fa9-7e1421295bd9.png" alt="79" /></p>
+
+<ol>
+<li>Accept the terms of the License and click &quot;next&quot;</li>
+</ol>
+
+<p><img src="https://user-images.githubusercontent.com/34011337/49864529-b89e0e80-fe13-11e8-814d-71b2723a41d0.png" alt="80" /></p>
+
+<ol>
+<li>Choose a folder, click &quot;next&quot;</li>
+</ol>
+
+<p><img src="https://user-images.githubusercontent.com/34011337/49864528-b89e0e80-fe13-11e8-8671-11845874f077.png" alt="81" /></p>
+
+<ol>
+<li>Click &quot;install&quot; for installation to start</li>
+</ol>
+
+<p><img src="https://user-images.githubusercontent.com/34011337/49864527-b8057800-fe13-11e8-910c-914dbcf6d8b3.png" alt="82" /></p>
+
+<ol>
+<li>Wait until the setup is complete</li>
+</ol>
+
+<p><img src="https://user-images.githubusercontent.com/34011337/49864526-b8057800-fe13-11e8-88cf-64f722b9b277.png" alt="84" /></p>
+
+<ol>
+<li>Congratulaions! You have installed KeyChain.</li>
+</ol>
+
+<p><img src="https://user-images.githubusercontent.com/34011337/49864525-b76ce180-fe13-11e8-9034-c6aaec14fcf4.png" alt="85" /></p>
+<h3 id='check-if-keychain-is-installed-2'>Check if KeyChain is installed</h3>
+<p>After installation, connect to the demo-page: <a href="http://localhost:16384/">http://localhost:16384/</a> to check if the installation was successful and to test the KeyChain commands. In case everything went well, you will see the following page and you will be able to see responses to the commands in the &quot;Response&quot; box when you click on them.</p>
+
+<p><img src="https://user-images.githubusercontent.com/34011337/49734247-be211a80-fc94-11e8-8d85-c70b738ecae3.png" alt="screenshot from 2018-12-10 15-57-27" /></p>
+<h2 id='linux'>Linux</h2>
+<p>Windows installer will be accessible at v.1.0.</p>
+
+<p>We are passionate about KeyChain and seek to make it as soon as possible, so that you could enjoy its wonderful features on any operating system you like.</p>
+<h3 id='system-requirements-3'>System requirements</h3>
+<ul>
+<li><p>Ubuntu 16.04 or newer</p></li>
+<li><p>Debian 9 or newer</p></li>
+<li><p>Linux Mint 18.3 or newer</p></li>
+</ul>
+<h3 id='how-to-install-3'>How to install</h3>
+<p>Coming soon</p>
+<h1 id='sign-an-ethereum-transaction'>Sign an Ethereum transaction</h1>
 <p>Here you can find an instruction on how to sign an Ethereum transaction with KeyChain.</p>
-<h3 id='demo-page'>Demo page</h3>
-<p><a href="https://arrayio.github.io/array-io-keychain/eth_signer/">Here</a> you can try out signing Ethereum transactions with KeyChain.</p>
-<h3 id='1-download-and-install-keychain-for-macos'>1. Download and install KeyChain for <a href="https://github.com/arrayio/array-io-keychain/releases/download/0.10/KeyChain.Installer.v0.10.zip">macOS</a></h3><h3 id='2-generate-the-key'>2. Generate the key</h3>
+
+<p>On this <a href="https://arrayio.github.io/array-io-keychain/eth_signer/">demo page</a> you can try out signing Ethereum transactions with KeyChain.</p>
+<h2 id='step-by-step-guide'>Step-by-step guide</h2><h3 id='1-install-keychain-for-macos'>1. Install KeyChain for macOS</h3>
+<p><a href="https://github.com/arrayio/array-io-keychain/releases/download/0.10/KeyChain.Installer.v0.10.zip">Download KeyChain installer</a>.</p>
+<h3 id='2-generate-the-key'>2. Generate the key</h3>
 <p>Start with the command <code>wscat -c ws://localhost:16384/</code>
-and send the <code>create</code> command to generate the key</p>
+and send the <code>create</code> command to generate the key.</p>
+
+<blockquote>
+<p>Create a key pair</p>
+</blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"command"</span><span class="p">:</span><span class="w"> </span><span class="s2">"create"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"params"</span><span class="p">:</span><span class="w">
@@ -1033,12 +1166,18 @@ and send the <code>create</code> command to generate the key</p>
       </span><span class="s2">"cipher"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aes256"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
+</span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">//go to json</span>
+</code></pre>
 <p>You will get an <strong>extended name</strong> of the key which consists of the name you have given it as a prefix and the first 8 bytes of the hash. Note that from now on you should insert the extended key! </p>
-<h3 id='nb'>NB:</h3>
-<p><strong>Insert your own extended name of the key!</strong> Do not copy the following code together with the key name that we use because it is specified here only as an example of how your key name might look like. <strong>Use your own key name!</strong></p>
 
+<aside class="notice">
+Insert your own extended name of the key! Do not copy the following code together with the key name that we use because it is specified here only as an example of how your key name might look like. 
+</aside>
+ 
+
+<blockquote>
 <p>Then request a public key via</p>
+</blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> 
   </span><span class="s2">"command"</span><span class="p">:</span><span class="w"> </span><span class="s2">"public_key"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"params"</span><span class="p">:</span><span class="w"> 
@@ -1046,18 +1185,38 @@ and send the <code>create</code> command to generate the key</p>
     </span><span class="s2">"keyname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"my key@f9a1554e3f5e30c8"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='3-calculate-the-address-from-the-publickey'>3. Calculate the address from the publicKey</h3><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">ethUtil</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'ethereumjs-util'</span><span class="p">);</span>
+</span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">//go to json</span>
+</code></pre><h3 id='3-get-the-address'>3. Get the address</h3>
+<p>The address can be calculated from the public key.</p>
+
+<blockquote>
+<p>Get address from public key</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="err">//go</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">javascript</span><span class="w">
+</span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">ethUtil</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'ethereumjs-util'</span><span class="p">);</span>
 <span class="kr">const</span> <span class="nx">publicKey</span> <span class="o">=</span> <span class="s1">'YOUR_PUBLIC_KEY'</span><span class="p">;</span>
 <span class="kr">const</span> <span class="nx">fromAdd</span> <span class="o">=</span> <span class="nx">ethUtil</span><span class="p">.</span><span class="nx">publicToAddress</span><span class="p">(</span><span class="nx">publicKey</span><span class="p">).</span><span class="nx">toString</span><span class="p">(</span><span class="s1">'hex'</span><span class="p">);</span>
-</code></pre><h3 id='4-transfer-money-to-the-address-corresponding-to-the-public-key'>4. Transfer money to the address corresponding to the public key</h3>
+</code></pre><h3 id='4-make-a-transaction'>4. Make a transaction</h3>
+<p>Now you can transfer some money to the address corresponding to the public key.</p>
+
 <p>In case you work with ropsten - 
 https://faucet.ropsten.be/</p>
-<h3 id='5-check-the-balance-on-the-address-it-should-have-enough-ether-for-a-successful-transfer'>5. Check the balance on the address - it should have enough ether for a successful transfer.</h3><pre class="highlight javascript tab-javascript"><code><span class="nx">web3</span><span class="p">.</span><span class="nx">eth</span><span class="p">.</span><span class="nx">getBalance</span><span class="p">(</span><span class="nx">fromAdd</span><span class="p">)</span> 
-<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">);</span>
+<h3 id='5-check-the-balance'>5. Check the balance</h3>
+<p>Check the balance of the address - it should have enough ether for a successful transfer.</p>
 
-</code></pre><h3 id='6-sign-transaction-with-the-key-that-you-have-generated'>6. Sign transaction with the key that you have generated</h3>
-<p>You can find an example of the code <a href="https://gist.github.com/cypherpunk99/3e1314f8cc62cd675fa5c8f7bbe97923">here</a></p>
-<h3 id='7-check-etherscan'>7. <a href="https://ropsten.etherscan.io/address/0x1ba05dad1abe91fdea3afffe9676b59076ce0ece">Check Etherscan</a></h3>
+<blockquote>
+<p>Check balance</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="err">//go</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">javascript</span><span class="w">
+</span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="nx">web3</span><span class="p">.</span><span class="nx">eth</span><span class="p">.</span><span class="nx">getBalance</span><span class="p">(</span><span class="nx">fromAdd</span><span class="p">)</span> 
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">);</span>
+</code></pre><h3 id='6-sign-transaction'>6. Sign transaction</h3>
+<p>You can now use the key that you have generated to sign a transaction.</p>
+
+<p>You can find an example of the code <a href="https://gist.github.com/cypherpunk99/3e1314f8cc62cd675fa5c8f7bbe97923">here</a>.</p>
+<h3 id='7-check-etherscan'>7. Check Etherscan</h3>
+<p><a href="https://ropsten.etherscan.io/address/0x1ba05dad1abe91fdea3afffe9676b59076ce0ece">Etherscan</a></p>
+
 <p><img src="https://user-images.githubusercontent.com/34011337/49658738-d35b3680-fa53-11e8-9d49-7739492ecab7.png" alt="screen shot 2018-11-30 at 19 19 52" /></p>
 <h1 id='websocket-api'>WebSocket API</h1>
 <p><strong>KeyChain</strong> contains a WebSocket API. This API can be used to stream information from a KeyChain instance to any client that implements WebSockets. Implementations in different languages:</p>
@@ -1069,7 +1228,7 @@ https://faucet.ropsten.be/</p>
 <li>etc</li>
 </ul>
 
-<p>Install KeyChain for <a href="https://github.com/arrayio/array-io-keychain/releases/download/0.10/KeyChain.Installer.v0.10.zip">macOS</a>, <a href="https://github.com/arrayio/array-io-keychain/wiki/Installation-guide-for-Windows">Windows</a>, <a href="https://github.com/arrayio/array-io-keychain/wiki/Installation-guide-for-Linux">Linux</a> and connect to the demo page here http://localhost:16384/.</p>
+<p>Install KeyChain for <a href="https://github.com/arrayio/array-io-keychain/releases/download/0.10/KeyChain.Installer.v0.10.zip">macOS</a>, <a href="#windows">Windows</a>, <a href="#linux">Linux</a> and connect to the demo page via <a href="http://localhost:16384/">http://localhost:16384/</a>.</p>
 <h2 id='demo-pages-in-javascript'>Demo pages in JavaScript</h2><h3 id='for-testing-the-keychain-commands'>For testing the KeyChain commands</h3>
 <ul>
 <li><p>On this <a href="https://arrayio.github.io/array-io-keychain/demo/">demo page</a> you can test all the KeyChain commands.</p></li>
@@ -1094,33 +1253,44 @@ https://faucet.ropsten.be/</p>
       </span><span class="s2">"cipher"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aes256"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
+</span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">//go to json</span>
+</code></pre>
 <p>Each WebSocket API message is a json serialized object containing a command with the corresponding parameters.</p>
 
-<p>For full comprehensive descriptions of the commands, acceptable parameters and values, go to the <a href="https://github.com/arrayio/array-io-keychain/wiki/KeyChain-Protocol">Protocol</a>. </p>
+<p>For full comprehensive descriptions of the commands, acceptable parameters and values, go to the <a href="#generate-a-key-pair">Protocol</a>. </p>
 <h2 id='websocket-integration-guide'>WebSocket integration guide</h2><h3 id='nodejs-integration-example'>NodeJS integration example</h3>
-<p>The following will show the usage of websocket connections. We make use of the <code>wscat</code> application available via npm:</p>
-<pre class="highlight plaintext"><code>$ npm install -g wscat
+<p>The following will show the usage of websocket connections. </p>
+
+<blockquote>
+<p>We make use of the <code>wscat</code> application available via npm:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="err">//go</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">javascript</span><span class="w">
+</span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="nx">$</span> <span class="nx">npm</span> <span class="nx">install</span> <span class="o">-</span><span class="nx">g</span> <span class="nx">wscat</span>
 </code></pre>
+<blockquote>
 <p>A simple call would take the form:</p>
-<pre class="highlight plaintext"><code>$ wscat -c ws://127.0.0.1:16384
-&gt; { "command": "list"}
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="err">//go</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">javascript</span><span class="w">
+</span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="nx">$</span> <span class="nx">wscat</span> <span class="o">-</span><span class="nx">c</span> <span class="nx">ws</span><span class="p">:</span><span class="c1">//127.0.0.1:16384</span>
+<span class="o">&gt;</span> <span class="p">{</span> <span class="s2">"command"</span><span class="p">:</span> <span class="s2">"list"</span><span class="p">}</span>
 </code></pre><h4 id='successful-calls'>Successful Calls</h4>
 <p>The API will return a properly JSON formated response carrying the same id as the request to distinguish subsequent calls.</p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"result"</span><span class="p">:</span><span class="w">  </span><span class="err">..data..</span><span class="p">}</span><span class="w">
-</span></code></pre><h4 id='errors'>Errors</h4>
+</span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">//go to json</span>
+</code></pre><h4 id='error'>Error</h4>
 <p>In case of an error, the resulting answer will carry an error attribute and a description in human-readable format:</p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"error"</span><span class="p">:</span><span class="s2">"Error: keyfile could not found by keyname"</span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='javascript-integration-example'>JavaScript integration example</h3>
-<p>Before you proceed with the integration, you need to install KeyChain for <a href="https://github.com/arrayio/array-io-keychain/releases/download/0.10/KeyChain.Installer.v0.10.zip">macOS</a>, <a href="https://github.com/arrayio/array-io-keychain/wiki/Installation-guide-for-Windows">Windows</a>, <a href="https://github.com/arrayio/array-io-keychain/wiki/Installation-guide-for-Linux">Linux</a>.</p>
+</span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">//go to json</span>
+</code></pre><h3 id='javascript-integration-example'>JavaScript integration example</h3>
+<p>Before you proceed with the integration, you need to install KeyChain for <a href="https://github.com/arrayio/array-io-keychain/releases/download/0.10/KeyChain.Installer.v0.10.zip">macOS</a>, <a href="#windows">Windows</a>, <a href="#linux">Linux</a>.</p>
 <h4 id='test-in-the-web'>Test in the web</h4>
-<p>After installing KeyChain, open the browser and connect to the demo page via http://localhost:16384/. </p>
+<p>After installing KeyChain, open the browser and connect to the demo page via <a href="http://localhost:16384/">http://localhost:16384/</a>. </p>
 
 <p>When the connection is established, you will see the following KeyChain page. If you click on one of the commands on the left panel, you will see its json request and response in the white boxes below:</p>
 
 <p><img src="https://user-images.githubusercontent.com/34011337/49734247-be211a80-fc94-11e8-8d85-c70b738ecae3.png" alt="screenshot from 2018-12-10 15-57-27" /></p>
 <h4 id='test-from-a-terminal-application'>Test from a terminal application:</h4>
-<p>You can see if the installation was successful by going to the terminal app, opening KeyChain and trying one of the commands that you can take from the <a href="https://github.com/arrayio/array-io-keychain/wiki/KeyChain-Protocol">Protocol</a>:</p>
+<p>You can see if the installation was successful by going to the terminal app, opening KeyChain and trying one of the commands that you can take from the <a href="#generate-a-key-pair">Protocol</a>:</p>
 
 <p>c:\Users\User-1&gt;cd &quot;C: Program Files\WsKeychain&quot;
 c:\Program Files\WSKeychain&gt;keychain 
@@ -1132,7 +1302,8 @@ c:\Program Files\WSKeychain&gt;keychain
 <p>Response example</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"result"</span><span class="p">:</span><span class="s2">"my key@47f926e22f376478"</span><span class="p">,</span><span class="s2">"my key@e67871253c263de0"</span><span class="p">,</span><span class="s2">"my key@e755d5b98b6ed747"</span><span class="p">,</span><span class="s2">"my key@f9a1554e3f5e30c8"</span><span class="p">}</span><span class="w">
-</span></code></pre>
+</span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">//go to json</span>
+</code></pre>
 <table><thead>
 <tr>
 <th><strong>Field name</strong></th>
@@ -1153,28 +1324,27 @@ c:\Program Files\WSKeychain&gt;keychain
 
 <p>Save this to the folder  where you will be running the <code>websocket</code> command.</p>
 
-<p>Open this page via localhost: http://localhost:16384/</p>
-
-<hr>
+<p>Open this page via localhost: <a href="http://localhost:16384/">http://localhost:16384/</a></p>
 
 <p>You can find the code for the demo page and the page itself up in the <a href="#demo-pages-in-javascript">Demo pages in JavaScript</a> section.</p>
-
+<h1 id='pipe-api'>Pipe API</h1>
 <p><strong>KeyChain</strong> has an I/O stream (pipe) integration option. Interaction with <strong>KeyChain</strong> through pipes requires a terminal application as an input module that sends requests (STDIN) to the security layer that shows you the details of your request. When you approve the request through an interative gialogue window, the request goes back through the signing module and gives you an answer (STDOUT). </p>
 
-<p>For detailed description of the process, see <a href="https://github.com/arrayio/array-io-keychain/wiki/KeyChain-security#three-security-layers-of-keychain">Three security layers</a> section.</p>
+<p>For detailed description of the process, see <a href="#three-security-layers-of-keychain">Three security layers</a> section.</p>
 <h2 id='message-format-2'>Message format</h2>
 <p>Each Pipe API message is a json serialized object containing a command with the corresponding parameters.</p>
 
-<p>For full comprehensive descriptions of the commands, acceptable parameters and values, go to the <a href="https://github.com/arrayio/array-io-keychain/wiki/KeyChain-Protocol">Protocol</a>.</p>
-<h1 id='pipe-integration-guide'>Pipe integration guide</h1>
-<p>Before you proceed with the integration, you need to install KeyChain for <a href="https://github.com/arrayio/array-io-keychain/releases/download/0.10/KeyChain.Installer.v0.10.zip">macOS</a>, <a href="https://github.com/arrayio/array-io-keychain/wiki/Installation-guide-for-Windows">Windows</a>, <a href="https://github.com/arrayio/array-io-keychain/wiki/Installation-guide-for-Linux">Linux</a>.</p>
+<p>For full comprehensive descriptions of the commands, acceptable parameters and values, go to the <a href="#generate-a-key-pair">Protocol</a>.</p>
+<h2 id='pipe-integration-guide'>Pipe integration guide</h2>
+<p>Before you proceed with the integration, you need to install KeyChain for <a href="https://github.com/arrayio/array-io-keychain/releases/download/0.10/KeyChain.Installer.v0.10.zip">macOS</a>, <a href="#windows">Windows</a>, <a href="#linux">Linux</a>.</p>
 
 <p>When the installation is complete, you can open stream input to start sending json requests through STDIN - STDOUT pipes.</p>
 
 <blockquote>
 <p>Here you will find an example of KeyChain integration using Node.js</p>
 </blockquote>
-<pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="p">{</span> <span class="nx">spawn</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'child_process'</span><span class="p">);</span>
+<pre class="highlight json tab-json"><code><span class="err">//go</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">javascript</span><span class="w">
+</span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="p">{</span> <span class="nx">spawn</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'child_process'</span><span class="p">);</span>
 <span class="kr">const</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'path'</span><span class="p">);</span>
 <span class="kr">const</span> <span class="nx">keychain</span> <span class="o">=</span> <span class="nx">spawn</span><span class="p">(</span><span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s1">'keychain'</span><span class="p">));</span>
 
@@ -1191,11 +1361,13 @@ c:\Program Files\WSKeychain&gt;keychain
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`keychain process exited with code </span><span class="p">${</span><span class="nx">code</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
   <span class="p">}</span>
 <span class="p">});</span>
-</code></pre><h3 id='see-all-your-keys'>See all your keys</h3><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">listCommand</span> <span class="o">=</span> <span class="p">{</span> <span class="na">command</span><span class="p">:</span> <span class="s2">"list"</span> <span class="p">};</span>
+</code></pre><h3 id='see-all-your-keys'>See all your keys</h3><pre class="highlight json tab-json"><code><span class="err">//go</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">javascript</span><span class="w">
+</span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">listCommand</span> <span class="o">=</span> <span class="p">{</span> <span class="na">command</span><span class="p">:</span> <span class="s2">"list"</span> <span class="p">};</span>
 <span class="nx">keychain</span><span class="p">.</span><span class="nx">stdin</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">listCommand</span><span class="p">));</span>
 </code></pre><h3 id='sign-transaction'>Sign transaction</h3>
 <p>To sign a transaction, first you need to set the timeout value for your key. While it is unlocked, you can sign the transaction without entering a passphrase during this visit. Upon finishing the transaction, lock your keys.</p>
-<pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">unlockCommandTime</span> <span class="o">=</span> <span class="p">{</span>
+<pre class="highlight json tab-json"><code><span class="err">//go</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">javascript</span><span class="w">
+</span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">unlockCommandTime</span> <span class="o">=</span> <span class="p">{</span>
   <span class="s2">"command"</span><span class="p">:</span> <span class="s2">"set_unlock_time"</span><span class="p">,</span> 
   <span class="s2">"params"</span><span class="p">:</span> 
   <span class="p">{</span>
@@ -1233,7 +1405,77 @@ c:\Program Files\WSKeychain&gt;keychain
 
 <span class="nx">keychain</span><span class="p">.</span><span class="nx">stdin</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">signCommand</span><span class="p">));</span>
 </code></pre>
-<p>For descriptions of all the commands and parameters, see <a href="https://github.com/arrayio/array-io-keychain/wiki/KeyChain-Protocol">KeyChain Protocol</a>.</p>
+<p>For descriptions of all the commands and parameters, go to the <a href="#generate-a-key-pair">Protocol</a>.</p>
+<h1 id='keychain-security'>KeyChain security</h1><h2 id='about-keychain-security'>About KeyChain security</h2>
+<p>Choosing a means of storing keys is an important and responsible task that everybody needs to address when considering making <strong>transactions</strong> - irrespective of the type of  blockchain they use. That is why here we show you the <strong>detailed structure</strong> of our KeyChain - so that your choice of key storage is an informed decision based on real knowledge of what stands behind the system.</p>
+<h2 id='how-keychain-ensures-safe-key-storage'>How KeyChain ensures safe key storage</h2>
+<p>KeyChain encrypts private keys using AES256 algorithm and stores the keys in an isolated environment that is protected with <a href="#three-security-layers-of-keychain">three security layers</a>. </p>
+
+<p><strong>AES256</strong> was first adopted by the U.S. government and now is used worldwide as a secure and reliable way of protecting information. It stands for <strong>Advanced Encryption Standard</strong> which handles <strong>256-bit keys</strong>. This is a symmetric encryption algorithm that creates an output (ciphertext) from the input (plaintext) in 14 rounds which involve several steps of encryption. These steps combine the procedures of other symmetric encryption algorithms: substitution cipher with a reference table, adding round key,  shifting rows, and mixing columns - all performed multiple times. </p>
+<h2 id='os-specific-keychain-security'>OS-specific KeyChain security</h2><h3 id='unix-like-operating-systems'>Unix-like operating systems</h3>
+<p>For Linux, we use a unique mechanism created by our team.</p>
+
+<p>Typically, Linux offers the following algorithm of interacting with the user:</p>
+
+<p><strong>1)</strong> Client app = &gt; connects =&gt; to X-server</p>
+
+<p><strong>2)</strong> Client app =&gt; sends some X-proto specified commands =&gt; X-server receives the commands =&gt; X-server renders an interface window</p>
+
+<p><strong>3)</strong> User enters a passphrase into the window =&gt; X-server catch the passphrase from the user =&gt; sends X-proto commands to the client =&gt; client app processes the passphrase from the user</p>
+
+<p>However, around 1984, at the time when X11 was created, there existed no such task as performing secure operations via the Internet. The developers of X11 did not set out to protect the user’s data from someone capturing it. Even now, there is still no real mechanism against this kind of attack.
+To solve the problem of protecting the data, we have decided to look past the standard solutions. Instead of receiving a passphrase from a user through the X-server, we have chosen to receive the passphrase from the keyboard driver. This serves as a shortcut that allows KeyChain to work without connecting to the X-server, thus minimizing the risk of someone stealing the passphrase.</p>
+
+<p>Therefore, now instead of the following sequence…</p>
+
+<ul>
+<li>The user enters the passphrase into the window =&gt; X-server catches the passphrase =&gt; it sends the passphrase through X-proto =&gt; Client app processes the request</li>
+</ul>
+
+<p>… we have:</p>
+
+<ul>
+<li>The user enters the passphrase =&gt; KeyChain catches the keyboard’s events directly</li>
+</ul>
+
+<p>The shorter the path, the fewer weak points can be found. We exclude the weakest link (X-server) from the process of entering the passphrase. Thus, for the third party to compromise the passphrase, they will need to intercept it right at the keyboard level, which requires to have root access and hence makes it almost impossible.</p>
+
+<p>You might be asking yourself: if KeyChain functions without connecting to the X-server, why does the user see the dialogue window?</p>
+
+<p>The answer is simple and is motivated by our concern with the user experience. Working through the command line is rather inconvenient for most people. That is why we use an emulator program that imitates the process of inputting the passphrase by receiving events from the KeyChain daemon. Note that no secret data goes into the emulator – like a mirror that only reflects light without absorbing any of it. This allows KeyChain to minimize the risks to the minimum.</p>
+<h3 id='windows-2'>Windows</h3>
+<p>Users of <strong>Windows 10 Enterprise Edition</strong> can benefit from a new security feature - <strong>Isolated User Mode (IUM)</strong>. It employs a set of modes called <strong>Virtual Trusted Levels (VTL)</strong> to run processes separately, without accessing each other’s memory. 
+We launch KeyChain on VTL1 (SecureMode). Any malware that is launched on VTL0 (NormalMode) does not have access to KeyChain. The mechanism of isolating the kernels is executed as a Windows OS process. Learn more about IUM processes <a href="https://docs.microsoft.com/en-us/windows/desktop/procthread/isolated-user-mode--ium--processes">here</a>.</p>
+
+<p>To ensure secure passphrase entry, <strong>Windows Vista/7/8</strong> and <strong>Windows 10 (not Enterprise Edition)</strong> use a mechanism similar to the one used for <strong>User Access Control (UAC)</strong>. In particular, UAC is used at a program setup to avoid giving a malware access to the system context.</p>
+
+<p>KeyChain gets access to the system environment when it is being installed. 
+A malware can only access the user context (unless it is installed in the system as a service). The processes that are launched in the user context do not have access to the applications that are launched in the isolated context.Hence, a malware cannot get access to KeyChain data because of the mechanism of separating the access between the levels of the OS. For more information, please refer to <a href="https://docs.microsoft.com/en-us/windows/security/identity-protection/user-account-control/how-user-account-control-works">Microsoft documentation</a>.</p>
+<h3 id='macos-2'>macOS</h3>
+<p>macOS has in innate security mechanism that does not allow any other program to interfere with a process if it was not the one that started it. Therefore, all we needed to do was to take care of the intermediary step that takes place at the passphrase entry on the keyboard. That is why we incorporated the <code>EnableSecureEventInput</code> function that provides a means for a process to protect sensitive data from being intercepted by other processes. Learn more on the <a href="https://developer.apple.com/library/archive/technotes/tn2150/_index.html#//apple_ref/doc/uid/DTS10004249">Apple developers portal</a>.</p>
+<h2 id='three-security-layers-of-keychain'>Three security layers of KeyChain</h2>
+<p><img src="https://user-images.githubusercontent.com/34011337/49658582-719acc80-fa53-11e8-97bc-e957ef604075.png" alt="diagram keychain fin 1" /></p>
+
+<p>Apps or websites send requests to the KeyChain through two types of communication - standard I/O streams (mostly called pipes), and the WebSocket. 
+The architecture of the KeyChain software consists of the three independent layers:</p>
+
+<ol>
+<li><p><strong>API layer</strong> which integrates with your app, website or any external application. It is language-neutral. The protocol for the terminal application operates with the JSON format in synchronous request/response way. The main function of the <strong>API layer</strong> is to transmit and parse commands for given API. 
+Each request carries information about commands, the type of key user wants to use to sign transactions and other relevant parameters which you can find in the <a href="#generate-a-key-pair">Protocol</a>. </p></li>
+<li><p><strong>Security layer</strong> receives the commands from the API layer and acts as an OS-specific  protection mechanism for the <strong>interface window</strong> (third layer). It serves as a shield from potential attacks at sensitive data and information. <strong>Security layer</strong> is tailored for the Mac OS, Linux, and Windows OS and operates only with permitted files (through admin access). 
+The request, transmitted to the <strong>Signing module</strong> which holds the private keys, works simultaneously with the Secured input module that uses OS-specific mechanism. The <strong>Secured input module</strong> protects the passphrase from key grabbers and malware.</p></li>
+<li><p><strong>Representation layer</strong> is the <strong>UI window</strong> which notifies the user about the details of transactions and necessary actions. The <strong>interface window</strong> is initiated from <strong>Security layer</strong>. Once the user inputs the correct passphrase, it sends the permission to the <strong>Signing module</strong> to unlock the demanded key. Passphrase input field is protected by the secured input module. <strong>Security layer</strong> decrypts the given key with the correct passphrase entered by the user.  In this instance <strong>Signing module</strong> can operate with the open private key, for example it can extract information, sign transactions, therefore responding to given requests.</p></li>
+</ol>
+<h1 id='useful-links'>Useful links</h1>
+<p>This page contains links to the scholarly and publicistic sources that we find useful concerning KeyChain.</p>
+
+<ul>
+<li><p>Building a Transaction By Hand: <a href="https://klmoney.wordpress.com/bitcoin-dissecting-transactions-part-2-building-a-transaction-by-hand/">guide</a></p></li>
+<li><p>Cryptography Docs: <a href="https://www.adjoint.io/docs/cryptography.html">documentation of cryptographic algorithms used in banking</a></p></li>
+<li><p>Default nonce function: <a href="https://www.reddit.com/r/Bitcoin/comments/1mwzo2/what_is_rfc6979/">blog thread on the topic &quot;What is RFC6979?&quot;</a></p></li>
+<li><p>Guide to Elliptic Curve Digital Signatures: <a href="http://royalforkblog.github.io/2014/09/04/ecc/">guide with thorough explanations of technical aspects</a></p></li>
+<li><p>Доступно о криптографии на эллиптических кривых: <a href="https://habr.com/post/335906/">about elliptic curves in Russian</a></p></li>
+</ul>
 <h1 id='errors'>Errors</h1>
 <aside class="notice">
 If you receive an error message, then the request could not be successfully processed. Here you can find out more about errors, so that you can prevent them next time. If you have trouble dealing with them, please refer to the log files below or contact us.
@@ -1271,7 +1513,7 @@ All errors have the following format: </p>
 </tbody></table>
 
 <ul>
-<li>Syntactic error - unsupported symbols. </li>
+<li>Syntactic error - unsupported symbols.</li>
 </ul>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"error"</span><span class="p">:</span><span class="s2">"Parsing Error"</span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -1322,6 +1564,7 @@ All errors have the following format: </p>
       </div>
       <div class="dark-box">
           <div class="lang-selector">
+                <a href="#" data-language-name="json">json</a>
                 <a href="#" data-language-name="javascript">javascript</a>
           </div>
       </div>
