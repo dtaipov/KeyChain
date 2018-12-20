@@ -621,11 +621,11 @@ On this [demo page](https://arrayio.github.io/array-io-keychain/eth_signer/) you
 
 ## Step-by-step guide
 
-1) Install KeyChain for macOS
+### 1. Install KeyChain for macOS
 
 [Download KeyChain installer](https://github.com/arrayio/array-io-keychain/releases/download/0.10/KeyChain.Installer.v0.10.zip).
 
-2) Generate the key 
+### 2. Generate the key
 
 Start with the command `wscat -c ws://localhost:16384/`
 and send the `create` command to generate the key.
@@ -645,7 +645,7 @@ and send the `create` command to generate the key.
 }
 ```
 ```javascript
-go to json
+//go to json
 ```
 You will get an **extended name** of the key which consists of the name you have given it as a prefix and the first 8 bytes of the hash. Note that from now on you should insert the extended key! 
 
@@ -665,15 +665,17 @@ Insert your own extended name of the key! Do not copy the following code togethe
 }
 ```
 ```javascript
-go to json
+//go to json
 ```
 
-3) Calculate the address from the public key
+### 3. Get the address 
 
-> Get adress from public key
+The address can be calculated from the public key.
+
+> Get address from public key
 
 ```json
-go to javascript
+//go to javascript
 ```
 ```javascript
 const ethUtil = require('ethereumjs-util');
@@ -681,28 +683,34 @@ const publicKey = 'YOUR_PUBLIC_KEY';
 const fromAdd = ethUtil.publicToAddress(publicKey).toString('hex');
 ```
 
-4) Transfer money to the address corresponding to the public key
+### 4. Make a transaction 
+
+Now you can transfer some money to the address corresponding to the public key.
 
 In case you work with ropsten - 
 https://faucet.ropsten.be/
 
-5) Check the balance on the address - it should have enough ether for a successful transfer.
+### 5. Check the balance 
+
+Check the balance of the address - it should have enough ether for a successful transfer.
 
 > Check balance
 
 ```json
-go to javascript
+//go to javascript
 ```
 ```javascript
 web3.eth.getBalance(fromAdd) 
 .then(console.log);
 ```
 
-6) Sign transaction with the key that you have generated
+### 6. Sign transaction 
+
+You can now use the key that you have generated to sign a transaction.
 
 You can find an example of the code [here](https://gist.github.com/cypherpunk99/3e1314f8cc62cd675fa5c8f7bbe97923)
 
-7) Check Etherscan
+###  7. Check Etherscan
 
 [Etherscan](https://ropsten.etherscan.io/address/0x1ba05dad1abe91fdea3afffe9676b59076ce0ece)
 
