@@ -17,7 +17,7 @@ search: true
 # KeyChain Documentation
 ## Introduction
 
-**KeyChain** is a standalone app for signing transactions and generating key pairs. It stores private keys in an isolated environment where no logger, debugger or spyware can intercept them because of the [three-layer security](https://github.com/arrayio/array-io-keychain/wiki/KeyChain-security#three-security-layers-of-keychain) protecting each action of the system.
+**KeyChain** is a standalone app for signing transactions and generating key pairs. It stores private keys in an isolated environment where no logger, debugger or spyware can intercept them because of the [three-layer security](Three-security-layers-of-KeyChain) protecting each action of the system.
 **KeyChain** supports transactions from and to various blockchains, including Ethereum and Ethereum classic, Litecoin, Bitcoin, Bitcoin Cash, and Bitshares. 
 
 ## Installation
@@ -30,10 +30,9 @@ After installation, connect to the demo-page: http://localhost:16384/ to check i
 
 ![screenshot from 2018-12-10 15-57-27](https://user-images.githubusercontent.com/34011337/49734247-be211a80-fc94-11e8-8d85-c70b738ecae3.png)
 
-If you are having trouble connecting to the page, [contact us](#contact) and we will do our best to help you.
+If you are having trouble connecting to the page, [contact us](Contact) and we will do our best to help you.
 
-You can find comprehensive installation guides for [macOS](https://github.com/arrayio/array-io-keychain/wiki/Installation-guide-for-macOS), [Windows](https://github.com/arrayio/array-io-keychain/wiki/Installation-guide-for-Windows), and [Linux](https://github.com/arrayio/array-io-keychain/wiki/Installation-guide-for-Linux) in our Wiki. 
-
+Below you can find comprehensive installation guides for [macOS](Installation-guide-for-macOS), [Windows](Installation-guide-for-Windows), [Linux](Installation-guide-for-Linux).
 ## Getting started
 
 > Require libraries setup
@@ -107,42 +106,12 @@ console.log('txData:',    txData,    "\n")
 console.log('signature:', signature, "\n")
 ```
 
-
-
 - First, you need to get the necessary libraries and state the localhost address that you will connect to through the WebSocket.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 - Then you need to get a public key that you will need to sign a transaction and unsign it afterwards.
 
 
-
-
-
-
-
-
-
-
-
-
 - Finally, you can sign an Ethereum transaction in hex format and unsign it, passing the result to KeyChain
-
-
-
-
 
 
 <aside class="notice">
@@ -151,14 +120,14 @@ You must replace <code>test1@6de493f01bf590c0</code> with your personal keyname.
 
 ## Table of contents 
 
-- [Protocol](#Protocol): full comprehensive descriptions of the KeyChain commands.
-- Installation guides for [macOS](#Installation-guide-for-macOS), [Windows](#Installation-guide-for-Windows), [Linux](#Installation-guide-for-Linux).
-- [Sign an Ethereum transaction](#Sign-an-Ethereum-transaction): a simple and precise tutorial on how to protect your keys with KeyChain while signing an Ethereum transaction.
-- [WebSocket API](#WebSocket-API): integrating KeyChain through WebSocket.
-- [Pipe API](#Pipe-API): integrating KeyChain through pipe.
-- [KeyChain security](#KeyChain-security): why KeyChain is highly secure.
-- [Errors](#errors): error handling, log files, debugging.
-- [Useful links](#useful-links): external links to the materials on security that we find worth getting acquainted with.
+- [Protocol](Protocol): full comprehensive descriptions of the KeyChain commands.
+- Installation guides for [macOS](Installation-guide-for-macOS), [Windows](Installation-guide-for-Windows), [Linux](Installation-guide-for-Linux).
+- [Sign an Ethereum transaction](Sign-an-Ethereum-transaction): a simple and precise tutorial on how to protect your keys with KeyChain while signing an Ethereum transaction.
+- [WebSocket API](WebSocket-API): integrating KeyChain through WebSocket.
+- [Pipe API](Pipe-API): integrating KeyChain through pipe.
+- [KeyChain security](KeyChain-security): why KeyChain is highly secure.
+- [Errors](Errors): error handling, log files, debugging.
+- [Useful links](Useful-Links): external links to the materials on security that we find worth getting acquainted with.
 
 
 ## Contact
@@ -179,7 +148,7 @@ We take security issues very seriously and we'll be looking forward to hearing f
 
 ## License
 
-This project is licensed under the terms of the [MIT license](#License).
+This project is licensed under the terms of the [MIT license](License).
 
 
 # Protocol
@@ -226,12 +195,12 @@ result|`string`|extended key name.
 ## Sign transaction in hex format
 
 <aside class="notice">
-**NB:** You can sign transactions in hex or hash format. 
-For example, for Ethereum transaction, you do not need to pass `chainid` as a parameter because it is incorporated in the hex. 
+You can sign transactions in hex or hash format. 
+For example, for Ethereum transaction, you do not need to pass <code>chainid</code> as a parameter because it is incorporated in the hex. 
 </aside>
 
 <aside class="notice">
-**NB:** Please remember that you need to **insert your own key name** in the parameters when copying the requests!
+Please remember that you need to `insert your own key name` in the parameters when copying the requests!
 </aside>
 
 ### Command
@@ -278,7 +247,7 @@ result|`hex string`|65-byte singature in hex-string format.
 This request is suited best for advanced users who are eager to work on a low level. You should have knowledge of how to calculate hash of transaction, given the type of blockchain, and know the type of signature and its packaging.
 
 <aside class="notice">
-**NB:** Please remember that you need to **insert your own key name** in the parameters when copying the requests!
+Please remember that you need to <code>insert your own key name</code> in the parameters when copying the requests!
 </aside>
 
 ### Command
@@ -346,7 +315,7 @@ result|`JSON array of strings`|lists all your key names.
 ## Calculate the public key 
 
 <aside class="notice">
-**NB:** Please remember that you need to **insert your own key name** in the parameters when copying the requests!
+Please remember that you need to <code>insert your own key name</code> in the parameters when copying the requests!
 </aside>
 
 ### Command
@@ -415,15 +384,15 @@ result|`bool`|bool result.
 Unlock your key when you are ready to use it. 
 
 <aside class="notice">
-**NB:** This parameter is experimental! Allowing the user to sign transactions without extra authorization is not secure and can be harmful. If `unlock_time` is greater than zero, you will see an insecure action warning. We do not recommend to use it. Although it might be needed if you want to speed up signing transactions.
+This parameter is experimental! Allowing the user to sign transactions without extra authorization is not secure and can be harmful. If <code>unlock_time</code> is greater than zero, you will see an insecure action warning. We do not recommend to use it. Although it might be needed if you want to speed up signing transactions.
 </aside>
 
 <aside class="notice">
-**NB:** `Sign_hex` and `sign_hash` commands assume implicit unlocking of your keys. 
+<code>Sign_hex</code> and <code>sign_hash</code> commands assume implicit unlocking of your keys. 
 </aside>
 
 <aside class="notice">
-**NB:** Please remember that you need to **insert your own key name** in the parameters when copying the requests!
+Please remember that you need to <code>insert your own key name</code> in the parameters when copying the requests!
 </aside>
 
 
@@ -574,7 +543,9 @@ Here you can find an instruction on how to sign an Ethereum transaction with Key
 
 [Here](https://arrayio.github.io/array-io-keychain/eth_signer/) you can try out signing Ethereum transactions with KeyChain.
 
-### 1. Install KeyChain for [macOS](https://github.com/arrayio/array-io-keychain/releases/download/0.10/KeyChain.Installer.v0.10.zip)
+### 1. Install KeyChain for macOS
+
+[Here](https://github.com/arrayio/array-io-keychain/releases/download/0.10/KeyChain.Installer.v0.10.zip) you can find the installer.
 
 ### 2. Generate the key 
 
@@ -596,10 +567,7 @@ and send the `create` command to generate the key
 You will get an **extended name** of the key which consists of the name you have given it as a prefix and the first 8 bytes of the hash. Note that from now on you should insert the extended key! 
 
 <aside class="notice">
-**NB:** 
-
-**Insert your own extended name of the key!** Do not copy the following code together with the key name that we use because it is specified here only as an example of how your key name might look like. **Use your own key name!**
-
+Insert your own extended name of the key! Do not copy the following code together with the key name that we use because it is specified here only as an example of how your key name might look like. 
 </aside>
  
 Then request a public key via
@@ -639,7 +607,9 @@ web3.eth.getBalance(fromAdd)
 
 You can find an example of the code [here](https://gist.github.com/cypherpunk99/3e1314f8cc62cd675fa5c8f7bbe97923)
 
-### 7. [Check Etherscan](https://ropsten.etherscan.io/address/0x1ba05dad1abe91fdea3afffe9676b59076ce0ece)
+### 7. Check Etherscan
+
+[Etherscan](https://ropsten.etherscan.io/address/0x1ba05dad1abe91fdea3afffe9676b59076ce0ece)
 
 ![screen shot 2018-11-30 at 19 19 52](https://user-images.githubusercontent.com/34011337/49658738-d35b3680-fa53-11e8-9d49-7739492ecab7.png)
 
@@ -687,7 +657,7 @@ Install KeyChain for [macOS](https://github.com/arrayio/array-io-keychain/releas
 
 Each WebSocket API message is a json serialized object containing a command with the corresponding parameters.
 
-For full comprehensive descriptions of the commands, acceptable parameters and values, go to the [Protocol](https://github.com/arrayio/array-io-keychain/wiki/KeyChain-Protocol). 
+For full comprehensive descriptions of the commands, acceptable parameters and values, go to the [Protocol](Protocol). 
 
 ## WebSocket integration guide
 
@@ -713,7 +683,7 @@ The API will return a properly JSON formated response carrying the same id as th
 {"result":  ..data..}
 ```
 
-#### Errors
+#### Error
 
 In case of an error, the resulting answer will carry an error attribute and a description in human-readable format:
 
@@ -723,7 +693,7 @@ In case of an error, the resulting answer will carry an error attribute and a de
 
 ### JavaScript integration example
 
-Before you proceed with the integration, you need to install KeyChain for [macOS](https://github.com/arrayio/array-io-keychain/releases/download/0.10/KeyChain.Installer.v0.10.zip), [Windows](https://github.com/arrayio/array-io-keychain/wiki/Installation-guide-for-Windows), [Linux](https://github.com/arrayio/array-io-keychain/wiki/Installation-guide-for-Linux).
+Before you proceed with the integration, you need to install KeyChain for [macOS](https://github.com/arrayio/array-io-keychain/releases/download/0.10/KeyChain.Installer.v0.10.zip), [Windows](Installation-guide-for-Windows), [Linux](Installation-guide-for-Linux).
 
 #### Test in the web
 
@@ -735,7 +705,7 @@ When the connection is established, you will see the following KeyChain page. If
 
 #### Test from a terminal application:
 
-You can see if the installation was successful by going to the terminal app, opening KeyChain and trying one of the commands that you can take from the [Protocol](https://github.com/arrayio/array-io-keychain/wiki/KeyChain-Protocol):
+You can see if the installation was successful by going to the terminal app, opening KeyChain and trying one of the commands that you can take from the [Protocol](Protocol):
 
 
 c:\Users\User-1>cd "C: Program Files\WsKeychain"
@@ -778,11 +748,11 @@ For detailed description of the process, see [Three security layers](https://git
 
 Each Pipe API message is a json serialized object containing a command with the corresponding parameters.
 
-For full comprehensive descriptions of the commands, acceptable parameters and values, go to the [Protocol](https://github.com/arrayio/array-io-keychain/wiki/KeyChain-Protocol).
+For full comprehensive descriptions of the commands, acceptable parameters and values, go to the [Protocol](Protocol).
 
 ## Pipe integration guide
 
-Before you proceed with the integration, you need to install KeyChain for [macOS](https://github.com/arrayio/array-io-keychain/releases/download/0.10/KeyChain.Installer.v0.10.zip), [Windows](https://github.com/arrayio/array-io-keychain/wiki/Installation-guide-for-Windows), [Linux](https://github.com/arrayio/array-io-keychain/wiki/Installation-guide-for-Linux).
+Before you proceed with the integration, you need to install KeyChain for [macOS](https://github.com/arrayio/array-io-keychain/releases/download/0.10/KeyChain.Installer.v0.10.zip), [Windows](Installation-guide-for-Windows), [Linux](Installation-guide-for-Linux).
 
 When the installation is complete, you can open stream input to start sending json requests through STDIN - STDOUT pipes.
  
