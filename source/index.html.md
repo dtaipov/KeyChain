@@ -48,7 +48,7 @@ const WebSocket = require('ws');
 const ws = new WebSocket('ws://localhost:16384/');
 const keyname = 'test1@6de493f01bf590c0';
 ```
-This is a simple example of how to integrate KeyChain through WebSocket.
+> This is a simple example of how to integrate KeyChain through WebSocket.
 
 ```javascript
 let fromAdd;
@@ -828,6 +828,90 @@ keychain.stdin.write(JSON.stringify(signCommand));
 ``` 
 For descriptions of all the commands and parameters, see [KeyChain Protocol](https://github.com/arrayio/array-io-keychain/wiki/KeyChain-Protocol).
 
+# KeyChain security
+
+## About KeyChain security
+
+Choosing a means of storing keys is an important and responsible task that everybody needs to address when considering making **transactions** - irrespective of the type of  blockchain they use. That is why here we show you the **detailed structure** of our KeyChain - so that your choice of key storage is an informed decision based on real knowledge of what stands behind the system.
+
+## How KeyChain ensures safe key storage
+
+KeyChain encrypts private keys using AES256 algorithm and stores the keys in an isolated environment that is protected with [three security layers](three-security-layers-of-keychain). 
+
+**AES256** was first adopted by the U.S. government and now is used worldwide as a secure and reliable way of protecting information. It stands for **Advanced Encryption Standard** which handles **256-bit keys**. This is a symmetric encryption algorithm that creates an output (ciphertext) from the input (plaintext) in 14 rounds which involve several steps of encryption. These steps combine the procedures of other symmetric encryption algorithms: substitution cipher with a reference table, adding round key,  shifting rows, and mixing columns - all performed multiple times. 
+
+## OS-specific KeyChain security
+
+### Unix-like operating systems
+
+For Linux, we use a unique mechanism created by our team.
+
+Typically, Linux offers the following algorithm of interacting with the user:
+```
+1. Client app = > connects => to X-server
+2. Client app => sends some X-proto specified commands => X-server receives the commands => X-server renders an interface window
+3. User enters a passphrase into the window => X-server catch the passphrase from the user => sends X-proto commands to the client => client app processes the passphrase from the user
+``` 
+However, around 1984, at the time when X11 was created, there existed no such task as performing secure operations via the Internet. The developers of X11 did not set out to protect the user’s data from someone capturing it. Even now, there is still no real mechanism against this kind of attack.
+To solve the problem of protecting the data, we have decided to look past the standard solutions. Instead of receiving a passphrase from a user through the X-server, we have chosen to receive the passphrase from the keyboard driver. This serves as a shortcut that allows KeyChain to work without connecting to the X-server, thus minimizing the risk of someone stealing the passphrase.
+
+Therefore, now instead of the following sequence…
+```
+The user enters the passphrase into the window => X-server catches the passphrase => it sends the passphrase through X-proto => Client app processes the request
+```
+… we have:
+```
+The user enters the passphrase => KeyChain catches the keyboard’s events directly
+```
+
+The shorter the path, the fewer weak points can be found. We exclude the weakest link (X-server) from the process of entering the passphrase. Thus, for the third party to compromise the passphrase, they will need to intercept it right at the keyboard level, which requires to have root access and hence makes it almost impossible.
+
+You might be asking yourself: if KeyChain functions without connecting to the X-server, why does the user see the dialogue window?
+
+The answer is simple and is motivated by our concern with the user experience. Working through the command line is rather inconvenient for most people. That is why we use an emulator program that imitates the process of inputting the passphrase by receiving events from the KeyChain daemon. Note that no secret data goes into the emulator – like a mirror that only reflects light without absorbing any of it. This allows KeyChain to minimize the risks to the minimum.
+
+### Windows
+
+Users of **Windows 10 Enterprise Edition** can benefit from a new security feature - **Isolated User Mode (IUM)**. It employs a set of modes called **Virtual Trusted Levels (VTL)** to run processes separately, without accessing each other’s memory. 
+We launch KeyChain on VTL1 (SecureMode). Any malware that is launched on VTL0 (NormalMode) does not have access to KeyChain. The mechanism of isolating the kernels is executed as a Windows OS process. Learn more about IUM processes [here](https://docs.microsoft.com/en-us/windows/desktop/procthread/isolated-user-mode--ium--processes).
+
+To ensure secure passphrase entry, **Windows Vista/7/8** and **Windows 10 (not Enterprise Edition)** use a mechanism similar to the one used for **User Access Control (UAC)**. In particular, UAC is used at a program setup to avoid giving a malware access to the system context.
+
+KeyChain gets access to the system environment when it is being installed. 
+A malware can only access the user context (unless it is installed in the system as a service). The processes that are launched in the user context do not have access to the applications that are launched in the isolated context.Hence, a malware cannot get access to KeyChain data because of the mechanism of separating the access between the levels of the OS. For more information, please refer to [Microsoft documentation](https://docs.microsoft.com/en-us/windows/security/identity-protection/user-account-control/how-user-account-control-works).
+
+### macOS
+
+macOS has in innate security mechanism that does not allow any other program to interfere with a process if it was not the one that started it. Therefore, all we needed to do was to take care of the intermediary step that takes place at the passphrase entry on the keyboard. That is why we incorporated the `EnableSecureEventInput` function that provides a means for a process to protect sensitive data from being intercepted by other processes. Learn more on the [Apple developers portal](https://developer.apple.com/library/archive/technotes/tn2150/_index.html#//apple_ref/doc/uid/DTS10004249).
+
+## Three security layers of KeyChain
+
+![diagram keychain fin 1](https://user-images.githubusercontent.com/34011337/49658582-719acc80-fa53-11e8-97bc-e957ef604075.png)
+
+Apps or websites send requests to the KeyChain through two types of communication - standard I/O streams (mostly called pipes), and the WebSocket. 
+The architecture of the KeyChain software consists of the three independent layers:
+
+1. **API layer** which integrates with your app, website or any external application. It is language-neutral. The protocol for the terminal application operates with the JSON format in synchronous request/response way. The main function of the **API layer** is to transmit and parse commands for given API. 
+Each request carries information about commands, the type of key user wants to use to sign transactions and other relevant parameters which you can find in the [Protocol](https://github.com/arrayio/array-io-keychain/wiki/KeyChain-Protocol). 
+
+2. **Security layer** receives the commands from the API layer and acts as an OS-specific  protection mechanism for the **interface window** (third layer). It serves as a shield from potential attacks at sensitive data and information. **Security layer** is tailored for the Mac OS, Linux, and Windows OS and operates only with permitted files (through admin access). 
+The request, transmitted to the **Signing module** which holds the private keys, works simultaneously with the Secured input module that uses OS-specific mechanism. The **Secured input module** protects the passphrase from key grabbers and malware.
+
+3. **Representation layer** is the **UI window** which notifies the user about the details of transactions and necessary actions. The **interface window** is initiated from **Security layer**. Once the user inputs the correct passphrase, it sends the permission to the **Signing module** to unlock the demanded key. Passphrase input field is protected by the secured input module. **Security layer** decrypts the given key with the correct passphrase entered by the user.  In this instance **Signing module** can operate with the open private key, for example it can extract information, sign transactions, therefore responding to given requests.
+
+# Useful links
+
+This page contains links to the scholarly and publicistic sources that we find useful concerning KeyChain.
+
+- Building a Transaction By Hand: [guide](https://klmoney.wordpress.com/bitcoin-dissecting-transactions-part-2-building-a-transaction-by-hand/)
+
+- Cryptography Docs: [documentation of cryptographic algorithms used in banking](https://www.adjoint.io/docs/cryptography.html)
+
+- Default nonce function: [blog thread on the topic "What is RFC6979?"](https://www.reddit.com/r/Bitcoin/comments/1mwzo2/what_is_rfc6979/)
+
+- Guide to Elliptic Curve Digital Signatures: [guide with thorough explanations of technical aspects](http://royalforkblog.github.io/2014/09/04/ecc/)
+
+- Доступно о криптографии на эллиптических кривых: [about elliptic curves in Russian](https://habr.com/post/335906/)
 
 # License
 
