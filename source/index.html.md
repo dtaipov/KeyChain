@@ -95,8 +95,9 @@ ws.onopen = () => {
   send(getPublicKey(keyname));
 }
 ```
-мы отображаем публичный ключ и переводим его в адрес
+
 > Next, we display the public key and calculate the address from it.
+
 ```json
 //go to javascript
 ```
