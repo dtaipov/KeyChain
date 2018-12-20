@@ -107,11 +107,34 @@ console.log('txData:',    txData,    "\n")
 console.log('signature:', signature, "\n")
 ```
 
+
+
 - First, you need to get the necessary libraries and state the localhost address that you will connect to through the WebSocket.
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 - Then you need to get a public key that you will need to sign a transaction and unsign it afterwards.
+
+
+
+
+
+
+
+
+
 
 
 
@@ -120,30 +143,27 @@ console.log('signature:', signature, "\n")
 
 
 
+
+
 <aside class="notice">
 You must replace <code>test1@6de493f01bf590c0</code> with your personal keyname.
 </aside>
 
-## How to use 
+## Table of contents 
 
-For extensive documentation on KeyChain, refer to the [Wiki](https://github.com/arrayio/array-io-keychain/wiki).
+- [Protocol](#Protocol): full comprehensive descriptions of the KeyChain commands.
+- Installation guides for [macOS](#Installation-guide-for-macOS), [Windows](#Installation-guide-for-Windows), [Linux](#Installation-guide-for-Linux).
+- [Sign an Ethereum transaction](#Sign-an-Ethereum-transaction): a simple and precise tutorial on how to protect your keys with KeyChain while signing an Ethereum transaction.
+- [WebSocket API](#WebSocket-API): integrating KeyChain through WebSocket.
+- [Pipe API](#Pipe-API): integrating KeyChain through pipe.
+- [KeyChain security](#KeyChain-security): why KeyChain is highly secure.
+- [Errors](#errors): error handling, log files, debugging.
+- [Useful links](#useful-links): external links to the materials on security that we find worth getting acquainted with.
 
-There you will find:
-
-- [Home](https://github.com/arrayio/array-io-keychain/wiki): how to navigate in our Wiki. 
-- [How to sign an Ethereum transaction](https://github.com/arrayio/array-io-keychain/wiki/How-to-sign-Ethereum-transaction-via-KeyChain): a simple and precise tutorial.
-- Installation guides for [macOS](https://github.com/arrayio/array-io-keychain/wiki/Installation-guide-for-macOS), [Windows](https://github.com/arrayio/array-io-keychain/wiki/Installation-guide-for-Windows), [Linux](https://github.com/arrayio/array-io-keychain/wiki/Installation-guide-for-Linux).
-- [KeyChain Protocol](https://github.com/arrayio/array-io-keychain/wiki/KeyChain-Protocol): full comprehensive descriptions of the KeyChain commands.
-- [KeyChain sample commands](https://github.com/arrayio/array-io-keychain/wiki/KeyChain-sample-commands): shortcut to using the commands.
-- [Pipe API](https://github.com/arrayio/array-io-keychain/wiki/Pipe-API): integrating KeyChain through pipe.
-- [Security](https://github.com/arrayio/array-io-keychain/wiki/Security): why KeyChain is highly secure.
-- [Troubleshooting](https://github.com/arrayio/array-io-keychain/wiki/Troubleshooting): error handling, log files, debugging.
-- [Useful reference](https://github.com/arrayio/array-io-keychain/wiki/Useful-reference): external links.
-- [WebSocket API](https://github.com/arrayio/array-io-keychain/wiki/WebSocket-API): integrating KeyChain through WebSocket.
 
 ## Contact
 
-If you need help interacting with KeyChain, please do not hesitate to contact us:
+If you have questions or enquiries about KeyChain, please do not hesitate to contact us:
 
 - [Twitter](https://twitter.com/ProjectArray)
 
@@ -155,11 +175,11 @@ If you need help interacting with KeyChain, please do not hesitate to contact us
 
 If you want to report a security issue, include the word "security" in the subject field.
 
-We take security issues very seriously and we'll be looking forward to hearing from you. Still, we hope you enjoy using KeyChain and the integration goes smooth! 
+We take security issues very seriously and we'll be looking forward to hearing from you. We hope you enjoy using KeyChain! 
 
 ## License
 
-This project is licensed under the terms of the MIT license.
+This project is licensed under the terms of the [MIT license](#License).
 
 
 # Protocol
@@ -205,10 +225,15 @@ result|`string`|extended key name.
 
 ## Sign transaction in hex format
 
+<aside class="notice">
 **NB:** You can sign transactions in hex or hash format. 
 For example, for Ethereum transaction, you do not need to pass `chainid` as a parameter because it is incorporated in the hex. 
+</aside>
 
+<aside class="notice">
 **NB:** Please remember that you need to **insert your own key name** in the parameters when copying the requests!
+</aside>
+
 ### Command
 sign_hex
 
@@ -252,7 +277,10 @@ result|`hex string`|65-byte singature in hex-string format.
 
 This request is suited best for advanced users who are eager to work on a low level. You should have knowledge of how to calculate hash of transaction, given the type of blockchain, and know the type of signature and its packaging.
 
+<aside class="notice">
 **NB:** Please remember that you need to **insert your own key name** in the parameters when copying the requests!
+</aside>
+
 ### Command
 sign_hash
 
@@ -315,9 +343,12 @@ No
 ---|---|---
 result|`JSON array of strings`|lists all your key names.
 
-## Calculate public key from private key
+## Calculate the public key 
 
+<aside class="notice">
 **NB:** Please remember that you need to **insert your own key name** in the parameters when copying the requests!
+</aside>
+
 ### Command
 public_key
 
@@ -383,11 +414,18 @@ result|`bool`|bool result.
 
 Unlock your key when you are ready to use it. 
 
+<aside class="notice">
 **NB:** This parameter is experimental! Allowing the user to sign transactions without extra authorization is not secure and can be harmful. If `unlock_time` is greater than zero, you will see an insecure action warning. We do not recommend to use it. Although it might be needed if you want to speed up signing transactions.
+</aside>
 
+<aside class="notice">
 **NB:** `Sign_hex` and `sign_hash` commands assume implicit unlocking of your keys. 
+</aside>
 
+<aside class="notice">
 **NB:** Please remember that you need to **insert your own key name** in the parameters when copying the requests!
+</aside>
+
 
 ### Command
 unlock 
@@ -423,7 +461,7 @@ unlock_time|```integer```|When this parameter is specified, it unlocks the key f
 ---|---|---
 result|`bool`|bool result.
 
-## Get information about the current KeyChain version
+## Current KeyChain version details
 
 You can request the details of the current KeyChain version you are using.
 
@@ -457,7 +495,7 @@ boost_version|`string`|required version of the boost library.
 openssl_version|`string`|required openssl version.
 build|`string`|required operating system.
 
-## Get the number of the current KeyChain version
+## Current KeyChain version number
 
 You can request the number of the current version you are using.
 ### Command
@@ -488,9 +526,9 @@ result|`string`|current version number which has the form of "[major].[minor].[b
 
 ## System requirements
 
-- macOS 10.12 or newer.
+- macOS [10.12](#http://support.apple.com/downloads/DL1917/en_US/macosupd10.12.5.dmg) or [newer](https://support.apple.com/downloads/macos).
 
-## Download macOS installer [here](https://github.com/arrayio/array-io-keychain/releases/download/0.10/KeyChain.Installer.v0.10.zip).
+## Download [macOS installer](https://github.com/arrayio/array-io-keychain/releases/download/0.10/KeyChain.Installer.v0.10.zip).
 
 Follow the steps of the graphic installer. 
 
@@ -522,14 +560,13 @@ Follow the steps of the graphic installer.
 
 <img width="532" alt="mac-6" src="https://user-images.githubusercontent.com/34011337/49649380-0e507080-fa3a-11e8-8645-b86dbd139dbc.png">
 
-## Check if the installation was successful
+## Check if KeyChain is installed
 
 After installation, connect to the demo-page: http://localhost:16384/ to check if the installation was successful and to test the KeyChain commands. In case everything went well, you will see the following page and you will be able to see responses to the commands in the "Response" box when you click on them.
 
 ![screenshot from 2018-12-10 15-57-27](https://user-images.githubusercontent.com/34011337/49734247-be211a80-fc94-11e8-8d85-c70b738ecae3.png)
 
-#How to sign an Ethereum transaction with KeyChain
-
+# Sign an Ethereum transaction
 
 Here you can find an instruction on how to sign an Ethereum transaction with KeyChain.
 
@@ -537,7 +574,7 @@ Here you can find an instruction on how to sign an Ethereum transaction with Key
 
 [Here](https://arrayio.github.io/array-io-keychain/eth_signer/) you can try out signing Ethereum transactions with KeyChain.
 
-### 1. Download and install KeyChain for [macOS](https://github.com/arrayio/array-io-keychain/releases/download/0.10/KeyChain.Installer.v0.10.zip)
+### 1. Install KeyChain for [macOS](https://github.com/arrayio/array-io-keychain/releases/download/0.10/KeyChain.Installer.v0.10.zip)
 
 ### 2. Generate the key 
 
@@ -558,10 +595,13 @@ and send the `create` command to generate the key
 ```
 You will get an **extended name** of the key which consists of the name you have given it as a prefix and the first 8 bytes of the hash. Note that from now on you should insert the extended key! 
 
-### NB: 
+<aside class="notice">
+**NB:** 
 
 **Insert your own extended name of the key!** Do not copy the following code together with the key name that we use because it is specified here only as an example of how your key name might look like. **Use your own key name!**
 
+</aside>
+ 
 Then request a public key via
 
 ```json
@@ -817,3 +857,16 @@ keychain.stdin.write(JSON.stringify(lockCommand));
 keychain.stdin.write(JSON.stringify(signCommand));
 ``` 
 For descriptions of all the commands and parameters, see [KeyChain Protocol](https://github.com/arrayio/array-io-keychain/wiki/KeyChain-Protocol).
+
+
+# License
+
+MIT License
+
+Copyright (c) 2018 KeyChain
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
