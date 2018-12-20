@@ -38,26 +38,34 @@ Below you can find comprehensive installation guides for [macOS](#macos), [Windo
 ## Getting started
 
 > Require libraries setup
+
 ```json
 //go to javascript
 ```
+
 ```javascript
 const unsign = require('@warren-bank/ethereumjs-tx-unsign')
 const ethUtil = require('ethereumjs-util');
 const WebSocket = require('ws');
 ```
+
 > Insert your own keyname
+
 ```json
 //go to javascript
 ```
+
 ```javascript
 const ws = new WebSocket('ws://localhost:16384/');
 const keyname = 'test1@6de493f01bf590c0';
 ```
+
 > This is a simple example of how to integrate KeyChain through WebSocket.
+
 ```json
 //go to javascript
 ```
+
 ```javascript
 let fromAdd;
 const send = (command) => {
@@ -84,9 +92,11 @@ ws.on('message', async (response) => {
   console.log(fromAdd);
 });
 ```
+
 ```json
 //go to javascript
 ```
+
 ```javascript
 const ethHex = 'e315843b9aca0082520894e8899ba12578d60e4d0683a596edacbc85ec18cc6480038080';
 
@@ -817,9 +827,11 @@ Install KeyChain for [macOS](https://github.com/arrayio/array-io-keychain/releas
   }
 }
 ```
+
 ```javascript
 //go to json
 ```
+
 Each WebSocket API message is a json serialized object containing a command with the corresponding parameters.
 
 For full comprehensive descriptions of the commands, acceptable parameters and values, go to the [Protocol](#generate-a-key-pair). 
@@ -831,17 +843,21 @@ For full comprehensive descriptions of the commands, acceptable parameters and v
 The following will show the usage of websocket connections. 
 
 > We make use of the `wscat` application available via npm:
+
 ```json
 //go to javascript
 ```
+
 ```javascript
 $ npm install -g wscat
 ```
 
 > A simple call would take the form:
+
 ```json
 //go to javascript
 ```
+
 ```javascript
 $ wscat -c ws://127.0.0.1:16384
 > { "command": "list"}
@@ -853,9 +869,11 @@ The API will return a properly JSON formated response carrying the same id as th
 ```json
 {"result":  ..data..}
 ```
+
 ```javascript
 //go to json
 ```
+
 #### Error
 
 In case of an error, the resulting answer will carry an error attribute and a description in human-readable format:
@@ -863,9 +881,11 @@ In case of an error, the resulting answer will carry an error attribute and a de
 ```json
 {"error":"Error: keyfile could not found by keyname"}
 ```
+
 ```javascript
 //go to json
 ```
+
 ### JavaScript integration example
 
 Before you proceed with the integration, you need to install KeyChain for [macOS](https://github.com/arrayio/array-io-keychain/releases/download/0.10/KeyChain.Installer.v0.10.zip), [Windows](#windows), [Linux](#linux).
@@ -896,9 +916,11 @@ A successful response will take the following format:
 ```json
 {"result":"my key@47f926e22f376478","my key@e67871253c263de0","my key@e755d5b98b6ed747","my key@f9a1554e3f5e30c8"}
 ```
+
 ```javascript
 //go to json
 ```
+
 **Field name**|**Type**|**Description**|**Value example**
 ---|---|---|---
 result|`JSON array of strings`|list of key names|```"my key@47f926e22f376478","my key@e67871253c263de0","my key@e755d5b98b6ed747","my key@f9a1554e3f5e30c8"```
@@ -933,9 +955,11 @@ Before you proceed with the integration, you need to install KeyChain for [macOS
 When the installation is complete, you can open stream input to start sending json requests through STDIN - STDOUT pipes.
  
 > Here you will find an example of KeyChain integration using Node.js
+
 ```json
 //go to javascript
 ```
+
 ```javascript
 const { spawn } = require('child_process');
 const path = require('path');
@@ -955,20 +979,26 @@ keychain.on('close', (code) => {
   }
 });
 ```
+
 ### See all your keys
+
 ```json
 //go to javascript
 ```
+
 ```javascript 
 const listCommand = { command: "list" };
 keychain.stdin.write(JSON.stringify(listCommand));
 ```
+
 ### Sign transaction
 
 To sign a transaction, first you need to set the timeout value for your key. While it is unlocked, you can sign the transaction without entering a passphrase during this visit. Upon finishing the transaction, lock your keys.
+
 ```json
 //go to javascript
 ```
+
 ```javascript 
 const unlockCommandTime = {
   "command": "set_unlock_time", 
@@ -1008,6 +1038,7 @@ keychain.stdin.write(JSON.stringify(lockCommand));
 
 keychain.stdin.write(JSON.stringify(signCommand));
 ``` 
+
 For descriptions of all the commands and parameters, go to the [Protocol](#generate-a-key-pair).
 
 # KeyChain security
@@ -1030,28 +1061,28 @@ For Linux, we use a unique mechanism created by our team.
 
 Typically, Linux offers the following algorithm of interacting with the user:
 
-```
-1. Client app = > connects => to X-server
 
-2. Client app => sends some X-proto specified commands => X-server receives the commands => X-server renders an interface window
+**1)** Client app = > connects => to X-server
 
-3. User enters a passphrase into the window => X-server catch the passphrase from the user => sends X-proto commands to the client => client app processes the passphrase from the user
-``` 
+**2)** Client app => sends some X-proto specified commands => X-server receives the commands => X-server renders an interface window
+
+**3)** User enters a passphrase into the window => X-server catch the passphrase from the user => sends X-proto commands to the client => client app processes the passphrase from the user
+
 
 However, around 1984, at the time when X11 was created, there existed no such task as performing secure operations via the Internet. The developers of X11 did not set out to protect the user’s data from someone capturing it. Even now, there is still no real mechanism against this kind of attack.
 To solve the problem of protecting the data, we have decided to look past the standard solutions. Instead of receiving a passphrase from a user through the X-server, we have chosen to receive the passphrase from the keyboard driver. This serves as a shortcut that allows KeyChain to work without connecting to the X-server, thus minimizing the risk of someone stealing the passphrase.
 
 Therefore, now instead of the following sequence…
 
-```
-The user enters the passphrase into the window => X-server catches the passphrase => it sends the passphrase through X-proto => Client app processes the request
-```
+
+- The user enters the passphrase into the window => X-server catches the passphrase => it sends the passphrase through X-proto => Client app processes the request
+
 
 … we have:
 
-```
-The user enters the passphrase => KeyChain catches the keyboard’s events directly
-```
+
+- The user enters the passphrase => KeyChain catches the keyboard’s events directly
+
 
 The shorter the path, the fewer weak points can be found. We exclude the weakest link (X-server) from the process of entering the passphrase. Thus, for the third party to compromise the passphrase, they will need to intercept it right at the keyboard level, which requires to have root access and hence makes it almost impossible.
 
