@@ -29,9 +29,7 @@ Below you will find some examples of the error messages.
 ---|---|---|---
 error|`string`|simple error message|`Error: keyfile could not be found by this keyname`
 
-
-
-- Syntactic error - unsupported symbols. 
+- Syntactic error - unsupported symbols.
 
 ```json
 {"error":"Parsing Error"}
@@ -54,7 +52,7 @@ If you are experiencing any trouble working with KeyChain, here you can find loc
 ./logs
 
 ## Developer Debug Information
- 
+
 If you need help fixing the bugs, please do not hesitate to contact us:
 
 - [Twitter](https://twitter.com/ProjectArray)

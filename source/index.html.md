@@ -6,7 +6,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
   - javascript
 
 toc_footers:
-  - <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a>
+  - <a href='http://keychain.array.io'>KeyChain official website</a>
 
 includes:
   - errors
@@ -17,7 +17,7 @@ search: true
 # KeyChain Documentation
 ## Introduction
 
-**KeyChain** is a standalone app for signing transactions and generating key pairs. It stores private keys in an isolated environment where no logger, debugger or spyware can intercept them because of the [three-layer security](Three-security-layers-of-KeyChain) protecting each action of the system.
+**KeyChain** is a standalone app for signing transactions and generating key pairs. It stores private keys in an isolated environment where no logger, debugger or spyware can intercept them because of the [three-layer security](#three-security-layers-of-keychain) protecting each action of the system.
 **KeyChain** supports transactions from and to various blockchains, including Ethereum and Ethereum classic, Litecoin, Bitcoin, Bitcoin Cash, and Bitshares. 
 
 ## Installation
@@ -30,9 +30,9 @@ After installation, connect to the demo-page: http://localhost:16384/ to check i
 
 ![screenshot from 2018-12-10 15-57-27](https://user-images.githubusercontent.com/34011337/49734247-be211a80-fc94-11e8-8d85-c70b738ecae3.png)
 
-If you are having trouble connecting to the page, [contact us](Contact) and we will do our best to help you.
+If you are having trouble connecting to the page, [contact us](#contact) and we will do our best to help you.
 
-Below you can find comprehensive installation guides for [macOS](Installation-guide-for-macOS), [Windows](Installation-guide-for-Windows), [Linux](Installation-guide-for-Linux).
+Below you can find comprehensive installation guides for [macOS](#installation-guide-for-macos), [Windows](Installation-guide-for-Windows), [Linux](Installation-guide-for-Linux).
 ## Getting started
 
 > Require libraries setup
@@ -117,17 +117,6 @@ console.log('signature:', signature, "\n")
 <aside class="notice">
 You must replace <code>test1@6de493f01bf590c0</code> with your personal keyname.
 </aside>
-
-## Table of contents 
-
-- [Protocol](Protocol): full comprehensive descriptions of the KeyChain commands.
-- Installation guides for [macOS](Installation-guide-for-macOS), [Windows](Installation-guide-for-Windows), [Linux](Installation-guide-for-Linux).
-- [Sign an Ethereum transaction](Sign-an-Ethereum-transaction): a simple and precise tutorial on how to protect your keys with KeyChain while signing an Ethereum transaction.
-- [WebSocket API](WebSocket-API): integrating KeyChain through WebSocket.
-- [Pipe API](Pipe-API): integrating KeyChain through pipe.
-- [KeyChain security](KeyChain-security): why KeyChain is highly secure.
-- [Errors](Errors): error handling, log files, debugging.
-- [Useful links](Useful-Links): external links to the materials on security that we find worth getting acquainted with.
 
 
 ## Contact
@@ -430,7 +419,7 @@ unlock_time|```integer```|When this parameter is specified, it unlocks the key f
 ---|---|---
 result|`bool`|bool result.
 
-## Current KeyChain version details
+## KeyChain version details
 
 You can request the details of the current KeyChain version you are using.
 
@@ -464,7 +453,7 @@ boost_version|`string`|required version of the boost library.
 openssl_version|`string`|required openssl version.
 build|`string`|required operating system.
 
-## Current KeyChain version number
+## KeyChain version number
 
 You can request the number of the current version you are using.
 ### Command
@@ -491,15 +480,17 @@ No
 ---|---|---
 result|`string`|current version number which has the form of "[major].[minor].[build number]".
 
-# Installation guide for macOS
+# Installation guides
 
-## System requirements
+## macOS
+
+### System requirements
 
 - macOS [10.12](#http://support.apple.com/downloads/DL1917/en_US/macosupd10.12.5.dmg) or [newer](https://support.apple.com/downloads/macos).
 
-## Download [macOS installer](https://github.com/arrayio/array-io-keychain/releases/download/0.10/KeyChain.Installer.v0.10.zip).
+### Installation
 
-Follow the steps of the graphic installer. 
+Download [KeyChain](https://github.com/arrayio/array-io-keychain/releases/download/0.10/KeyChain.Installer.v0.10.zip) and follow the steps of the graphic installer. 
 
 1. Click "next" to start installation.
 
@@ -529,11 +520,72 @@ Follow the steps of the graphic installer.
 
 <img width="532" alt="mac-6" src="https://user-images.githubusercontent.com/34011337/49649380-0e507080-fa3a-11e8-8645-b86dbd139dbc.png">
 
-## Check if KeyChain is installed
+### Check if KeyChain is installed
 
 After installation, connect to the demo-page: http://localhost:16384/ to check if the installation was successful and to test the KeyChain commands. In case everything went well, you will see the following page and you will be able to see responses to the commands in the "Response" box when you click on them.
 
 ![screenshot from 2018-12-10 15-57-27](https://user-images.githubusercontent.com/34011337/49734247-be211a80-fc94-11e8-8d85-c70b738ecae3.png)
+
+## Windows
+Windows installer will be accessible at v.1.0. 
+
+We are passionate about KeyChain and seek to make it as soon as possible, so that you could enjoy its wonderful features on any operating system you like. 
+
+### System requirements
+
+- Windows 7 or newer.
+
+### How to install
+
+Download KeyChain and follow the steps of the graphic installer. 
+
+1. Click "next" to prepare installation
+
+![79](https://user-images.githubusercontent.com/34011337/49864523-b76ce180-fe13-11e8-8fa9-7e1421295bd9.png)
+
+2. Accept the terms of the License and click "next"
+
+![80](https://user-images.githubusercontent.com/34011337/49864529-b89e0e80-fe13-11e8-814d-71b2723a41d0.png)
+
+3. Choose a folder, click "next"
+
+![81](https://user-images.githubusercontent.com/34011337/49864528-b89e0e80-fe13-11e8-8671-11845874f077.png)
+
+4. Click "install" for installation to start
+
+![82](https://user-images.githubusercontent.com/34011337/49864527-b8057800-fe13-11e8-910c-914dbcf6d8b3.png)
+
+5. Wait until the setup is complete
+
+![84](https://user-images.githubusercontent.com/34011337/49864526-b8057800-fe13-11e8-88cf-64f722b9b277.png)
+
+6. Congratulaions! You have installed KeyChain.
+
+![85](https://user-images.githubusercontent.com/34011337/49864525-b76ce180-fe13-11e8-9034-c6aaec14fcf4.png)
+
+### Check if KeyChain is installed
+
+After installation, connect to the demo-page: http://localhost:16384/ to check if the installation was successful and to test the KeyChain commands. In case everything went well, you will see the following page and you will be able to see responses to the commands in the "Response" box when you click on them.
+
+![screenshot from 2018-12-10 15-57-27](https://user-images.githubusercontent.com/34011337/49734247-be211a80-fc94-11e8-8d85-c70b738ecae3.png)
+
+## Linux 
+
+Windows installer will be accessible at v.1.0.
+
+We are passionate about KeyChain and seek to make it as soon as possible, so that you could enjoy its wonderful features on any operating system you like.
+
+### System requirements
+
+- Ubuntu 16.04 or newer
+
+- Debian 9 or newer
+
+- Linux Mint 18.3 or newer
+
+### How to install
+
+**Coming soon**
 
 # Sign an Ethereum transaction
 
@@ -570,7 +622,7 @@ You will get an **extended name** of the key which consists of the name you have
 Insert your own extended name of the key! Do not copy the following code together with the key name that we use because it is specified here only as an example of how your key name might look like. 
 </aside>
  
-Then request a public key via
+> Then request a public key via
 
 ```json
 { 
@@ -622,7 +674,7 @@ You can find an example of the code [here](https://gist.github.com/cypherpunk99/
 - JavaScript/HTML
 - etc
 
-Install KeyChain for [macOS](https://github.com/arrayio/array-io-keychain/releases/download/0.10/KeyChain.Installer.v0.10.zip), [Windows](https://github.com/arrayio/array-io-keychain/wiki/Installation-guide-for-Windows), [Linux](https://github.com/arrayio/array-io-keychain/wiki/Installation-guide-for-Linux) and connect to the demo page here http://localhost:16384/.
+Install KeyChain for [macOS](https://github.com/arrayio/array-io-keychain/releases/download/0.10/KeyChain.Installer.v0.10.zip), [Windows](#installation), [Linux](#installation) and connect to the demo page here http://localhost:16384/.
 
 ## Demo pages in JavaScript
 
@@ -657,7 +709,7 @@ Install KeyChain for [macOS](https://github.com/arrayio/array-io-keychain/releas
 
 Each WebSocket API message is a json serialized object containing a command with the corresponding parameters.
 
-For full comprehensive descriptions of the commands, acceptable parameters and values, go to the [Protocol](Protocol). 
+For full comprehensive descriptions of the commands, acceptable parameters and values, go to the [Protocol](#generate-a-key-pair). 
 
 ## WebSocket integration guide
 
@@ -836,7 +888,7 @@ Choosing a means of storing keys is an important and responsible task that every
 
 ## How KeyChain ensures safe key storage
 
-KeyChain encrypts private keys using AES256 algorithm and stores the keys in an isolated environment that is protected with [three security layers](three-security-layers-of-keychain). 
+KeyChain encrypts private keys using AES256 algorithm and stores the keys in an isolated environment that is protected with [three security layers](#three-security-layers-of-keychain). 
 
 **AES256** was first adopted by the U.S. government and now is used worldwide as a secure and reliable way of protecting information. It stands for **Advanced Encryption Standard** which handles **256-bit keys**. This is a symmetric encryption algorithm that creates an output (ciphertext) from the input (plaintext) in 14 rounds which involve several steps of encryption. These steps combine the procedures of other symmetric encryption algorithms: substitution cipher with a reference table, adding round key,  shifting rows, and mixing columns - all performed multiple times. 
 
