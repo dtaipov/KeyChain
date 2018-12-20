@@ -49,7 +49,7 @@ const ethUtil = require('ethereumjs-util');
 const WebSocket = require('ws');
 ```
 
-> Insert your own keyname
+> Insert your own `keyname`
 
 ```json
 //go to javascript
@@ -60,7 +60,9 @@ const ws = new WebSocket('ws://localhost:16384/');
 const keyname = 'test1@6de493f01bf590c0';
 ```
 
-> This is a simple example of how to integrate KeyChain through WebSocket.
+This is a simple example of how to integrate KeyChain through WebSocket.
+
+> First, we wrap the `public_key` command into a function to send it through a websocket.
 
 ```json
 //go to javascript
@@ -80,18 +82,35 @@ const getPublicKey = (keyname) => {
     }
   }
 }
+```
 
-ws.onopen = async () => {
+> When the websocket is open, we send the `public_key` command to the KeyChain
+
+```json
+//go to javascript
+```
+
+```javascript
+ws.onopen = () => {
   send(getPublicKey(keyname));
 }
+```
+мы отображаем публичный ключ и переводим его в адрес
+> Next, we display the public key and calculate the address from it.
+```json
+//go to javascript
+```
 
-ws.on('message', async (response) => {
+```javascript
+ws.on('message', (response) => {
   const data = JSON.parse(response);
   console.log('Public key: ', `0x${data.result}`)
   fromAdd = `0x${ethUtil.publicToAddress(`0x${data.result}`).toString('hex')}`;
   console.log(fromAdd);
 });
 ```
+
+> Then we sign a raw transaction in hex form via KeyChain
 
 ```json
 //go to javascript
@@ -111,15 +130,27 @@ const signHex = (keyname, hexraw) => {
   }
 }
 
-ws.onopen = async () => {
+ws.on('open') = () => {
   send(signHex(keyname, ethHex));
 }
 
-ws.on('message', async (response) => {
-  const data = JSON.parse(response);
-  console.log('Signature: ', data.result);
+ws.on('message', (response) => {
+  const signature = JSON.parse(response).result;
+// For eth signature contains those 3 parameters: r, s, v 
+  const r = signature.splice(0, 64);
+  const s = signature.splice(64, 128);
+  const v = signature.splice(128, 130);
+  console.log(`Signature: \nr: ${r}\ns: ${s}\nv: ${v}\n`);
 });
+```
 
+> Finally, we use an Ethereumjs-tx library to unsign the transaction and check the result against the one we got from the KeyChain.
+
+```json
+//go to javascript
+```
+
+```javascript
 
 const resHex = 'f86315843b9aca0082520894e8899ba12578d60e4d0683a596edacbc85ec18cc64802aa0c3b68e20527f8f304801986720de1aeb9ab126c55570942420361cedeec1199ca03002d853eb2089e4e63848fcdb7af0fbc46e8f5c856ef0eb849a2270fd621bdb';
 let { txData, signature } = unsign(resHex);
