@@ -27,7 +27,7 @@ Download and install KeyChain for [macOS](https://github.com/arrayio/array-io-ke
 
 *Try out KeyChain on the [demo page](https://arrayio.github.io/array-io-keychain/demo/).*
 
-After installation, connect to the demo-page: http://localhost:16384/ to check if the installation was successful and to test the KeyChain commands. In case everything went well, you will see the following page and you will be able to see responses to the commands in the "Response" box when you click on them.
+After installation, connect to the demo-page: [http://localhost:16384/](http://localhost:16384/) to check if the installation was successful and to test the KeyChain commands. In case everything went well, you will see the following page and you will be able to see responses to the commands in the "Response" box when you click on them.
 
 ![screenshot from 2018-12-10 15-57-27](https://user-images.githubusercontent.com/34011337/49734247-be211a80-fc94-11e8-8d85-c70b738ecae3.png)
 
@@ -38,20 +38,26 @@ Below you can find comprehensive installation guides for [macOS](#macos), [Windo
 ## Getting started
 
 > Require libraries setup
-
+```json
+//go to javascript
+```
 ```javascript
 const unsign = require('@warren-bank/ethereumjs-tx-unsign')
 const ethUtil = require('ethereumjs-util');
 const WebSocket = require('ws');
 ```
 > Insert your own keyname
-
+```json
+//go to javascript
+```
 ```javascript
 const ws = new WebSocket('ws://localhost:16384/');
 const keyname = 'test1@6de493f01bf590c0';
 ```
 > This is a simple example of how to integrate KeyChain through WebSocket.
-
+```json
+//go to javascript
+```
 ```javascript
 let fromAdd;
 const send = (command) => {
@@ -77,6 +83,9 @@ ws.on('message', async (response) => {
   fromAdd = `0x${ethUtil.publicToAddress(`0x${data.result}`).toString('hex')}`;
   console.log(fromAdd);
 });
+```
+```json
+//go to javascript
 ```
 ```javascript
 const ethHex = 'e315843b9aca0082520894e8899ba12578d60e4d0683a596edacbc85ec18cc6480038080';
@@ -139,7 +148,15 @@ We take security issues very seriously and we'll be looking forward to hearing f
 
 ## License
 
-This project is licensed under the terms of the [MIT license](#license).
+MIT License
+
+Copyright (c) 2018 KeyChain
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
 # Protocol
@@ -161,7 +178,9 @@ create
   }
 }
 ```
-
+```javascript
+//go to json
+```
 ### Query parameters
 **Parameter**|**Type**|**Description**|
 ---|---|---
@@ -180,6 +199,9 @@ When you pass a short key name in the create command, you get an exended name wh
 {
   "result":"my key@f9a1554e3f5e30c8"
 }
+```
+```javascript
+//go to json
 ```
 **Field name**|**Type**|**Description**
 ---|---|---
@@ -214,7 +236,9 @@ sign_hex
   }
 }
 ```
-
+```javascript
+//go to json
+```
 ### Query parameters
 **Parameter**|**Type**|**Description**
 ---|---|---
@@ -232,6 +256,9 @@ unlock_time  | ```integer```|This parameter is experimental and optional! If thi
 {
   "result":"6cc47faa3778d15efeb470cd4154fdceb80633beaed15f0816d93951ffd7629a5fae3fe83c030f5f8a0cea82c1907f85418b93e820ea3b043c116053afae20a300"
 }
+```
+```javascript
+//go to json
 ```
 **Field name**|**Type**|**Description**
 ---|---|---
@@ -261,7 +288,9 @@ sign_hash
   }
 }
 ```
-
+```javascript
+//go to json
+```
 ### Query parameters
 **Parameter**|**Type**|**Description**
 ---|---|---
@@ -277,6 +306,9 @@ keyname|```string```|Inserts the mnemonic label of your key.
 {
   "result":"62826b9c7b6bbfcd89456c1e8068e141d6a46b2c1c0166ed25ba8ad6ede320f4454ff116d13f4e679e8224fcca49f49d50c279ed88513a1db7185946e26811ab01"
 }
+```
+```javascript
+//go to json
 ```
 **Field name**|**Type**|**Description** 
 ---|---|---
@@ -294,7 +326,9 @@ list
   "command": "list"
 }
 ```
-
+```javascript
+//go to json
+```
 ### Query parameters
 No
 
@@ -304,6 +338,9 @@ No
 
 ```json
   {"result":"my key@47f926e22f376478","my key@e67871253c263de0","my key@e755d5b98b6ed747","my key@f9a1554e3f5e30c8"}
+```
+```javascript
+//go to json
 ```
 **Field name**|**Type**|**Description**
 ---|---|---
@@ -329,7 +366,9 @@ public_key
   }
 }
 ```
-
+```javascript
+//go to json
+```
 ### Query parameters
 **Parameter**|**Type**|**Description**
 ---|---|---
@@ -346,7 +385,9 @@ keyname|```string```|Inserts the name of the key from which you want to calculat
   "result":"a7aea4bd112706655cb7014282d2a54658924e69c68f5a54f2cd5f35c6fcba9b610d6ae8549f960ae96e23ffc017f305c1d8664978c8ba8a1cc656fd9d068ef5"
 }
 ```
-
+```javascript
+//go to json
+```
 **Field name**|**Type**|**Description**
 ---|---|---
 result|`hex string`| 64-byte public key.
@@ -364,7 +405,9 @@ lock
   "command": "lock"
 }
 ```
-
+```javascript
+//go to json
+```
 ### Query parameters
 No
 ### Response format
@@ -375,6 +418,9 @@ No
 {
   "result":"true"
 }
+```
+```javascript
+//go to json
 ```
 **Field name**|**Type**|**Description**
 ---|---|---
@@ -412,6 +458,9 @@ unlock
   }
 }
 ```
+```javascript
+//go to json
+```
 ### Query parameters
 
 **Parameter**|**Type**|**Description**
@@ -428,7 +477,9 @@ unlock_time|```integer```|When this parameter is specified, it unlocks the key f
   "result":"true"
 }
 ```
-
+```javascript
+//go to json
+```
 **Field name**|**Type**|**Description**
 ---|---|---
 result|`bool`|bool result.
@@ -447,6 +498,9 @@ about
   "command":"about"
 }
 ```
+```javascript
+//go to json
+```
 ### Query parameters
 No
 
@@ -462,7 +516,9 @@ No
   }
 }
 ```
-
+```javascript
+//go to json
+```
 **Field name**|**Type**|**Description**
 ---|---|---
 result|`json object`|version details as a json object with the following parameters.
@@ -488,7 +544,9 @@ version
   "command":"version"
 }
 ```
-
+```javascript
+//go to json
+```
 ### Query parameters
 No
 
@@ -501,7 +559,9 @@ No
   "result":"0.9.114"
 }
 ```
-
+```javascript
+//go to json
+```
 **Field name**|**Type**|**Description**
 ---|---|---
 result|`string`|current version number which has the form of "[major].[minor].[build number]".
@@ -548,7 +608,7 @@ Download [KeyChain](https://github.com/arrayio/array-io-keychain/releases/downlo
 
 ### Check if KeyChain is installed
 
-After installation, connect to the demo-page: http://localhost:16384/ to check if the installation was successful and to test the KeyChain commands. In case everything went well, you will see the following page and you will be able to see responses to the commands in the "Response" box when you click on them.
+After installation, connect to the demo-page: [http://localhost:16384/](http://localhost:16384/) to check if the installation was successful and to test the KeyChain commands. In case everything went well, you will see the following page and you will be able to see responses to the commands in the "Response" box when you click on them.
 
 ![screenshot from 2018-12-10 15-57-27](https://user-images.githubusercontent.com/34011337/49734247-be211a80-fc94-11e8-8d85-c70b738ecae3.png)
 
@@ -591,7 +651,7 @@ Download KeyChain and follow the steps of the graphic installer.
 
 ### Check if KeyChain is installed
 
-After installation, connect to the demo-page: http://localhost:16384/ to check if the installation was successful and to test the KeyChain commands. In case everything went well, you will see the following page and you will be able to see responses to the commands in the "Response" box when you click on them.
+After installation, connect to the demo-page: [http://localhost:16384/](http://localhost:16384/) to check if the installation was successful and to test the KeyChain commands. In case everything went well, you will see the following page and you will be able to see responses to the commands in the "Response" box when you click on them.
 
 ![screenshot from 2018-12-10 15-57-27](https://user-images.githubusercontent.com/34011337/49734247-be211a80-fc94-11e8-8d85-c70b738ecae3.png)
 
@@ -708,7 +768,7 @@ web3.eth.getBalance(fromAdd)
 
 You can now use the key that you have generated to sign a transaction.
 
-You can find an example of the code [here](https://gist.github.com/cypherpunk99/3e1314f8cc62cd675fa5c8f7bbe97923)
+You can find an example of the code [here](https://gist.github.com/cypherpunk99/3e1314f8cc62cd675fa5c8f7bbe97923).
 
 ###  7. Check Etherscan
 
@@ -725,7 +785,7 @@ You can find an example of the code [here](https://gist.github.com/cypherpunk99/
 - JavaScript/HTML
 - etc
 
-Install KeyChain for [macOS](https://github.com/arrayio/array-io-keychain/releases/download/0.10/KeyChain.Installer.v0.10.zip), [Windows](#windows), [Linux](#linux) and connect to the demo page here http://localhost:16384/.
+Install KeyChain for [macOS](https://github.com/arrayio/array-io-keychain/releases/download/0.10/KeyChain.Installer.v0.10.zip), [Windows](#windows), [Linux](#linux) and connect to the demo page via [http://localhost:16384/](http://localhost:16384/).
 
 ## Demo pages in JavaScript
 
@@ -757,7 +817,9 @@ Install KeyChain for [macOS](https://github.com/arrayio/array-io-keychain/releas
   }
 }
 ```
-
+```javascript
+//go to json
+```
 Each WebSocket API message is a json serialized object containing a command with the corresponding parameters.
 
 For full comprehensive descriptions of the commands, acceptable parameters and values, go to the [Protocol](#generate-a-key-pair). 
@@ -766,14 +828,20 @@ For full comprehensive descriptions of the commands, acceptable parameters and v
 
 ### NodeJS integration example
 
-The following will show the usage of websocket connections. We make use of the `wscat` application available via npm:
+The following will show the usage of websocket connections. 
 
+> We make use of the `wscat` application available via npm:
+```json
+//go to javascript
+```
 ```javascript
 $ npm install -g wscat
 ```
 
 > A simple call would take the form:
-
+```json
+//go to javascript
+```
 ```javascript
 $ wscat -c ws://127.0.0.1:16384
 > { "command": "list"}
@@ -785,7 +853,9 @@ The API will return a properly JSON formated response carrying the same id as th
 ```json
 {"result":  ..data..}
 ```
-
+```javascript
+//go to json
+```
 #### Error
 
 In case of an error, the resulting answer will carry an error attribute and a description in human-readable format:
@@ -793,14 +863,16 @@ In case of an error, the resulting answer will carry an error attribute and a de
 ```json
 {"error":"Error: keyfile could not found by keyname"}
 ```
-
+```javascript
+//go to json
+```
 ### JavaScript integration example
 
 Before you proceed with the integration, you need to install KeyChain for [macOS](https://github.com/arrayio/array-io-keychain/releases/download/0.10/KeyChain.Installer.v0.10.zip), [Windows](#windows), [Linux](#linux).
 
 #### Test in the web
 
-After installing KeyChain, open the browser and connect to the demo page via http://localhost:16384/. 
+After installing KeyChain, open the browser and connect to the demo page via [http://localhost:16384/](http://localhost:16384/). 
 
 When the connection is established, you will see the following KeyChain page. If you click on one of the commands on the left panel, you will see its json request and response in the white boxes below:
 
@@ -824,7 +896,9 @@ A successful response will take the following format:
 ```json
 {"result":"my key@47f926e22f376478","my key@e67871253c263de0","my key@e755d5b98b6ed747","my key@f9a1554e3f5e30c8"}
 ```
-
+```javascript
+//go to json
+```
 **Field name**|**Type**|**Description**|**Value example**
 ---|---|---|---
 result|`JSON array of strings`|list of key names|```"my key@47f926e22f376478","my key@e67871253c263de0","my key@e755d5b98b6ed747","my key@f9a1554e3f5e30c8"```
@@ -836,7 +910,7 @@ result|`JSON array of strings`|list of key names|```"my key@47f926e22f376478","m
 
 Save this to the folder  where you will be running the `websocket` command.
 
-Open this page via localhost: http://localhost:16384/
+Open this page via localhost: [http://localhost:16384/](http://localhost:16384/)
 
 You can find the code for the demo page and the page itself up in the [Demo pages in JavaScript](#demo-pages-in-javascript) section.
 
@@ -859,7 +933,9 @@ Before you proceed with the integration, you need to install KeyChain for [macOS
 When the installation is complete, you can open stream input to start sending json requests through STDIN - STDOUT pipes.
  
 > Here you will find an example of KeyChain integration using Node.js
-
+```json
+//go to javascript
+```
 ```javascript
 const { spawn } = require('child_process');
 const path = require('path');
@@ -880,7 +956,9 @@ keychain.on('close', (code) => {
 });
 ```
 ### See all your keys
-
+```json
+//go to javascript
+```
 ```javascript 
 const listCommand = { command: "list" };
 keychain.stdin.write(JSON.stringify(listCommand));
@@ -888,7 +966,9 @@ keychain.stdin.write(JSON.stringify(listCommand));
 ### Sign transaction
 
 To sign a transaction, first you need to set the timeout value for your key. While it is unlocked, you can sign the transaction without entering a passphrase during this visit. Upon finishing the transaction, lock your keys.
-
+```json
+//go to javascript
+```
 ```javascript 
 const unlockCommandTime = {
   "command": "set_unlock_time", 
@@ -949,19 +1029,26 @@ KeyChain encrypts private keys using AES256 algorithm and stores the keys in an 
 For Linux, we use a unique mechanism created by our team.
 
 Typically, Linux offers the following algorithm of interacting with the user:
+
 ```
 1. Client app = > connects => to X-server
+
 2. Client app => sends some X-proto specified commands => X-server receives the commands => X-server renders an interface window
+
 3. User enters a passphrase into the window => X-server catch the passphrase from the user => sends X-proto commands to the client => client app processes the passphrase from the user
 ``` 
+
 However, around 1984, at the time when X11 was created, there existed no such task as performing secure operations via the Internet. The developers of X11 did not set out to protect the user’s data from someone capturing it. Even now, there is still no real mechanism against this kind of attack.
 To solve the problem of protecting the data, we have decided to look past the standard solutions. Instead of receiving a passphrase from a user through the X-server, we have chosen to receive the passphrase from the keyboard driver. This serves as a shortcut that allows KeyChain to work without connecting to the X-server, thus minimizing the risk of someone stealing the passphrase.
 
 Therefore, now instead of the following sequence…
+
 ```
 The user enters the passphrase into the window => X-server catches the passphrase => it sends the passphrase through X-proto => Client app processes the request
 ```
+
 … we have:
+
 ```
 The user enters the passphrase => KeyChain catches the keyboard’s events directly
 ```
@@ -1014,15 +1101,3 @@ This page contains links to the scholarly and publicistic sources that we find u
 - Guide to Elliptic Curve Digital Signatures: [guide with thorough explanations of technical aspects](http://royalforkblog.github.io/2014/09/04/ecc/)
 
 - Доступно о криптографии на эллиптических кривых: [about elliptic curves in Russian](https://habr.com/post/335906/)
-
-# License
-
-MIT License
-
-Copyright (c) 2018 KeyChain
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
