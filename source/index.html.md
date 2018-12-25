@@ -616,11 +616,17 @@ result|`string`|current version number which has the form of "[major].[minor].[b
 
 - macOS [10.12](#http://support.apple.com/downloads/DL1917/en_US/macosupd10.12.5.dmg) or [newer](https://support.apple.com/downloads/macos).
 
-### How to install
+### How to install 
 
 Download [KeyChain](https://github.com/arrayio/array-io-keychain/releases/download/0.10/KeyChain.Installer.v0.10.zip) and follow the steps of the graphic installer. 
 
-1. Click "next" to start installation.
+1. Click "next" to start installation. <button id="loadImage">Show</button>
+
+<script>javascript
+  $("#loadImage").on('click', function(){
+  $("#image").attr("src", $("#inputBox").data('image'));
+});
+</script>
 
 <img width="562" alt="2018-12-13 19 42 06" src="https://user-images.githubusercontent.com/34011337/50005299-fbe6b180-ffba-11e8-97a9-0d8fc5145db8.png">
 
