@@ -622,7 +622,7 @@ Download [KeyChain](https://github.com/arrayio/array-io-keychain/releases/downlo
 
 1. Click "next" to start installation. <button id="loadImage">Show</button>
 
-<script>javascript
+<script>alert('çiao')
   $("#loadImage").on('click', function(){
   $("#image").attr("src", $("#inputBox").data('image'));
 });
