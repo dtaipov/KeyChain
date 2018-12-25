@@ -734,29 +734,84 @@ We are passionate about KeyChain and seek to make it as soon as possible, so tha
 
 Download KeyChain and follow the steps of the graphic installer. 
 
-1. Click "next" to prepare installation
+1 Click "next" to prepare installation <button id="loadImage10" data-image="https://user-images.githubusercontent.com/34011337/49864523-b76ce180-fe13-11e8-8fa9-7e1421295bd9.png">View</button>
 
-![79](https://user-images.githubusercontent.com/34011337/49864523-b76ce180-fe13-11e8-8fa9-7e1421295bd9.png)
 
-2. Accept the terms of the License and click "next"
+<img id='image10' class='hide' width="" alt="" src="">
 
-![80](https://user-images.githubusercontent.com/34011337/49864529-b89e0e80-fe13-11e8-814d-71b2723a41d0.png)
+<script>
+  $("#image10").hide();
+  $("#loadImage10").on('click', function(){
+  $("#image10").show();
+  $("#image10").attr("src", $("#loadImage10").data('image10'));
+});
+</script>
 
-3. Choose a folder, click "next"
 
-![81](https://user-images.githubusercontent.com/34011337/49864528-b89e0e80-fe13-11e8-8671-11845874f077.png)
+2 Accept the terms of the License and click "next" <button id="loadImage10" data-image="https://user-images.githubusercontent.com/34011337/49864529-b89e0e80-fe13-11e8-814d-71b2723a41d0.png">View</button>
 
-4. Click "install" for installation to start
 
-![82](https://user-images.githubusercontent.com/34011337/49864527-b8057800-fe13-11e8-910c-914dbcf6d8b3.png)
+<img id='image10' class='hide' width="" alt="" src="">
 
-5. Wait until the setup is complete
+<script>
+  $("#image10").hide();
+  $("#loadImage10").on('click', function(){
+  $("#image10").show();
+  $("#image10").attr("src", $("#loadImage10").data('image10'));
+});
+</script>
 
-![84](https://user-images.githubusercontent.com/34011337/49864526-b8057800-fe13-11e8-88cf-64f722b9b277.png)
+3 Choose a folder, click "next" <button id="loadImage10" data-image="https://user-images.githubusercontent.com/34011337/49864528-b89e0e80-fe13-11e8-8671-11845874f077.png">View</button>
 
-6. Congratulaions! You have installed KeyChain.
 
-![85](https://user-images.githubusercontent.com/34011337/49864525-b76ce180-fe13-11e8-9034-c6aaec14fcf4.png)
+<img id='image10' class='hide' width="" alt="" src="">
+
+<script>
+  $("#image10").hide();
+  $("#loadImage10").on('click', function(){
+  $("#image10").show();
+  $("#image10").attr("src", $("#loadImage10").data('image10'));
+});
+</script>
+
+4 Click "install" for installation to start <button id="loadImage10" data-image="https://user-images.githubusercontent.com/34011337/49864527-b8057800-fe13-11e8-910c-914dbcf6d8b3.png">View</button>
+
+
+<img id='image10' class='hide' width="" alt="" src="">
+
+<script>
+  $("#image10").hide();
+  $("#loadImage10").on('click', function(){
+  $("#image10").show();
+  $("#image10").attr("src", $("#loadImage10").data('image10'));
+});
+</script>
+
+5 Wait until the setup is complete <button id="loadImage10" data-image="https://user-images.githubusercontent.com/34011337/49864526-b8057800-fe13-11e8-88cf-64f722b9b277.png">View</button>
+
+
+<img id='image10' class='hide' width="" alt="" src="">
+
+<script>
+  $("#image10").hide();
+  $("#loadImage10").on('click', function(){
+  $("#image10").show();
+  $("#image10").attr("src", $("#loadImage10").data('image10'));
+});
+</script>
+
+6 Congratulaions! You have installed KeyChain. <button id="loadImage10" data-image="https://user-images.githubusercontent.com/34011337/49864525-b76ce180-fe13-11e8-9034-c6aaec14fcf4.png">View</button>
+
+
+<img id='image10' class='hide' width="" alt="" src="">
+
+<script>
+  $("#image10").hide();
+  $("#loadImage10").on('click', function(){
+  $("#image10").show();
+  $("#image10").attr("src", $("#loadImage10").data('image10'));
+});
+</script>
 
 ### Check if KeyChain is installed
 
@@ -792,7 +847,7 @@ On this [demo page](https://arrayio.github.io/array-io-keychain/eth_signer/) you
 
 ### 1. Install KeyChain for macOS
 
-[Download KeyChain installer](https://github.com/arrayio/array-io-keychain/releases/download/0.10/KeyChain.Installer.v0.10.zip).
+[Download KeyChain installer](https://github.com/arrayio/array-io-keychain/releases/download/0.11/KeyChain.Installer.v0.11.zip).
 
 ### 2. Generate the key
 
@@ -894,7 +949,7 @@ You can find an example of the code [here](https://gist.github.com/cypherpunk99/
 - JavaScript/HTML
 - etc
 
-Install KeyChain for [macOS](https://github.com/arrayio/array-io-keychain/releases/download/0.10/KeyChain.Installer.v0.10.zip), [Windows](#windows), [Linux](#linux) and connect to the demo page via [http://localhost:16384/](http://localhost:16384/).
+Install KeyChain for [macOS](https://github.com/arrayio/array-io-keychain/releases/download/0.11/KeyChain.Installer.v0.11.zip), [Windows](#windows), [Linux](#linux) and connect to the demo page via [http://localhost:16384/](http://localhost:16384/).
 
 ## Demo pages in JavaScript
 
@@ -987,7 +1042,7 @@ In case of an error, the resulting answer will carry an error attribute and a de
 
 ### JavaScript integration example
 
-Before you proceed with the integration, you need to install KeyChain for [macOS](https://github.com/arrayio/array-io-keychain/releases/download/0.10/KeyChain.Installer.v0.10.zip), [Windows](#windows), [Linux](#linux).
+Before you proceed with the integration, you need to install KeyChain for [macOS](https://github.com/arrayio/array-io-keychain/releases/download/0.11/KeyChain.Installer.v0.11.zip), [Windows](#windows), [Linux](#linux).
 
 #### Test in the web
 
@@ -1049,7 +1104,7 @@ For full comprehensive descriptions of the commands, acceptable parameters and v
 
 ## Pipe integration guide
 
-Before you proceed with the integration, you need to install KeyChain for [macOS](https://github.com/arrayio/array-io-keychain/releases/download/0.10/KeyChain.Installer.v0.10.zip), [Windows](#windows), [Linux](#linux).
+Before you proceed with the integration, you need to install KeyChain for [macOS](https://github.com/arrayio/array-io-keychain/releases/download/0.11/KeyChain.Installer.v0.11.zip), [Windows](#windows), [Linux](#linux).
 
 When the installation is complete, you can open stream input to start sending json requests through STDIN - STDOUT pipes.
  
