@@ -633,16 +633,16 @@ Download [KeyChain](https://github.com/arrayio/array-io-keychain/releases/downlo
 });
 </script>
 
- 2 Accept the terms of the License Agreement. <button id="loadImage2" data-image="https://user-images.githubusercontent.com/34011337/50005305-fee1a200-ffba-11e8-9373-409a58a8f8a6.png">View</button>
+ 2 Accept the terms of the License Agreement. <button id="loadImage" data-image="https://user-images.githubusercontent.com/34011337/50005305-fee1a200-ffba-11e8-9373-409a58a8f8a6.png">View</button>
 
 
-<img id='image2' class='hide' width="562" alt="2018-12-13 19 42 08" src="">
+<img id='image' class='hide' width="562" alt="2018-12-13 19 42 08" src="">
 
 <script>
-  $("#image2").hide();
-  $("#loadImage2").on('click', function(){
-  $("#image2").show();
-  $("#image2").attr("src", $("#loadImage2").data('image2'));
+  $("#image").hide();
+  $("#loadImage").on('click', function(){
+  $("#image").show();
+  $("#image").attr("src", $("#loadImage").data('image'));
 });
 </script>
 
