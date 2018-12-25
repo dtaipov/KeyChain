@@ -364,7 +364,7 @@
 <p><strong>KeyChain</strong> is a standalone app for signing transactions and generating key pairs. It stores private keys in an isolated environment where no logger, debugger or spyware can intercept them because of the <a href="#three-security-layers-of-keychain">three-layer security</a> protecting each action of the system.
 <strong>KeyChain</strong> supports transactions from and to various blockchains, including Ethereum and Ethereum classic, Litecoin, Bitcoin, Bitcoin Cash, and Bitshares. </p>
 <h2 id='installation'>Installation</h2>
-<p>Download and install KeyChain for <a href="https://github.com/arrayio/array-io-keychain/releases/download/0.10/KeyChain.Installer.v0.10.zip">macOS</a>. Windows and Linux installers are coming soon.</p>
+<p>Download and install KeyChain for <a href="https://github.com/arrayio/array-io-keychain/releases/download/0.11/KeyChain.Installer.v0.11.zip">macOS</a>. Windows and Linux installers are coming soon.</p>
 
 <p><em>Try out KeyChain on the <a href="https://arrayio.github.io/array-io-keychain/demo/">demo page</a>.</em></p>
 
@@ -454,9 +454,9 @@
 <span class="nx">ws</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'message'</span><span class="p">,</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
   <span class="kr">const</span> <span class="nx">signature</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">response</span><span class="p">).</span><span class="nx">result</span><span class="p">;</span>
 <span class="c1">// For eth signature contains those 3 parameters: r, s, v </span>
-  <span class="kr">const</span> <span class="nx">r</span> <span class="o">=</span> <span class="nx">signature</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">64</span><span class="p">);</span>
-  <span class="kr">const</span> <span class="nx">s</span> <span class="o">=</span> <span class="nx">signature</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="mi">128</span><span class="p">);</span>
-  <span class="kr">const</span> <span class="nx">v</span> <span class="o">=</span> <span class="nx">signature</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">130</span><span class="p">);</span>
+  <span class="kr">const</span> <span class="nx">r</span> <span class="o">=</span> <span class="nx">signature</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">64</span><span class="p">);</span>
+  <span class="kr">const</span> <span class="nx">s</span> <span class="o">=</span> <span class="nx">signature</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="mi">128</span><span class="p">);</span>
+  <span class="kr">const</span> <span class="nx">v</span> <span class="o">=</span> <span class="nx">signature</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">130</span><span class="p">);</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`Signature: \nr: </span><span class="p">${</span><span class="nx">r</span><span class="p">}</span><span class="s2">\ns: </span><span class="p">${</span><span class="nx">s</span><span class="p">}</span><span class="s2">\nv: </span><span class="p">${</span><span class="nx">v</span><span class="p">}</span><span class="s2">\n`</span><span class="p">);</span>
 <span class="p">});</span>
 </code></pre>
@@ -1034,49 +1034,91 @@ Please remember that you need to insert your own <code>key name</code> in the pa
 <li>macOS <a href="#http://support.apple.com/downloads/DL1917/en_US/macosupd10.12.5.dmg">10.12</a> or <a href="https://support.apple.com/downloads/macos">newer</a>.</li>
 </ul>
 <h3 id='how-to-install'>How to install</h3>
-<p>Download <a href="https://github.com/arrayio/array-io-keychain/releases/download/0.10/KeyChain.Installer.v0.10.zip">KeyChain</a> and follow the steps of the graphic installer. </p>
+<p>Download <a href="https://github.com/arrayio/array-io-keychain/releases/download/0.11/KeyChain.Installer.v0.11.zip">KeyChain</a> and follow the steps of the graphic installer. </p>
 
-<ol>
-<li>Click &quot;next&quot; to start installation.</li>
-</ol>
+<p>1 Click &quot;next&quot; to start installation. <button id="loadImage" data-image="https://user-images.githubusercontent.com/34011337/50005299-fbe6b180-ffba-11e8-97a9-0d8fc5145db8.png">View</button></p>
 
-<p><img width="562" alt="2018-12-13 19 42 06" src="https://user-images.githubusercontent.com/34011337/50005299-fbe6b180-ffba-11e8-97a9-0d8fc5145db8.png"></p>
+<p><img id='image' class='hide' width="562" alt="2018-12-13 19 42 06" src=""></p>
 
-<ol>
-<li>Accept the terms of the License Agreement.</li>
-</ol>
+<script>
+  $("#image").hide();
+  $("#loadImage").on('click', function(){
+  $("#image").show();
+  $("#image").attr("src", $("#loadImage").data('image'));
+});
+</script>
 
-<p><img width="562" alt="2018-12-13 19 42 08" src="https://user-images.githubusercontent.com/34011337/50005305-fee1a200-ffba-11e8-9373-409a58a8f8a6.png"></p>
+<p>2 Accept the terms of the License Agreement. <button id="loadImage" data-image="https://user-images.githubusercontent.com/34011337/50005305-fee1a200-ffba-11e8-9373-409a58a8f8a6.png">View</button></p>
 
-<ol>
-<li>Choose a folder and click &quot;next&quot;.</li>
-</ol>
+<p><img id='image' class='hide' width="562" alt="2018-12-13 19 42 08" src=""></p>
 
-<p><img width="562" alt="2018-12-13 19 42 10" src="https://user-images.githubusercontent.com/34011337/50005310-030dbf80-ffbb-11e8-967c-d5eadf1cfec0.png"></p>
+<script>
+  $("#image").hide();
+  $("#loadImage").on('click', function(){
+  $("#image").show();
+  $("#image").attr("src", $("#loadImage").data('image'));
+});
+</script>
 
-<ol>
-<li>Click &quot;install&quot; for installation to start.</li>
-</ol>
+<p>3 Choose a folder and click &quot;next&quot;. <button id="loadImage3" data-image="https://user-images.githubusercontent.com/34011337/50005310-030dbf80-ffbb-11e8-967c-d5eadf1cfec0.png">View</button></p>
 
-<p><img width="562" alt="2018-12-13 19 42 13" src="https://user-images.githubusercontent.com/34011337/50005315-0608b000-ffbb-11e8-8dea-0fd9375b4aa7.png"></p>
+<p><img id='image3' class='hide' width="562" alt="2018-12-13 19 42 10" src=""></p>
 
-<ol>
-<li>You will need to authorize the installation.</li>
-</ol>
+<script>
+  $("#image3").hide();
+  $("#loadImage3").on('click', function(){
+  $("#image3").show();
+  $("#image3").attr("src", $("#loadImage3").data('image3'));
+});
+</script>
 
-<p><img width="555" alt="mac-4" src="https://user-images.githubusercontent.com/34011337/49649378-0db7da00-fa3a-11e8-95b3-3ae9f8152204.png"></p>
+<p>4 Click &quot;install&quot; for installation to start. <button id="loadImage4" data-image="https://user-images.githubusercontent.com/34011337/50005315-0608b000-ffbb-11e8-8dea-0fd9375b4aa7.png">View</button></p>
 
-<ol>
-<li>Wait until the setup is complete.</li>
-</ol>
+<p><img id='image4' class='hide' width="562" alt="2018-12-13 19 42 13" src=""></p>
 
-<p><img width="518" alt="2018-12-13 19 42 24" src="https://user-images.githubusercontent.com/34011337/50005317-086b0a00-ffbb-11e8-8d81-7ecebd54dabb.png"></p>
+<script>
+  $("#image4").hide();
+  $("#loadImage4").on('click', function(){
+  $("#image4").show();
+  $("#image4").attr("src", $("#loadImage4").data('image4'));
+});
+</script>
 
-<ol>
-<li>Congratulations! You have installed KeyChain.</li>
-</ol>
+<p>5 You will need to authorize the installation. <button id="loadImage5" data-image="https://user-images.githubusercontent.com/34011337/49649378-0db7da00-fa3a-11e8-95b3-3ae9f8152204.png">View</button></p>
 
-<p><img width="532" alt="mac-6" src="https://user-images.githubusercontent.com/34011337/49649380-0e507080-fa3a-11e8-8645-b86dbd139dbc.png"></p>
+<p><img id='image5' class='hide' width="555" alt="mac-4" src=""></p>
+
+<script>
+  $("#image5").hide();
+  $("#loadImage5").on('click', function(){
+  $("#image5").show();
+  $("#image5").attr("src", $("#loadImage5").data('image5'));
+});
+</script>
+
+<p>6 Wait until the setup is complete. <button id="loadImage6" data-image="https://user-images.githubusercontent.com/34011337/50005317-086b0a00-ffbb-11e8-8d81-7ecebd54dabb.png">View</button></p>
+
+<p><img id='image6' class='hide' width="518" alt="2018-12-13 19 42 24" src=""></p>
+
+<script>
+  $("#image6").hide();
+  $("#loadImage6").on('click', function(){
+  $("#image6").show();
+  $("#image6").attr("src", $("#loadImage6").data('image6'));
+});
+</script>
+
+<p>7 Congratulations! You have installed KeyChain. <button id="loadImage7" data-image="https://user-images.githubusercontent.com/34011337/49649380-0e507080-fa3a-11e8-8645-b86dbd139dbc.png">View</button></p>
+
+<p><img id='image7' class='hide' width="532" alt="mac-6" src=""></p>
+
+<script>
+  $("#image7").hide();
+  $("#loadImage7").on('click', function(){
+  $("#image7").show();
+  $("#image7").attr("src", $("#loadImage7").data('image7'));
+});
+</script>
 <h3 id='check-if-keychain-is-installed'>Check if KeyChain is installed</h3>
 <p>After installation, connect to the demo-page: <a href="http://localhost:16384/">http://localhost:16384/</a> to check if the installation was successful and to test the KeyChain commands. In case everything went well, you will see the following page and you will be able to see responses to the commands in the &quot;Response&quot; box when you click on them.</p>
 
