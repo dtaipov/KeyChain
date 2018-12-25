@@ -623,12 +623,13 @@ Download [KeyChain](https://github.com/arrayio/array-io-keychain/releases/downlo
 1. Click "next" to start installation. <button id="loadImage" data-image="https://user-images.githubusercontent.com/34011337/50005299-fbe6b180-ffba-11e8-97a9-0d8fc5145db8.png">Show</button>
 
 <script>
+   $("#image").hide();
   $("#loadImage").on('click', function(){
+$("#image").show();
   $("#image").attr("src", $("#loadImage").data('image'));
 });
 </script>
-
-<img id='image' width="562" alt="2018-12-13 19 42 06" src="">
+<img id='image' class='hide' width="562" alt="2018-12-13 19 42 06" src="">
 
 2. Accept the terms of the License Agreement.
 
