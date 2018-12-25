@@ -628,7 +628,7 @@ Download [KeyChain](https://github.com/arrayio/array-io-keychain/releases/downlo
 });
 </script>
 
-<img width="562" alt="2018-12-13 19 42 06" src="">
+<img id='image' width="562" alt="2018-12-13 19 42 06" src="">
 
 2. Accept the terms of the License Agreement.
 
