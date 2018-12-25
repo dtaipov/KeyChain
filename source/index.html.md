@@ -23,7 +23,7 @@ search: true
 
 ## Installation
 
-Download and install KeyChain for [macOS](https://github.com/arrayio/array-io-keychain/releases/download/0.10/KeyChain.Installer.v0.10.zip). Windows and Linux installers are coming soon.
+Download and install KeyChain for [macOS](https://github.com/arrayio/array-io-keychain/releases/download/0.11/KeyChain.Installer.v0.11.zip). Windows and Linux installers are coming soon.
 
 *Try out KeyChain on the [demo page](https://arrayio.github.io/array-io-keychain/demo/).*
 
@@ -138,9 +138,9 @@ ws.on('open') = () => {
 ws.on('message', (response) => {
   const signature = JSON.parse(response).result;
 // For eth signature contains those 3 parameters: r, s, v 
-  const r = signature.splice(0, 64);
-  const s = signature.splice(64, 128);
-  const v = signature.splice(128, 130);
+  const r = signature.slice(0, 64);
+  const s = signature.slice(64, 128);
+  const v = signature.slice(128, 130);
   console.log(`Signature: \nr: ${r}\ns: ${s}\nv: ${v}\n`);
 });
 ```
@@ -618,7 +618,7 @@ result|`string`|current version number which has the form of "[major].[minor].[b
 
 ### How to install 
 
-Download [KeyChain](https://github.com/arrayio/array-io-keychain/releases/download/0.10/KeyChain.Installer.v0.10.zip) and follow the steps of the graphic installer. 
+Download [KeyChain](https://github.com/arrayio/array-io-keychain/releases/download/0.11/KeyChain.Installer.v0.11.zip) and follow the steps of the graphic installer. 
 
  1 Click "next" to start installation. <button id="loadImage" data-image="https://user-images.githubusercontent.com/34011337/50005299-fbe6b180-ffba-11e8-97a9-0d8fc5145db8.png">View</button>
 
