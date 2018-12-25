@@ -620,15 +620,15 @@ result|`string`|current version number which has the form of "[major].[minor].[b
 
 Download [KeyChain](https://github.com/arrayio/array-io-keychain/releases/download/0.10/KeyChain.Installer.v0.10.zip) and follow the steps of the graphic installer. 
 
-1. Click "next" to start installation. <button id="loadImage">Show</button>
+1. Click "next" to start installation. <button id="loadImage" data-image="https://user-images.githubusercontent.com/34011337/50005299-fbe6b180-ffba-11e8-97a9-0d8fc5145db8.png">Show</button>
 
-<script>alert('çiao')
+<script>
   $("#loadImage").on('click', function(){
-  $("#image").attr("src", $("#inputBox").data('image'));
+  $("#image").attr("src", $("#loadImage").data('image'));
 });
 </script>
 
-<img width="562" alt="2018-12-13 19 42 06" src="https://user-images.githubusercontent.com/34011337/50005299-fbe6b180-ffba-11e8-97a9-0d8fc5145db8.png">
+<img width="562" alt="2018-12-13 19 42 06" src="">
 
 2. Accept the terms of the License Agreement.
 
