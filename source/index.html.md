@@ -620,42 +620,100 @@ result|`string`|current version number which has the form of "[major].[minor].[b
 
 Download [KeyChain](https://github.com/arrayio/array-io-keychain/releases/download/0.10/KeyChain.Installer.v0.10.zip) and follow the steps of the graphic installer. 
 
-1. Click "next" to start installation. <button id="loadImage" data-image="https://user-images.githubusercontent.com/34011337/50005299-fbe6b180-ffba-11e8-97a9-0d8fc5145db8.png">Show</button>
+1. Click "next" to start installation. <button id="loadImage1" data-image="https://user-images.githubusercontent.com/34011337/50005299-fbe6b180-ffba-11e8-97a9-0d8fc5145db8.png">Show</button>
 
 
-<img id='image' class='hide' width="562" alt="2018-12-13 19 42 06" src="">
+<img id='image1' class='hide' width="562" alt="2018-12-13 19 42 06" src="">
 
 <script>
-  $("#image").hide();
-  $("#loadImage").on('click', function(){
-  $("#image").show();
-  $("#image").attr("src", $("#loadImage").data('image'));
+  $("#image1").hide();
+  $("#loadImage1").on('click', function(){
+  $("#image1").show();
+  $("#image1").attr("src", $("#loadImage1").data('image1'));
 });
 </script>
 
-2. Accept the terms of the License Agreement.
+2. Accept the terms of the License Agreement. <button id="loadImage2" data-image="https://user-images.githubusercontent.com/34011337/50005305-fee1a200-ffba-11e8-9373-409a58a8f8a6.png">Show</button>
 
-<img width="562" alt="2018-12-13 19 42 08" src="https://user-images.githubusercontent.com/34011337/50005305-fee1a200-ffba-11e8-9373-409a58a8f8a6.png">
 
-3. Choose a folder and click "next".
+<img id='image2' class='hide' width="562" alt="2018-12-13 19 42 08" src="">
 
-<img width="562" alt="2018-12-13 19 42 10" src="https://user-images.githubusercontent.com/34011337/50005310-030dbf80-ffbb-11e8-967c-d5eadf1cfec0.png">
+<script>
+  $("#image2").hide();
+  $("#loadImage2").on('click', function(){
+  $("#image2").show();
+  $("#image2").attr("src", $("#loadImage2").data('image2'));
+});
+</script>
 
-4. Click "install" for installation to start.
 
-<img width="562" alt="2018-12-13 19 42 13" src="https://user-images.githubusercontent.com/34011337/50005315-0608b000-ffbb-11e8-8dea-0fd9375b4aa7.png">
+3. Choose a folder and click "next". <button id="loadImage3" data-image="https://user-images.githubusercontent.com/34011337/50005310-030dbf80-ffbb-11e8-967c-d5eadf1cfec0.png">Show</button>
 
-5. You will need to authorize the installation.
 
-<img width="555" alt="mac-4" src="https://user-images.githubusercontent.com/34011337/49649378-0db7da00-fa3a-11e8-95b3-3ae9f8152204.png">
+<img id='image3' class='hide' width="562" alt="2018-12-13 19 42 10" src="">
 
-6. Wait until the setup is complete.
+<script>
+  $("#image3").hide();
+  $("#loadImage3").on('click', function(){
+  $("#image3").show();
+  $("#image3").attr("src", $("#loadImage3").data('image3'));
+});
+</script>
 
-<img width="518" alt="2018-12-13 19 42 24" src="https://user-images.githubusercontent.com/34011337/50005317-086b0a00-ffbb-11e8-8d81-7ecebd54dabb.png">
 
-7. Congratulations! You have installed KeyChain.
+4. Click "install" for installation to start. <button id="loadImage4" data-image="https://user-images.githubusercontent.com/34011337/50005315-0608b000-ffbb-11e8-8dea-0fd9375b4aa7.png">Show</button>
 
-<img width="532" alt="mac-6" src="https://user-images.githubusercontent.com/34011337/49649380-0e507080-fa3a-11e8-8645-b86dbd139dbc.png">
+
+<img id='image4' class='hide' width="562" alt="2018-12-13 19 42 13" src="">
+
+<script>
+  $("#image4").hide();
+  $("#loadImage4").on('click', function(){
+  $("#image4").show();
+  $("#image4").attr("src", $("#loadImage4").data('image4'));
+});
+</script>
+
+
+5. You will need to authorize the installation. <button id="loadImage5" data-image="https://user-images.githubusercontent.com/34011337/49649378-0db7da00-fa3a-11e8-95b3-3ae9f8152204.png">Show</button>
+
+
+<img id='image5' class='hide' width="555" alt="mac-4" src="">
+
+<script>
+  $("#image5").hide();
+  $("#loadImage5").on('click', function(){
+  $("#image5").show();
+  $("#image5").attr("src", $("#loadImage5").data('image5'));
+});
+</script>
+
+6. Wait until the setup is complete. <button id="loadImage6" data-image="https://user-images.githubusercontent.com/34011337/50005317-086b0a00-ffbb-11e8-8d81-7ecebd54dabb.png">Show</button>
+
+
+<img id='image6' class='hide' width="518" alt="2018-12-13 19 42 24" src="">
+
+<script>
+  $("#image6").hide();
+  $("#loadImage6").on('click', function(){
+  $("#image6").show();
+  $("#image6").attr("src", $("#loadImage6").data('image6'));
+});
+</script>
+
+7. Congratulations! You have installed KeyChain. <button id="loadImage7" data-image="https://user-images.githubusercontent.com/34011337/49649380-0e507080-fa3a-11e8-8645-b86dbd139dbc.png">Show</button>
+
+
+<img id='image7' class='hide' width="532" alt="mac-6" src="">
+
+<script>
+  $("#image7").hide();
+  $("#loadImage7").on('click', function(){
+  $("#image7").show();
+  $("#image7").attr("src", $("#loadImage7").data('image7'));
+});
+</script>
+
 
 ### Check if KeyChain is installed
 
