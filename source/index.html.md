@@ -620,16 +620,16 @@ result|`string`|current version number which has the form of "[major].[minor].[b
 
 Download [KeyChain](https://github.com/arrayio/array-io-keychain/releases/download/0.10/KeyChain.Installer.v0.10.zip) and follow the steps of the graphic installer. 
 
- 1 Click "next" to start installation. <button id="loadImage1" data-image="https://user-images.githubusercontent.com/34011337/50005299-fbe6b180-ffba-11e8-97a9-0d8fc5145db8.png">View</button>
+ 1 Click "next" to start installation. <button id="loadImage" data-image="https://user-images.githubusercontent.com/34011337/50005299-fbe6b180-ffba-11e8-97a9-0d8fc5145db8.png">View</button>
 
 
-<img id='image1' class='hide' width="562" alt="2018-12-13 19 42 06" src="">
+<img id='image' class='hide' width="562" alt="2018-12-13 19 42 06" src="">
 
 <script>
-  $("#image1").hide();
-  $("#loadImage1").on('click', function(){
-  $("#image1").show();
-  $("#image1").attr("src", $("#loadImage1").data('image1'));
+  $("#image").hide();
+  $("#loadImage").on('click', function(){
+  $("#image").show();
+  $("#image").attr("src", $("#loadImage").data('image'));
 });
 </script>
 
