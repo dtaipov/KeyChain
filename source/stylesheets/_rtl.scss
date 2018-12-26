@@ -16,6 +16,11 @@ $default: auto;
     transition: right 0.3s ease-in-out !important;
     left: $default !important;
     #{right}: 0;
+
+    img {
+      width: 100% !important;
+      margin-top: 20px !important;
+    }
 }
 
 .toc-h2 {
