@@ -656,7 +656,7 @@ Download [KeyChain](https://github.com/arrayio/array-io-keychain/releases/downlo
 
 <script>
 
-alert
+alert('ciao'):
   var button = $(".show");
   var image = $("img");
   image.hide();
