@@ -576,28 +576,28 @@ We are passionate about KeyChain and seek to make it as soon as possible, so tha
 
 Download KeyChain and follow the steps of the graphic installer. 
 
-1 Click "next" to prepare installation <button class="show btn btn-info btn-sm" data-image='10'>show</button>
+1 Click "next" to prepare installation  <button class="show btn btn-info btn-sm" data-image='10'>show</button>
 
 <img id='10' width="532" alt="wind1" src="https://user-images.githubusercontent.com/34011337/50442889-08033500-0912-11e9-99d7-665d9e5446d4.png">
 
 
-2 Accept the terms of the License and click "next" <button class="show btn btn-info btn-sm" data-image='11'>show</button>
+2 Accept the terms of the License and click "next"  <button class="show btn btn-info btn-sm" data-image='11'>show</button>
 
 <img id='11' width="532" alt="license" src="https://user-images.githubusercontent.com/34011337/50442857-e0ac6800-0911-11e9-95d3-b95afa2fd34e.png">
 
-3 Choose a folder, click "next" <button class="show btn btn-info btn-sm" data-image='12'>show</button>
+3 Choose a folder, click "next"  <button class="show btn btn-info btn-sm" data-image='12'>show</button>
 
 <img id='12' width="532" alt="choose folder" src="https://user-images.githubusercontent.com/34011337/50442901-14878d80-0912-11e9-9910-5a6d42310638.png">
 
-4 Click "install" for installation to start <button class="show btn btn-info btn-sm" data-image='13'>show</button>
+4 Click "install" for installation to start  <button class="show btn btn-info btn-sm" data-image='13'>show</button>
 
 <img id='13' width="532" alt="click install to start" src="https://user-images.githubusercontent.com/34011337/50442911-21a47c80-0912-11e9-959d-123f4951c602.png">
 
-5 Wait until the setup is complete <button class="show btn btn-info btn-sm" data-image='14'>show</button>
+5 Wait until the setup is complete  <button class="show btn btn-info btn-sm" data-image='14'>show</button>
 
 <img id='14' width="532" alt="wait" src="https://user-images.githubusercontent.com/34011337/50442920-2cf7a800-0912-11e9-81f3-a1f09a549761.png">
 
-6 Congratulaions! You have installed KeyChain. <button class="show btn btn-info btn-sm" data-image='15'>show</button>
+6 Congratulaions! You have installed KeyChain  <button class="show btn btn-info btn-sm" data-image='15'>show</button>
 
 <img id='15' width="532" alt="wind6" src="https://user-images.githubusercontent.com/34011337/50442929-3254f280-0912-11e9-9239-b5425d780de4.png">
 
