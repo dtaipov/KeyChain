@@ -39,138 +39,40 @@ Below you can find comprehensive installation guides for [macOS](#macos), [Windo
 
 ## Getting started
 
-> Require libraries setup
+1 Create new key with KeyChain
 
 ```json
 //go to javascript
 ```
 
 ```javascript
-const unsign = require('@warren-bank/ethereumjs-tx-unsign')
-const ethUtil = require('ethereumjs-util');
-const WebSocket = require('ws');
+  const keyInstance = await Module.Keychain.create();
+  const data = await keyInstance.createKey('test1');
+  const key = data.result;
+  await keyInstance.term();
+ 
+  Module.override(web3);
 ```
 
-> Insert your own `keyname`
+2 Now we can use web3 with KeyChain
+
+> Here we use an overridden web3 function
 
 ```json
 //go to javascript
 ```
 
 ```javascript
-const ws = new WebSocket('ws://localhost:16384/');
-const keyname = 'test1@6de493f01bf590c0';
+await web3.eth.accounts.signTransaction(transactionParams, key); 
 ```
 
-This is a simple example of how to integrate KeyChain through WebSocket.
+### Result
 
-> First, we wrap the `public_key` command into a function to send it through a websocket.
-
-```json
-//go to javascript
-```
-
-```javascript
-let fromAdd;
-const send = (command) => {
-  ws.send(JSON.stringify(command));
-}
-
-const getPublicKey = (keyname) => {
-  return { 
-    command: "public_key",
-    params: {
-      keyname: keyname
-    }
-  }
-}
-```
-
-> When the websocket is open, we send the `public_key` command to the KeyChain
-
-```json
-//go to javascript
-```
-
-```javascript
-ws.onopen = () => {
-  send(getPublicKey(keyname));
-}
-```
-
-> Next, we display the public key and calculate the address from it.
-
-```json
-//go to javascript
-```
-
-```javascript
-ws.on('message', (response) => {
-  const data = JSON.parse(response);
-  console.log('Public key: ', `0x${data.result}`)
-  fromAdd = `0x${ethUtil.publicToAddress(`0x${data.result}`).toString('hex')}`;
-  console.log(fromAdd);
-});
-```
-
-> Then we sign a raw transaction in hex form via KeyChain
-
-```json
-//go to javascript
-```
-
-```javascript
-const ethHex = 'e315843b9aca0082520894e8899ba12578d60e4d0683a596edacbc85ec18cc6480038080';
-
-const signHex = (keyname, hexraw) => {
-  return {
-    "command": "sign_hex",
-    "params": {
-      "transaction": hexraw,
-      "blockchain_type": "ethereum",
-      "keyname": keyname
-    }
-  }
-}
-
-ws.on('open') = () => {
-  send(signHex(keyname, ethHex));
-}
-
-ws.on('message', (response) => {
-  const signature = JSON.parse(response).result;
-// For eth signature contains those 3 parameters: r, s, v 
-  const r = signature.slice(0, 64);
-  const s = signature.slice(64, 128);
-  const v = signature.slice(128, 130);
-  console.log(`Signature: \nr: ${r}\ns: ${s}\nv: ${v}\n`);
-});
-```
-
-> Finally, we use an Ethereumjs-tx library to unsign the transaction and check the result against the one we got from the KeyChain.
-
-```json
-//go to javascript
-```
-
-```javascript
-
-const resHex = 'f86315843b9aca0082520894e8899ba12578d60e4d0683a596edacbc85ec18cc64802aa0c3b68e20527f8f304801986720de1aeb9ab126c55570942420361cedeec1199ca03002d853eb2089e4e63848fcdb7af0fbc46e8f5c856ef0eb849a2270fd621bdb';
-let { txData, signature } = unsign(resHex);
-console.log('txData:',    txData,    "\n")
-console.log('signature:', signature, "\n")
-```
-
-- First, you need to get the necessary libraries and state the localhost address that you will connect to through the WebSocket.
-
-- Then you need to get a public key that you will need to sign a transaction and unsign it afterwards.
-
-
-- Finally, you can sign an Ethereum transaction in hex format and unsign it, passing the result to KeyChain
+![image](https://user-images.githubusercontent.com/34011337/50442019-37b03e00-090e-11e9-8226-b3b4aa3f9914.png)
 
 
 <aside class="notice">
-You must replace <code>test1@6de493f01bf590c0</code> with your personal keyname.
+You must replace <code>test1</code> with your personal keyname.
 </aside>
 
 
@@ -623,31 +525,31 @@ result|`string`|current version number which has the form of "[major].[minor].[b
 Download [KeyChain](https://github.com/arrayio/array-io-keychain/releases/download/0.11/KeyChain.Installer.v0.11.zip) and follow the steps of the graphic installer. 
 
 
-1. Click "next" to start installation. <button class="show" data-image='1'>show</button>
+1 Click "next" to start installation. <button class="show btn btn-info btn-sm" data-image='1'>show</button>
 
 <img id='1' width="562" alt="2018-12-13 19 42 06" src="https://user-images.githubusercontent.com/34011337/50005299-fbe6b180-ffba-11e8-97a9-0d8fc5145db8.png">
 
-2. Accept the terms of the License Agreement.<button class="show" data-image='2'>show</button>
+2 Accept the terms of the License Agreement.<button class="show btn btn-info btn-sm" data-image='2'>show</button>
 
 <img id='2' width="562" alt="2018-12-13 19 42 08" src="https://user-images.githubusercontent.com/34011337/50005305-fee1a200-ffba-11e8-9373-409a58a8f8a6.png">
 
-3. Choose a folder and click "next".<button class="show" data-image='3'>show</button>
+3 Choose a folder and click "next".<button class="show btn btn-info btn-sm" data-image='3'>show</button>
 
 <img id='3' width="562" alt="2018-12-13 19 42 10" src="https://user-images.githubusercontent.com/34011337/50005310-030dbf80-ffbb-11e8-967c-d5eadf1cfec0.png">
 
-4. Click "install" for installation to start.<button class="show" data-image='4'>show</button>
+4 Click "install" for installation to start.<button class="show btn btn-info btn-sm" data-image='4'>show</button>
 
 <img id='4' width="562" alt="2018-12-13 19 42 13" src="https://user-images.githubusercontent.com/34011337/50005315-0608b000-ffbb-11e8-8dea-0fd9375b4aa7.png">
 
-5. You will need to authorize the installation.<button class="show" data-image='5'>show</button>
+5 You will need to authorize the installation.<button class="show btn btn-info btn-sm" data-image='5'>show</button>
 
 <img id='5' width="555" alt="mac-4" src="https://user-images.githubusercontent.com/34011337/49649378-0db7da00-fa3a-11e8-95b3-3ae9f8152204.png">
 
-6. Wait until the setup is complete.<button class="show" data-image='6'>show</button>
+6 Wait until the setup is complete.<button class="show btn btn-info btn-sm" data-image='6'>show</button>
 
 <img id='6' width="518" alt="2018-12-13 19 42 24" src="https://user-images.githubusercontent.com/34011337/50005317-086b0a00-ffbb-11e8-8d81-7ecebd54dabb.png">
   
-7. Congratulations! You have installed KeyChain.<button class="show" data-image='7'>show</button>
+7 Congratulations! You have installed KeyChain.<button class="show btn btn-info btn-sm" data-image='7'>show</button>
 
 <img id='7' width="532" alt="mac-6" src="https://user-images.githubusercontent.com/34011337/49649380-0e507080-fa3a-11e8-8645-b86dbd139dbc.png">
 
@@ -672,18 +574,31 @@ We are passionate about KeyChain and seek to make it as soon as possible, so tha
 
 Download KeyChain and follow the steps of the graphic installer. 
 
-1 Click "next" to prepare installation 
+1 Click "next" to prepare installation <button class="show btn btn-info btn-sm" data-image='10'>show</button>
+
+<img id='10' width="532" alt="wind1" src="https://user-images.githubusercontent.com/34011337/50442889-08033500-0912-11e9-99d7-665d9e5446d4.png">
 
 
-2 Accept the terms of the License and click "next"
+2 Accept the terms of the License and click "next" <button class="show btn btn-info btn-sm" data-image='11'>show</button>
 
-3 Choose a folder, click "next" 
+<img id='11' width="532" alt="license" src="https://user-images.githubusercontent.com/34011337/50442857-e0ac6800-0911-11e9-95d3-b95afa2fd34e.png">
 
-4 Click "install" for installation to start 
+3 Choose a folder, click "next" <button class="show btn btn-info btn-sm" data-image='12'>show</button>
 
-5 Wait until the setup is complete 
+<img id='12' width="532" alt="choose folder" src="https://user-images.githubusercontent.com/34011337/50442901-14878d80-0912-11e9-9910-5a6d42310638.png">
 
-6 Congratulaions! You have installed KeyChain. 
+4 Click "install" for installation to start <button class="show btn btn-info btn-sm" data-image='13'>show</button>
+
+<img id='13' width="532" alt="click install to start" src="https://user-images.githubusercontent.com/34011337/50442911-21a47c80-0912-11e9-959d-123f4951c602.png">
+
+5 Wait until the setup is complete <button class="show btn btn-info btn-sm" data-image='14'>show</button>
+
+<img id='14' width="532" alt="wait" src="https://user-images.githubusercontent.com/34011337/50442920-2cf7a800-0912-11e9-81f3-a1f09a549761.png">
+
+6 Congratulaions! You have installed KeyChain. <button class="show btn btn-info btn-sm" data-image='15'>show</button>
+
+<img id='15' width="532" alt="wind6" src="https://user-images.githubusercontent.com/34011337/50442929-3254f280-0912-11e9-9239-b5425d780de4.png">
+
 
 ### Check if KeyChain is installed
 
@@ -693,7 +608,7 @@ After installation, connect to the demo-page: [http://localhost:16384/](http://l
 
 ## Linux 
 
-Windows installer will be accessible at v.1.0.
+Linux installer will be accessible soon.
 
 We are passionate about KeyChain and seek to make it as soon as possible, so that you could enjoy its wonderful features on any operating system you like.
 
