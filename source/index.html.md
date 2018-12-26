@@ -658,7 +658,6 @@ Download [KeyChain](https://github.com/arrayio/array-io-keychain/releases/downlo
   var image = $("img");
   image.hide();
   button.on("click", function(){
-alert('ciao');
     $(this).next(image).show();
   })
 </script>
@@ -682,84 +681,18 @@ We are passionate about KeyChain and seek to make it as soon as possible, so tha
 
 Download KeyChain and follow the steps of the graphic installer. 
 
-1 Click "next" to prepare installation <button id="loadImage10" data-image="https://user-images.githubusercontent.com/34011337/49864523-b76ce180-fe13-11e8-8fa9-7e1421295bd9.png">View</button>
+1 Click "next" to prepare installation 
 
 
-<img id='image10' class='hide' width="" alt="" src="">
+2 Accept the terms of the License and click "next"
 
-<script>
-  $("#image10").hide();
-  $("#loadImage10").on('click', function(){
-  $("#image10").show();
-  $("#image10").attr("src", $("#loadImage10").data('image10'));
-});
-</script>
+3 Choose a folder, click "next" 
 
+4 Click "install" for installation to start 
 
-2 Accept the terms of the License and click "next" <button id="loadImage10" data-image="https://user-images.githubusercontent.com/34011337/49864529-b89e0e80-fe13-11e8-814d-71b2723a41d0.png">View</button>
+5 Wait until the setup is complete 
 
-
-<img id='image10' class='hide' width="" alt="" src="">
-
-<script>
-  $("#image10").hide();
-  $("#loadImage10").on('click', function(){
-  $("#image10").show();
-  $("#image10").attr("src", $("#loadImage10").data('image10'));
-});
-</script>
-
-3 Choose a folder, click "next" <button id="loadImage10" data-image="https://user-images.githubusercontent.com/34011337/49864528-b89e0e80-fe13-11e8-8671-11845874f077.png">View</button>
-
-
-<img id='image10' class='hide' width="" alt="" src="">
-
-<script>
-  $("#image10").hide();
-  $("#loadImage10").on('click', function(){
-  $("#image10").show();
-  $("#image10").attr("src", $("#loadImage10").data('image10'));
-});
-</script>
-
-4 Click "install" for installation to start <button id="loadImage10" data-image="https://user-images.githubusercontent.com/34011337/49864527-b8057800-fe13-11e8-910c-914dbcf6d8b3.png">View</button>
-
-
-<img id='image10' class='hide' width="" alt="" src="">
-
-<script>
-  $("#image10").hide();
-  $("#loadImage10").on('click', function(){
-  $("#image10").show();
-  $("#image10").attr("src", $("#loadImage10").data('image10'));
-});
-</script>
-
-5 Wait until the setup is complete <button id="loadImage10" data-image="https://user-images.githubusercontent.com/34011337/49864526-b8057800-fe13-11e8-88cf-64f722b9b277.png">View</button>
-
-
-<img id='image10' class='hide' width="" alt="" src="">
-
-<script>
-  $("#image10").hide();
-  $("#loadImage10").on('click', function(){
-  $("#image10").show();
-  $("#image10").attr("src", $("#loadImage10").data('image10'));
-});
-</script>
-
-6 Congratulaions! You have installed KeyChain. <button id="loadImage10" data-image="https://user-images.githubusercontent.com/34011337/49864525-b76ce180-fe13-11e8-9034-c6aaec14fcf4.png">View</button>
-
-
-<img id='image10' class='hide' width="" alt="" src="">
-
-<script>
-  $("#image10").hide();
-  $("#loadImage10").on('click', function(){
-  $("#image10").show();
-  $("#image10").attr("src", $("#loadImage10").data('image10'));
-});
-</script>
+6 Congratulaions! You have installed KeyChain. 
 
 ### Check if KeyChain is installed
 
