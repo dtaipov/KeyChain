@@ -851,7 +851,7 @@ The API will return a properly JSON formated response carrying the same id as th
 In case of an error, the resulting answer will carry an error attribute and a description in human-readable format:
 
 ```json
-{"error":"Error: keyfile could not found by keyname"}
+{"error":"Error: keyfile could not be found by keyname"}
 ```
 
 ```javascript
