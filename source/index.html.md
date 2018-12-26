@@ -623,9 +623,9 @@ result|`string`|current version number which has the form of "[major].[minor].[b
 Download [KeyChain](https://github.com/arrayio/array-io-keychain/releases/download/0.11/KeyChain.Installer.v0.11.zip) and follow the steps of the graphic installer. 
 
 
-1. Click "next" to start installation. <button class="show">show</button>
+1. Click "next" to start installation. <button class="show" data-image='1'>show</button>
 
-<img width="562" alt="2018-12-13 19 42 06" src="https://user-images.githubusercontent.com/34011337/50005299-fbe6b180-ffba-11e8-97a9-0d8fc5145db8.png">
+<img id='1' width="562" alt="2018-12-13 19 42 06" src="https://user-images.githubusercontent.com/34011337/50005299-fbe6b180-ffba-11e8-97a9-0d8fc5145db8.png">
 
 2. Accept the terms of the License Agreement.<button class="show">show</button>
 
@@ -653,12 +653,12 @@ Download [KeyChain](https://github.com/arrayio/array-io-keychain/releases/downlo
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <script>
-
   var button = $(".show");
   var image = $("img");
   image.hide();
   button.on("click", function(){
-    $(this).next(image).show();
+    var id = $(this).data('image')
+    $("#"+id).show();
   })
 </script>
 
