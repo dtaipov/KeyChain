@@ -37,8 +37,6 @@ Below you can find comprehensive installation guides for [macOS](#macos), [Windo
 
 ## Getting started
 
-1 Create new key with KeyChain
-
 ```json
 //go to javascript
 ```
@@ -52,8 +50,6 @@ Below you can find comprehensive installation guides for [macOS](#macos), [Windo
   Module.override(web3);
 ```
 
-2 Now we can use web3 with KeyChain
-
 > Here we use an overridden web3 function
 
 ```json
@@ -63,6 +59,10 @@ Below you can find comprehensive installation guides for [macOS](#macos), [Windo
 ```javascript
 await web3.eth.accounts.signTransaction(transactionParams, key); 
 ```
+
+1 Create new key with KeyChain
+
+2 Now we can use web3 with KeyChain
 
 ### Result
 
