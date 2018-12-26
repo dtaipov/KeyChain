@@ -1,5 +1,6 @@
 ---
 <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+
 title: KeyChain Documentation
 
 language_tabs: # must be one of https://git.io/vQNgJ
@@ -523,6 +524,7 @@ result|`string`|current version number which has the form of "[major].[minor].[b
 
 Download [KeyChain](https://github.com/arrayio/array-io-keychain/releases/download/0.11/KeyChain.Installer.v0.11.zip) and follow the steps of the graphic installer. 
 
+<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
 
 1 Click "next" to start installation. <button class="show btn btn-info btn-sm" data-image='1'>show</button>
 
@@ -598,6 +600,17 @@ Download KeyChain and follow the steps of the graphic installer.
 
 <img id='15' width="532" alt="wind6" src="https://user-images.githubusercontent.com/34011337/50442929-3254f280-0912-11e9-9239-b5425d780de4.png">
 
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script>
+  var button = $(".show");
+  var image = $("img");
+  image.hide();
+  button.on("click", function(){
+    var id = $(this).data('image')
+    $("#"+id).toggle();
+  })
+</script>
 
 ### Check if KeyChain is installed
 
@@ -1072,14 +1085,3 @@ This page contains links to the scholarly and publicistic sources that we find u
 - Guide to Elliptic Curve Digital Signatures: [guide with thorough explanations of technical aspects](http://royalforkblog.github.io/2014/09/04/ecc/)
 
 - Доступно о криптографии на эллиптических кривых: [about elliptic curves in Russian](https://habr.com/post/335906/)
-
-<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-<script>
-  var button = $(".show");
-  var image = $("img");
-  image.hide();
-  button.on("click", function(){
-    var id = $(this).data('image')
-    $("#"+id).toggle();
-  })
-</script>
