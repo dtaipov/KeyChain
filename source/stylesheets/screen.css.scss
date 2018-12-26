@@ -73,7 +73,7 @@ html, body {
 
   // This is the logo at the top of the ToC
   .logo {
-    display: block;
+    display: block !important;
     
     width: 100% !important;
     margin-top: 20px !important;
