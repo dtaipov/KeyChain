@@ -42,27 +42,43 @@ Below you can find comprehensive installation guides for [macOS](#macos), [Windo
 ```
 
 ```javascript
-  const keyInstance = await Module.Keychain.create();
-  const data = await keyInstance.createKey('test1');
-  const key = data.result;
-  await keyInstance.term();
- 
-  Module.override(web3);
+npm install web3override
 ```
-
-> Here we use an overridden web3 function
 
 ```json
 //go to javascript
 ```
 
 ```javascript
-await web3.eth.accounts.signTransaction(transactionParams, key); 
+const Web3 = require('web3');
+const Module = require('web3override');
+const API_KEY = 'https://ropsten.infura.io/v3/046804e3dd3240b09834531326f310cf';
+const web3 = new Web3(new Web3.providers.HttpProvider(API_KEY));
 ```
 
-1 Create new key with KeyChain
+```json
+//go to javascript
+```
 
-2 Now we can use web3 with KeyChain
+```javascript
+main = async () => {
+  const keyInstance = await Module.Keychain.create();
+  const data = await keyInstance.createKey('test1');
+  const key = data.result;
+  await keyInstance.term();
+
+  Module.override(web3);
+  // now we use web3 with keychain
+  await web3.eth.accounts.signTransaction(transactionParams, key); // overriden web3 function usage
+};
+main();
+```
+
+1 Import libraries
+
+2 Create new key with KeyChain
+
+3 Now we can use web3 with KeyChain
 
 ### Result
 
