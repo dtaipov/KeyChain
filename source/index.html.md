@@ -1,10 +1,4 @@
-<head>
-<script
-  src="https://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"/>
 
-</head>
 
 ---
 title: KeyChain Documentation
@@ -660,8 +654,8 @@ Download [KeyChain](https://github.com/arrayio/array-io-keychain/releases/downlo
 
 <img width="532" alt="mac-6" src="https://user-images.githubusercontent.com/34011337/49649380-0e507080-fa3a-11e8-8645-b86dbd139dbc.png">
 
-<script>
-
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+crossorigin="anonymous">
   var button = $(".show");
   var image = $("img");
   image.hide();
