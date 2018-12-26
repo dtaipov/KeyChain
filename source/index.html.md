@@ -524,31 +524,31 @@ Download [KeyChain](https://github.com/arrayio/array-io-keychain/releases/downlo
 
 <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
 
-1 Click "next" to start installation. <button class="show btn btn-info btn-sm" data-image='1'>show</button>
+1 Click "next" to start installation <button class="show btn btn-info btn-sm" data-image='1'>show</button>
 
 <img id='1' width="562" alt="2018-12-13 19 42 06" src="https://user-images.githubusercontent.com/34011337/50005299-fbe6b180-ffba-11e8-97a9-0d8fc5145db8.png">
 
-2 Accept the terms of the License Agreement.<button class="show btn btn-info btn-sm" data-image='2'>show</button>
+2 Accept the terms of the License Agreement <button class="show btn btn-info btn-sm" data-image='2'>show</button>
 
 <img id='2' width="562" alt="2018-12-13 19 42 08" src="https://user-images.githubusercontent.com/34011337/50005305-fee1a200-ffba-11e8-9373-409a58a8f8a6.png">
 
-3 Choose a folder and click "next".<button class="show btn btn-info btn-sm" data-image='3'>show</button>
+3 Choose a folder and click "next" <button class="show btn btn-info btn-sm" data-image='3'>show</button>
 
 <img id='3' width="562" alt="2018-12-13 19 42 10" src="https://user-images.githubusercontent.com/34011337/50005310-030dbf80-ffbb-11e8-967c-d5eadf1cfec0.png">
 
-4 Click "install" for installation to start.<button class="show btn btn-info btn-sm" data-image='4'>show</button>
+4 Click "install" for installation to start <button class="show btn btn-info btn-sm" data-image='4'>show</button>
 
 <img id='4' width="562" alt="2018-12-13 19 42 13" src="https://user-images.githubusercontent.com/34011337/50005315-0608b000-ffbb-11e8-8dea-0fd9375b4aa7.png">
 
-5 You will need to authorize the installation.<button class="show btn btn-info btn-sm" data-image='5'>show</button>
+5 You will need to authorize the installation <button class="show btn btn-info btn-sm" data-image='5'>show</button>
 
 <img id='5' width="555" alt="mac-4" src="https://user-images.githubusercontent.com/34011337/49649378-0db7da00-fa3a-11e8-95b3-3ae9f8152204.png">
 
-6 Wait until the setup is complete.<button class="show btn btn-info btn-sm" data-image='6'>show</button>
+6 Wait until the setup is complete <button class="show btn btn-info btn-sm" data-image='6'>show</button>
 
 <img id='6' width="518" alt="2018-12-13 19 42 24" src="https://user-images.githubusercontent.com/34011337/50005317-086b0a00-ffbb-11e8-8d81-7ecebd54dabb.png">
   
-7 Congratulations! You have installed KeyChain.<button class="show btn btn-info btn-sm" data-image='7'>show</button>
+7 Congratulations! You have installed KeyChain <button class="show btn btn-info btn-sm" data-image='7'>show</button>
 
 <img id='7' width="532" alt="mac-6" src="https://user-images.githubusercontent.com/34011337/49649380-0e507080-fa3a-11e8-8645-b86dbd139dbc.png">
 
@@ -602,6 +602,14 @@ Download KeyChain and follow the steps of the graphic installer.
 <img id='15' width="532" alt="wind6" src="https://user-images.githubusercontent.com/34011337/50442929-3254f280-0912-11e9-9239-b5425d780de4.png">
 
 
+### Check if KeyChain is installed
+
+After installation, connect to the demo-page: [http://localhost:16384/](http://localhost:16384/) to check if the installation was successful and to test the KeyChain commands. In case everything went well, you will see the following page and you will be able to see responses to the commands in the "Response" box when you click on them.
+
+<button class="show btn btn-info btn-sm" data-image='8'>show</button>
+
+<img id='8' alt="screenshot from 2018-12-10 15-57-27" src="https://user-images.githubusercontent.com/34011337/49734247-be211a80-fc94-11e8-8d85-c70b738ecae3.png">
+
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <script>
   var button = $(".show");
@@ -612,12 +620,6 @@ Download KeyChain and follow the steps of the graphic installer.
     $("#"+id).toggle();
   })
 </script>
-
-### Check if KeyChain is installed
-
-After installation, connect to the demo-page: [http://localhost:16384/](http://localhost:16384/) to check if the installation was successful and to test the KeyChain commands. In case everything went well, you will see the following page and you will be able to see responses to the commands in the "Response" box when you click on them.
-
-![screenshot from 2018-12-10 15-57-27](https://user-images.githubusercontent.com/34011337/49734247-be211a80-fc94-11e8-8d85-c70b738ecae3.png)
 
 ## Linux 
 
