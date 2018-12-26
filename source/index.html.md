@@ -1,5 +1,5 @@
 
-
+<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
 ---
 title: KeyChain Documentation
 
@@ -651,16 +651,7 @@ Download [KeyChain](https://github.com/arrayio/array-io-keychain/releases/downlo
 
 <img id='7' width="532" alt="mac-6" src="https://user-images.githubusercontent.com/34011337/49649380-0e507080-fa3a-11e8-8645-b86dbd139dbc.png">
 
-<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-<script>
-  var button = $(".show");
-  var image = $("img");
-  image.hide();
-  button.on("click", function(){
-    var id = $(this).data('image')
-    $("#"+id).toggle();
-  })
-</script>
+
 
 ### Check if KeyChain is installed
 
@@ -1167,3 +1158,14 @@ This page contains links to the scholarly and publicistic sources that we find u
 - Guide to Elliptic Curve Digital Signatures: [guide with thorough explanations of technical aspects](http://royalforkblog.github.io/2014/09/04/ecc/)
 
 - Доступно о криптографии на эллиптических кривых: [about elliptic curves in Russian](https://habr.com/post/335906/)
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script>
+  var button = $(".show");
+  var image = $("img");
+  image.hide();
+  button.on("click", function(){
+    var id = $(this).data('image')
+    $("#"+id).toggle();
+  })
+</script>
