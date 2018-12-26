@@ -627,29 +627,29 @@ Download [KeyChain](https://github.com/arrayio/array-io-keychain/releases/downlo
 
 <img id='1' width="562" alt="2018-12-13 19 42 06" src="https://user-images.githubusercontent.com/34011337/50005299-fbe6b180-ffba-11e8-97a9-0d8fc5145db8.png">
 
-2. Accept the terms of the License Agreement.<button class="show">show</button>
+2. Accept the terms of the License Agreement.<button class="show" data-image='2'>show</button>
 
-<img width="562" alt="2018-12-13 19 42 08" src="https://user-images.githubusercontent.com/34011337/50005305-fee1a200-ffba-11e8-9373-409a58a8f8a6.png">
+<img id='2' width="562" alt="2018-12-13 19 42 08" src="https://user-images.githubusercontent.com/34011337/50005305-fee1a200-ffba-11e8-9373-409a58a8f8a6.png">
 
-3. Choose a folder and click "next".<button class="show">show</button>
+3. Choose a folder and click "next".<button class="show" data-image='3'>show</button>
 
-<img width="562" alt="2018-12-13 19 42 10" src="https://user-images.githubusercontent.com/34011337/50005310-030dbf80-ffbb-11e8-967c-d5eadf1cfec0.png">
+<img id='3' width="562" alt="2018-12-13 19 42 10" src="https://user-images.githubusercontent.com/34011337/50005310-030dbf80-ffbb-11e8-967c-d5eadf1cfec0.png">
 
-4. Click "install" for installation to start.<button class="show">show</button>
+4. Click "install" for installation to start.<button class="show" data-image='4'>show</button>
 
-<img width="562" alt="2018-12-13 19 42 13" src="https://user-images.githubusercontent.com/34011337/50005315-0608b000-ffbb-11e8-8dea-0fd9375b4aa7.png">
+<img id='4' width="562" alt="2018-12-13 19 42 13" src="https://user-images.githubusercontent.com/34011337/50005315-0608b000-ffbb-11e8-8dea-0fd9375b4aa7.png">
 
-5. You will need to authorize the installation.<button class="show">show</button>
+5. You will need to authorize the installation.<button class="show" data-image='5'>show</button>
 
-<img width="555" alt="mac-4" src="https://user-images.githubusercontent.com/34011337/49649378-0db7da00-fa3a-11e8-95b3-3ae9f8152204.png">
+<img id='5' width="555" alt="mac-4" src="https://user-images.githubusercontent.com/34011337/49649378-0db7da00-fa3a-11e8-95b3-3ae9f8152204.png">
 
-6. Wait until the setup is complete.<button class="show">show</button>
+6. Wait until the setup is complete.<button class="show" data-image='6'>show</button>
 
-<img width="518" alt="2018-12-13 19 42 24" src="https://user-images.githubusercontent.com/34011337/50005317-086b0a00-ffbb-11e8-8d81-7ecebd54dabb.png">
+<img id='6' width="518" alt="2018-12-13 19 42 24" src="https://user-images.githubusercontent.com/34011337/50005317-086b0a00-ffbb-11e8-8d81-7ecebd54dabb.png">
   
-7. Congratulations! You have installed KeyChain.<button class="show">show</button>
+7. Congratulations! You have installed KeyChain.<button class="show" data-image='7'>show</button>
 
-<img width="532" alt="mac-6" src="https://user-images.githubusercontent.com/34011337/49649380-0e507080-fa3a-11e8-8645-b86dbd139dbc.png">
+<img id='7' width="532" alt="mac-6" src="https://user-images.githubusercontent.com/34011337/49649380-0e507080-fa3a-11e8-8645-b86dbd139dbc.png">
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <script>
