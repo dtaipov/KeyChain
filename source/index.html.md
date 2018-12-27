@@ -94,13 +94,10 @@ You must replace <code>test1</code> with your personal keyname.
 
 If you have questions or enquiries about KeyChain, please do not hesitate to contact us:
 
-- [Twitter](https://twitter.com/ProjectArray)
-
 - [Telegram](https://t.me/arrayio)
-
 - [Stackoverflow](https://stackoverflow.com/users/10429540/array-io)
-
-- Or you can write us an email to support@array.io. 
+- [Twitter](https://twitter.com/ProjectArray)
+- Or you can write us an email to [support@array.io](mailto:support@array.io). 
 
 If you want to report a security issue, include the word "security" in the subject field.
 
