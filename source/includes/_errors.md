@@ -11,6 +11,8 @@ In case of an error, the resulting answer will carry an error attribute and the 
 
 All errors have the following format: 
 
+see the right panel
+
 ```json
 {"id":0,
 "error":
@@ -23,6 +25,11 @@ All errors have the following format:
 {"level":"error","file":..file name.. ,"line": ..line number.. ,"method": ..name of the function from the source code which carries the error.. ,"timestamp": ..exact time of the error.. }]
 }}
 ```
+
+```javascript
+//go to json
+```
+
 ## Exception codes
 
 ### KeyChain exceptions
@@ -92,6 +99,10 @@ JSON example
 [{"level":"error","file":"exception.cpp","line":230,"method":"fc_light::throw_bad_enum_cast","timestamp":"2018-12-25T16:38:41"},
 {"level":"error","file":"keychain.cpp","line":90,"method":"keychain_app::keychain::operator ()","timestamp":"2018-12-25T16:38:41"}]
 }}
+```
+
+```javscript
+//go to json
 ```
 
 ## Log files
