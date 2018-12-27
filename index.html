@@ -1403,7 +1403,7 @@ The request, transmitted to the <strong>Signing module</strong> which holds the 
 </ul>
 <h1 id='errors'>Errors</h1>
 <aside class="notice">
-If you receive an error message, then the request could not be successfully processed. Here you can find out more about errors, so that you can prevent them next time. If you have trouble dealing with them, please refer to the [log files](#log-files), create an [issue](https://github.com/arrayio/array-io-keychain/issues/new) with a "bug" tag or [contact us](#developer-debug-information).
+If you receive an error message, then the request could not be successfully processed. Here you can find out more about errors, so that you can prevent them next time. If you have trouble dealing with them, please refer to the log files, create an issue with a "bug" tag or contact us.
 </aside>
 <h2 id='error-handling'>Error Handling</h2>
 <p>In case of an error, the resulting answer will carry an error attribute and the code of an error together with other parameters listed below. When you receive an error code, you can look the error up in the <a href="#exception-codes">table</a>.</p>
@@ -1603,18 +1603,19 @@ If you receive an error message, then the request could not be successfully proc
 </span></code></pre><h2 id='log-files'>Log files</h2>
 <p>If you are experiencing any trouble working with KeyChain, here you can find locations of the log files:</p>
 
-<p>For macOS and Linux:</p>
-<pre class="highlight plaintext"><code>
-For Windows:
+<p><strong>For macOS and Linux:</strong></p>
 
-</code></pre>
-<p>Win10: %USERPROFILE%\AppData\Local\Keychain\Logs 
-```</p>
+<p>/var/keychain/logs</p>
 
-<p>//where %USERPROFILE% is a user&#39;s folder, e.g. C:\Users\Alice</p>
-<pre class="highlight plaintext"><code>Win7: %SystemRoot%\Logs\Keychain\Logs 
-</code></pre>
-<p>//where %SystemRoot% — the folder where the system is installed; usually it is C:\Windows</p>
+<p><strong>For Windows:</strong></p>
+
+<p>Win10: %USERPROFILE%\AppData\Local\Keychain\Logs </p>
+
+<p>where <strong>%USERPROFILE%</strong> is a user&#39;s folder, e.g. <strong>C:\Users\Alice</strong></p>
+
+<p>Win7: %SystemRoot%\Logs\Keychain\Logs </p>
+
+<p>where <strong>%SystemRoot%</strong> — the folder where the system is installed; usually it is <strong>C:\Windows</strong></p>
 <h2 id='developer-debug-information'>Developer Debug Information</h2>
 <p>If you need help fixing the bugs, please do not hesitate to contact us:</p>
 
