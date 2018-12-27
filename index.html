@@ -376,7 +376,9 @@
 
 <p>After installation, connect to the demo-page: <a href="http://localhost:16384/">http://localhost:16384/</a> to check if the installation was successful and to test the KeyChain commands. In case everything went well, you will see the following page and you will be able to see responses to the commands in the &quot;Response&quot; box when you click on them.</p>
 
-<p><img src="https://user-images.githubusercontent.com/34011337/49734247-be211a80-fc94-11e8-8d85-c70b738ecae3.png" alt="screenshot from 2018-12-10 15-57-27" /></p>
+<p><button class="show btn btn-info btn-sm" data-image='21'>show</button></p>
+
+<p><img id='21' alt="screenshot from 2018-12-10 15-57-27" src="https://user-images.githubusercontent.com/34011337/49734247-be211a80-fc94-11e8-8d85-c70b738ecae3.png"></p>
 
 <p>If you are having trouble connecting to the page, <a href="#contact">contact us</a> and we will do our best to help you.</p>
 
@@ -407,7 +409,9 @@
 
 <p>3 Now we can use web3 with KeyChain</p>
 <h3 id='result'>Result</h3>
-<p><img src="https://user-images.githubusercontent.com/34011337/50442019-37b03e00-090e-11e9-8226-b3b4aa3f9914.png" alt="image" /></p>
+<p><button class="show btn btn-info btn-sm" data-image='20'>show</button></p>
+
+<p><img id='20' alt="image" src="https://user-images.githubusercontent.com/34011337/50442019-37b03e00-090e-11e9-8226-b3b4aa3f9914.png"></p>
 
 <aside class="notice">
 You must replace <code>test1</code> with your personal keyname.
@@ -1409,6 +1413,8 @@ If you receive an error message, then the request could not be successfully proc
 <p>In case of an error, the resulting answer will carry an error attribute and the code of an error together with other parameters listed below. When you receive an error code, you can look the error up in the <a href="#exception-codes">table</a>.</p>
 
 <p>All errors have the following format: </p>
+
+<p>see the right panel</p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"id"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
 </span><span class="s2">"error"</span><span class="p">:</span><span class="w">
 </span><span class="p">{</span><span class="w">
@@ -1419,7 +1425,8 @@ If you receive an error message, then the request could not be successfully proc
 </span><span class="p">[{</span><span class="s2">"level"</span><span class="p">:</span><span class="s2">"error"</span><span class="p">,</span><span class="s2">"file"</span><span class="p">:</span><span class="w"> </span><span class="err">..file</span><span class="w"> </span><span class="err">name..</span><span class="w"> </span><span class="p">,</span><span class="s2">"line"</span><span class="p">:</span><span class="w"> </span><span class="err">..line</span><span class="w"> </span><span class="err">number..</span><span class="w"> </span><span class="p">,</span><span class="s2">"method"</span><span class="p">:</span><span class="w"> </span><span class="err">..name</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">function</span><span class="w"> </span><span class="err">from</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">source</span><span class="w"> </span><span class="err">code</span><span class="w"> </span><span class="err">which</span><span class="w"> </span><span class="err">carries</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">error..</span><span class="w"> </span><span class="p">,</span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="err">..exact</span><span class="w"> </span><span class="err">time</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">error..</span><span class="w"> </span><span class="p">},</span><span class="w">
 </span><span class="p">{</span><span class="s2">"level"</span><span class="p">:</span><span class="s2">"error"</span><span class="p">,</span><span class="s2">"file"</span><span class="p">:</span><span class="err">..file</span><span class="w"> </span><span class="err">name..</span><span class="w"> </span><span class="p">,</span><span class="s2">"line"</span><span class="p">:</span><span class="w"> </span><span class="err">..line</span><span class="w"> </span><span class="err">number..</span><span class="w"> </span><span class="p">,</span><span class="s2">"method"</span><span class="p">:</span><span class="w"> </span><span class="err">..name</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">function</span><span class="w"> </span><span class="err">from</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">source</span><span class="w"> </span><span class="err">code</span><span class="w"> </span><span class="err">which</span><span class="w"> </span><span class="err">carries</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">error..</span><span class="w"> </span><span class="p">,</span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="err">..exact</span><span class="w"> </span><span class="err">time</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">error..</span><span class="w"> </span><span class="p">}]</span><span class="w">
 </span><span class="p">}}</span><span class="w">
-</span></code></pre><h2 id='exception-codes'>Exception codes</h2><h3 id='keychain-exceptions'>KeyChain exceptions</h3>
+</span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">//go to json</span>
+</code></pre><h2 id='exception-codes'>Exception codes</h2><h3 id='keychain-exceptions'>KeyChain exceptions</h3>
 <table><thead>
 <tr>
 <th><strong>Error code</strong></th>
@@ -1600,7 +1607,8 @@ If you receive an error message, then the request could not be successfully proc
 </span><span class="p">[{</span><span class="s2">"level"</span><span class="p">:</span><span class="s2">"error"</span><span class="p">,</span><span class="s2">"file"</span><span class="p">:</span><span class="s2">"exception.cpp"</span><span class="p">,</span><span class="s2">"line"</span><span class="p">:</span><span class="mi">230</span><span class="p">,</span><span class="s2">"method"</span><span class="p">:</span><span class="s2">"fc_light::throw_bad_enum_cast"</span><span class="p">,</span><span class="s2">"timestamp"</span><span class="p">:</span><span class="s2">"2018-12-25T16:38:41"</span><span class="p">},</span><span class="w">
 </span><span class="p">{</span><span class="s2">"level"</span><span class="p">:</span><span class="s2">"error"</span><span class="p">,</span><span class="s2">"file"</span><span class="p">:</span><span class="s2">"keychain.cpp"</span><span class="p">,</span><span class="s2">"line"</span><span class="p">:</span><span class="mi">90</span><span class="p">,</span><span class="s2">"method"</span><span class="p">:</span><span class="s2">"keychain_app::keychain::operator ()"</span><span class="p">,</span><span class="s2">"timestamp"</span><span class="p">:</span><span class="s2">"2018-12-25T16:38:41"</span><span class="p">}]</span><span class="w">
 </span><span class="p">}}</span><span class="w">
-</span></code></pre><h2 id='log-files'>Log files</h2>
+</span></code></pre><pre class="highlight plaintext"><code>//go to json
+</code></pre><h2 id='log-files'>Log files</h2>
 <p>If you are experiencing any trouble working with KeyChain, here you can find locations of the log files:</p>
 
 <p><strong>For macOS and Linux:</strong></p>
