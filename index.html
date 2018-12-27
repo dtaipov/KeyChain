@@ -345,6 +345,12 @@
                     <a href="#error-handling" class="toc-h2 toc-link" data-title="Error Handling">Error Handling</a>
                   </li>
                   <li>
+                    <a href="#exception-codes" class="toc-h2 toc-link" data-title="Exception codes">Exception codes</a>
+                  </li>
+                  <li>
+                    <a href="#error-example" class="toc-h2 toc-link" data-title="Error example">Error example</a>
+                  </li>
+                  <li>
                     <a href="#log-files" class="toc-h2 toc-link" data-title="Log files">Log files</a>
                   </li>
                   <li>
@@ -1397,82 +1403,225 @@ The request, transmitted to the <strong>Signing module</strong> which holds the 
 </ul>
 <h1 id='errors'>Errors</h1>
 <aside class="notice">
-If you receive an error message, then the request could not be successfully processed. Here you can find out more about errors, so that you can prevent them next time. If you have trouble dealing with them, please refer to the log files below or contact us.
+If you receive an error message, then the request could not be successfully processed. Here you can find out more about errors, so that you can prevent them next time. If you have trouble dealing with them, please refer to the [log files](#log-files), create an [issue](https://github.com/arrayio/array-io-keychain/issues/new) with a "bug" tag or [contact us](#developer-debug-information).
 </aside>
 <h2 id='error-handling'>Error Handling</h2>
-<p>In case of an error, the resulting answer will carry an error attribute and a description in human-readable form.
-All errors have the following format: </p>
+<p>In case of an error, the resulting answer will carry an error attribute and the code of an error together with other parameters listed below. When you receive an error code, you can look the error up in the <a href="#exception-codes">table</a>.</p>
 
-<blockquote>
+<p>All errors have the following format: </p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"id"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+</span><span class="s2">"error"</span><span class="p">:</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="err">..error</span><span class="w"> </span><span class="err">code</span><span class="w"> </span><span class="err">number..</span><span class="w"> </span><span class="p">,</span><span class="w">
+</span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="err">..error</span><span class="w"> </span><span class="err">name..</span><span class="w"> </span><span class="p">,</span><span class="w">
+</span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="err">..description..</span><span class="w"> </span><span class="p">,</span><span class="w">
+</span><span class="s2">"trace"</span><span class="p">:</span><span class="w"> 
+</span><span class="p">[{</span><span class="s2">"level"</span><span class="p">:</span><span class="s2">"error"</span><span class="p">,</span><span class="s2">"file"</span><span class="p">:</span><span class="w"> </span><span class="err">..file</span><span class="w"> </span><span class="err">name..</span><span class="w"> </span><span class="p">,</span><span class="s2">"line"</span><span class="p">:</span><span class="w"> </span><span class="err">..line</span><span class="w"> </span><span class="err">number..</span><span class="w"> </span><span class="p">,</span><span class="s2">"method"</span><span class="p">:</span><span class="w"> </span><span class="err">..name</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">function</span><span class="w"> </span><span class="err">from</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">source</span><span class="w"> </span><span class="err">code</span><span class="w"> </span><span class="err">which</span><span class="w"> </span><span class="err">carries</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">error..</span><span class="w"> </span><span class="p">,</span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="err">..exact</span><span class="w"> </span><span class="err">time</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">error..</span><span class="w"> </span><span class="p">},</span><span class="w">
+</span><span class="p">{</span><span class="s2">"level"</span><span class="p">:</span><span class="s2">"error"</span><span class="p">,</span><span class="s2">"file"</span><span class="p">:</span><span class="err">..file</span><span class="w"> </span><span class="err">name..</span><span class="w"> </span><span class="p">,</span><span class="s2">"line"</span><span class="p">:</span><span class="w"> </span><span class="err">..line</span><span class="w"> </span><span class="err">number..</span><span class="w"> </span><span class="p">,</span><span class="s2">"method"</span><span class="p">:</span><span class="w"> </span><span class="err">..name</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">function</span><span class="w"> </span><span class="err">from</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">source</span><span class="w"> </span><span class="err">code</span><span class="w"> </span><span class="err">which</span><span class="w"> </span><span class="err">carries</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">error..</span><span class="w"> </span><span class="p">,</span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="err">..exact</span><span class="w"> </span><span class="err">time</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">error..</span><span class="w"> </span><span class="p">}]</span><span class="w">
+</span><span class="p">}}</span><span class="w">
+</span></code></pre><h2 id='exception-codes'>Exception codes</h2><h3 id='keychain-exceptions'>KeyChain exceptions</h3>
+<table><thead>
+<tr>
+<th><strong>Error code</strong></th>
+<th><strong>Error name</strong></th>
+<th><strong>Comment</strong></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1</td>
+<td>json_parse_error_code</td>
+<td>error in json format of rpc command</td>
+</tr>
+<tr>
+<td>2</td>
+<td>rpc_command_parse_code</td>
+<td>error while parsing the structure of rpc command (invalid set of fields or invalid value type)</td>
+</tr>
+<tr>
+<td>3</td>
+<td>command_not_implemented_code</td>
+<td>command is not implemented</td>
+</tr>
+<tr>
+<td>4</td>
+<td>command_depreciated_code</td>
+<td>command is depreciated</td>
+</tr>
+<tr>
+<td>5</td>
+<td>invalid_arg_exception_code</td>
+<td>invalid command arguments: occurs in case a parameter&#39;s type or value was passed incorrectly</td>
+</tr>
+<tr>
+<td>6</td>
+<td>privkey_not_found_code</td>
+<td>private key could not be found by this keyname</td>
+</tr>
+<tr>
+<td>7</td>
+<td>privkey_invalid_unlock_code</td>
+<td>cannot unlock private key: occurs when the user provided a wrong password from a private key</td>
+</tr>
+<tr>
+<td>8</td>
+<td>password_input_error_code</td>
+<td>error while getting password: all the other errors that occur while receiving a password from a user</td>
+</tr>
+<tr>
+<td>9</td>
+<td>internal_error_code</td>
+<td>some unspecified internal error: might occur if there are errors in the program. If you get this error, it is advisable to contact support.</td>
+</tr>
+</tbody></table>
+<h3 id='internal-errors'>Internal errors</h3>
+<table><thead>
+<tr>
+<th><strong>Error code</strong></th>
+<th><strong>Error name</strong></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>10</td>
+<td>parse_error_exception_code</td>
+</tr>
+<tr>
+<td>11</td>
+<td>timeout_exception_code</td>
+</tr>
+<tr>
+<td>12</td>
+<td>file_not_found_exception_code</td>
+</tr>
+<tr>
+<td>13</td>
+<td>key_not_found_exception_code</td>
+</tr>
+<tr>
+<td>14</td>
+<td>bad_cast_exception_code</td>
+</tr>
+<tr>
+<td>15</td>
+<td>assert_exception_code</td>
+</tr>
+<tr>
+<td>16</td>
+<td>encryption_error_code</td>
+</tr>
+<tr>
+<td>17</td>
+<td>null_optional_code</td>
+</tr>
+<tr>
+<td>18</td>
+<td>overflow_code</td>
+</tr>
+<tr>
+<td>19</td>
+<td>underflow_code</td>
+</tr>
+<tr>
+<td>20</td>
+<td>divide_by_zero_code</td>
+</tr>
+<tr>
+<td>21</td>
+<td>out_of_range_exception_code</td>
+</tr>
+<tr>
+<td>22</td>
+<td>eof_exception_code</td>
+</tr>
+</tbody></table>
+<h3 id='third-party-exceptions'>Third party exceptions</h3>
+<table><thead>
+<tr>
+<th><strong>Error code</strong></th>
+<th><strong>Error name</strong></th>
+<th><strong>Comments</strong></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>23</td>
+<td>std_exception_code</td>
+<td>for std::exceptions (3rd party): standard exceptions that occurred in the third party components</td>
+</tr>
+<tr>
+<td>24</td>
+<td>unhandled_exception_code</td>
+<td>for unhandled 3rd party exceptions: all the other exceptions that occurred in the third patry components</td>
+</tr>
+</tbody></table>
+<h2 id='error-example'>Error example</h2><h3 id='parsing-error-the-command-was-incorrect'>Parsing error - the command was incorrect.</h3>
 <p>Error format</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="err">..description..</span><span class="w"> </span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>Below you will find some examples of the error messages.</p>
-<h3 id='error-examples'>Error examples</h3>
-<ul>
-<li>The key was not found. You inserted the key that is not listed on KeyChain. You might need to create a key with this name.</li>
-</ul>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"error"</span><span class="p">:</span><span class="s2">"Error: keyfile could not be found by this keyname"</span><span class="p">}</span><span class="w">
-</span></code></pre>
+
 <table><thead>
 <tr>
 <th><strong>Field name</strong></th>
 <th><strong>Type</strong></th>
 <th><strong>Description</strong></th>
-<th><strong>Value example</strong></th>
 </tr>
 </thead><tbody>
 <tr>
 <td>error</td>
+<td><code>json object</code></td>
+<td>error specifics</td>
+</tr>
+<tr>
+<td>code</td>
+<td><code>integer</code></td>
+<td>error code number</td>
+</tr>
+<tr>
+<td>name</td>
 <td><code>string</code></td>
-<td>simple error message</td>
-<td><code>Error: keyfile could not be found by this keyname</code></td>
+<td>error name</td>
+</tr>
+<tr>
+<td>message</td>
+<td><code>string</code></td>
+<td>description of the error starting at the lower level where it occured and showing the higher level</td>
+</tr>
+<tr>
+<td>trace</td>
+<td><code>list of arrays</code></td>
+<td>trace of the error, starting from the lower level and moving to the higher levels</td>
 </tr>
 </tbody></table>
 
-<ul>
-<li>Syntactic error - unsupported symbols.</li>
-</ul>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"error"</span><span class="p">:</span><span class="s2">"Parsing Error"</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<table><thead>
-<tr>
-<th><strong>Field name</strong></th>
-<th><strong>Type</strong></th>
-<th><strong>Description</strong></th>
-<th><strong>Value example</strong></th>
-</tr>
-</thead><tbody>
-<tr>
-<td>error</td>
-<td><code>string</code></td>
-<td>simple error message</td>
-<td><code>Parsing Error</code></td>
-</tr>
-</tbody></table>
-<h2 id='log-files'>Log files</h2>
+<p>JSON example</p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"id"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+</span><span class="s2">"error"</span><span class="p">:</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="s2">"code"</span><span class="p">:</span><span class="mi">9</span><span class="p">,</span><span class="w">
+</span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"parse_error_exception_code"</span><span class="p">,</span><span class="w">
+</span><span class="s2">"message"</span><span class="p">:</span><span class="s2">"Parse Error: invalid index '123' in enum 'keychain_app::command_te' =&gt; cannot parse command"</span><span class="p">,</span><span class="w">
+</span><span class="s2">"trace"</span><span class="p">:</span><span class="w">
+</span><span class="p">[{</span><span class="s2">"level"</span><span class="p">:</span><span class="s2">"error"</span><span class="p">,</span><span class="s2">"file"</span><span class="p">:</span><span class="s2">"exception.cpp"</span><span class="p">,</span><span class="s2">"line"</span><span class="p">:</span><span class="mi">230</span><span class="p">,</span><span class="s2">"method"</span><span class="p">:</span><span class="s2">"fc_light::throw_bad_enum_cast"</span><span class="p">,</span><span class="s2">"timestamp"</span><span class="p">:</span><span class="s2">"2018-12-25T16:38:41"</span><span class="p">},</span><span class="w">
+</span><span class="p">{</span><span class="s2">"level"</span><span class="p">:</span><span class="s2">"error"</span><span class="p">,</span><span class="s2">"file"</span><span class="p">:</span><span class="s2">"keychain.cpp"</span><span class="p">,</span><span class="s2">"line"</span><span class="p">:</span><span class="mi">90</span><span class="p">,</span><span class="s2">"method"</span><span class="p">:</span><span class="s2">"keychain_app::keychain::operator ()"</span><span class="p">,</span><span class="s2">"timestamp"</span><span class="p">:</span><span class="s2">"2018-12-25T16:38:41"</span><span class="p">}]</span><span class="w">
+</span><span class="p">}}</span><span class="w">
+</span></code></pre><h2 id='log-files'>Log files</h2>
 <p>If you are experiencing any trouble working with KeyChain, here you can find locations of the log files:</p>
 
-<ul>
-<li>For macOS and Linux:</li>
-</ul>
+<p>For macOS and Linux:</p>
+<pre class="highlight plaintext"><code>
+For Windows:
 
-<p>/var/keychain/logs</p>
+</code></pre>
+<p>Win10: %USERPROFILE%\AppData\Local\Keychain\Logs 
+```</p>
 
-<ul>
-<li>For Windows, log file will be located in the same directory as KeyChain:</li>
-</ul>
-
-<p>./logs</p>
+<p>//where %USERPROFILE% is a user&#39;s folder, e.g. C:\Users\Alice</p>
+<pre class="highlight plaintext"><code>Win7: %SystemRoot%\Logs\Keychain\Logs 
+</code></pre>
+<p>//where %SystemRoot% — the folder where the system is installed; usually it is C:\Windows</p>
 <h2 id='developer-debug-information'>Developer Debug Information</h2>
 <p>If you need help fixing the bugs, please do not hesitate to contact us:</p>
 
 <ul>
+<li><a href="https://t.me/arrayio">Telegram</a></li>
+<li><a href="https://stackoverflow.com/users/10429540/array-io">Stackoverflow</a></li>
 <li><p><a href="https://twitter.com/ProjectArray">Twitter</a></p></li>
-<li><p><a href="https://www.facebook.com/Array.IO/">Facebook</a></p></li>
-<li><p><a href="https://t.me/arrayio">Telegram</a></p></li>
-<li><p><a href="https://stackoverflow.com/users/10429540/array-io">Stackoverflow</a></p></li>
 <li><p>Or you can write us an email to support@array.io. </p></li>
 </ul>
 
