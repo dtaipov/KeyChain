@@ -1,7 +1,7 @@
 # Errors
 
 <aside class="notice">
-If you receive an error message, then the request could not be successfully processed. Here you can find out more about errors, so that you can prevent them next time. If you have trouble dealing with them, please refer to the [log files](#log-files), create an [issue](https://github.com/arrayio/array-io-keychain/issues/new) with a "bug" tag or [contact us](#developer-debug-information).
+If you receive an error message, then the request could not be successfully processed. Here you can find out more about errors, so that you can prevent them next time. If you have trouble dealing with them, please refer to the log files, create an issue with a "bug" tag or contact us.
 </aside>
 
 
@@ -98,23 +98,21 @@ JSON example
 
 If you are experiencing any trouble working with KeyChain, here you can find locations of the log files:
 
-For macOS and Linux:
+**For macOS and Linux:**
 
-```/var/keychain/logs```
+/var/keychain/logs
 
-For Windows:
+**For Windows:**
 
-```
+
 Win10: %USERPROFILE%\AppData\Local\Keychain\Logs 
-```
 
-//where %USERPROFILE% is a user's folder, e.g. C:\Users\Alice
+where **%USERPROFILE%** is a user's folder, e.g. **C:\Users\Alice**
 
-```
+
 Win7: %SystemRoot%\Logs\Keychain\Logs 
-```
 
-//where %SystemRoot% — the folder where the system is installed; usually it is C:\Windows
+where **%SystemRoot%** — the folder where the system is installed; usually it is **C:\Windows**
 
 ## Developer Debug Information
  
