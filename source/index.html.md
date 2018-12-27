@@ -83,12 +83,6 @@ main();
 
 3 Now we can use web3 with KeyChain
 
-### Result
-
-<button class="show btn btn-info btn-sm" data-image='20'>show</button>
-
-<img id='20' alt="image" src="https://user-images.githubusercontent.com/34011337/50442019-37b03e00-090e-11e9-8226-b3b4aa3f9914.png">
-
 
 <aside class="notice">
 You must replace <code>test1</code> with your personal keyname.
