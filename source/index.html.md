@@ -40,53 +40,27 @@ Below you can find comprehensive installation guides for [macOS](#macos), [Windo
 
 ## Getting started
 
-```json
-//go to javascript
-```
-
-```javascript
-npm install web3override
-```
+After you have installed [KeyChain](https://github.com/arrayio/array-io-keychain/releases/download/0.11/KeyChain.Installer.v0.11.zip), you can start using it with web3. Just follow these simple steps (see the right panel in javascript).
 
 ```json
 //go to javascript
 ```
 
 ```javascript
-const Web3 = require('web3');
-const Module = require('web3override');
-const API_KEY = 'https://ropsten.infura.io/v3/046804e3dd3240b09834531326f310cf';
-const web3 = new Web3(new Web3.providers.HttpProvider(API_KEY));
-```
+// create new key in Keychain
+const keyInstance = await Module.Keychain.create();
+const data = await keyInstance.createKey('test1');
+const key = data.result;
+await keyInstance.term();
 
-```json
-//go to javascript
-```
-
-```javascript
-main = async () => {
-  const keyInstance = await Module.Keychain.create();
-  const data = await keyInstance.createKey('test1');
-  const key = data.result;
-  await keyInstance.term();
-
-  Module.override(web3);
-  // now we use web3 with keychain
-  await web3.eth.accounts.signTransaction(transactionParams, key); // overriden web3 function usage
-};
-main();
+Module.override(web3);
+// now we use web3 with keychain
+await web3.eth.accounts.signTransaction(transactionParams, key); // overriden web3 function usage
 ```
 
 * `keychain.js` - Keychain class with ws connection initialization
 * `index.js` - override `web3.eth.accounts.signTransaction` method 
 * `test.js` - example usage together (`keychain` + `web3`) 
-
-1 Import libraries
-
-2 Create new key with KeyChain
-
-3 Now we can use web3 with KeyChain
-
 
 <aside class="notice">
 You must replace <code>test1</code> with your personal keyname.
@@ -94,26 +68,16 @@ You must replace <code>test1</code> with your personal keyname.
 
 **Run tests**
 
-see the right panel
+If you wish to see KeyChain in action, install KeyChain, then download the library from this source and inport key to the `key_data` folder.
 
-```json
-//go to javascript
-```
+`npm run test`
 
-```javascript
-npm run test
-```
+Add key to your `key_data`:
 
-> Add key to your `key_data`:
 
-```json
-//go to javascript
-```
+keyname: `test1@76de427d42c38be4`
+password: `qwe`
 
-``` javascript
-keyname: test1@76de427d42c38be4
-password: qwe
-```
 
 <button class="show btn btn-info btn-sm" data-image='30'>show</button>
 
