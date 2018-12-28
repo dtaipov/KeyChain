@@ -40,7 +40,7 @@ Below you can find comprehensive installation guides for [macOS](#macos), [Windo
 
 ## Getting started
 
-After you have installed [KeyChain](https://github.com/arrayio/array-io-keychain/releases/download/0.11/KeyChain.Installer.v0.11.zip), you can start using it with web3. Just follow these simple steps (see the right panel in javascript).
+After you have installed [KeyChain](https://github.com/arrayio/array-io-keychain/releases/download/0.11/KeyChain.Installer.v0.11.zip), you can start using it with web3. Just install the `web3override` library from this [source](https://www.npmjs.com/package/web3override) follow these simple steps (see the right panel in javascript).
 
 ```json
 //go to javascript
@@ -68,14 +68,14 @@ You must replace <code>test1</code> with your personal keyname.
 
 **Run tests**
 
-If you wish to see KeyChain in action, install KeyChain, then download the library from this source and inport key to the `key_data` folder.
+If you wish to see KeyChain in action, install KeyChain, then install the library from this [source](https://www.npmjs.com/package/web3override) and import key to the `key_data` folder.
 
-`npm run test`
+1 `npm run test`
 
-Add key to your `key_data`:
-
+2 Add key to your `key_data`:
 
 keyname: `test1@76de427d42c38be4`
+
 password: `qwe`
 
 
