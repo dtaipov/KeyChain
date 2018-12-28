@@ -77,6 +77,10 @@ main = async () => {
 main();
 ```
 
+* `keychain.js` - Keychain class with ws connection initialization
+* `index.js` - override `web3.eth.accounts.signTransaction` method 
+* `test.js` - example usage together (`keychain` + `web3`) 
+
 1 Import libraries
 
 2 Create new key with KeyChain
@@ -87,6 +91,33 @@ main();
 <aside class="notice">
 You must replace <code>test1</code> with your personal keyname.
 </aside>
+
+**Run tests**
+
+see the right panel
+
+```json
+//go to javascript
+```
+
+```javascript
+npm run test
+```
+
+> Add key to your `key_data`:
+
+```json
+//go to javascript
+```
+
+``` javascript
+keyname: test1@76de427d42c38be4
+password: qwe
+```
+
+<button class="show btn btn-info btn-sm" data-image='30'>show</button>
+
+<img id='30' alt="alt image" src="https://raw.githubusercontent.com/cypherpunk99/web3override/master/screencast.gif">
 
 
 ## Contact
