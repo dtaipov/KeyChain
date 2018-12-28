@@ -383,25 +383,18 @@
 <p>If you are having trouble connecting to the page, <a href="#contact">contact us</a> and we will do our best to help you.</p>
 
 <p>Below you can find comprehensive installation guides for <a href="#macos">macOS</a>, <a href="#windows">Windows</a>, <a href="#linux">Linux</a>.</p>
-<h2 id='getting-started'>Getting started</h2><pre class="highlight json tab-json"><code><span class="err">//go</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">javascript</span><span class="w">
-</span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="nx">npm</span> <span class="nx">install</span> <span class="nx">web3override</span>
-</code></pre><pre class="highlight json tab-json"><code><span class="err">//go</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">javascript</span><span class="w">
-</span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">Web3</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'web3'</span><span class="p">);</span>
-<span class="kr">const</span> <span class="nx">Module</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'web3override'</span><span class="p">);</span>
-<span class="kr">const</span> <span class="nx">API_KEY</span> <span class="o">=</span> <span class="s1">'https://ropsten.infura.io/v3/046804e3dd3240b09834531326f310cf'</span><span class="p">;</span>
-<span class="kr">const</span> <span class="nx">web3</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Web3</span><span class="p">(</span><span class="k">new</span> <span class="nx">Web3</span><span class="p">.</span><span class="nx">providers</span><span class="p">.</span><span class="nx">HttpProvider</span><span class="p">(</span><span class="nx">API_KEY</span><span class="p">));</span>
-</code></pre><pre class="highlight json tab-json"><code><span class="err">//go</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">javascript</span><span class="w">
-</span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="nx">main</span> <span class="o">=</span> <span class="nx">async</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-  <span class="kr">const</span> <span class="nx">keyInstance</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">Module</span><span class="p">.</span><span class="nx">Keychain</span><span class="p">.</span><span class="nx">create</span><span class="p">();</span>
-  <span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">keyInstance</span><span class="p">.</span><span class="nx">createKey</span><span class="p">(</span><span class="s1">'test1'</span><span class="p">);</span>
-  <span class="kr">const</span> <span class="nx">key</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">result</span><span class="p">;</span>
-  <span class="nx">await</span> <span class="nx">keyInstance</span><span class="p">.</span><span class="nx">term</span><span class="p">();</span>
+<h2 id='getting-started'>Getting started</h2>
+<p>After you have installed <a href="https://github.com/arrayio/array-io-keychain/releases/download/0.11/KeyChain.Installer.v0.11.zip">KeyChain</a>, you can start using it with web3. Just follow these simple steps (see the right panel in javascript).</p>
+<pre class="highlight json tab-json"><code><span class="err">//go</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">javascript</span><span class="w">
+</span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">// create new key in Keychain</span>
+<span class="kr">const</span> <span class="nx">keyInstance</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">Module</span><span class="p">.</span><span class="nx">Keychain</span><span class="p">.</span><span class="nx">create</span><span class="p">();</span>
+<span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">keyInstance</span><span class="p">.</span><span class="nx">createKey</span><span class="p">(</span><span class="s1">'test1'</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">key</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">result</span><span class="p">;</span>
+<span class="nx">await</span> <span class="nx">keyInstance</span><span class="p">.</span><span class="nx">term</span><span class="p">();</span>
 
-  <span class="nx">Module</span><span class="p">.</span><span class="nx">override</span><span class="p">(</span><span class="nx">web3</span><span class="p">);</span>
-  <span class="c1">// now we use web3 with keychain</span>
-  <span class="nx">await</span> <span class="nx">web3</span><span class="p">.</span><span class="nx">eth</span><span class="p">.</span><span class="nx">accounts</span><span class="p">.</span><span class="nx">signTransaction</span><span class="p">(</span><span class="nx">transactionParams</span><span class="p">,</span> <span class="nx">key</span><span class="p">);</span> <span class="c1">// overriden web3 function usage</span>
-<span class="p">};</span>
-<span class="nx">main</span><span class="p">();</span>
+<span class="nx">Module</span><span class="p">.</span><span class="nx">override</span><span class="p">(</span><span class="nx">web3</span><span class="p">);</span>
+<span class="c1">// now we use web3 with keychain</span>
+<span class="nx">await</span> <span class="nx">web3</span><span class="p">.</span><span class="nx">eth</span><span class="p">.</span><span class="nx">accounts</span><span class="p">.</span><span class="nx">signTransaction</span><span class="p">(</span><span class="nx">transactionParams</span><span class="p">,</span> <span class="nx">key</span><span class="p">);</span> <span class="c1">// overriden web3 function usage</span>
 </code></pre>
 <ul>
 <li><code>keychain.js</code> - Keychain class with ws connection initialization</li>
@@ -409,29 +402,21 @@
 <li><code>test.js</code> - example usage together (<code>keychain</code> + <code>web3</code>) </li>
 </ul>
 
-<p>1 Import libraries</p>
-
-<p>2 Create new key with KeyChain</p>
-
-<p>3 Now we can use web3 with KeyChain</p>
-
 <aside class="notice">
 You must replace <code>test1</code> with your personal keyname.
 </aside>
 
 <p><strong>Run tests</strong></p>
 
-<p>see the right panel</p>
-<pre class="highlight json tab-json"><code><span class="err">//go</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">javascript</span><span class="w">
-</span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="nx">npm</span> <span class="nx">run</span> <span class="nx">test</span>
-</code></pre>
-<blockquote>
+<p>If you wish to see KeyChain in action, install KeyChain, then download the library from this source and inport key to the <code>key_data</code> folder.</p>
+
+<p><code>npm run test</code></p>
+
 <p>Add key to your <code>key_data</code>:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="err">//go</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">javascript</span><span class="w">
-</span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="nx">keyname</span><span class="p">:</span> <span class="nx">test1</span><span class="p">@</span><span class="nd">76de427d42c38be4</span>
-<span class="nx">password</span><span class="p">:</span> <span class="nx">qwe</span>
-</code></pre>
+
+<p>keyname: <code>test1@76de427d42c38be4</code>
+password: <code>qwe</code></p>
+
 <p><button class="show btn btn-info btn-sm" data-image='30'>show</button></p>
 
 <p><img id='30' alt="alt image" src="https://raw.githubusercontent.com/cypherpunk99/web3override/master/screencast.gif"></p>
