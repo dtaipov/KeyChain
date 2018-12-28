@@ -42,6 +42,16 @@ Below you can find comprehensive installation guides for [macOS](#macos), [Windo
 
 After you have installed [KeyChain](https://github.com/arrayio/array-io-keychain/releases/download/0.11/KeyChain.Installer.v0.11.zip), you can start using it with web3. Just install the `web3override` library from this [source](https://www.npmjs.com/package/web3override) and follow these simple steps (see the right panel in javascript).
 
+NB: Do not forget to install the library and require it:
+
+1) Install the library
+`npm i --save web3override`
+
+2) Require it
+`const Module = require('web3override');`
+
+Now you can turn to the right panel where you create a new key with KeyChain and use an overridden web3 function.
+
 ```json
 //go to javascript
 ```
