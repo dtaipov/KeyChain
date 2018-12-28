@@ -47,14 +47,14 @@ After you have installed [KeyChain](https://github.com/arrayio/array-io-keychain
 ```
 
 ```javascript
-// create new key in Keychain
+// create new key with KeyChain
 const keyInstance = await Module.Keychain.create();
 const data = await keyInstance.createKey('test1');
 const key = data.result;
 await keyInstance.term();
 
 Module.override(web3);
-// now we use web3 with keychain
+// now we use web3 with KeyChain
 await web3.eth.accounts.signTransaction(transactionParams, key); // overriden web3 function usage
 ```
 
@@ -70,13 +70,12 @@ You must replace <code>test1</code> with your personal keyname.
 
 If you wish to see KeyChain in action, install KeyChain, then install the library from this [source](https://www.npmjs.com/package/web3override) and import key to the `key_data` folder.
 
-1 `npm run test`
+1) `npm run test`
 
-2 Add key to your `key_data`:
+2) Add key to your `key_data`:
 
-keyname: `test1@76de427d42c38be4`
-
-password: `qwe`
+- keyname: `test1@76de427d42c38be4`
+- password: `qwe`
 
 
 <button class="show btn btn-info btn-sm" data-image='30'>show</button>
