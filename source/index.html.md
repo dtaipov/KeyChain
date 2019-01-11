@@ -23,7 +23,7 @@ search: true
 
 ## Installation
 
-Download and install KeyChain for [macOS](https://github.com/arrayio/array-io-keychain/releases/download/0.11/KeyChain.Installer.v0.11.zip) or [Windows](https://github.com/arrayio/array-io-keychain/releases/download/0.13/keychain.msi) and Linux installers are coming soon.
+Download and install KeyChain for [macOS](https://github.com/arrayio/array-io-keychain/releases/download/0.11/KeyChain.Installer.v0.11.zip) or [Windows](https://github.com/arrayio/array-io-keychain/releases/download/0.13/keychain.msi). Linux installer is coming soon.
 
 *Try out KeyChain on the [demo page](https://arrayio.github.io/array-io-keychain/demo/).*
 
