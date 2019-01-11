@@ -534,7 +534,7 @@ result|`string`|current version number which has the form of "[major].[minor].[b
 
 ### How to install 
 
-Download [KeyChain](https://github.com/arrayio/array-io-keychain/releases/download/0.13/KeyChain.Installer.maOS.zip)) and follow the steps of the graphic installer. 
+Download [KeyChain](https://github.com/arrayio/array-io-keychain/releases/download/0.13/KeyChain.Installer.maOS.zip) and follow the steps of the graphic installer. 
 
 <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
 
