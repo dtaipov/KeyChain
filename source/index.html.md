@@ -83,7 +83,7 @@ If you wish to see KeyChain in action, install KeyChain, then install the librar
 
 1) Add key to your `key_data`:
 
-- keyname: `test1@76de427d42c38be4`
+- keyname: `test1`
 - password: `qwe`
 
 2) `npm run test`
@@ -151,13 +151,11 @@ cipher|```string```|Specifies encryption type (we use ```aes```) and the size of
 
 ### Response format
 
-When you pass a short key name in the create command, you get an exended name which consists of the prefix and first 8 bytes of the hash. After that, you will need to pass it as a value for the ```keyname``` parameter.
-
 > Response example
 
 ```json
 {
-  "result":"my key@f9a1554e3f5e30c8"
+  "result":"my key"
 }
 ```
 ```javascript
@@ -165,7 +163,7 @@ When you pass a short key name in the create command, you get an exended name wh
 ```
 **Field name**|**Type**|**Description**
 ---|---|---
-result|`string`|extended key name.
+result|`string`|key name
 
 ## Sign transaction in hex format
 
@@ -191,7 +189,7 @@ sign_hex
     "chainid": "de5f4d8974715e20f47c8bb609547c9e66b0b9e31d521199b3d8d6af6da74cb1",
     "transaction": "871689d060721b5cec5a010080841e00000000000011130065cd1d0000000000000000",
     "blockchain_type": "array",
-    "keyname": "my key@f9a1554e3f5e30c8",
+    "keyname": "my key",
     "unlock_time": 45 
   }
 }
@@ -244,7 +242,7 @@ sign_hash
   {
     "sign_type": "VRS_canonical",
     "hash": "fe5e4a8974715e20f47c8bb609547c9e66b0b9e31d521199b3d8d6af6da74cb1",
-    "keyname": "my key@f9a1554e3f5e30c8"
+    "keyname": "my key"
   }
 }
 ```
@@ -297,7 +295,7 @@ No
 > Response example
 
 ```json
-  {"result":"my key@47f926e22f376478","my key@e67871253c263de0","my key@e755d5b98b6ed747","my key@f9a1554e3f5e30c8"}
+  {"result":"my key","my key1","my key2","my key3"}
 ```
 ```javascript
 //go to json
@@ -322,7 +320,7 @@ public_key
   "command": "public_key",
   "params": 
   {
-    "keyname": "my key@f9a1554e3f5e30c8"
+    "keyname": "my key"
   }
 }
 ```
@@ -390,7 +388,7 @@ result|`bool`|bool result.
 
 Unlock your key when you are ready to use it. 
 
-<aside class="notice">
+<aside class="warning">
 This parameter is experimental! Allowing the user to sign transactions without extra authorization is not secure and can be harmful. If <code>unlock_time</code> is greater than zero, you will see an insecure action warning. We do not recommend to use it. Although it might be needed if you want to speed up signing transactions.
 </aside>
 
@@ -413,7 +411,7 @@ unlock
   "command": "unlock"
   "params":
   {
-    "keyname": "my key@be5f6e75878b84ba",
+    "keyname": "my key",
     "unlock_time": 45
   }
 }
@@ -688,10 +686,9 @@ and send the `create` command to generate the key.
 ```javascript
 //go to json
 ```
-You will get an **extended name** of the key which consists of the name you have given it as a prefix and the first 8 bytes of the hash. Note that from now on you should insert the extended key! 
 
 <aside class="notice">
-Insert your own extended name of the key! Do not copy the following code together with the key name that we use because it is specified here only as an example of how your key name might look like. 
+Insert your own key name! Do not copy the following code together with the key name that we use because it is specified here only as an example of how your key name might look like. 
 </aside>
  
 > Then request a public key via
@@ -701,7 +698,7 @@ Insert your own extended name of the key! Do not copy the following code togethe
   "command": "public_key",
   "params": 
   {
-    "keyname": "my key@f9a1554e3f5e30c8"
+    "keyname": "my key"
   }
 }
 ```
@@ -726,7 +723,7 @@ const fromAdd = ethUtil.publicToAddress(publicKey).toString('hex');
 
 ### 4. Make a transaction 
 
-Now you can transfer some money to the address corresponding to the public key.
+Now you can transfer money to the address corresponding to the public key.
 
 In case you work with ropsten - 
 https://faucet.ropsten.be/
@@ -885,7 +882,7 @@ A successful response will take the following format:
 > Response example
 
 ```json
-{"result":"my key@47f926e22f376478","my key@e67871253c263de0","my key@e755d5b98b6ed747","my key@f9a1554e3f5e30c8"}
+{"result":"my key","my key1","my key2","my key3"}
 ```
 
 ```javascript
@@ -894,7 +891,7 @@ A successful response will take the following format:
 
 **Field name**|**Type**|**Description**|**Value example**
 ---|---|---|---
-result|`JSON array of strings`|list of key names|```"my key@47f926e22f376478","my key@e67871253c263de0","my key@e755d5b98b6ed747","my key@f9a1554e3f5e30c8"```
+result|`JSON array of strings`|list of key names|```"my key","my key1","my key2","my key3"```
 
 
 ### Build a page that connects to WebSocket
@@ -984,7 +981,7 @@ const unlockCommand = {
   "command": "unlock", 
   "params": 
   { 
-    "keyname": "test1@d073edf782dec758"
+    "keyname": "test1"
   }
 };
 keychain.stdin.write(JSON.stringify(unlockCommand));
@@ -996,7 +993,7 @@ const signCommand = {
     "chainid": "de5f4d8974715e20f47c8bb609547c9e66b0b9e31d521199b3d8d6af6da74cb1",
     "transaction": "871689d060721b5cec5a010080841e00000000000011130065cd1d0000000000000000",
     "blockchain_type": "array",
-    "keyname": "test1@d073edf782dec758"
+    "keyname": "test1"
   }
 };
 
