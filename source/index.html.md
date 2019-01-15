@@ -295,7 +295,15 @@ No
 > Response example
 
 ```json
-  {"result":"my key","my key1","my key2","my key3"}
+  {
+  "id": 0,
+  "result": [
+    "my key",
+    "my key1",
+    "my key2",
+    "my key3"
+  ]
+}
 ```
 ```javascript
 //go to json
