@@ -23,7 +23,7 @@ search: true
 
 ## Installation
 
-Download and install KeyChain for [macOS](https://github.com/arrayio/array-io-keychain/releases/download/0.13/KeyChain.Installer.maOS.zip) or [Windows](https://github.com/arrayio/array-io-keychain/releases/download/0.13/keychain.msi). Linux installer is coming soon.
+Download and install KeyChain for [macOS](https://github.com/arrayio/array-io-keychain/releases/download/0.14/KeyChain.Installer.macOS.zip) or [Windows](https://github.com/arrayio/array-io-keychain/releases/download/0.13/keychain.msi). Linux installer is coming soon.
 
 *Try out KeyChain on the [demo page](https://arrayio.github.io/array-io-keychain/demo/).*
 
@@ -40,7 +40,7 @@ Below you can find comprehensive installation guides for [macOS](#macos), [Windo
 
 ## Getting started
 
-After you have installed KeyChain for [macOS](https://github.com/arrayio/array-io-keychain/releases/download/0.13/KeyChain.Installer.maOS.zip) or [Windows](https://github.com/arrayio/array-io-keychain/releases/download/0.13/keychain.msi), you can start using it with web3. Just install the `web3override` library from this [source](https://www.npmjs.com/package/web3override) and follow these simple steps (see the right panel in javascript).
+After you have installed KeyChain for [macOS](https://github.com/arrayio/array-io-keychain/releases/download/0.14/KeyChain.Installer.macOS.zip) or [Windows](https://github.com/arrayio/array-io-keychain/releases/download/0.13/keychain.msi), you can start using it with web3. Just install the `web3override` library from this [source](https://www.npmjs.com/package/web3override) and follow these simple steps (see the right panel in javascript).
 
 NB: Do not forget to install the library and require it:
 
@@ -272,45 +272,6 @@ keyname|```string```|Inserts the mnemonic label of your key.
 ---|---|---
 result|`hex string`|65-byte signature in hex format.
 
-## List all key names
-
-All full key names of the private keys that are kept on your computer.
-### Command
-list
-> JSON Request
-
-```json
-{
-  "command": "list"
-}
-```
-```javascript
-//go to json
-```
-### Query parameters
-No
-
-### Response format
-
-> Response example
-
-```json
-  {
-  "id": 0,
-  "result": [
-    "my key",
-    "my key1",
-    "my key2",
-    "my key3"
-  ]
-}
-```
-```javascript
-//go to json
-```
-**Field name**|**Type**|**Description**
----|---|---
-result|`JSON array of strings`|lists all your key names.
 
 ## Calculate the public key 
 
@@ -542,7 +503,7 @@ result|`string`|current version number which has the form of "[major].[minor].[b
 
 ### How to install 
 
-Download [KeyChain](https://github.com/arrayio/array-io-keychain/releases/download/0.13/KeyChain.Installer.maOS.zip) and follow the steps of the graphic installer. 
+Download [KeyChain](https://github.com/arrayio/array-io-keychain/releases/download/0.14/KeyChain.Installer.macOS.zip) and follow the steps of the graphic installer. 
 
 <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
 
@@ -670,7 +631,7 @@ On this [demo page](https://arrayio.github.io/array-io-keychain/eth_signer/) you
 
 ### 1. Install KeyChain for macOS
 
-Download KeyChain installer for [macOS](https://github.com/arrayio/array-io-keychain/releases/download/0.13/KeyChain.Installer.maOS.zip) or [Windows](https://github.com/arrayio/array-io-keychain/releases/download/0.13/keychain.msi).
+Download KeyChain installer for [macOS](https://github.com/arrayio/array-io-keychain/releases/download/0.14/KeyChain.Installer.macOS.zip) or [Windows](https://github.com/arrayio/array-io-keychain/releases/download/0.13/keychain.msi).
 
 ### 2. Generate the key
 
@@ -771,7 +732,7 @@ You can find an example of the code [here](https://gist.github.com/cypherpunk99/
 - JavaScript/HTML
 - etc
 
-Install KeyChain for [macOS](https://github.com/arrayio/array-io-keychain/releases/download/0.13/KeyChain.Installer.maOS.zip), [Windows](https://github.com/arrayio/array-io-keychain/releases/download/0.13/keychain.msi), [Linux](#linux) and connect to the demo page via [http://localhost:16384/](http://localhost:16384/).
+Install KeyChain for [macOS](https://github.com/arrayio/array-io-keychain/releases/download/0.14/KeyChain.Installer.macOS.zip), [Windows](https://github.com/arrayio/array-io-keychain/releases/download/0.13/keychain.msi), [Linux](#linux) and connect to the demo page via [http://localhost:16384/](http://localhost:16384/).
 
 ## Demo pages in JavaScript
 
@@ -864,7 +825,7 @@ In case of an error, the resulting answer will carry an error attribute and a de
 
 ### JavaScript integration example
 
-Before you proceed with the integration, you need to install KeyChain for [macOS](https://github.com/arrayio/array-io-keychain/releases/download/0.13/KeyChain.Installer.maOS.zip), [Windows](https://github.com/arrayio/array-io-keychain/releases/download/0.13/keychain.msi), [Linux](#linux).
+Before you proceed with the integration, you need to install KeyChain for [macOS](https://github.com/arrayio/array-io-keychain/releases/download/0.14/KeyChain.Installer.macOS.zip), [Windows](https://github.com/arrayio/array-io-keychain/releases/download/0.13/keychain.msi), [Linux](#linux).
 
 #### Test in the web
 
@@ -926,7 +887,7 @@ For full comprehensive descriptions of the commands, acceptable parameters and v
 
 ## Pipe integration guide
 
-Before you proceed with the integration, you need to install KeyChain for [macOS](https://github.com/arrayio/array-io-keychain/releases/download/0.13/KeyChain.Installer.maOS.zip), [Windows](https://github.com/arrayio/array-io-keychain/releases/download/0.13/keychain.msi), [Linux](#linux).
+Before you proceed with the integration, you need to install KeyChain for [macOS](https://github.com/arrayio/array-io-keychain/releases/download/0.14/KeyChain.Installer.macOS.zip), [Windows](https://github.com/arrayio/array-io-keychain/releases/download/0.13/keychain.msi), [Linux](#linux).
 
 When the installation is complete, you can open stream input to start sending json requests through STDIN - STDOUT pipes.
  
