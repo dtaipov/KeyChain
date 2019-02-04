@@ -391,27 +391,22 @@
 <p>2) Require it
 <code>const Module = require(&#39;web3override&#39;);</code></p>
 
-<p>Now you can turn to the right panel where you create a new key with KeyChain and use an overridden web3 function.</p>
+<p>Now you can turn to the right panel where you use an overridden web3 function.</p>
 <pre class="highlight json tab-json"><code><span class="err">//go</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">javascript</span><span class="w">
-</span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">// create new key with KeyChain</span>
-<span class="kr">const</span> <span class="nx">keyInstance</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">Module</span><span class="p">.</span><span class="nx">Keychain</span><span class="p">.</span><span class="nx">create</span><span class="p">();</span>
-<span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">keyInstance</span><span class="p">.</span><span class="nx">createKey</span><span class="p">(</span><span class="s1">'test1'</span><span class="p">);</span>
+</span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">keyInstance</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">Module</span><span class="p">.</span><span class="nx">Keychain</span><span class="p">.</span><span class="nx">create</span><span class="p">();</span>
+<span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">keyInstance</span><span class="p">.</span><span class="nx">selectKey</span><span class="p">();</span>
 <span class="kr">const</span> <span class="nx">key</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">result</span><span class="p">;</span>
 <span class="nx">await</span> <span class="nx">keyInstance</span><span class="p">.</span><span class="nx">term</span><span class="p">();</span>
+<span class="nx">web3</span><span class="p">.</span><span class="nx">eth</span><span class="p">.</span><span class="nx">accounts</span><span class="p">.</span><span class="nx">signTransaction</span> <span class="o">=</span> <span class="nx">Module</span><span class="p">.</span><span class="nx">web3Override</span><span class="p">(</span><span class="nx">web3</span><span class="p">).</span><span class="nx">signTransaction</span><span class="p">;</span>
 
-<span class="nx">Module</span><span class="p">.</span><span class="nx">override</span><span class="p">(</span><span class="nx">web3</span><span class="p">);</span>
-<span class="c1">// now we use web3 with KeyChain</span>
-<span class="nx">await</span> <span class="nx">web3</span><span class="p">.</span><span class="nx">eth</span><span class="p">.</span><span class="nx">accounts</span><span class="p">.</span><span class="nx">signTransaction</span><span class="p">(</span><span class="nx">transactionParams</span><span class="p">,</span> <span class="nx">key</span><span class="p">);</span> <span class="c1">// overriden web3 function usage</span>
+<span class="c1">// now we use web3 with keychain</span>
+<span class="nx">await</span> <span class="nx">web3</span><span class="p">.</span><span class="nx">eth</span><span class="p">.</span><span class="nx">accounts</span><span class="p">.</span><span class="nx">signTransaction</span><span class="p">(</span><span class="nx">transactionParams</span><span class="p">,</span> <span class="nx">key</span><span class="p">);</span>
 </code></pre>
 <ul>
 <li><code>keychain.js</code> - Keychain class with ws connection initialization</li>
 <li><code>index.js</code> - override <code>web3.eth.accounts.signTransaction</code> method </li>
 <li><code>test.js</code> - example usage together (<code>keychain</code> + <code>web3</code>) </li>
 </ul>
-
-<aside class="notice">
-You must replace <code>test1</code> with your personal keyname.
-</aside>
 
 <p><strong>Run tests</strong></p>
 
@@ -428,7 +423,7 @@ You must replace <code>test1</code> with your personal keyname.
 
 <p><button class="show btn btn-info btn-sm" data-image='30'>show</button></p>
 
-<p><img id='30' alt="alt image" src="https://raw.githubusercontent.com/cypherpunk99/web3override/master/screencast.gif"></p>
+<p><img id='30' alt="keychain2" src="https://user-images.githubusercontent.com/34011337/52135027-f79f5200-2655-11e9-9718-6d47355fc0fb.gif"></p>
 <h2 id='contact'>Contact</h2>
 <p>If you have questions or enquiries about KeyChain, please do not hesitate to contact us:</p>
 
@@ -454,72 +449,6 @@ You must replace <code>test1</code> with your personal keyname.
 <p>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
 <h1 id='protocol'>Protocol</h1><h2 id='generate-a-key-pair'>Generate a key pair</h2><h3 id='command'>Command</h3>
 <p>create</p>
-
-<blockquote>
-<p>JSON Request</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"command"</span><span class="p">:</span><span class="w"> </span><span class="s2">"create"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"params"</span><span class="p">:</span><span class="w">
-   </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"keyname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"my key"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"encrypted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"curve"</span><span class="p">:</span><span class="w"> </span><span class="s2">"secp256k1"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"cipher"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aes256"</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">//go to json</span>
-</code></pre><h3 id='query-parameters'>Query parameters</h3>
-<table><thead>
-<tr>
-<th><strong>Parameter</strong></th>
-<th><strong>Type</strong></th>
-<th><strong>Description</strong></th>
-</tr>
-</thead><tbody>
-<tr>
-<td>encrypted</td>
-<td><code>string</code></td>
-<td>Requests encryption of the key.</td>
-</tr>
-<tr>
-<td>curve</td>
-<td><code>string</code></td>
-<td>Keychain uses elliptic curve algorithm.</td>
-</tr>
-<tr>
-<td>keyname</td>
-<td><code>string</code></td>
-<td>Create a name for your key. This will be a mnemonic label of the key - not the actual key.</td>
-</tr>
-<tr>
-<td>cipher</td>
-<td><code>string</code></td>
-<td>Specifies encryption type (we use <code>aes</code>) and the size of the key in bits.</td>
-</tr>
-</tbody></table>
-<h3 id='response-format'>Response format</h3>
-<blockquote>
-<p>Response example</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"result"</span><span class="p">:</span><span class="s2">"my key"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">//go to json</span>
-</code></pre>
-<table><thead>
-<tr>
-<th><strong>Field name</strong></th>
-<th><strong>Type</strong></th>
-<th><strong>Description</strong></th>
-</tr>
-</thead><tbody>
-<tr>
-<td>result</td>
-<td><code>string</code></td>
-<td>key name</td>
-</tr>
-</tbody></table>
 <h2 id='sign-transaction-in-hex-format'>Sign transaction in hex format</h2>
 <aside class="notice">
 You can sign transactions in hex or hash format. 
@@ -547,7 +476,7 @@ Please remember that you need to insert your own <code>key name</code> in the pa
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">//go to json</span>
-</code></pre><h3 id='query-parameters-2'>Query parameters</h3>
+</code></pre><h3 id='query-parameters'>Query parameters</h3>
 <table><thead>
 <tr>
 <th><strong>Parameter</strong></th>
@@ -581,7 +510,7 @@ Please remember that you need to insert your own <code>key name</code> in the pa
 <td>This parameter is experimental and optional! If this parameter is defined and if it is greater than zero, it unlocks the key for a set number of seconds. While the key is unlocked, the transactions will be signed without the user&#39;s approval.</td>
 </tr>
 </tbody></table>
-<h3 id='response-format-2'>Response format</h3>
+<h3 id='response-format'>Response format</h3>
 <blockquote>
 <p>Response example</p>
 </blockquote>
@@ -625,7 +554,7 @@ Please remember that you need to insert your own <code>key name</code> in the pa
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">//go to json</span>
-</code></pre><h3 id='query-parameters-3'>Query parameters</h3>
+</code></pre><h3 id='query-parameters-2'>Query parameters</h3>
 <table><thead>
 <tr>
 <th><strong>Parameter</strong></th>
@@ -649,7 +578,7 @@ Please remember that you need to insert your own <code>key name</code> in the pa
 <td>Inserts the mnemonic label of your key.</td>
 </tr>
 </tbody></table>
-<h3 id='response-format-3'>Response format</h3>
+<h3 id='response-format-2'>Response format</h3>
 <blockquote>
 <p>Response example</p>
 </blockquote>
@@ -689,7 +618,7 @@ Please remember that you need to insert your own <code>key name</code> in the pa
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">//go to json</span>
-</code></pre><h3 id='query-parameters-4'>Query parameters</h3>
+</code></pre><h3 id='query-parameters-3'>Query parameters</h3>
 <table><thead>
 <tr>
 <th><strong>Parameter</strong></th>
@@ -703,7 +632,7 @@ Please remember that you need to insert your own <code>key name</code> in the pa
 <td>Inserts the name of the key from which you want to calculate a public key.</td>
 </tr>
 </tbody></table>
-<h3 id='response-format-4'>Response format</h3>
+<h3 id='response-format-3'>Response format</h3>
 <p>64-byte public key. The length of the public key depends on the type of the blockchain. For example, in Ethereum, the length of a public key is 64 bytes.</p>
 
 <blockquote>
@@ -739,9 +668,9 @@ Please remember that you need to insert your own <code>key name</code> in the pa
   </span><span class="s2">"command"</span><span class="p">:</span><span class="w"> </span><span class="s2">"lock"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">//go to json</span>
-</code></pre><h3 id='query-parameters-5'>Query parameters</h3>
+</code></pre><h3 id='query-parameters-4'>Query parameters</h3>
 <p>No</p>
-<h3 id='response-format-5'>Response format</h3>
+<h3 id='response-format-4'>Response format</h3>
 <blockquote>
 <p>Response example</p>
 </blockquote>
@@ -792,7 +721,7 @@ Please remember that you need to insert your own <code>key name</code> in the pa
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">//go to json</span>
-</code></pre><h3 id='query-parameters-6'>Query parameters</h3>
+</code></pre><h3 id='query-parameters-5'>Query parameters</h3>
 <table><thead>
 <tr>
 <th><strong>Parameter</strong></th>
@@ -811,7 +740,7 @@ Please remember that you need to insert your own <code>key name</code> in the pa
 <td>When this parameter is specified, it unlocks the key for a set number of seconds. While the key is unlocked, the pass entry window will not appear and the transactions will be signed without the user&#39;s approval.</td>
 </tr>
 </tbody></table>
-<h3 id='response-format-6'>Response format</h3>
+<h3 id='response-format-5'>Response format</h3>
 <blockquote>
 <p>Response example</p>
 </blockquote>
@@ -845,9 +774,9 @@ Please remember that you need to insert your own <code>key name</code> in the pa
   </span><span class="s2">"command"</span><span class="p">:</span><span class="s2">"about"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">//go to json</span>
-</code></pre><h3 id='query-parameters-7'>Query parameters</h3>
+</code></pre><h3 id='query-parameters-6'>Query parameters</h3>
 <p>No</p>
-<h3 id='response-format-7'>Response format</h3>
+<h3 id='response-format-6'>Response format</h3>
 <blockquote>
 <p>Response example</p>
 </blockquote>
@@ -919,9 +848,9 @@ Please remember that you need to insert your own <code>key name</code> in the pa
   </span><span class="s2">"command"</span><span class="p">:</span><span class="s2">"version"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">//go to json</span>
-</code></pre><h3 id='query-parameters-8'>Query parameters</h3>
+</code></pre><h3 id='query-parameters-7'>Query parameters</h3>
 <p>No</p>
-<h3 id='response-format-8'>Response format</h3>
+<h3 id='response-format-7'>Response format</h3>
 <blockquote>
 <p>Response example</p>
 </blockquote>
@@ -1053,32 +982,12 @@ Please remember that you need to insert your own <code>key name</code> in the pa
 <p>On this <a href="https://arrayio.github.io/array-io-keychain/eth_signer/">demo page</a> you can try out signing Ethereum transactions with KeyChain.</p>
 <h2 id='step-by-step-guide'>Step-by-step guide</h2><h3 id='1-install-keychain-for-macos'>1. Install KeyChain for macOS</h3>
 <p>Download KeyChain installer for <a href="https://github.com/arrayio/array-io-keychain/releases/download/0.14/KeyChain.Installer.macOS.zip">macOS</a> or <a href="https://github.com/arrayio/array-io-keychain/releases/download/0.13/keychain.msi">Windows</a>.</p>
-<h3 id='2-generate-the-key'>2. Generate the key</h3>
+<h3 id='2-request-public-key'>2. Request public key</h3>
 <p>Start with the command <code>wscat -c ws://localhost:16384/</code>
 and send the <code>create</code> command to generate the key.</p>
 
 <blockquote>
-<p>Create a key pair</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"command"</span><span class="p">:</span><span class="w"> </span><span class="s2">"create"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"params"</span><span class="p">:</span><span class="w">
-   </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"keyname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"my key"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"encrypted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"curve"</span><span class="p">:</span><span class="w"> </span><span class="s2">"secp256k1"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"cipher"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aes256"</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">//go to json</span>
-</code></pre>
-<aside class="notice">
-Insert your own key name! Do not copy the following code together with the key name that we use because it is specified here only as an example of how your key name might look like. 
-</aside>
- 
-
-<blockquote>
-<p>Then request a public key via</p>
+<p>Request a public key via</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> 
   </span><span class="s2">"command"</span><span class="p">:</span><span class="w"> </span><span class="s2">"public_key"</span><span class="p">,</span><span class="w">
@@ -1143,18 +1052,9 @@ https://faucet.ropsten.be/</p>
 </ul>
 <h2 id='message-format'>Message format</h2>
 <blockquote>
-<p>For example, here is a request for generating keys: </p>
+<p>For example, here is a request for requesting the current version: </p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"command"</span><span class="p">:</span><span class="w"> </span><span class="s2">"create"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"params"</span><span class="p">:</span><span class="w">
-   </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"keyname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"my key"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"encrypted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"curve"</span><span class="p">:</span><span class="w"> </span><span class="s2">"secp256k1"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"cipher"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aes256"</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"command"</span><span class="p">:</span><span class="s2">"version"</span><span class="p">}</span><span class="w">
 </span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">//go to json</span>
 </code></pre>
 <p>Each WebSocket API message is a json serialized object containing a command with the corresponding parameters.</p>
@@ -1174,7 +1074,7 @@ https://faucet.ropsten.be/</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="err">//go</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">javascript</span><span class="w">
 </span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="nx">$</span> <span class="nx">wscat</span> <span class="o">-</span><span class="nx">c</span> <span class="nx">ws</span><span class="p">:</span><span class="c1">//127.0.0.1:16384</span>
-<span class="o">&gt;</span> <span class="p">{</span> <span class="s2">"command"</span><span class="p">:</span> <span class="s2">"list"</span><span class="p">}</span>
+<span class="o">&gt;</span><span class="p">{</span><span class="s2">"command"</span><span class="p">:</span><span class="s2">"version"</span><span class="p">}</span>
 </code></pre><h4 id='successful-calls'>Successful Calls</h4>
 <p>The API will return a properly JSON formated response carrying the same id as the request to distinguish subsequent calls.</p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"result"</span><span class="p">:</span><span class="w">  </span><span class="err">..data..</span><span class="p">}</span><span class="w">
@@ -1196,14 +1096,16 @@ https://faucet.ropsten.be/</p>
 
 <p>c:\Users\User-1&gt;cd &quot;C: Program Files\WsKeychain&quot;
 c:\Program Files\WSKeychain&gt;keychain 
-{&quot;command&quot;:&quot;list&quot;}</p>
+{&quot;command&quot;:&quot;version&quot;}</p>
 
 <p>A successful response will take the following format:</p>
-<h4 id='response-format-9'>Response format</h4>
+<h4 id='response-format-8'>Response format</h4>
 <blockquote>
 <p>Response example</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"result"</span><span class="p">:</span><span class="s2">"my key"</span><span class="p">,</span><span class="s2">"my key1"</span><span class="p">,</span><span class="s2">"my key2"</span><span class="p">,</span><span class="s2">"my key3"</span><span class="p">}</span><span class="w">
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"result"</span><span class="p">:</span><span class="s2">"0.9.114"</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">//go to json</span>
 </code></pre>
 <table><thead>
@@ -1211,14 +1113,12 @@ c:\Program Files\WSKeychain&gt;keychain
 <th><strong>Field name</strong></th>
 <th><strong>Type</strong></th>
 <th><strong>Description</strong></th>
-<th><strong>Value example</strong></th>
 </tr>
 </thead><tbody>
 <tr>
 <td>result</td>
-<td><code>JSON array of strings</code></td>
-<td>list of key names</td>
-<td><code>&quot;my key&quot;,&quot;my key1&quot;,&quot;my key2&quot;,&quot;my key3&quot;</code></td>
+<td><code>string</code></td>
+<td>current version number which has the form of &quot;[major].[minor].[build number]&quot;.</td>
 </tr>
 </tbody></table>
 <h3 id='build-a-page-that-connects-to-websocket'>Build a page that connects to WebSocket</h3>
@@ -1263,9 +1163,6 @@ c:\Program Files\WSKeychain&gt;keychain
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`keychain process exited with code </span><span class="p">${</span><span class="nx">code</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
   <span class="p">}</span>
 <span class="p">});</span>
-</code></pre><h3 id='see-all-your-keys'>See all your keys</h3><pre class="highlight json tab-json"><code><span class="err">//go</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">javascript</span><span class="w">
-</span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">listCommand</span> <span class="o">=</span> <span class="p">{</span> <span class="na">command</span><span class="p">:</span> <span class="s2">"list"</span> <span class="p">};</span>
-<span class="nx">keychain</span><span class="p">.</span><span class="nx">stdin</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">listCommand</span><span class="p">));</span>
 </code></pre><h3 id='sign-transaction'>Sign transaction</h3>
 <p>To sign a transaction, first you need to set the timeout value for your key. While it is unlocked, you can sign the transaction without entering a passphrase during this visit. Upon finishing the transaction, lock your keys.</p>
 <pre class="highlight json tab-json"><code><span class="err">//go</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">javascript</span><span class="w">
