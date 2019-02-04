@@ -51,7 +51,7 @@ NB: Do not forget to install the library and require it:
 `const Module = require('web3override');`
 
 Now you can turn to the right panel where you use an overridden web3 function.
-
+ 
 ```json
 //go to javascript
 ```
