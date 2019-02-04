@@ -50,31 +50,27 @@ NB: Do not forget to install the library and require it:
 2) Require it
 `const Module = require('web3override');`
 
-Now you can turn to the right panel where you create a new key with KeyChain and use an overridden web3 function.
+Now you can turn to the right panel where you use an overridden web3 function.
 
 ```json
 //go to javascript
 ```
 
 ```javascript
-// create new key with KeyChain
 const keyInstance = await Module.Keychain.create();
-const data = await keyInstance.createKey('test1');
+const data = await keyInstance.selectKey();
 const key = data.result;
 await keyInstance.term();
+web3.eth.accounts.signTransaction = Module.web3Override(web3).signTransaction;
 
-Module.override(web3);
-// now we use web3 with KeyChain
-await web3.eth.accounts.signTransaction(transactionParams, key); // overriden web3 function usage
+// now we use web3 with keychain
+await web3.eth.accounts.signTransaction(transactionParams, key);
 ```
 
 * `keychain.js` - Keychain class with ws connection initialization
 * `index.js` - override `web3.eth.accounts.signTransaction` method 
 * `test.js` - example usage together (`keychain` + `web3`) 
 
-<aside class="notice">
-You must replace <code>test1</code> with your personal keyname.
-</aside>
 
 **Run tests**
 
@@ -90,7 +86,7 @@ If you wish to see KeyChain in action, install KeyChain, then install the librar
 
 <button class="show btn btn-info btn-sm" data-image='30'>show</button>
 
-<img id='30' alt="alt image" src="https://raw.githubusercontent.com/cypherpunk99/web3override/master/screencast.gif">
+<img id='30' alt="keychain2" src="https://user-images.githubusercontent.com/34011337/52135027-f79f5200-2655-11e9-9718-6d47355fc0fb.gif">
 
 
 ## Contact
@@ -123,47 +119,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 ## Generate a key pair
 ### Command
 create
-
-> JSON Request
-
-```json
-{
-  "command": "create",
-  "params":
-   {
-      "keyname": "my key",
-      "encrypted": true,
-      "curve": "secp256k1",
-      "cipher": "aes256"
-  }
-}
-```
-```javascript
-//go to json
-```
-### Query parameters
-**Parameter**|**Type**|**Description**|
----|---|---
-encrypted|```string```|Requests encryption of the key.
-curve|```string```|Keychain uses elliptic curve algorithm.
-keyname|```string```|Create a name for your key. This will be a mnemonic label of the key - not the actual key.
-cipher|```string```|Specifies encryption type (we use ```aes```) and the size of the key in bits. 
-
-### Response format
-
-> Response example
-
-```json
-{
-  "result":"my key"
-}
-```
-```javascript
-//go to json
-```
-**Field name**|**Type**|**Description**
----|---|---
-result|`string`|key name
 
 ## Sign transaction in hex format
 
@@ -633,34 +588,12 @@ On this [demo page](https://arrayio.github.io/array-io-keychain/eth_signer/) you
 
 Download KeyChain installer for [macOS](https://github.com/arrayio/array-io-keychain/releases/download/0.14/KeyChain.Installer.macOS.zip) or [Windows](https://github.com/arrayio/array-io-keychain/releases/download/0.13/keychain.msi).
 
-### 2. Generate the key
+### 2. Request public key
 
 Start with the command `wscat -c ws://localhost:16384/`
 and send the `create` command to generate the key.
-
-> Create a key pair
-
-```json
-{
-  "command": "create",
-  "params":
-   {
-      "keyname": "my key",
-      "encrypted": true,
-      "curve": "secp256k1",
-      "cipher": "aes256"
-  }
-}
-```
-```javascript
-//go to json
-```
-
-<aside class="notice">
-Insert your own key name! Do not copy the following code together with the key name that we use because it is specified here only as an example of how your key name might look like. 
-</aside>
  
-> Then request a public key via
+> Request a public key via
 
 ```json
 { 
@@ -750,19 +683,10 @@ Install KeyChain for [macOS](https://github.com/arrayio/array-io-keychain/releas
 
 ## Message format
 
-> For example, here is a request for generating keys: 
+> For example, here is a request for requesting the current version: 
 
 ```json
-{
-  "command": "create",
-  "params":
-   {
-      "keyname": "my key",
-      "encrypted": true,
-      "curve": "secp256k1",
-      "cipher": "aes256"
-  }
-}
+{"command":"version"}
 ```
 
 ```javascript
@@ -797,7 +721,7 @@ $ npm install -g wscat
 
 ```javascript
 $ wscat -c ws://127.0.0.1:16384
-> { "command": "list"}
+>{"command":"version"}
 ```
 
 #### Successful Calls
@@ -842,7 +766,7 @@ You can see if the installation was successful by going to the terminal app, ope
 
 c:\Users\User-1>cd "C: Program Files\WsKeychain"
 c:\Program Files\WSKeychain>keychain 
-{"command":"list"}
+{"command":"version"}
 
 A successful response will take the following format:
 
@@ -851,16 +775,17 @@ A successful response will take the following format:
 > Response example
 
 ```json
-{"result":"my key","my key1","my key2","my key3"}
+{
+  "result":"0.9.114"
+}
 ```
-
 ```javascript
 //go to json
 ```
 
-**Field name**|**Type**|**Description**|**Value example**
----|---|---|---
-result|`JSON array of strings`|list of key names|```"my key","my key1","my key2","my key3"```
+**Field name**|**Type**|**Description**
+---|---|---
+result|`string`|current version number which has the form of "[major].[minor].[build number]".
 
 
 ### Build a page that connects to WebSocket
@@ -915,17 +840,6 @@ keychain.on('close', (code) => {
     console.log(`keychain process exited with code ${code}`);
   }
 });
-```
-
-### See all your keys
-
-```json
-//go to javascript
-```
-
-```javascript 
-const listCommand = { command: "list" };
-keychain.stdin.write(JSON.stringify(listCommand));
 ```
 
 ### Sign transaction
