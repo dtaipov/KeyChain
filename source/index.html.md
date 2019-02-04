@@ -31,7 +31,7 @@ After installation, connect to the demo-page: [http://localhost:16384/](http://l
 
 <button class="show btn btn-info btn-sm" data-image='21'>show</button>
 
-<img id='21' alt="screenshot from 2018-12-10 15-57-27" src="https://user-images.githubusercontent.com/34011337/49734247-be211a80-fc94-11e8-8d85-c70b738ecae3.png">
+<img id='21' alt="image_2019-02-01_18-12-11" src="https://user-images.githubusercontent.com/34011337/52132689-c40df900-2650-11e9-94cf-90b151d0c3e8.png">
 
 
 If you are having trouble connecting to the page, [contact us](#contact) and we will do our best to help you.
@@ -754,7 +754,7 @@ After installing KeyChain, open the browser and connect to the demo page via [ht
 
 When the connection is established, you will see the following KeyChain page. If you click on one of the commands on the left panel, you will see its json request and response in the white boxes below:
 
-![screenshot from 2018-12-10 15-57-27](https://user-images.githubusercontent.com/34011337/49734247-be211a80-fc94-11e8-8d85-c70b738ecae3.png)
+![image_2019-02-01_18-12-11](https://user-images.githubusercontent.com/34011337/52132689-c40df900-2650-11e9-94cf-90b151d0c3e8.png)
 
 #### Test from a terminal application:
 
