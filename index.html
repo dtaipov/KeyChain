@@ -243,9 +243,6 @@
             <a href="#protocol" class="toc-h1 toc-link" data-title="Protocol">Protocol</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#generate-a-key-pair" class="toc-h2 toc-link" data-title="Generate a key pair">Generate a key pair</a>
-                  </li>
-                  <li>
                     <a href="#sign-transaction-in-hex-format" class="toc-h2 toc-link" data-title="Sign transaction in hex format">Sign transaction in hex format</a>
                   </li>
                   <li>
@@ -447,9 +444,7 @@
 <p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
 
 <p>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
-<h1 id='protocol'>Protocol</h1><h2 id='generate-a-key-pair'>Generate a key pair</h2><h3 id='command'>Command</h3>
-<p>create</p>
-<h2 id='sign-transaction-in-hex-format'>Sign transaction in hex format</h2>
+<h1 id='protocol'>Protocol</h1><h2 id='sign-transaction-in-hex-format'>Sign transaction in hex format</h2>
 <aside class="notice">
 You can sign transactions in hex or hash format. 
 For example, for Ethereum transaction, you do not need to pass <code>chainid</code> as a parameter because it is incorporated in the hex. 
@@ -458,7 +453,7 @@ For example, for Ethereum transaction, you do not need to pass <code>chainid</co
 <aside class="notice">
 Please remember that you need to insert your own <code>key name</code> in the parameters when copying the requests!
 </aside>
-<h3 id='command-2'>Command</h3>
+<h3 id='command'>Command</h3>
 <p>sign_hex</p>
 
 <blockquote>
@@ -538,7 +533,7 @@ Please remember that you need to insert your own <code>key name</code> in the pa
 <aside class="notice">
 Please remember that you need to insert your own <code>key name</code> in the parameters when copying the requests!
 </aside>
-<h3 id='command-3'>Command</h3>
+<h3 id='command-2'>Command</h3>
 <p>sign_hash</p>
 
 <blockquote>
@@ -604,7 +599,7 @@ Please remember that you need to insert your own <code>key name</code> in the pa
 <aside class="notice">
 Please remember that you need to insert your own <code>key name</code> in the parameters when copying the requests!
 </aside>
-<h3 id='command-4'>Command</h3>
+<h3 id='command-3'>Command</h3>
 <p>public_key</p>
 
 <blockquote>
@@ -658,7 +653,7 @@ Please remember that you need to insert your own <code>key name</code> in the pa
 </tbody></table>
 <h2 id='lock-all-unlocked-keys'>Lock all unlocked keys</h2>
 <p>This command protects you from any hostile intervention into the KeyChain while you have left your computer without supervision.</p>
-<h3 id='command-5'>Command</h3>
+<h3 id='command-4'>Command</h3>
 <p>lock</p>
 
 <blockquote>
@@ -706,7 +701,7 @@ This parameter is experimental! Allowing the user to sign transactions without e
 <aside class="notice">
 Please remember that you need to insert your own <code>key name</code> in the parameters when copying the requests!
 </aside>
-<h3 id='command-6'>Command</h3>
+<h3 id='command-5'>Command</h3>
 <p>unlock </p>
 
 <blockquote>
@@ -764,7 +759,7 @@ Please remember that you need to insert your own <code>key name</code> in the pa
 </tbody></table>
 <h2 id='keychain-version-details'>KeyChain version details</h2>
 <p>You can request the details of the current KeyChain version you are using.</p>
-<h3 id='command-7'>Command</h3>
+<h3 id='command-6'>Command</h3>
 <p>about</p>
 
 <blockquote>
@@ -838,7 +833,7 @@ Please remember that you need to insert your own <code>key name</code> in the pa
 </tbody></table>
 <h2 id='keychain-version-number'>KeyChain version number</h2>
 <p>You can request the number of the current version you are using.</p>
-<h3 id='command-8'>Command</h3>
+<h3 id='command-7'>Command</h3>
 <p>version</p>
 
 <blockquote>
