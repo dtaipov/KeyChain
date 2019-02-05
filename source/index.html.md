@@ -225,33 +225,23 @@ keyname|```string```|Inserts the mnemonic label of your key.
 result|`hex string`|65-byte signature in hex format.
 
 
-## Calculate the public key 
-
-<aside class="notice">
-Please remember that you need to insert your own <code>key name</code> in the parameters when copying the requests!
-</aside>
+## Select a key
 
 ### Command
-public_key
+select_key
 
 > JSON Request
 
 ```json
 { 
-  "command": "public_key",
-  "params": 
-  {
-    "keyname": "my key"
-  }
+  "command": "public_key"
 }
 ```
 ```javascript
 //go to json
 ```
 ### Query parameters
-**Parameter**|**Type**|**Description**
----|---|---
-keyname|```string```|Inserts the name of the key from which you want to calculate a public key.
+No
 
 ### Response format
 
@@ -588,17 +578,13 @@ Download KeyChain installer for [macOS](https://github.com/arrayio/array-io-keyc
 ### 2. Request public key
 
 Start with the command `wscat -c ws://localhost:16384/`
-and send the `create` command to generate the key.
+
  
-> Request a public key via
+> Select a  key 
 
 ```json
 { 
-  "command": "public_key",
-  "params": 
-  {
-    "keyname": "my key"
-  }
+  "command": "select_key"
 }
 ```
 ```javascript
