@@ -249,7 +249,7 @@
                     <a href="#sign-hash-of-transaction" class="toc-h2 toc-link" data-title="Sign hash of transaction">Sign hash of transaction</a>
                   </li>
                   <li>
-                    <a href="#calculate-the-public-key" class="toc-h2 toc-link" data-title="Calculate the public key">Calculate the public key</a>
+                    <a href="#select-a-key" class="toc-h2 toc-link" data-title="Select a key">Select a key</a>
                   </li>
                   <li>
                     <a href="#lock-all-unlocked-keys" class="toc-h2 toc-link" data-title="Lock all unlocked keys">Lock all unlocked keys</a>
@@ -595,38 +595,18 @@ Please remember that you need to insert your own <code>key name</code> in the pa
 <td>65-byte signature in hex format.</td>
 </tr>
 </tbody></table>
-<h2 id='calculate-the-public-key'>Calculate the public key</h2>
-<aside class="notice">
-Please remember that you need to insert your own <code>key name</code> in the parameters when copying the requests!
-</aside>
-<h3 id='command-3'>Command</h3>
-<p>public_key</p>
+<h2 id='select-a-key'>Select a key</h2><h3 id='command-3'>Command</h3>
+<p>select_key</p>
 
 <blockquote>
 <p>JSON Request</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> 
-  </span><span class="s2">"command"</span><span class="p">:</span><span class="w"> </span><span class="s2">"public_key"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"params"</span><span class="p">:</span><span class="w"> 
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"keyname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"my key"</span><span class="w">
-  </span><span class="p">}</span><span class="w">
+  </span><span class="s2">"command"</span><span class="p">:</span><span class="w"> </span><span class="s2">"public_key"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">//go to json</span>
 </code></pre><h3 id='query-parameters-3'>Query parameters</h3>
-<table><thead>
-<tr>
-<th><strong>Parameter</strong></th>
-<th><strong>Type</strong></th>
-<th><strong>Description</strong></th>
-</tr>
-</thead><tbody>
-<tr>
-<td>keyname</td>
-<td><code>string</code></td>
-<td>Inserts the name of the key from which you want to calculate a public key.</td>
-</tr>
-</tbody></table>
+<p>No</p>
 <h3 id='response-format-3'>Response format</h3>
 <p>64-byte public key. The length of the public key depends on the type of the blockchain. For example, in Ethereum, the length of a public key is 64 bytes.</p>
 
@@ -978,18 +958,13 @@ Please remember that you need to insert your own <code>key name</code> in the pa
 <h2 id='step-by-step-guide'>Step-by-step guide</h2><h3 id='1-install-keychain-for-macos'>1. Install KeyChain for macOS</h3>
 <p>Download KeyChain installer for <a href="https://github.com/arrayio/array-io-keychain/releases/download/0.14/KeyChain.Installer.macOS.zip">macOS</a> or <a href="https://github.com/arrayio/array-io-keychain/releases/download/0.13/keychain.msi">Windows</a>.</p>
 <h3 id='2-request-public-key'>2. Request public key</h3>
-<p>Start with the command <code>wscat -c ws://localhost:16384/</code>
-and send the <code>create</code> command to generate the key.</p>
+<p>Start with the command <code>wscat -c ws://localhost:16384/</code></p>
 
 <blockquote>
-<p>Request a public key via</p>
+<p>Select a  key </p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> 
-  </span><span class="s2">"command"</span><span class="p">:</span><span class="w"> </span><span class="s2">"public_key"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"params"</span><span class="p">:</span><span class="w"> 
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"keyname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"my key"</span><span class="w">
-  </span><span class="p">}</span><span class="w">
+  </span><span class="s2">"command"</span><span class="p">:</span><span class="w"> </span><span class="s2">"select_key"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">//go to json</span>
 </code></pre><h3 id='3-get-the-address'>3. Get the address</h3>
