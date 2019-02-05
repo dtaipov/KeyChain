@@ -42,6 +42,9 @@ Below you can find comprehensive installation guides for [macOS](#macos), [Windo
 
 After you have installed KeyChain for [macOS](https://github.com/arrayio/array-io-keychain/releases/download/0.14/KeyChain.Installer.macOS.zip) or [Windows](https://github.com/arrayio/array-io-keychain/releases/download/0.13/keychain.msi), you can start using it with web3. Just install the `web3override` library from this [source](https://www.npmjs.com/package/web3override) and follow these simple steps (see the right panel in javascript).
 
+If you launch KeyChain for the first time, you need to get a public key with the "select_key" command. 
+You can save the public key to local storage. Then you will not need to use "select_key" command again. 
+
 NB: Do not forget to install the library and require it:
 
 1) Install the library
@@ -79,7 +82,7 @@ If you wish to see KeyChain in action, install KeyChain, then install the librar
 
 1) Add key to your `key_data`:
 
-- keyname: `test1`
+- public_key: `a7aea4bd112706655cb7014282d2a54658924e69c68f5a54f2cd5f35c6fcba9b610d6ae8549f960ae96e23ffc017f305c1d8664978c8ba8a1cc656fd9d068ef5`
 - password: `qwe`
 
 2) `npm run test`
@@ -124,10 +127,6 @@ You can sign transactions in hex or hash format.
 For example, for Ethereum transaction, you do not need to pass <code>chainid</code> as a parameter because it is incorporated in the hex. 
 </aside>
 
-<aside class="notice">
-Please remember that you need to insert your own <code>key name</code> in the parameters when copying the requests!
-</aside>
-
 ### Command
 sign_hex
 
@@ -141,7 +140,7 @@ sign_hex
     "chainid": "de5f4d8974715e20f47c8bb609547c9e66b0b9e31d521199b3d8d6af6da74cb1",
     "transaction": "871689d060721b5cec5a010080841e00000000000011130065cd1d0000000000000000",
     "blockchain_type": "array",
-    "keyname": "my key",
+    "public_key": "a7aea4bd112706655cb7014282d2a54658924e69c68f5a54f2cd5f35c6fcba9b610d6ae8549f960ae96e23ffc017f305c1d8664978c8ba8a1cc656fd9d068ef5",
     "unlock_time": 45 
   }
 }
@@ -152,10 +151,10 @@ sign_hex
 ### Query parameters
 **Parameter**|**Type**|**Description**
 ---|---|---
-chainid | ```string```|Optional parameter for Array and Bitshares-like blockchains. Chainid is the hash of a genesis file used to identify the chain.
-transaction | ```string```|Hex representation of the transaction.
-blockchain_type | ```string```|Inserts the name of blockchain you’re using. Possible options: Array, Bitcoin, Ethereum, Bitshares.
-keyname | ```string```|Inserts the mnemonic label of your key.
+chainid | ```hex string```|Optional parameter for Array and Bitshares-like blockchains. Chainid is the hash of a genesis file used to identify the chain.
+transaction | ```hex string```|Hex representation of the transaction.
+blockchain_type | ```enumeration string```|Inserts the name of blockchain you’re using. Possible options: Array, Bitcoin, Ethereum, Bitshares.
+public_key | ```hex string```|64-byte public key in hex format
 unlock_time  | ```integer```|This parameter is experimental and optional! If this parameter is defined and if it is greater than zero, it unlocks the key for a set number of seconds. While the key is unlocked, the transactions will be signed without the user's approval.
 
 ### Response format
@@ -172,15 +171,11 @@ unlock_time  | ```integer```|This parameter is experimental and optional! If thi
 ```
 **Field name**|**Type**|**Description**
 ---|---|---
-result|`hex string`|65-byte signature in hex-string format.
+result|`hex string`|65-byte signature in hex string format.
 
 ## Sign hash of transaction
 
 This request is suited best for advanced users who are eager to work on a low level. You should have knowledge of how to calculate hash of transaction, given the type of blockchain, and know the type of signature and its packaging.
-
-<aside class="notice">
-Please remember that you need to insert your own <code>key name</code> in the parameters when copying the requests!
-</aside>
 
 ### Command
 sign_hash
@@ -194,7 +189,7 @@ sign_hash
   {
     "sign_type": "VRS_canonical",
     "hash": "fe5e4a8974715e20f47c8bb609547c9e66b0b9e31d521199b3d8d6af6da74cb1",
-    "keyname": "my key"
+    "public_key": "a7aea4bd112706655cb7014282d2a54658924e69c68f5a54f2cd5f35c6fcba9b610d6ae8549f960ae96e23ffc017f305c1d8664978c8ba8a1cc656fd9d068ef5"
   }
 }
 ```
@@ -204,9 +199,9 @@ sign_hash
 ### Query parameters
 **Parameter**|**Type**|**Description**
 ---|---|---
-sign-type |```string```|Customizes the way secp256 library is used by choosing one of its arguments through sign-type parameter. It has two possible value options: RSV_noncanonical and VRS_canonical. Default value is RSV_noncanonical. Prefix RSV/VRS means signature struct: [R, S, v] or [v, R, S].
-hash |```string```|Hash calculated from the transaction. It can be the result of the first calculation or the second - depending on the type of the blockchain. For example, Bitcoin uses two calculations: to sign a bitcoin transaction you need to transmit the final (second) hash. Ethereum and Array make only one calculation to get the hash.
-keyname|```string```|Inserts the mnemonic label of your key. 
+sign-type |```enumeration string```|Customizes the way secp256 library is used by choosing one of its arguments through sign-type parameter. It has two possible value options: RSV_noncanonical and VRS_canonical. Default value is RSV_noncanonical. Prefix RSV/VRS means signature struct: [R, S, v] or [v, R, S].
+hash |```hex string```|Hash calculated from the transaction. It can be the result of the first calculation or the second - depending on the type of the blockchain. For example, Bitcoin uses two calculations: to sign a bitcoin transaction you need to transmit the final (second) hash. Ethereum and Array make only one calculation to get the hash.
+public_key|```hex string```|64-byte public key in hex format
 
 ### Response format
 
@@ -234,7 +229,7 @@ select_key
 
 ```json
 { 
-  "command": "public_key"
+  "command": "select_key"
 }
 ```
 ```javascript
@@ -307,10 +302,6 @@ This parameter is experimental! Allowing the user to sign transactions without e
 <code>Sign_hex</code> and <code>sign_hash</code> commands assume implicit unlocking of your keys. 
 </aside>
 
-<aside class="notice">
-Please remember that you need to insert your own <code>key name</code> in the parameters when copying the requests!
-</aside>
-
 
 ### Command
 unlock 
@@ -322,7 +313,7 @@ unlock
   "command": "unlock"
   "params":
   {
-    "keyname": "my key",
+    "public_key": "a7aea4bd112706655cb7014282d2a54658924e69c68f5a54f2cd5f35c6fcba9b610d6ae8549f960ae96e23ffc017f305c1d8664978c8ba8a1cc656fd9d068ef5",
     "unlock_time": 45
   }
 }
@@ -334,7 +325,7 @@ unlock
 
 **Parameter**|**Type**|**Description**
 ---|---|---
-keyname|```string```|Inserts the name of the key you want to unlock.
+public_key|```hex string```|64-byte public key in hex format
 unlock_time|```integer```|When this parameter is specified, it unlocks the key for a set number of seconds. While the key is unlocked, the pass entry window will not appear and the transactions will be signed without the user's approval.
 
 ### Response format
@@ -723,7 +714,7 @@ The API will return a properly JSON formated response carrying the same id as th
 In case of an error, the resulting answer will carry an error attribute and a description in human-readable format:
 
 ```json
-{"error":"Error: keyfile could not be found by keyname"}
+{"error":"Error: keyfile could not be found by public_key"}
 ```
 
 ```javascript
@@ -847,7 +838,7 @@ const unlockCommand = {
   "command": "unlock", 
   "params": 
   { 
-    "keyname": "test1"
+    "public_key": "a7aea4bd112706655cb7014282d2a54658924e69c68f5a54f2cd5f35c6fcba9b610d6ae8549f960ae96e23ffc017f305c1d8664978c8ba8a1cc656fd9d068ef5"
   }
 };
 keychain.stdin.write(JSON.stringify(unlockCommand));
@@ -859,7 +850,7 @@ const signCommand = {
     "chainid": "de5f4d8974715e20f47c8bb609547c9e66b0b9e31d521199b3d8d6af6da74cb1",
     "transaction": "871689d060721b5cec5a010080841e00000000000011130065cd1d0000000000000000",
     "blockchain_type": "array",
-    "keyname": "test1"
+    "public_key": "a7aea4bd112706655cb7014282d2a54658924e69c68f5a54f2cd5f35c6fcba9b610d6ae8549f960ae96e23ffc017f305c1d8664978c8ba8a1cc656fd9d068ef5"
   }
 };
 
