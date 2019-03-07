@@ -23,7 +23,7 @@ search: true
 
 ## Installation
 
-Download and install KeyChain for [macOS](https://github.com/arrayio/array-io-keychain/releases/download/0.18/KeyChain.Installer.v18.zip) or [Windows](https://github.com/arrayio/array-io-keychain/releases/download/0.13/keychain.msi). Linux installer is coming soon.
+Download and install KeyChain for [macOS](https://github.com/arrayio/array-io-keychain/releases/download/0.20/KeyChain.Installer.zip). Windows and Linux installers are coming soon.
 
 *Try out KeyChain on the [demo page](https://arrayio.github.io/array-io-keychain/demo/).*
 
@@ -40,7 +40,7 @@ Below you can find comprehensive installation guides for [macOS](#macos), [Windo
 
 ## Getting started
 
-After you have installed KeyChain for [macOS](https://github.com/arrayio/array-io-keychain/releases/download/0.18/KeyChain.Installer.v18.zip) or [Windows](https://github.com/arrayio/array-io-keychain/releases/download/0.13/keychain.msi), you can start using it with web3. Just install the `web3override` library from this [source](https://www.npmjs.com/package/web3override) and follow these simple steps (see the right panel in javascript).
+After you have installed KeyChain for [macOS](https://github.com/arrayio/array-io-keychain/releases/download/0.20/KeyChain.Installer.zip), you can start using it with web3. Just install the `web3override` library from this [source](https://www.npmjs.com/package/web3override) and follow these simple steps (see the right panel in javascript).
 
 If you launch KeyChain for the first time, you need to get a public key with the "select_key" command. 
 You can save the public key to local storage. Then you will not need to use "select_key" command again. 
@@ -73,7 +73,6 @@ await web3.eth.accounts.signTransaction(transactionParams, key);
 * `keychain.js` - Keychain class with ws connection initialization
 * `index.js` - override `web3.eth.accounts.signTransaction` method 
 * `test.js` - example usage together (`keychain` + `web3`) 
-
 
 **Run tests**
 
@@ -120,27 +119,21 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 # Protocol
 
-## Sign transaction in hex format
-
-<aside class="notice">
-You can sign transactions in hex or hash format. 
-For example, for Ethereum transaction, you do not need to pass <code>chainid</code> as a parameter because it is incorporated in the hex. 
-</aside>
+## Sign a transaction
 
 ### Command
-sign_hex
+sign_trx
 
 > JSON Request
 
 ```json
 {
-  "command": "sign_hex",
+  "command": "sign_trx",
   "params":
   {
-    "chainid": "de5f4d8974715e20f47c8bb609547c9e66b0b9e31d521199b3d8d6af6da74cb1",
     "transaction": "871689d060721b5cec5a010080841e00000000000011130065cd1d0000000000000000",
     "blockchain_type": "array",
-    "public_key": "a7aea4bd112706655cb7014282d2a54658924e69c68f5a54f2cd5f35c6fcba9b610d6ae8549f960ae96e23ffc017f305c1d8664978c8ba8a1cc656fd9d068ef5",
+    "public_key": "62826b9c7b6bbfcd89456c1e8068e141d6a46b2c1c0166ed25ba8ad6ede320f4454ff116d13f4e679e8224fcca49f49d50c279ed88513a1db7185946e26811ab01",
     "unlock_time": 45 
   }
 }
@@ -151,9 +144,8 @@ sign_hex
 ### Query parameters
 **Parameter**|**Type**|**Description**
 ---|---|---
-chainid | ```hex string```|Optional parameter for Array and Bitshares-like blockchains. Chainid is the hash of a genesis file used to identify the chain.
 transaction | ```hex string```|Hex representation of the transaction.
-blockchain_type | ```enumeration string```|Inserts the name of blockchain you’re using. Possible options: Array, Bitcoin, Ethereum, Bitshares.
+blockchain_type | ```enumeration string```|Inserts the name of blockchain you’re using. Possible options: array, bitcoin, ethereum, bitshares.
 public_key | ```hex string```|64-byte public key in hex format
 unlock_time  | ```integer```|This parameter is experimental and optional! If this parameter is defined and if it is greater than zero, it unlocks the key for a set number of seconds. While the key is unlocked, the transactions will be signed without the user's approval.
 
@@ -299,7 +291,7 @@ This parameter is experimental! Allowing the user to sign transactions without e
 </aside>
 
 <aside class="notice">
-<code>Sign_hex</code> and <code>sign_hash</code> commands assume implicit unlocking of your keys. 
+<code>Sign_trx</code> and <code>sign_hash</code> commands assume implicit unlocking of your keys. 
 </aside>
 
 
@@ -436,7 +428,7 @@ result|`string`|current version number which has the form of "[major].[minor].[b
 
 ### How to install 
 
-Download [KeyChain](https://github.com/arrayio/array-io-keychain/releases/download/0.18/KeyChain.Installer.v18.zip) and follow the steps of the graphic installer. 
+Download [KeyChain](https://github.com/arrayio/array-io-keychain/releases/download/0.20/KeyChain.Installer.zip) and follow the steps of the graphic installer. 
 
 <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
 
@@ -466,7 +458,7 @@ Download [KeyChain](https://github.com/arrayio/array-io-keychain/releases/downlo
   
 7 Congratulations! You have installed KeyChain <button class="show btn btn-info btn-sm" data-image='7'>show</button>
 
-<img id='7' width="532" alt="mac-6" src="https://user-images.githubusercontent.com/34011337/49649380-0e507080-fa3a-11e8-8645-b86dbd139dbc.png">
+<img id='7' width="532" alt="image_2019-02-15_13-24-52" src="https://user-images.githubusercontent.com/34011337/49649380-0e507080-fa3a-11e8-8645-b86dbd139dbc.png">
 
 
 
@@ -476,54 +468,20 @@ After installation, connect to the demo-page: [http://localhost:16384/](http://l
 
 <button class="show btn btn-info btn-sm" data-image='8'>show</button>
 
-<img id='8' alt="screenshot from 2018-12-10 15-57-27" src="https://user-images.githubusercontent.com/34011337/49734247-be211a80-fc94-11e8-8d85-c70b738ecae3.png">
+<img id='8' alt="image_2019-02-15_13-24-52" src="https://user-images.githubusercontent.com/34011337/52852054-a6e52a00-3128-11e9-91aa-6eb8cfc64b1f.png">
 
 
 ## Windows
 
-[Download](https://github.com/arrayio/array-io-keychain/releases/download/0.13/keychain.msi) Windows installer.
+Windows installer will be accessible at v.1.0.
+
+We are passionate about KeyChain and seek to make it as soon as possible, so that you could enjoy its wonderful features on any operating system you like.
 
 ### System requirements
 
 - Windows 7 or newer.
 
-### How to install
-
-Download KeyChain and follow the steps of the graphic installer. 
-
-1 Click "next" to prepare installation  <button class="show btn btn-info btn-sm" data-image='10'>show</button>
-
-<img id='10' width="532" alt="wind1" src="https://user-images.githubusercontent.com/34011337/50442889-08033500-0912-11e9-99d7-665d9e5446d4.png">
-
-
-2 Accept the terms of the License and click "next"  <button class="show btn btn-info btn-sm" data-image='11'>show</button>
-
-<img id='11' width="532" alt="license" src="https://user-images.githubusercontent.com/34011337/50442857-e0ac6800-0911-11e9-95d3-b95afa2fd34e.png">
-
-3 Choose a folder, click "next"  <button class="show btn btn-info btn-sm" data-image='12'>show</button>
-
-<img id='12' width="532" alt="choose folder" src="https://user-images.githubusercontent.com/34011337/50442901-14878d80-0912-11e9-9910-5a6d42310638.png">
-
-4 Click "install" for installation to start  <button class="show btn btn-info btn-sm" data-image='13'>show</button>
-
-<img id='13' width="532" alt="click install to start" src="https://user-images.githubusercontent.com/34011337/50442911-21a47c80-0912-11e9-959d-123f4951c602.png">
-
-5 Wait until the setup is complete  <button class="show btn btn-info btn-sm" data-image='14'>show</button>
-
-<img id='14' width="532" alt="wait" src="https://user-images.githubusercontent.com/34011337/50442920-2cf7a800-0912-11e9-81f3-a1f09a549761.png">
-
-6 Congratulaions! You have installed KeyChain  <button class="show btn btn-info btn-sm" data-image='15'>show</button>
-
-<img id='15' width="532" alt="wind6" src="https://user-images.githubusercontent.com/34011337/50442929-3254f280-0912-11e9-9239-b5425d780de4.png">
-
-
-### Check if KeyChain is installed
-
-After installation, connect to the demo-page: [http://localhost:16384/](http://localhost:16384/) to check if the installation was successful and to test the KeyChain commands. In case everything went well, you will see the following page and you will be able to see responses to the commands in the "Response" box when you click on them.
-
-<button class="show btn btn-info btn-sm" data-image='16'>show</button>
-
-<img id='16' alt="screenshot from 2018-12-10 15-57-27" src="https://user-images.githubusercontent.com/34011337/49734247-be211a80-fc94-11e8-8d85-c70b738ecae3.png">
+ 
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <script>
@@ -550,9 +508,7 @@ We are passionate about KeyChain and seek to make it as soon as possible, so tha
 
 - Linux Mint 18.3 or newer
 
-### How to install
 
-Coming soon
 
 # Sign an Ethereum transaction
 
@@ -564,7 +520,7 @@ On this [demo page](https://arrayio.github.io/array-io-keychain/eth_signer/) you
 
 ### 1. Install KeyChain for macOS
 
-Download KeyChain installer for [macOS](https://github.com/arrayio/array-io-keychain/releases/download/0.18/KeyChain.Installer.v18.zip) or [Windows](https://github.com/arrayio/array-io-keychain/releases/download/0.13/keychain.msi).
+Download KeyChain installer for [macOS](https://github.com/arrayio/array-io-keychain/releases/download/0.20/KeyChain.Installer.zip).
 
 ### 2. Request public key
 
@@ -639,7 +595,7 @@ You can find an example of the code [here](https://gist.github.com/cypherpunk99/
 - JavaScript/HTML
 - etc
 
-Install KeyChain for [macOS](https://github.com/arrayio/array-io-keychain/releases/download/0.18/KeyChain.Installer.v18.zip), [Windows](https://github.com/arrayio/array-io-keychain/releases/download/0.13/keychain.msi), [Linux](#linux) and connect to the demo page via [http://localhost:16384/](http://localhost:16384/).
+Install KeyChain for [macOS](https://github.com/arrayio/array-io-keychain/releases/download/0.20/KeyChain.Installer.zip).
 
 ## Demo pages in JavaScript
 
@@ -723,7 +679,7 @@ In case of an error, the resulting answer will carry an error attribute and a de
 
 ### JavaScript integration example
 
-Before you proceed with the integration, you need to install KeyChain for [macOS](https://github.com/arrayio/array-io-keychain/releases/download/0.18/KeyChain.Installer.v18.zip), [Windows](https://github.com/arrayio/array-io-keychain/releases/download/0.13/keychain.msi), [Linux](#linux).
+Before you proceed with the integration, you need to install KeyChain for [macOS](https://github.com/arrayio/array-io-keychain/releases/download/0.20/KeyChain.Installer.zip).
 
 #### Test in the web
 
@@ -731,7 +687,7 @@ After installing KeyChain, open the browser and connect to the demo page via [ht
 
 When the connection is established, you will see the following KeyChain page. If you click on one of the commands on the left panel, you will see its json request and response in the white boxes below:
 
-![image_2019-02-01_18-12-11](https://user-images.githubusercontent.com/34011337/52132689-c40df900-2650-11e9-94cf-90b151d0c3e8.png)
+![image_2019-02-15_13-24-52](https://user-images.githubusercontent.com/34011337/52852054-a6e52a00-3128-11e9-91aa-6eb8cfc64b1f.png) 
 
 #### Test from a terminal application:
 
@@ -786,85 +742,44 @@ For full comprehensive descriptions of the commands, acceptable parameters and v
 
 ## Pipe integration guide
 
-Before you proceed with the integration, you need to install KeyChain for [macOS](https://github.com/arrayio/array-io-keychain/releases/download/0.18/KeyChain.Installer.v18.zip), [Windows](https://github.com/arrayio/array-io-keychain/releases/download/0.13/keychain.msi), [Linux](#linux).
+Before you proceed with the integration, you need to install KeyChain for [macOS](https://github.com/arrayio/array-io-keychain/releases/download/0.20/KeyChain.Installer.zip).
 
 When the installation is complete, you can open stream input to start sending json requests through STDIN - STDOUT pipes.
- 
-> Here you will find an example of KeyChain integration using Node.js
 
-```json
-//go to javascript
-```
+###### Sign transaction
 
-```javascript
+```javascript 
 const { spawn } = require('child_process');
 const path = require('path');
 const keychain = spawn(path.join(__dirname, 'keychain'));
+const queue = [];
 
-keychain.stdout.on('data', (data) => {
-  console.log(`keychain data: ${data.toString()}`);
-});
-
-keychain.stderr.on('data', (data) => {
-  console.log(`keychain stderr: ${data}`);
-});
-
-keychain.on('close', (code) => {
-  if (code !== 0) {
-    console.log(`keychain process exited with code ${code}`);
-  }
-});
-```
-
-### Sign transaction
-
-To sign a transaction, first you need to set the timeout value for your key. While it is unlocked, you can sign the transaction without entering a passphrase during this visit. Upon finishing the transaction, lock your keys.
-
-```json
-//go to javascript
-```
-
-```javascript 
-const unlockCommandTime = {
-  "command": "set_unlock_time", 
-  "params": 
-  {
-    "seconds": 10000
-  }
-}; 
-keychain.stdin.write(JSON.stringify(unlockCommandTime));
-
-const unlockCommand = {  
-  "command": "unlock", 
-  "params": 
-  { 
-    "public_key": "a7aea4bd112706655cb7014282d2a54658924e69c68f5a54f2cd5f35c6fcba9b610d6ae8549f960ae96e23ffc017f305c1d8664978c8ba8a1cc656fd9d068ef5"
-  }
-};
-keychain.stdin.write(JSON.stringify(unlockCommand));
-
-const signCommand = {
-  "command": "sign_hex",
-  "params":
-  {
-    "chainid": "de5f4d8974715e20f47c8bb609547c9e66b0b9e31d521199b3d8d6af6da74cb1",
-    "transaction": "871689d060721b5cec5a010080841e00000000000011130065cd1d0000000000000000",
-    "blockchain_type": "array",
-    "public_key": "a7aea4bd112706655cb7014282d2a54658924e69c68f5a54f2cd5f35c6fcba9b610d6ae8549f960ae96e23ffc017f305c1d8664978c8ba8a1cc656fd9d068ef5"
-  }
+const sendCommand = (command, callback) => {
+  keychain.stdin.write(JSON.stringify(command));
+  queue.push(callback)
 };
 
-keychain.stdin.write(JSON.stringify(signCommand));
+keychain.stdout.on('data', data => {
+  queue.shift()(JSON.parse(data))
+});
 
-const lockCommand = {  
-  "command": "lock"
-};
-keychain.stdin.write(JSON.stringify(lockCommand));
+sendCommand({command: 'select_key'}, response => {
+  const selectedKey = response.result;
+  console.log('Selected key: ', selectedKey);
+  const signCommand = {
+    command: 'sign_trx',
+    params: {
+      transaction: 'eb0885098bca5a00825208948ec6977b1255854169e5f9f8f163f371bcf1ffd287038d7ea4c6800080038080',
+      blockchain_type: 'ethereum',
+      public_key: selectedKey,
+    }
+  };
 
-keychain.stdin.write(JSON.stringify(signCommand));
+  sendCommand(signCommand, response => console.log('Sign result: ', response));
+});
 ``` 
+For descriptions of all the commands and parameters, see [KeyChain Protocol](https://github.com/arrayio/array-io-keychain/wiki/KeyChain-Protocol).
 
-For descriptions of all the commands and parameters, go to the [Protocol](#generate-a-key-pair).
 
 # KeyChain security
 
