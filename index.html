@@ -243,7 +243,7 @@
             <a href="#protocol" class="toc-h1 toc-link" data-title="Protocol">Protocol</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#sign-transaction-in-hex-format" class="toc-h2 toc-link" data-title="Sign transaction in hex format">Sign transaction in hex format</a>
+                    <a href="#sign-a-transaction" class="toc-h2 toc-link" data-title="Sign a transaction">Sign a transaction</a>
                   </li>
                   <li>
                     <a href="#sign-hash-of-transaction" class="toc-h2 toc-link" data-title="Sign hash of transaction">Sign hash of transaction</a>
@@ -364,7 +364,7 @@
 <p><strong>KeyChain</strong> is a standalone app for signing transactions and generating key pairs. It stores private keys in an isolated environment where no logger, debugger or spyware can intercept them because of the <a href="#three-security-layers-of-keychain">three-layer security</a> protecting each action of the system.
 <strong>KeyChain</strong> supports transactions from and to various blockchains, including Ethereum and Ethereum classic, Litecoin, Bitcoin, Bitcoin Cash, and Bitshares. </p>
 <h2 id='installation'>Installation</h2>
-<p>Download and install KeyChain for <a href="https://github.com/arrayio/array-io-keychain/releases/download/0.15/KeyChain.Installer.zip">macOS</a> or <a href="https://github.com/arrayio/array-io-keychain/releases/download/0.13/keychain.msi">Windows</a>. Linux installer is coming soon.</p>
+<p>Download and install KeyChain for <a href="https://github.com/arrayio/array-io-keychain/releases/download/0.20/KeyChain.Installer.zip">macOS</a>. Windows and Linux installers are coming soon.</p>
 
 <p><em>Try out KeyChain on the <a href="https://arrayio.github.io/array-io-keychain/demo/">demo page</a>.</em></p>
 
@@ -372,13 +372,13 @@
 
 <p><button class="show btn btn-info btn-sm" data-image='21'>show</button></p>
 
-<p><img id='21' alt="image_2019-02-01_18-12-11" src="https://user-images.githubusercontent.com/34011337/52132689-c40df900-2650-11e9-94cf-90b151d0c3e8.png"></p>
+<p><img id='21' alt="image_2019-02-15_13-24-52" src="https://user-images.githubusercontent.com/34011337/52852054-a6e52a00-3128-11e9-91aa-6eb8cfc64b1f.png"></p>
 
 <p>If you are having trouble connecting to the page, <a href="#contact">contact us</a> and we will do our best to help you.</p>
 
 <p>Below you can find comprehensive installation guides for <a href="#macos">macOS</a>, <a href="#windows">Windows</a>, <a href="#linux">Linux</a>.</p>
 <h2 id='getting-started'>Getting started</h2>
-<p>After you have installed KeyChain for <a href="https://github.com/arrayio/array-io-keychain/releases/download/0.15/KeyChain.Installer.zip">macOS</a> or <a href="https://github.com/arrayio/array-io-keychain/releases/download/0.13/keychain.msi">Windows</a>, you can start using it with web3. Just install the <code>web3override</code> library from this <a href="https://www.npmjs.com/package/web3override">source</a> and follow these simple steps (see the right panel in javascript).</p>
+<p>After you have installed KeyChain for <a href="https://github.com/arrayio/array-io-keychain/releases/download/0.20/KeyChain.Installer.zip">macOS</a>, you can start using it with web3. Just install the <code>web3override</code> library from this <a href="https://www.npmjs.com/package/web3override">source</a> and follow these simple steps (see the right panel in javascript).</p>
 
 <p>If you launch KeyChain for the first time, you need to get a public key with the &quot;select_key&quot; command. 
 You can save the public key to local storage. Then you will not need to use &quot;select_key&quot; command again. </p>
@@ -447,25 +447,19 @@ You can save the public key to local storage. Then you will not need to use &quo
 <p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
 
 <p>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
-<h1 id='protocol'>Protocol</h1><h2 id='sign-transaction-in-hex-format'>Sign transaction in hex format</h2>
-<aside class="notice">
-You can sign transactions in hex or hash format. 
-For example, for Ethereum transaction, you do not need to pass <code>chainid</code> as a parameter because it is incorporated in the hex. 
-</aside>
-<h3 id='command'>Command</h3>
-<p>sign_hex</p>
+<h1 id='protocol'>Protocol</h1><h2 id='sign-a-transaction'>Sign a transaction</h2><h3 id='command'>Command</h3>
+<p>sign_trx</p>
 
 <blockquote>
 <p>JSON Request</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"command"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sign_hex"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"command"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sign_trx"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"params"</span><span class="p">:</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"chainid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"de5f4d8974715e20f47c8bb609547c9e66b0b9e31d521199b3d8d6af6da74cb1"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"transaction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"871689d060721b5cec5a010080841e00000000000011130065cd1d0000000000000000"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"blockchain_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"array"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"public_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a7aea4bd112706655cb7014282d2a54658924e69c68f5a54f2cd5f35c6fcba9b610d6ae8549f960ae96e23ffc017f305c1d8664978c8ba8a1cc656fd9d068ef5"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"public_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"62826b9c7b6bbfcd89456c1e8068e141d6a46b2c1c0166ed25ba8ad6ede320f4454ff116d13f4e679e8224fcca49f49d50c279ed88513a1db7185946e26811ab01"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"unlock_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">45</span><span class="w"> 
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -479,11 +473,6 @@ For example, for Ethereum transaction, you do not need to pass <code>chainid</co
 </tr>
 </thead><tbody>
 <tr>
-<td>chainid</td>
-<td><code>hex string</code></td>
-<td>Optional parameter for Array and Bitshares-like blockchains. Chainid is the hash of a genesis file used to identify the chain.</td>
-</tr>
-<tr>
 <td>transaction</td>
 <td><code>hex string</code></td>
 <td>Hex representation of the transaction.</td>
@@ -491,7 +480,7 @@ For example, for Ethereum transaction, you do not need to pass <code>chainid</co
 <tr>
 <td>blockchain_type</td>
 <td><code>enumeration string</code></td>
-<td>Inserts the name of blockchain you’re using. Possible options: Array, Bitcoin, Ethereum, Bitshares.</td>
+<td>Inserts the name of blockchain you’re using. Possible options: array, bitcoin, ethereum, bitshares.</td>
 </tr>
 <tr>
 <td>public_key</td>
@@ -670,7 +659,7 @@ This parameter is experimental! Allowing the user to sign transactions without e
 </aside>
 
 <aside class="notice">
-<code>Sign_hex</code> and <code>sign_hash</code> commands assume implicit unlocking of your keys. 
+<code>Sign_trx</code> and <code>sign_hash</code> commands assume implicit unlocking of your keys. 
 </aside>
 <h3 id='command-5'>Command</h3>
 <p>unlock </p>
@@ -843,7 +832,7 @@ This parameter is experimental! Allowing the user to sign transactions without e
 <li>macOS <a href="#http://support.apple.com/downloads/DL1917/en_US/macosupd10.12.5.dmg">10.12</a> or <a href="https://support.apple.com/downloads/macos">newer</a>.</li>
 </ul>
 <h3 id='how-to-install'>How to install</h3>
-<p>Download <a href="https://github.com/arrayio/array-io-keychain/releases/download/0.15/KeyChain.Installer.zip">KeyChain</a> and follow the steps of the graphic installer. </p>
+<p>Download <a href="https://github.com/arrayio/array-io-keychain/releases/download/0.20/KeyChain.Installer.zip">KeyChain</a> and follow the steps of the graphic installer. </p>
 
 <p><link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"></p>
 
@@ -873,51 +862,21 @@ This parameter is experimental! Allowing the user to sign transactions without e
 
 <p>7 Congratulations! You have installed KeyChain <button class="show btn btn-info btn-sm" data-image='7'>show</button></p>
 
-<p><img id='7' width="532" alt="mac-6" src="https://user-images.githubusercontent.com/34011337/49649380-0e507080-fa3a-11e8-8645-b86dbd139dbc.png"></p>
+<p><img id='7' width="532" alt="image_2019-02-15_13-24-52" src="https://user-images.githubusercontent.com/34011337/49649380-0e507080-fa3a-11e8-8645-b86dbd139dbc.png"></p>
 <h3 id='check-if-keychain-is-installed'>Check if KeyChain is installed</h3>
 <p>After installation, connect to the demo-page: <a href="http://localhost:16384/">http://localhost:16384/</a> to check if the installation was successful and to test the KeyChain commands. In case everything went well, you will see the following page and you will be able to see responses to the commands in the &quot;Response&quot; box when you click on them.</p>
 
 <p><button class="show btn btn-info btn-sm" data-image='8'>show</button></p>
 
-<p><img id='8' alt="screenshot from 2018-12-10 15-57-27" src="https://user-images.githubusercontent.com/34011337/49734247-be211a80-fc94-11e8-8d85-c70b738ecae3.png"></p>
+<p><img id='8' alt="image_2019-02-15_13-24-52" src="https://user-images.githubusercontent.com/34011337/52852054-a6e52a00-3128-11e9-91aa-6eb8cfc64b1f.png"></p>
 <h2 id='windows'>Windows</h2>
-<p><a href="https://github.com/arrayio/array-io-keychain/releases/download/0.13/keychain.msi">Download</a> Windows installer.</p>
+<p>Windows installer will be accessible at v.1.0.</p>
+
+<p>We are passionate about KeyChain and seek to make it as soon as possible, so that you could enjoy its wonderful features on any operating system you like.</p>
 <h3 id='system-requirements-2'>System requirements</h3>
 <ul>
 <li>Windows 7 or newer.</li>
 </ul>
-<h3 id='how-to-install-2'>How to install</h3>
-<p>Download KeyChain and follow the steps of the graphic installer. </p>
-
-<p>1 Click &quot;next&quot; to prepare installation  <button class="show btn btn-info btn-sm" data-image='10'>show</button></p>
-
-<p><img id='10' width="532" alt="wind1" src="https://user-images.githubusercontent.com/34011337/50442889-08033500-0912-11e9-99d7-665d9e5446d4.png"></p>
-
-<p>2 Accept the terms of the License and click &quot;next&quot;  <button class="show btn btn-info btn-sm" data-image='11'>show</button></p>
-
-<p><img id='11' width="532" alt="license" src="https://user-images.githubusercontent.com/34011337/50442857-e0ac6800-0911-11e9-95d3-b95afa2fd34e.png"></p>
-
-<p>3 Choose a folder, click &quot;next&quot;  <button class="show btn btn-info btn-sm" data-image='12'>show</button></p>
-
-<p><img id='12' width="532" alt="choose folder" src="https://user-images.githubusercontent.com/34011337/50442901-14878d80-0912-11e9-9910-5a6d42310638.png"></p>
-
-<p>4 Click &quot;install&quot; for installation to start  <button class="show btn btn-info btn-sm" data-image='13'>show</button></p>
-
-<p><img id='13' width="532" alt="click install to start" src="https://user-images.githubusercontent.com/34011337/50442911-21a47c80-0912-11e9-959d-123f4951c602.png"></p>
-
-<p>5 Wait until the setup is complete  <button class="show btn btn-info btn-sm" data-image='14'>show</button></p>
-
-<p><img id='14' width="532" alt="wait" src="https://user-images.githubusercontent.com/34011337/50442920-2cf7a800-0912-11e9-81f3-a1f09a549761.png"></p>
-
-<p>6 Congratulaions! You have installed KeyChain  <button class="show btn btn-info btn-sm" data-image='15'>show</button></p>
-
-<p><img id='15' width="532" alt="wind6" src="https://user-images.githubusercontent.com/34011337/50442929-3254f280-0912-11e9-9239-b5425d780de4.png"></p>
-<h3 id='check-if-keychain-is-installed-2'>Check if KeyChain is installed</h3>
-<p>After installation, connect to the demo-page: <a href="http://localhost:16384/">http://localhost:16384/</a> to check if the installation was successful and to test the KeyChain commands. In case everything went well, you will see the following page and you will be able to see responses to the commands in the &quot;Response&quot; box when you click on them.</p>
-
-<p><button class="show btn btn-info btn-sm" data-image='16'>show</button></p>
-
-<p><img id='16' alt="screenshot from 2018-12-10 15-57-27" src="https://user-images.githubusercontent.com/34011337/49734247-be211a80-fc94-11e8-8d85-c70b738ecae3.png"></p>
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
@@ -940,14 +899,12 @@ This parameter is experimental! Allowing the user to sign transactions without e
 <li><p>Debian 9 or newer</p></li>
 <li><p>Linux Mint 18.3 or newer</p></li>
 </ul>
-<h3 id='how-to-install-3'>How to install</h3>
-<p>Coming soon</p>
 <h1 id='sign-an-ethereum-transaction'>Sign an Ethereum transaction</h1>
 <p>Here you can find an instruction on how to sign an Ethereum transaction with KeyChain.</p>
 
 <p>On this <a href="https://arrayio.github.io/array-io-keychain/eth_signer/">demo page</a> you can try out signing Ethereum transactions with KeyChain.</p>
 <h2 id='step-by-step-guide'>Step-by-step guide</h2><h3 id='1-install-keychain-for-macos'>1. Install KeyChain for macOS</h3>
-<p>Download KeyChain installer for <a href="https://github.com/arrayio/array-io-keychain/releases/download/0.15/KeyChain.Installer.zip">macOS</a> or <a href="https://github.com/arrayio/array-io-keychain/releases/download/0.13/keychain.msi">Windows</a>.</p>
+<p>Download KeyChain installer for <a href="https://github.com/arrayio/array-io-keychain/releases/download/0.20/KeyChain.Installer.zip">macOS</a>.</p>
 <h3 id='2-request-public-key'>2. Request public key</h3>
 <p>Start with the command <code>wscat -c ws://localhost:16384/</code></p>
 
@@ -1000,7 +957,7 @@ https://faucet.ropsten.be/</p>
 <li>etc</li>
 </ul>
 
-<p>Install KeyChain for <a href="https://github.com/arrayio/array-io-keychain/releases/download/0.15/KeyChain.Installer.zip">macOS</a>, <a href="https://github.com/arrayio/array-io-keychain/releases/download/0.13/keychain.msi">Windows</a>, <a href="#linux">Linux</a> and connect to the demo page via <a href="http://localhost:16384/">http://localhost:16384/</a>.</p>
+<p>Install KeyChain for <a href="https://github.com/arrayio/array-io-keychain/releases/download/0.20/KeyChain.Installer.zip">macOS</a>.</p>
 <h2 id='demo-pages-in-javascript'>Demo pages in JavaScript</h2><h3 id='for-testing-the-keychain-commands'>For testing the KeyChain commands</h3>
 <ul>
 <li><p>On this <a href="https://arrayio.github.io/array-io-keychain/demo/">demo page</a> you can test all the KeyChain commands.</p></li>
@@ -1045,13 +1002,13 @@ https://faucet.ropsten.be/</p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"error"</span><span class="p">:</span><span class="s2">"Error: keyfile could not be found by public_key"</span><span class="p">}</span><span class="w">
 </span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">//go to json</span>
 </code></pre><h3 id='javascript-integration-example'>JavaScript integration example</h3>
-<p>Before you proceed with the integration, you need to install KeyChain for <a href="https://github.com/arrayio/array-io-keychain/releases/download/0.15/KeyChain.Installer.zip">macOS</a>, <a href="https://github.com/arrayio/array-io-keychain/releases/download/0.13/keychain.msi">Windows</a>, <a href="#linux">Linux</a>.</p>
+<p>Before you proceed with the integration, you need to install KeyChain for <a href="https://github.com/arrayio/array-io-keychain/releases/download/0.20/KeyChain.Installer.zip">macOS</a>.</p>
 <h4 id='test-in-the-web'>Test in the web</h4>
 <p>After installing KeyChain, open the browser and connect to the demo page via <a href="http://localhost:16384/">http://localhost:16384/</a>. </p>
 
 <p>When the connection is established, you will see the following KeyChain page. If you click on one of the commands on the left panel, you will see its json request and response in the white boxes below:</p>
 
-<p><img src="https://user-images.githubusercontent.com/34011337/52132689-c40df900-2650-11e9-94cf-90b151d0c3e8.png" alt="image_2019-02-01_18-12-11" /></p>
+<p><img src="https://user-images.githubusercontent.com/34011337/52852054-a6e52a00-3128-11e9-91aa-6eb8cfc64b1f.png" alt="image_2019-02-15_13-24-52" /> </p>
 <h4 id='test-from-a-terminal-application'>Test from a terminal application:</h4>
 <p>You can see if the installation was successful by going to the terminal app, opening KeyChain and trying one of the commands that you can take from the <a href="#generate-a-key-pair">Protocol</a>:</p>
 
@@ -1099,73 +1056,39 @@ c:\Program Files\WSKeychain&gt;keychain
 
 <p>For full comprehensive descriptions of the commands, acceptable parameters and values, go to the <a href="#generate-a-key-pair">Protocol</a>.</p>
 <h2 id='pipe-integration-guide'>Pipe integration guide</h2>
-<p>Before you proceed with the integration, you need to install KeyChain for <a href="https://github.com/arrayio/array-io-keychain/releases/download/0.15/KeyChain.Installer.zip">macOS</a>, <a href="https://github.com/arrayio/array-io-keychain/releases/download/0.13/keychain.msi">Windows</a>, <a href="#linux">Linux</a>.</p>
+<p>Before you proceed with the integration, you need to install KeyChain for <a href="https://github.com/arrayio/array-io-keychain/releases/download/0.20/KeyChain.Installer.zip">macOS</a>.</p>
 
 <p>When the installation is complete, you can open stream input to start sending json requests through STDIN - STDOUT pipes.</p>
-
-<blockquote>
-<p>Here you will find an example of KeyChain integration using Node.js</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="err">//go</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">javascript</span><span class="w">
-</span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="p">{</span> <span class="nx">spawn</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'child_process'</span><span class="p">);</span>
+<h6 id='sign-transaction'>Sign transaction</h6><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="p">{</span> <span class="nx">spawn</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'child_process'</span><span class="p">);</span>
 <span class="kr">const</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'path'</span><span class="p">);</span>
 <span class="kr">const</span> <span class="nx">keychain</span> <span class="o">=</span> <span class="nx">spawn</span><span class="p">(</span><span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s1">'keychain'</span><span class="p">));</span>
+<span class="kr">const</span> <span class="nx">queue</span> <span class="o">=</span> <span class="p">[];</span>
 
-<span class="nx">keychain</span><span class="p">.</span><span class="nx">stdout</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'data'</span><span class="p">,</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`keychain data: </span><span class="p">${</span><span class="nx">data</span><span class="p">.</span><span class="nx">toString</span><span class="p">()}</span><span class="s2">`</span><span class="p">);</span>
-<span class="p">});</span>
-
-<span class="nx">keychain</span><span class="p">.</span><span class="nx">stderr</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'data'</span><span class="p">,</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`keychain stderr: </span><span class="p">${</span><span class="nx">data</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
-<span class="p">});</span>
-
-<span class="nx">keychain</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'close'</span><span class="p">,</span> <span class="p">(</span><span class="nx">code</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-  <span class="k">if</span> <span class="p">(</span><span class="nx">code</span> <span class="o">!==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`keychain process exited with code </span><span class="p">${</span><span class="nx">code</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
-  <span class="p">}</span>
-<span class="p">});</span>
-</code></pre><h3 id='sign-transaction'>Sign transaction</h3>
-<p>To sign a transaction, first you need to set the timeout value for your key. While it is unlocked, you can sign the transaction without entering a passphrase during this visit. Upon finishing the transaction, lock your keys.</p>
-<pre class="highlight json tab-json"><code><span class="err">//go</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">javascript</span><span class="w">
-</span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">unlockCommandTime</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s2">"command"</span><span class="p">:</span> <span class="s2">"set_unlock_time"</span><span class="p">,</span> 
-  <span class="s2">"params"</span><span class="p">:</span> 
-  <span class="p">{</span>
-    <span class="s2">"seconds"</span><span class="p">:</span> <span class="mi">10000</span>
-  <span class="p">}</span>
-<span class="p">};</span> 
-<span class="nx">keychain</span><span class="p">.</span><span class="nx">stdin</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">unlockCommandTime</span><span class="p">));</span>
-
-<span class="kr">const</span> <span class="nx">unlockCommand</span> <span class="o">=</span> <span class="p">{</span>  
-  <span class="s2">"command"</span><span class="p">:</span> <span class="s2">"unlock"</span><span class="p">,</span> 
-  <span class="s2">"params"</span><span class="p">:</span> 
-  <span class="p">{</span> 
-    <span class="s2">"public_key"</span><span class="p">:</span> <span class="s2">"a7aea4bd112706655cb7014282d2a54658924e69c68f5a54f2cd5f35c6fcba9b610d6ae8549f960ae96e23ffc017f305c1d8664978c8ba8a1cc656fd9d068ef5"</span>
-  <span class="p">}</span>
-<span class="p">};</span>
-<span class="nx">keychain</span><span class="p">.</span><span class="nx">stdin</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">unlockCommand</span><span class="p">));</span>
-
-<span class="kr">const</span> <span class="nx">signCommand</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s2">"command"</span><span class="p">:</span> <span class="s2">"sign_hex"</span><span class="p">,</span>
-  <span class="s2">"params"</span><span class="p">:</span>
-  <span class="p">{</span>
-    <span class="s2">"chainid"</span><span class="p">:</span> <span class="s2">"de5f4d8974715e20f47c8bb609547c9e66b0b9e31d521199b3d8d6af6da74cb1"</span><span class="p">,</span>
-    <span class="s2">"transaction"</span><span class="p">:</span> <span class="s2">"871689d060721b5cec5a010080841e00000000000011130065cd1d0000000000000000"</span><span class="p">,</span>
-    <span class="s2">"blockchain_type"</span><span class="p">:</span> <span class="s2">"array"</span><span class="p">,</span>
-    <span class="s2">"public_key"</span><span class="p">:</span> <span class="s2">"a7aea4bd112706655cb7014282d2a54658924e69c68f5a54f2cd5f35c6fcba9b610d6ae8549f960ae96e23ffc017f305c1d8664978c8ba8a1cc656fd9d068ef5"</span>
-  <span class="p">}</span>
+<span class="kr">const</span> <span class="nx">sendCommand</span> <span class="o">=</span> <span class="p">(</span><span class="nx">command</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">keychain</span><span class="p">.</span><span class="nx">stdin</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">command</span><span class="p">));</span>
+  <span class="nx">queue</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">callback</span><span class="p">)</span>
 <span class="p">};</span>
 
-<span class="nx">keychain</span><span class="p">.</span><span class="nx">stdin</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">signCommand</span><span class="p">));</span>
+<span class="nx">keychain</span><span class="p">.</span><span class="nx">stdout</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'data'</span><span class="p">,</span> <span class="nx">data</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">queue</span><span class="p">.</span><span class="nx">shift</span><span class="p">()(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">data</span><span class="p">))</span>
+<span class="p">});</span>
 
-<span class="kr">const</span> <span class="nx">lockCommand</span> <span class="o">=</span> <span class="p">{</span>  
-  <span class="s2">"command"</span><span class="p">:</span> <span class="s2">"lock"</span>
-<span class="p">};</span>
-<span class="nx">keychain</span><span class="p">.</span><span class="nx">stdin</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">lockCommand</span><span class="p">));</span>
+<span class="nx">sendCommand</span><span class="p">({</span><span class="na">command</span><span class="p">:</span> <span class="s1">'select_key'</span><span class="p">},</span> <span class="nx">response</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">selectedKey</span> <span class="o">=</span> <span class="nx">response</span><span class="p">.</span><span class="nx">result</span><span class="p">;</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Selected key: '</span><span class="p">,</span> <span class="nx">selectedKey</span><span class="p">);</span>
+  <span class="kr">const</span> <span class="nx">signCommand</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">command</span><span class="p">:</span> <span class="s1">'sign_trx'</span><span class="p">,</span>
+    <span class="na">params</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">transaction</span><span class="p">:</span> <span class="s1">'eb0885098bca5a00825208948ec6977b1255854169e5f9f8f163f371bcf1ffd287038d7ea4c6800080038080'</span><span class="p">,</span>
+      <span class="na">blockchain_type</span><span class="p">:</span> <span class="s1">'ethereum'</span><span class="p">,</span>
+      <span class="na">public_key</span><span class="p">:</span> <span class="nx">selectedKey</span><span class="p">,</span>
+    <span class="p">}</span>
+  <span class="p">};</span>
 
-<span class="nx">keychain</span><span class="p">.</span><span class="nx">stdin</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">signCommand</span><span class="p">));</span>
+  <span class="nx">sendCommand</span><span class="p">(</span><span class="nx">signCommand</span><span class="p">,</span> <span class="nx">response</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Sign result: '</span><span class="p">,</span> <span class="nx">response</span><span class="p">));</span>
+<span class="p">});</span>
 </code></pre>
-<p>For descriptions of all the commands and parameters, go to the <a href="#generate-a-key-pair">Protocol</a>.</p>
+<p>For descriptions of all the commands and parameters, see <a href="https://github.com/arrayio/array-io-keychain/wiki/KeyChain-Protocol">KeyChain Protocol</a>.</p>
 <h1 id='keychain-security'>KeyChain security</h1><h2 id='about-keychain-security'>About KeyChain security</h2>
 <p>Choosing a means of storing keys is an important and responsible task that everybody needs to address when considering making <strong>transactions</strong> - irrespective of the type of  blockchain they use. That is why here we show you the <strong>detailed structure</strong> of our KeyChain - so that your choice of key storage is an informed decision based on real knowledge of what stands behind the system.</p>
 <h2 id='how-keychain-ensures-safe-key-storage'>How KeyChain ensures safe key storage</h2>
