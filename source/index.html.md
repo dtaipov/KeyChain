@@ -780,6 +780,34 @@ sendCommand({command: 'select_key'}, response => {
 ``` 
 For descriptions of all the commands and parameters, see [KeyChain Protocol](https://github.com/arrayio/array-io-keychain/wiki/KeyChain-Protocol).
 
+# Restore your keys with master key
+
+KeyChain allows its users to restore their keys using a master key.
+
+If you have lost or forgotten one of your public keys, you can restore it in the Key Manager by entering your seed phrase that you get when creating your first key. KeyChain will derive your keys from the master key.
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<p align="center"><strong>NB: restoring keys is impossible without a seed phrase</a></strong></p>
+<p align="center"><strong>Memorize your seed when you create your first key</a></strong></p>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+The seed is created after KeyChain collects entropy data to protect the master key. 
+
+KeyChain starts collecting entropy data when it has checked whether the user who downloaded KeyChain has any keys at their disposal. The process which leads to launching the Entropy window can be described as the following UML diagram:
+
+![keychain_launch](https://user-images.githubusercontent.com/34011337/54205772-08aa7100-44e8-11e9-85fb-c4097f841f77.png)
+
+## Step 1: Collecting entropy data
+
+![entropy](https://user-images.githubusercontent.com/34011337/54205056-9e450100-44e6-11e9-94f9-da8ae6c0c791.jpg)
+
+## Step 2: Displaying the seed
+
+![seed phrase](https://user-images.githubusercontent.com/34011337/54205086-b288fe00-44e6-11e9-949f-7cd250c2786f.jpg)
 
 # KeyChain security
 
