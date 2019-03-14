@@ -313,6 +313,17 @@
               </ul>
           </li>
           <li>
+            <a href="#restore-your-keys-with-master-key" class="toc-h1 toc-link" data-title="Restore your keys with master key">Restore your keys with master key</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#step-1-collecting-entropy-data" class="toc-h2 toc-link" data-title="Step 1: Collecting entropy data">Step 1: Collecting entropy data</a>
+                  </li>
+                  <li>
+                    <a href="#step-2-displaying-the-seed" class="toc-h2 toc-link" data-title="Step 2: Displaying the seed">Step 2: Displaying the seed</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#keychain-security" class="toc-h1 toc-link" data-title="KeyChain security">KeyChain security</a>
               <ul class="toc-list-h2">
                   <li>
@@ -1089,6 +1100,30 @@ c:\Program Files\WSKeychain&gt;keychain
 <span class="p">});</span>
 </code></pre>
 <p>For descriptions of all the commands and parameters, see <a href="https://github.com/arrayio/array-io-keychain/wiki/KeyChain-Protocol">KeyChain Protocol</a>.</p>
+<h1 id='restore-your-keys-with-master-key'>Restore your keys with master key</h1>
+<p>KeyChain allows its users to restore their keys using a master key.</p>
+
+<p>If you have lost or forgotten one of your public keys, you can restore it in the Key Manager by entering your seed phrase that you get when creating your first key. KeyChain will derive your keys from the master key.</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+
+<p align="center"><strong>NB: restoring keys is impossible without a seed phrase</a></strong></p>
+
+<p align="center"><strong>Memorize your seed when you create your first key</a></strong></p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+
+<p>The seed is created after KeyChain collects entropy data to protect the master key. </p>
+
+<p>KeyChain starts collecting entropy data when it has checked whether the user who downloaded KeyChain has any keys at their disposal. The process which leads to launching the Entropy window can be described as the following UML diagram:</p>
+
+<p><img src="https://user-images.githubusercontent.com/34011337/54205772-08aa7100-44e8-11e9-85fb-c4097f841f77.png" alt="keychain_launch" /></p>
+<h2 id='step-1-collecting-entropy-data'>Step 1: Collecting entropy data</h2>
+<p><img src="https://user-images.githubusercontent.com/34011337/54205056-9e450100-44e6-11e9-94f9-da8ae6c0c791.jpg" alt="entropy" /></p>
+<h2 id='step-2-displaying-the-seed'>Step 2: Displaying the seed</h2>
+<p><img src="https://user-images.githubusercontent.com/34011337/54205086-b288fe00-44e6-11e9-949f-7cd250c2786f.jpg" alt="seed phrase" /></p>
 <h1 id='keychain-security'>KeyChain security</h1><h2 id='about-keychain-security'>About KeyChain security</h2>
 <p>Choosing a means of storing keys is an important and responsible task that everybody needs to address when considering making <strong>transactions</strong> - irrespective of the type of  blockchain they use. That is why here we show you the <strong>detailed structure</strong> of our KeyChain - so that your choice of key storage is an informed decision based on real knowledge of what stands behind the system.</p>
 <h2 id='how-keychain-ensures-safe-key-storage'>How KeyChain ensures safe key storage</h2>
