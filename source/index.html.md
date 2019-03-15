@@ -23,7 +23,7 @@ search: true
 
 ## Installation
 
-Download and install KeyChain for [macOS](https://github.com/arrayio/array-io-keychain/releases/download/0.21/KeyChain.Installer.zip). Windows and Linux installers are coming soon. 
+Download and install KeyChain for [macOS](https://github.com/arrayio/array-io-keychain/releases/download/0.24/KeyChain.Installer.zip). Windows and Linux installers are coming soon. 
 
 *Try out KeyChain on the [demo page](https://arrayio.github.io/array-io-keychain/demo/).*
 
@@ -40,7 +40,7 @@ Below you can find comprehensive installation guides for [macOS](#macos), [Windo
 
 ## Getting started
 
-After you have installed KeyChain for [macOS](https://github.com/arrayio/array-io-keychain/releases/download/0.20/KeyChain.Installer.zip), you can start using it with web3. Just install the `web3override` library from this [source](https://www.npmjs.com/package/web3override) and follow these simple steps (see the right panel in javascript).
+After you have installed KeyChain for [macOS](https://github.com/arrayio/array-io-keychain/releases/download/0.24/KeyChain.Installer.zip), you can start using it with web3. Just install the `web3override` library from this [source](https://www.npmjs.com/package/web3override) and follow these simple steps (see the right panel in javascript).
 
 If you launch KeyChain for the first time, you need to get a public key with the "select_key" command. 
 You can save the public key to local storage. Then you will not need to use "select_key" command again. 
@@ -428,7 +428,7 @@ result|`string`|current version number which has the form of "[major].[minor].[b
 
 ### How to install 
 
-Download [KeyChain](https://github.com/arrayio/array-io-keychain/releases/download/0.21/KeyChain.Installer.zip) and follow the steps of the graphic installer. 
+Download [KeyChain](https://github.com/arrayio/array-io-keychain/releases/download/0.24/KeyChain.Installer.zip) and follow the steps of the graphic installer. 
 
 <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
 
@@ -520,7 +520,7 @@ On this [demo page](https://arrayio.github.io/array-io-keychain/eth_signer/) you
 
 ### 1. Install KeyChain for macOS
 
-Download KeyChain installer for [macOS](https://github.com/arrayio/array-io-keychain/releases/download/0.21/KeyChain.Installer.zip).
+Download KeyChain installer for [macOS](https://github.com/arrayio/array-io-keychain/releases/download/0.24/KeyChain.Installer.zip).
 
 ### 2. Request public key
 
@@ -595,7 +595,7 @@ You can find an example of the code [here](https://gist.github.com/cypherpunk99/
 - JavaScript/HTML
 - etc
 
-Install KeyChain for [macOS](https://github.com/arrayio/array-io-keychain/releases/download/0.21/KeyChain.Installer.zip).
+Install KeyChain for [macOS](https://github.com/arrayio/array-io-keychain/releases/download/0.24/KeyChain.Installer.zip).
 
 ## Demo pages in JavaScript
 
@@ -679,7 +679,7 @@ In case of an error, the resulting answer will carry an error attribute and a de
 
 ### JavaScript integration example
 
-Before you proceed with the integration, you need to install KeyChain for [macOS](https://github.com/arrayio/array-io-keychain/releases/download/0.21/KeyChain.Installer.zip).
+Before you proceed with the integration, you need to install KeyChain for [macOS](https://github.com/arrayio/array-io-keychain/releases/download/0.24/KeyChain.Installer.zip).
 
 #### Test in the web
 
@@ -742,7 +742,7 @@ For full comprehensive descriptions of the commands, acceptable parameters and v
 
 ## Pipe integration guide
 
-Before you proceed with the integration, you need to install KeyChain for [macOS](https://github.com/arrayio/array-io-keychain/releases/download/0.21/KeyChain.Installer.zip).
+Before you proceed with the integration, you need to install KeyChain for [macOS](https://github.com/arrayio/array-io-keychain/releases/download/0.24/KeyChain.Installer.zip).
 
 When the installation is complete, you can open stream input to start sending json requests through STDIN - STDOUT pipes.
 
