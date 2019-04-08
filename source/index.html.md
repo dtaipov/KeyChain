@@ -50,7 +50,7 @@ NB: Do not forget to install the library and require it:
 1) Install the library
 `npm install keychain.js`
 
-2) Require it
+2) Now use an overridden web3 function
 `const Module = require('web3override');`
 
 Now you can turn to the right panel where you use an overridden web3 function.
@@ -60,14 +60,19 @@ Now you can turn to the right panel where you use an overridden web3 function.
 ```
 
 ```javascript
-const keyInstance = await Module.Keychain.create();
-const data = await keyInstance.selectKey();
-const key = data.result;
-await keyInstance.term();
-web3.eth.accounts.signTransaction = Module.web3Override(web3).signTransaction;
-
-// now we use web3 with keychain
-await web3.eth.accounts.signTransaction(transactionParams, key);
+const { Keychain, KeychainWeb3 } = require('keychain.js');
+const Web3 = require('web3');
+const web3 = new Web3('YOUR_API_URL'); // https://ropsten.infura.io/v3/046804e3dd3240b09834531326f310cf
+const tx = {
+  to: '0xE8899BA12578d60e4D0683a596EDaCbC85eC18CC',
+  value: 100,
+  gas: 21000
+};
+const keychain = new Keychain();
+const keychainWeb3 = new KeychainWeb3(keychain, web3);
+keychain.selectKey()
+  .then(publicKey => keychainWeb3.signTransaction(tx, publicKey))
+  .then(result => web3.eth.sendSignedTransaction(result.rawTransaction));
 ```
 
 * `keychain.js` - Keychain class with ws connection initialization
