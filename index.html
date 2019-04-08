@@ -399,19 +399,24 @@ You can save the public key to local storage. Then you will not need to use &quo
 <p>1) Install the library
 <code>npm install keychain.js</code></p>
 
-<p>2) Require it
+<p>2) Now use an overridden web3 function
 <code>const Module = require(&#39;web3override&#39;);</code></p>
 
 <p>Now you can turn to the right panel where you use an overridden web3 function.</p>
 <pre class="highlight json tab-json"><code><span class="err">//go</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">javascript</span><span class="w">
-</span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">keyInstance</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">Module</span><span class="p">.</span><span class="nx">Keychain</span><span class="p">.</span><span class="nx">create</span><span class="p">();</span>
-<span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">keyInstance</span><span class="p">.</span><span class="nx">selectKey</span><span class="p">();</span>
-<span class="kr">const</span> <span class="nx">key</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">result</span><span class="p">;</span>
-<span class="nx">await</span> <span class="nx">keyInstance</span><span class="p">.</span><span class="nx">term</span><span class="p">();</span>
-<span class="nx">web3</span><span class="p">.</span><span class="nx">eth</span><span class="p">.</span><span class="nx">accounts</span><span class="p">.</span><span class="nx">signTransaction</span> <span class="o">=</span> <span class="nx">Module</span><span class="p">.</span><span class="nx">web3Override</span><span class="p">(</span><span class="nx">web3</span><span class="p">).</span><span class="nx">signTransaction</span><span class="p">;</span>
-
-<span class="c1">// now we use web3 with keychain</span>
-<span class="nx">await</span> <span class="nx">web3</span><span class="p">.</span><span class="nx">eth</span><span class="p">.</span><span class="nx">accounts</span><span class="p">.</span><span class="nx">signTransaction</span><span class="p">(</span><span class="nx">transactionParams</span><span class="p">,</span> <span class="nx">key</span><span class="p">);</span>
+</span></code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="p">{</span> <span class="nx">Keychain</span><span class="p">,</span> <span class="nx">KeychainWeb3</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'keychain.js'</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">Web3</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'web3'</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">web3</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Web3</span><span class="p">(</span><span class="s1">'YOUR_API_URL'</span><span class="p">);</span> <span class="c1">// https://ropsten.infura.io/v3/046804e3dd3240b09834531326f310cf</span>
+<span class="kr">const</span> <span class="nx">tx</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">to</span><span class="p">:</span> <span class="s1">'0xE8899BA12578d60e4D0683a596EDaCbC85eC18CC'</span><span class="p">,</span>
+  <span class="na">value</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+  <span class="na">gas</span><span class="p">:</span> <span class="mi">21000</span>
+<span class="p">};</span>
+<span class="kr">const</span> <span class="nx">keychain</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Keychain</span><span class="p">();</span>
+<span class="kr">const</span> <span class="nx">keychainWeb3</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">KeychainWeb3</span><span class="p">(</span><span class="nx">keychain</span><span class="p">,</span> <span class="nx">web3</span><span class="p">);</span>
+<span class="nx">keychain</span><span class="p">.</span><span class="nx">selectKey</span><span class="p">()</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">publicKey</span> <span class="o">=&gt;</span> <span class="nx">keychainWeb3</span><span class="p">.</span><span class="nx">signTransaction</span><span class="p">(</span><span class="nx">tx</span><span class="p">,</span> <span class="nx">publicKey</span><span class="p">))</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">result</span> <span class="o">=&gt;</span> <span class="nx">web3</span><span class="p">.</span><span class="nx">eth</span><span class="p">.</span><span class="nx">sendSignedTransaction</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">rawTransaction</span><span class="p">));</span>
 </code></pre>
 <ul>
 <li><code>keychain.js</code> - Keychain class with ws connection initialization</li>
