@@ -48,7 +48,7 @@ You can save the public key to local storage. Then you will not need to use "sel
 NB: Do not forget to install the library and require it:
 
 1) Install the library
-`npm i --save web3override`
+`npm install keychain.js`
 
 2) Require it
 `const Module = require('web3override');`
