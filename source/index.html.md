@@ -50,8 +50,7 @@ NB: Do not forget to install the library and require it:
 1) Install the library
 `npm install keychain.js`
 
-2) Now use an overridden web3 function
-`const Module = require('web3override');`
+2) Use an overridden web3 function
 
 Now you can turn to the right panel where you use an overridden web3 function.
  
@@ -81,7 +80,7 @@ keychain.selectKey()
 
 **Run tests**
 
-If you wish to see KeyChain in action, install KeyChain, then install the library from this [source](https://www.npmjs.com/package/web3override) and import key to the `key_data` folder.
+If you wish to see KeyChain in action, install KeyChain, then install the library from this [source](https://www.npmjs.com/package/keychain.js) and import key to the `key_data` folder.
 
 
 1) Add key to your `key_data`:
@@ -93,7 +92,7 @@ If you wish to see KeyChain in action, install KeyChain, then install the librar
 
 <button class="show btn btn-info btn-sm" data-image='30'>show</button>
 
-<img id='30' alt="keychain2" src="https://user-images.githubusercontent.com/34011337/52135027-f79f5200-2655-11e9-9718-6d47355fc0fb.gif">
+<img id='30' alt="keychain2" src="https://user-images.githubusercontent.com/2520008/55244335-1125da00-5252-11e9-971e-c7edfb208c4c.gif">
 
 
 ## Contact
